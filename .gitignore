@@ -6,6 +6,9 @@
 # Yarn/Node
 **/node_modules
 
+# Mongo
+/db
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -21,7 +24,6 @@ build/
 # Flask stuff:
 instance/
 .webassets-cache
-db
 
 # Sphinx documentation
 docs/_build/
