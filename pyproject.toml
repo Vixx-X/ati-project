@@ -1,0 +1,92 @@
+# black
+
+[tool.black]
+line-length = 88
+target-version = ['py37']
+include = '\.pyi?$'
+exclude = '''
+
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+  | foo.py           # also separately exclude a file named foo.py in
+                     # the root of the project
+)
+'''
+
+
+# isort
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+line_length = 88
+skip_gitignore = true
+
+# Pylint
+[tool.pylint.MASTER]
+ignore = [
+    "migrations",
+]
+# Use a conservative default here; 2 should speed up most setups and not hurt
+# any too bad. Override on command line as appropriate.
+# Disabled for now: https://github.com/PyCQA/pylint/issues/3584
+#jobs = 2
+
+[tool.pylint.messages_control]
+# Reasons disabled:
+# abstract-class-little-used - prevents from setting right foundation
+# abstract-method - with intro of async there are always methods missing
+# cyclic-import - doesn't test if both import on load
+# duplicate-code - unavoidable
+# format - handled by black
+# locally-disabled - it spams too much
+# too-many-* - are not enforced for the sake of readability
+# too-few-* - same as too-many-*
+# inconsistent-return-statements - doesn't handle raise
+# too-many-ancestors - it's too strict.
+# unused-argument - generic callbacks and setup methods create a lot of warnings
+# wrong-import-order - isort guards this
+disable = [
+    "abstract-class-little-used",
+    "abstract-method",
+    "bad-continuation", # need reason
+    "bad-whitespace", # need reason
+    "cyclic-import",
+    "duplicate-code",
+    "format",
+    "inconsistent-return-statements",
+    "invalid-name",
+    "locally-disabled",
+    "not-context-manager",
+    "too-few-public-methods",
+    "too-many-ancestors",
+    "too-many-arguments",
+    "too-many-branches",
+    "too-many-instance-attributes",
+    "too-many-lines",
+    "too-many-locals",
+    "too-many-public-methods",
+    "too-many-return-statements",
+    "too-many-statements",
+    "too-many-boolean-expressions",
+    "unused-argument",
+    "wrong-import-order",
+]
+
+[tool.pylint.format]
+max-line-length = "88"
+
