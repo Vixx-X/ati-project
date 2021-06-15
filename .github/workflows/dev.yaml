@@ -34,9 +34,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/download-artifact@master
+        with:
           name: develop-python
           path: develop/python
       - uses: actions/download-artifact@master
+        with:
           name: develop-yarn
           path: develop/yarn
       - run: ./dev/test.sh
