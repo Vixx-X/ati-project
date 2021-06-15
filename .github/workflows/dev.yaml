@@ -1,0 +1,61 @@
+name: Continuos Integration
+
+on:
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  setup_python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: actions/upload-artifact@master
+        with:
+          name: develop-python
+          path: develop/python
+          retention-days: 1
+
+  setup_yarn:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: borales/actions-yarn@v2.0.0
+      - run: ./dev/build.sh
+      - uses: actions/upload-artifact@master
+        with:
+          name: develop-yarn
+          path: develop/yarn
+          retention-days: 1
+
+  test:
+    needs: [ setup_yarn, setup_python ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@master
+        with:
+          name: develop-python
+          path: develop/python
+      - uses: actions/download-artifact@master
+        with:
+          name: develop-yarn
+          path: develop/yarn
+      - run: ./dev/test.sh
+      - uses: actions/upload-artifact@master
+        with:
+          name: develop
+          path: develop/all
+          retention-days: 1
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - run: ./dev/test.sh
+      - uses: actions/download-artifact@master
+        with:
+          name: develop
+          path: develop/all

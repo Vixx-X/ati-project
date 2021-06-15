@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  db:
+    image: mongo
+    restart: always
+    volumes:
+      - /data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: 1234
+  web:
+    image: vixxadesso/ati
+    restart: always
+    ports:
+      - 5000:5000
+    depends_on:
+      - db
+    tty: true # -t flag
+    # env_file:
+    #   - .env
