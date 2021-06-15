@@ -3,6 +3,8 @@
 /docker-compose.yaml
 /docker-entrypoint.sh
 
+# Yarn/Node
+**/node_modules
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
