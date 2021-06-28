@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 set -e # exit if the is an error
 
 echo "Building docs"
-# sphinx
+build_docs
 

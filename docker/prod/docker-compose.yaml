@@ -7,8 +7,8 @@ services:
     volumes:
       - /data/db
     environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: 1234
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASS}
   web:
     image: vixxadesso/ati
     restart: always
