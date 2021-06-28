@@ -1,3 +1,3 @@
 function run_pytest {
-	pytest $DIR/src/tests/*
+	find $DIR/src -type f -not -path "*/__pycache__/*" -not -path "*/.pytest_cache/*"  -exec pytest {} +
 }

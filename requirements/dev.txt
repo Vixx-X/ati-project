@@ -1,5 +1,6 @@
 # tests
-
+pytest==6.2.4
+selenium==3.141.0
 
 # linter
 pylint==2.8.3
