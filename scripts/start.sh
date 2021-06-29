@@ -21,38 +21,10 @@ echo "
 
 # Get the location path of this script file
 CURRENT_DIR=$(dirname $(realpath ${BASH_SOURCE[0]:-$0}))
-
 DIR=$(dirname $CURRENT_DIR)
-VENVDIR="${1:-$DIR/venv}"
 
-# initial setup on Postgres DB
-function setup_db {
-	echo "Done"
-}
-
-# setup initial venv and pip install the project
-function setup_venv {
-	python3 -m venv $VENVDIR
-	source ${VENVDIR}/bin/activate
-	echo "virtual enviroment activated"
-
-	echo "updating pip"
-	python3 -m pip install --upgrade pip
-	echo "pip installing"
-	pip install -r requirements/prod.txt -r requirements/dev.txt
-}
-
-# recursively source scripts
-for f in $(find $CURRENT_DIR/functions -type f); do
-	source $f
-done
-
-# alias for common developer commnads
-alias venv="source ${VENVDIR}/bin/activate"
-alias build="DIR=$DIR ${CURRENT_DIR}/build.sh"
-alias format="black ${DIR}/src"
-
-source $CURRENT_DIR/test.sh
+# load all functions
+source $CURRENT_DIR/load.sh
 
 function help {
 	echo "venv           - activate virtualenv (if needed)"
@@ -65,6 +37,9 @@ function help {
 	echo ""
 	echo "black          - run formatter (black)"
 	echo "runtests       - run pylint and pytest tests"
+	echo ""
+	echo "setup_dev      - bring docker files and start dev workspace"
+	echo "setup_db       - bring prod docker files (use in production)"
 }
 
 echo "All done!"

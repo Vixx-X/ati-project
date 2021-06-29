@@ -14,6 +14,5 @@ function setup_dev {
 	cp docker/dev/* . && \
 	docker-compose build && \
 	docker-compose up -d && \
-	rm docker-compose.yaml docker-entrypoint.sh Dockerfile && \
 	cd  -
 }
