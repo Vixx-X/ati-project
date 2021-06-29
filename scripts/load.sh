@@ -10,7 +10,7 @@ done
 
 # alias for common developer commnads
 alias venv="source ${VENVDIR}/bin/activate"
-alias build="${CURRENT_DIR}/build.sh"
+alias build="source ${CURRENT_DIR}/build.sh"
 alias format="black ${DIR}/src"
 
 # load util base functions
