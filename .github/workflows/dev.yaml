@@ -27,7 +27,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install .
-          
+
   setup_yarn:
     runs-on: ubuntu-latest
     steps:
@@ -44,21 +44,19 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Install project dependencies
         run: yarn --prefer-offline
-    
+
   test:
     needs: [ setup_yarn, setup_python ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Source dev tools
-        run: source ./scripts/start.sh
       - name: Build static files
-        run: build
+        run: source ./scripts/load.sh && build
       - name: Run pylint
-        run: run_pylint
+        run: source ./scripts/load.sh && run_pylint
       - name: Run pytest
-        run: run_pytest
-        
+        run: source ./scripts/load.sh && run_pytest
+
 #  docker:
 #    needs: test
 #    if: github.ref == 'refs/heads/master'
