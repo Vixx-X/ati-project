@@ -6,6 +6,12 @@
 # Yarn/Node
 **/node_modules
 
+# Media
+/media
+
+# Static
+/static
+
 # Mongo
 /db
 
