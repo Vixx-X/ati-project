@@ -1,7 +1,7 @@
 FROM python:3.9.5-alpine3.13
 
 WORKDIR /code
-COPY requirements.txt .
+COPY requirements/prod.txt requirements.txt
 RUN pip install -r requirements.txt
 
 COPY src .
