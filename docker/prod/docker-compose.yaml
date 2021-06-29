@@ -16,6 +16,8 @@ services:
       - 5000:5000
     depends_on:
       - db
+    volumes:
+      - ../media/:/media # bind
     tty: true # -t flag
     # env_file:
     #   - .env
