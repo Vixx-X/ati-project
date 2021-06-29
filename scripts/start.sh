@@ -49,7 +49,7 @@ done
 
 # alias for common developer commnads
 alias venv="source ${VENVDIR}/bin/activate"
-alias build="DIR=$DIR ${CURRENT_DIR}/build.sh"
+alias build="${CURRENT_DIR}/build.sh"
 alias format="black ${DIR}/src"
 
 source $CURRENT_DIR/test.sh
