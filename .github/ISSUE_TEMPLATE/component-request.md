@@ -2,12 +2,12 @@
 name: Component Request
 about: Describe and show a component and its variants to be developed.
 title: 'Componente: [NAME]'
-labels: ''
+labels: frontend, component
 assignees: ''
 
 ---
 
-## Component
+# Component
 `[name]`
 ![component](https://aliceasmartialarts.com/wp-content/uploads/2017/04/default-image.jpg)
 
