@@ -82,6 +82,7 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Build static files
         run: |
+          yarn install
           ./scripts/build.sh
       - name: Run pylint
         run: |
