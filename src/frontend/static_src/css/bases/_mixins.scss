@@ -1,0 +1,23 @@
+@mixin cell {
+    @media (min-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin grid($column, $space-column) {
+    display: grid;
+    grid-template-columns: repeat($column, 1fr);
+    column-gap: $space-column;
+}
