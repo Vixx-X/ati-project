@@ -55,6 +55,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: cat requirements
+        run: |
+          cat requirements/* > requirements.txt
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
       - name: Get pip cache directory path
         id: pip-cache-dir-path
         run: echo "::set-output name=dir::$(pip cache dir)"
