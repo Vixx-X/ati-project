@@ -41,11 +41,11 @@ function javascript() {
             noImplicitAny: true,
             outFile: 'bundle.js'
         }))
-        .pipe(sourcemap.init())
-        .pipe(concat('bundle.js'))
-        .pipe(terser())
-        .pipe(sourcemap.write('.'))
-        .pipe(rename({ suffix: '.min' }))
+        // .pipe(sourcemap.init())
+        // .pipe(concat('bundle.js'))
+        // .pipe(terser())
+        // .pipe(sourcemap.write('.'))
+        // .pipe(rename({ suffix: '.min' }))
         .pipe(dest('../src/frontend/static/js'));
 }
 
@@ -62,5 +62,6 @@ function watchArchivos() {
     // **/* = todos los archivos dentro de esa carpeta si importad en nivel de profundidad que tengan esa extension
 }
 
+exports.javascript = javascript;
 exports.css = css;
 exports.default = series(css, javascript, versionWebp, watchArchivos);
