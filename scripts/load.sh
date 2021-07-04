@@ -12,6 +12,9 @@ done
 alias venv="source ${VENVDIR}/bin/activate"
 alias build="source ${CURRENT_DIR}/build.sh"
 alias format="black ${DIR}/src"
+alias rundocker="docker exec -it ati-project_web_1 bash"
+alias runserver="FLASK_APP=${DIR}/src/backend/app.py flask run --reload -h 0.0.0.0 -p 5000"
+alias run="yarn run dev"
 
 # load util base functions
 source $CURRENT_DIR/test.sh
