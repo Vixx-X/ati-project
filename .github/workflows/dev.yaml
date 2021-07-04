@@ -86,9 +86,11 @@ jobs:
           ./scripts/build.sh
       - name: Run pylint
         run: |
+          pip install -r requirements.txt
           ./scripts/linter.sh
       - name: Run pytest
         run: |
+          pip install -r requirements.txt
           ./scripts/test.sh
 
 #  docker:
