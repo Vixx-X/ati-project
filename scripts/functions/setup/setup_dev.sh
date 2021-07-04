@@ -8,5 +8,6 @@ function setup_dev {
 	cp docker/dev/* . && \
 	docker-compose build && \
 	docker-compose up -d && \
+	alias attatch_docker='docker exec -it ati-project_web_1 bash'
 	cd  -
 }

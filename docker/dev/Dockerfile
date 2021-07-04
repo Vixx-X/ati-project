@@ -7,13 +7,14 @@ RUN apk add --update-cache && \
     apk add --update alpine-sdk && \
     apk add libffi-dev openssl-dev && \
     apk add bash && \
-    apk --no-cache --update add build-base
+    apk --no-cache --update add build-base && \
+    apk add --update nodejs nodejs-npm
 
-ENV ALPINE_MIRROR "http://dl-cdn.alpinelinux.org/alpine"
-RUN echo "${ALPINE_MIRROR}/edge/main" >> /etc/apk/repositories && \
-    apk add --no-cache nodejs-current  --repository="http://dl-cdn.alpinelinux.org/alpine/edge/community"
+RUN npm install --global yarn
 
 RUN pip install -r /requirements/dev.txt -r /requirements/prod.txt
+
+RUN yarn install
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
