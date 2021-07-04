@@ -3,8 +3,7 @@ name: Continuos Integration
 on:
   pull_request:
     branches: [ master, develop ]
-      types:
-        [ synchronize ]
+    types: [ synchronize ]
   push:
     branches: [ master ]
 
