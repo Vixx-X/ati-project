@@ -1,0 +1,35 @@
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: $mainFont;
+    font-size: 1.6rem;
+}
+
+.container {
+    max-width: 150rem;
+    width: 90%;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+h1, h2, h3, h4, p, a{
+    font-size: $mainFont;
+    margin: 0;
+}
