@@ -1,35 +1,43 @@
 html {
+  font-size: 50%;
+  box-sizing: border-box;
+  @include desktop {
     font-size: 62.5%;
-    box-sizing: border-box;
+  }
 }
 
 *,
 *:after,
 *:before {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
-    font-family: $mainFont;
-    font-size: 1.6rem;
+  font-family: $mainFont;
+  font-size: 1.6rem;
 }
 
 .container {
-    max-width: 150rem;
-    width: 90%;
-    margin: 0 auto;
+  max-width: 120rem;
+  width: 90%;
+  margin: 0 auto;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
-
-h1, h2, h3, h4, p, a{
-    font-size: $mainFont;
-    margin: 0;
+h1,
+h2,
+h3,
+h4,
+p,
+a {
+  font-size: $mainFont;
+  margin: 0;
 }
+
