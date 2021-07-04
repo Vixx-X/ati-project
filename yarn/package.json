@@ -1,8 +1,18 @@
 {
+  "scripts": {
+    "w-concurrently": "concurrently -c white",
+    "dev-flask": "FLASK_APP=${DIR}/src/backend/app.py flask run --reload -h 0.0.0.0 -p 5000",
+    "dev-js": "yarn run gulp js",
+    "dev-css": "yarn run gulp css",
+    "dev": "yarn run w-concurrently npm:dev-css npm:dev-js npm:dev-flask",
+    "build-js": "yarn run gulp build_js",
+    "build-css": "yarn run gulp build_css "
+  },
   "devDependencies": {
     "prettier": "2.3.1"
   },
   "dependencies": {
+    "concurrently": "^6.2.0",
     "sass": "^1.34.1"
   }
 }
