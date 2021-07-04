@@ -2,7 +2,11 @@ name: Continuos Integration
 
 on:
   pull_request:
-    branches: [ develop ]
+    branches: [ master, develop ]
+      types:
+        [ synchronize ]
+  push:
+    branches: [ master ]
 
 jobs:
   setup_python:

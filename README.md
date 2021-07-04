@@ -1,4 +1,4 @@
-# ati-project
+# Ati Project
 
 Installation tested on Ubuntu 20.04.1 LTS.
 
@@ -23,11 +23,10 @@ Installation tested on Ubuntu 20.04.1 LTS.
 
 - Pip3 and NodeJs
   Installation on Ubuntu
-  `sudo apt install python3-venv python3-pip nodejs`
+  `sudo apt install python3-venv python3-pip nodejs npm`
 
-**Install yarn the package manager for nodejs**
-
-`npm install --global yarn`
+- Install yarn the package manager for nodejs
+  `npm install --global yarn`
 
 - Docker
   Installation on Ubuntu
@@ -35,10 +34,12 @@ Installation tested on Ubuntu 20.04.1 LTS.
 
 ## Setup MongoDB (database) <a name="setup-mongodb-database"></a>
 
+_WIP_
 `sudo apt-get install mongo`
 
 ## Create .env file <a name="create-env"></a>
 
+_WIP_
 Edit `.env.example` with your own settings and rename it `.env`
 
 ## Setup dev enviroment <a name="setup-dev-env"></a>
@@ -48,7 +49,7 @@ source ./scripts/start.sh
 
 setup_dev
 
-docker exec -it ati-project_web_1 bash
+rundocker
 ```
 
 Inside the container, you could access all the tooling repeating this command:
@@ -66,6 +67,8 @@ setup_venv
 ```
 
 ### Setup de Database and start the project <a name="create-a-database-and-database-user-for-development"></a>
+
+_WIP_
 
 ```bash
 setup_db
@@ -85,10 +88,10 @@ Test the setup by running the development server
 runserver
 ```
 
-Or test that all of the development processes work
+Or test that all of the development processes work (this will run frontend and backend)
 
 ```bash
-npm run dev
+run
 ```
 
 ## Developing Javascript and CSS <a name="developing-js-css"></a>
@@ -103,10 +106,16 @@ Documentation can be found in the url `api/schema/swagger-ui/` and `schema/redoc
 
 ### Generate Documentation for Web
 
-We are using Sphinx to generate an html documentation from docstring inside your code run this command inside `/docs` folder:
+We are using Sphinx to generate an html documentation from docstring inside your code run, to make the docs, run:
 
 ```bash
-make html
+autodocs
+```
+
+Then build the html by doing:
+
+```bash
+build_docs
 ```
 
 Your html documentation will end up in the `docs/build/html/index.html`.
@@ -126,4 +135,3 @@ Config settings are in the file `docs/conf.py`
 
 [mongodb]: https://flask-user.readthedocs.io/en/latest/mongodb_app.html
 [sphinx]: https://www.sphinx-doc.org/en/master/
-
