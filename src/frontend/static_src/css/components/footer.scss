@@ -1,11 +1,19 @@
 @import "../bases/variables";
 
-.footer{
+body {
+    background-color: rgba(123, 97, 255, 100%);
+}
 
+.footer{
     &.bg-footer{
-        background-color: $primary;
+        background-color: $black;
     }
     &.bg-footer.trasparent{
-
+        background-color: rgba(255, 255, 255, 0.27);
+        font-weight:700;
     }
+}
+.container-footer{
+    padding: 2rem 0;
+    color:$light;
 }
