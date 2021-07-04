@@ -10,7 +10,7 @@
 /media
 
 # Static
-/static
+**/static/**
 
 # Mongo
 /db
