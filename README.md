@@ -1,4 +1,4 @@
-# ati-project
+# Ati Project
 
 Installation tested on Ubuntu 20.04.1 LTS.
 
