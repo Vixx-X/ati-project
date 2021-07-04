@@ -1,3 +1,5 @@
+source ./load.sh
+
 if [ "$1" = 'dev' ]; then
 	# Use dev docker files
 	setup_dev

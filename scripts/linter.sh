@@ -1,2 +1,2 @@
 source ./load.sh
-run_pytest
+run_pylint

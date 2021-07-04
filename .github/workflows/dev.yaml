@@ -58,16 +58,13 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build static files
         run: |
-          source ./scripts/load.sh
-          build
+          source ./scripts/build.sh
       - name: Run pylint
         run: |
-          source ./scripts/load.sh
-          run_pylint
+          source ./scripts/linter.sh
       - name: Run pytest
         run: |
-          source ./scripts/load.sh
-          run_pytest
+          source ./scripts/test.sh
 
 #  docker:
 #    needs: test
