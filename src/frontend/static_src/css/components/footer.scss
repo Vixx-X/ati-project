@@ -1,0 +1,11 @@
+@import "../bases/variables";
+
+.footer{
+
+    &.bg-footer{
+        background-color: $primary;
+    }
+    &.bg-footer.trasparent{
+
+    }
+}
