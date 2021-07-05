@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="shortcut icon"
-      href="../../static/img/logo.svg"
+      href="{{ url_for('static', filename='img/logo.svg') }}"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="../../static/css/app.css" />
-    <link rel="stylesheet" href="../../static/css/components/user-icon.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user-icon.css') }}" />
     <title>User-icon</title>
   </head>
 <body>
@@ -18,9 +18,9 @@
     <div class="user-icon basic">
         <a href="#">
             <picture>
-                <source srcset="../../static/img/users/25641651.webp" type="image/webp">
-                <source srcset="../../static/img/users/25641651.png" type="image/png">
-                <img loading="lazy" src="../../static/img/users/25641651.png" alt="User1 Photo">
+                <source srcset="{{ url_for('static', filename='img/users/25641651.webp') }}" type="image/webp">
+                <source srcset="{{ url_for('static', filename='img/users/25641651.png') }}" type="image/png">
+                <img loading="lazy" src="{{ url_for('static', filename='img/users/25641651.png') }}" alt="User1 Photo">
             </picture>
         </a>
     </div>

@@ -29,8 +29,11 @@ Installation tested on Ubuntu 20.04.1 LTS.
   `npm install --global yarn`
 
 - Docker
-  Installation on Ubuntu
-  `sudo apt install python3-venv python3-pip nodejs`
+  [Installation on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+  [Other OS or distros](https://docs.docker.com/engine/install/)
+
+- Use mongo shell from mongo image
+  `docker run -it --rm --name mongo-shell --net=host mongo mongo`
 
 ## Setup MongoDB (database) <a name="setup-mongodb-database"></a>
 

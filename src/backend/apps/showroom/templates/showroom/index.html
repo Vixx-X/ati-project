@@ -1,0 +1,9 @@
+<h1>Lista de componentes</h1>
+
+<ol>
+{% for a, b in list.items() %}
+  <li>
+    <a href="{{ b }}"><span>{{ a }}</span></a>
+  </li>
+{% endfor %}
+</ol>
