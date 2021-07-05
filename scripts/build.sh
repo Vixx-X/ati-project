@@ -1,6 +1,6 @@
 echo "Building static files"
-# rollup | gulp | webpack
 
-build_js
-build_css
+# gulp
+yarn run gulp js
+yarn run gulp css
 
