@@ -1,3 +1,6 @@
+"""
+Starting script for the flask app
+"""
 # Run a test server.
 
 from backend import init_app

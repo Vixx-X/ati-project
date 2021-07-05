@@ -1,6 +1,9 @@
+"""
+Main app factory to boostrap the application
+"""
+
 from flask import Flask
 from flask_mongoengine import MongoEngine
-
 
 db = MongoEngine()
 
@@ -12,7 +15,7 @@ def init_app(config_file=None):
     if not config_file:
         config_file = "config.dev"
 
-    app.config.from_object(f'{config_file}')
+    app.config.from_object(f"{config_file}")
     static_folder = app.config["STATIC_FOLDER"]
     if static_folder:
         app.static_folder = static_folder

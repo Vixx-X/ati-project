@@ -11,7 +11,7 @@ done
 # alias for common developer commnads
 alias venv="source ${VENVDIR}/bin/activate"
 alias build="source ${CURRENT_DIR}/build.sh"
-alias format="black ${DIR}/src"
+alias format="black $DIR/src/backend/ $DIR/src/wsgi.py $DIR/src/tests/"
 alias rundocker="docker exec -it ati-project_web_1 bash"
 alias runserver="FLASK_APP=${DIR}/src/wsgi.py flask run --reload -h 0.0.0.0 -p 5000"
 alias run="yarn run dev"
