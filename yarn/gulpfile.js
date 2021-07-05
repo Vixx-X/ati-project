@@ -1,6 +1,6 @@
-const { series, src, dest, watch } = require("gulp"); // multiples funciones Importas lo que requires
+const { series, parallel, src, dest, watch } = require("gulp"); // multiples funciones Importas lo que requires
 const sass = require("gulp-dart-sass"); // una sola funcion
-// const imagenmin = require('gulp-imagemin');
+const imagenmin = require('gulp-imagemin');
 // const notify = require('gulp-notify');
 const webp = require("gulp-webp");
 const concat = require("gulp-concat");
@@ -55,20 +55,33 @@ function javascript() {
   );
 }
 
+function imagenes() {
+  return src(paths.imagenes)
+      .pipe(imagenmin())
+      .pipe(dest('../src/frontend/static/img'));
+  // .pipe(notify({ message: 'Imagen Minificada' }));
+}
+
 function versionWebp() {
   return src(paths.imagenes)
     .pipe(webp())
     .pipe(dest("../src/frontend/static/img"));
 }
 
-function watchArchivos() {
-  watch(paths.scss, css);
+function watchArchivosJs() {
   watch(paths.ts, javascript);
   // * = La carpeta actual
   // **/* = todos los archivos dentro de esa carpeta si importad en nivel de profundidad que tengan esa extension
 }
 
-exports.javascript = javascript;
-exports.css = css;
-exports.default = series(css, javascript, versionWebp, watchArchivos);
+function watchArchivosCss(){
+  watch(paths.scss, css);
+}
 
+
+exports.build_js= javascript;
+exports.build_css = css;
+exports.js = watchArchivosJs;
+exports.css = watchArchivosCss;
+exports.images = series(imagenes, versionWebp);
+exports.default = parallel(css, javascript, versionWebp, watchArchivosJs, watchArchivosCss);
