@@ -78,3 +78,10 @@ class UserIcon(BaseView):
     """
 
     template_name = "showroom/user-icon.html"
+
+class Card(BaseView):
+    """
+    Showcase for card component.
+    """
+
+    template_name = "showroom/card.html"

@@ -1,0 +1,22 @@
+@import "../bases/mixins";
+@import "../bases/variables";
+@import "../bases/globals";
+
+body {
+    background-color: rgba(123, 97, 255, 100%);
+}
+
+.card {
+    border: 1px dashed $secundary; 
+    border-radius: 1.5em;
+    padding: 1.5em;
+    width: 12em;
+    background-color: $white;
+}
+
+.box {
+    border: 1px solid $primary;
+    background-color: $light;
+    height: 4em;
+    margin-bottom: 1.5em;
+}
