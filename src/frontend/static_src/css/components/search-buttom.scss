@@ -1,0 +1,14 @@
+@import "../bases/variables";
+@import "../bases/mixins";
+body{
+    background-color: rgb(127, 168, 255);
+}
+.search{
+    &.search-bg{
+        background-color: $light;
+    }
+}
+.container-search{
+    margin-left: 1rem;
+    display: inline;
+}
