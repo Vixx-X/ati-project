@@ -62,7 +62,7 @@ class Buttons(BaseView):
     Showcase for button component.
     """
 
-    template_name = "showroom/botones.html"
+    template_name = "showroom/buttons.html"
 
 
 class Header(BaseView):
@@ -87,3 +87,18 @@ class Card(BaseView):
     """
 
     template_name = "showroom/card.html"
+
+
+class Header2(BaseView):
+    """
+    Showcase for header2 component.
+    """
+
+    template_name = "showroom/header2.html"
+
+class Comments(BaseView):
+    """
+    Showcase for comments-users component.
+    """
+
+    template_name = "showroom/comments-users.html"

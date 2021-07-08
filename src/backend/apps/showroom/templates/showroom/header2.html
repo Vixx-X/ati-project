@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="../../static/img/logo.svg"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="../../static/css/app.css" />
-    <link rel="stylesheet" href="../../static/css/components.css">
-    <title>Header-main</title>
-  </head>
-<body>
+{% extends "showroom/base.html" %}
+
+{% block title %} Header Main {% endblock title %}
+{% block body %}
   <div class="margin-section">
     <div class="header-main container">
         <!-- User profile shadow -->
@@ -21,9 +9,9 @@
           <div class="user-icon shadow">
             <a href="#">
                 <picture>
-                    <source srcset="../../static/img/users/26956071.webp" type="image/webp">
-                    <source srcset="../../static/img/users/26956071.png" type="image/png">
-                    <img loading="lazy" src="../../static/img/users/26956071.png" alt="User2 Photo">
+                    <source srcset="{{ url_for("static", filename="img/users/26956071.webp") }}" type="image/webp">
+                    <source srcset="{{ url_for("static", filename="img/users/26956071.png") }}" type="image/png">
+                    <img loading="lazy" src="{{ url_for("static", filename="img/users/26956071.png") }}" alt="User2 Photo">
                 </picture>
             </a>
           </div>
@@ -38,5 +26,4 @@
     </div>
 
     </div>
-</body>
-</html>
+{% endblock body %}
