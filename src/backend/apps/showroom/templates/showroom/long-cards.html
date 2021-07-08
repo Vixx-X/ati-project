@@ -1,45 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "showroom/base.html" %}
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="../../static/img/logo.svg" type="image/x-icon" />
-    <link rel="stylesheet" href="../../static/css/app.css" />
-    <link rel="stylesheet" href="../../static/css/components/long-cards.css" />
-    <title>Long Cards</title>
-</head>
+{% from "components/user-icon.html" import user_icon %}
 
-<body>
-    <div>
+{% block title %}{{ _('Long Cards') }}{% endblock title %}
+{% block body %}
+<div>
 
-        <!-- Variant1: Primary -->
-        <div class="card primary">
-            <h4>Text Title</h4>
-            <p>Text Content</p>
-        </div>
-
-        <br>
-
-        <!-- Variant2: Secundary -->
-        <div class="card secundary">
-            <h4>Text Title</h4>
-            <p>Text Content</p>
-        </div>
-
-        <br>
-
-        <!-- Variant3: Primary, Long -->
-        <div class="card primary long">
-            <h4>Text Title</h4>
-            <p>Text Content</p>
-            <p>Text Content</p>
-        </div>
-
-        <br>
-
+    <!-- Variant1: Primary -->
+    <div class="card primary">
+        <h4>Text Title</h4>
+        <p>Text Content</p>
     </div>
-</body>
 
-</html>
+    <br>
+
+    <!-- Variant2: Secundary -->
+    <div class="card secundary">
+        <h4>Text Title</h4>
+        <p>Text Content</p>
+    </div>
+
+    <br>
+
+    <!-- Variant3: Primary, Long -->
+    <div class="card primary long">
+        <h4>Text Title</h4>
+        <p>Text Content</p>
+        <p>Text Content</p>
+    </div>
+
+    <br>
+
+</div>
+{% endblock body %}
+

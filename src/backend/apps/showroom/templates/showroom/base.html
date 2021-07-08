@@ -15,10 +15,9 @@
 
     {% block extrahead %}{% endblock %}
 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}" >
     <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}" >
     {% block extrastyles %}{% endblock %}
-
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}" >
 
     <script type="module" src="{{ url_for('static', filename='js/components.js') }}" ></script>
     {% block extrascripts %}{% endblock %}

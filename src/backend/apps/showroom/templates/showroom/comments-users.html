@@ -1,36 +1,37 @@
 {% extends "showroom/base.html" %}
 
-{% block title %} Comments-User {% endblock title %}
+{% from "components/user-icon.html" import user_icon %}
+
+{% block title %}{{ _('Comments-User') }}{% endblock title %}
+
 {% block body %}
     <div class="comments-user">
         <div class="comments-group">
-            <div class="user-icon basic one">
-                <a href="#">
-                    <picture>
-                        <source srcset="{{ url_for("static", filename="img/users/25641651.webp") }}">
-                        <source srcset="{{ url_for("static", filename="img/users/25641651.png") }}">
-                        <img loading="lazy" src="{{ url_for("static", filename="img/users/25641651.png") }}" alt="User1 Photo">
-                    </picture>
-                </a>
-            </div>
-            <div class="user-icon basic two">
-                <a href="#">
-                    <picture>
-                        <source srcset="{{ url_for("static", filename="img/users/26956071.webp") }}" type="image/webp">
-                        <source srcset="{{ url_for("static", filename="img/users/26956071.png") }}" type="image/png">
-                        <img loading="lazy" src="{{ url_for("static", filename="img/users/26956071.png") }}" alt="User1 Photo">
-                    </picture>
-                </a>
-            </div>
-            <div class="user-icon basic three">
-                <a href="#">
-                    <picture>
-                        <source srcset="{{ url_for("static", filename="img/users/26838989.webp") }}" type="image/webp">
-                        <source srcset="{{ url_for("static", filename="img/users/26838989.png") }}" type="image/png">
-                        <img loading="lazy" src="../../static/img/users/26838989.png" alt="User1 Photo">
-                    </picture>
-                </a>
-            </div>
+
+          {{ user_icon(
+            img=url_for('static', filename='img/users/25641651.png'),
+            alt="User1 Photo",
+            type="basic one",
+            png=url_for('static', filename='img/users/25641651.png'),
+            webp=url_for('static', filename='img/users/25641651.webp')
+          ) }}
+
+          {{ user_icon(
+            img=url_for('static', filename='img/users/26838989.png'),
+            alt="User2 Photo",
+            type="basic two",
+            png=url_for('static', filename='img/users/26838989.png'),
+            webp=url_for('static', filename='img/users/26838989.webp')
+          ) }}
+
+          {{ user_icon(
+            img=url_for('static', filename='img/users/26956071.png'),
+            alt="User3 Photo",
+            type="basic three",
+            png=url_for('static', filename='img/users/26956071.png'),
+            webp=url_for('static', filename='img/users/26956071.webp')
+          ) }}
+
         </div>
         <a href="#">Ver comentarios</a>
     </div>

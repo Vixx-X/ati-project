@@ -1,10 +1,11 @@
 {% extends "showroom/base.html" %}
 
-{% block title %} Card {% endblock title %}
+{% block title %}{{ _('Card') }}{% endblock title %}
+
 {% block body %}
-    <div class="card">
-        <h2>Text title</h2> <br>
-        <div class="box"> </div>
-        <p>Text Content</p>
-    </div>
+  <div class="card">
+    <h2>Text title</h2> <br>
+    <div class="box"> </div>
+    <p>Text Content</p>
+  </div>
 {% endblock body %}

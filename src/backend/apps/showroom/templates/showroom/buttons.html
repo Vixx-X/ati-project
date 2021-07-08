@@ -1,29 +1,29 @@
 {% extends "showroom/base.html" %}
 
 {% block title %} Buttons {% endblock title %}
+
 {% block body %}
-	<div class="button-container">
-		<button class="button primary text-uppercase fw-bold">
-			Boton 1
-		</button>
+<div class="button-container">
+  <button class="button primary text-uppercase fw-bold">
+    {{ _('Button 1') }}
+  </button>
 
-		<div class="margin-section"></div>
+  <div class="margin-section"></div>
 
-		<button class="button secundary text-uppercase fw-bold">
-			Boton 2
-		</button>
-		
-		<div class="margin-section"></div>
+  <button class="button secundary text-uppercase fw-bold">
+    {{ _('Button 2') }}
+  </button>
 
-		<button class="button transparent text-uppercase fw-bold">
-			Boton 3
-		</button>
+  <div class="margin-section"></div>
 
-		<div class="margin-section"></div>
+  <button class="button transparent text-uppercase fw-bold">
+    {{ _('Button 3') }}
+  </button>
 
-		<button class="button primary fw-normal">
-			Boton 4
-		</button>
+  <div class="margin-section"></div>
 
-	</div>
+  <button class="button primary fw-normal">
+    {{ _('Button 4') }}
+  </button>
+</div>
 {% endblock body %}
