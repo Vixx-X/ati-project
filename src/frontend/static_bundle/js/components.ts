@@ -1,0 +1,1 @@
+document.writeln("<script type='text/javascript' src='../../static_src/js/chat.ts'></script>");

@@ -1,0 +1,31 @@
+@import "../bases/variables";
+
+body {
+    background-color: rgba(123, 97, 255, 100%);
+}
+
+.button-container{
+    font-size: 10px;
+}
+
+.button{
+    font-size: 2.5em;
+    padding: 1em 4em;
+    border-radius: 1.5em;
+    border: none;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    color: $light;
+    &:hover{
+        cursor: pointer;
+    }
+    &.primary{
+        background-color: $primary;
+    }
+    &.secundary{
+        background-color: $light;
+        color: $black;
+    }
+    &.transparent{
+        background-color: rgba(242, 242, 242, 0.35);
+    }
+}

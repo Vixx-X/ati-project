@@ -1,0 +1,16 @@
+{% extends "showroom/base.html" %}
+
+{% block title %}{{ _('Component list') }}{% endblock title %}
+{% block body %}
+
+  <h1>{{ _('Component list') }}</h1>
+
+  <ol>
+  {% for a, b in list.items() %}
+    <li>
+      <a href="{{ b }}"><span>{{ a }}</span></a>
+    </li>
+  {% endfor %}
+  </ol>
+
+{% endblock body %}

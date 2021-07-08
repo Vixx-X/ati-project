@@ -56,10 +56,12 @@ ignore = [
 # locally-disabled - it spams too much
 # too-many-* - are not enforced for the sake of readability
 # too-few-* - same as too-many-*
+# import-outside-toplevel - until we have dynamic import we cannot avoided
 # inconsistent-return-statements - doesn't handle raise
 # too-many-ancestors - it's too strict.
 # unused-argument - generic callbacks and setup methods create a lot of warnings
 # wrong-import-order - isort guards this
+# wrong-import-position - isort guards this
 disable = [
     "abstract-class-little-used",
     "abstract-method",
@@ -68,6 +70,7 @@ disable = [
     "cyclic-import",
     "duplicate-code",
     "format",
+    "import-outside-toplevel",
     "inconsistent-return-statements",
     "invalid-name",
     "locally-disabled",
@@ -85,6 +88,7 @@ disable = [
     "too-many-boolean-expressions",
     "unused-argument",
     "wrong-import-order",
+    "wrong-import-position",
 ]
 
 [tool.pylint.format]

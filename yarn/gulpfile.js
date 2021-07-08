@@ -1,74 +1,55 @@
-const { series, src, dest, watch } = require("gulp"); // multiples funciones Importas lo que requires
-const sass = require("gulp-dart-sass"); // una sola funcion
-// const imagenmin = require('gulp-imagemin');
-// const notify = require('gulp-notify');
+const { series, parallel, src, dest, watch } = require("gulp");
+
+const sass = require("gulp-dart-sass");
+const imagenmin = require("gulp-imagemin");
+const argv = require("yargs").argv;
 const webp = require("gulp-webp");
-const concat = require("gulp-concat");
 
-const gulp = require("gulp");
-const typescript = require("gulp-typescript");
-
-// Utilidades CSS
+// CSS
 const autoprexifer = require("autoprefixer");
 const postcss = require("gulp-postcss");
 const cssnano = require("cssnano");
 const sourcemap = require("gulp-sourcemaps");
 
-// Utilidades JS
-const terser = require("gulp-terser-js");
-const rename = require("gulp-rename");
+const srcPath = "../src/frontend/static_src";
+const bundlePath = "../src/frontend/static_bundle";
+const srcPaths = {
+  img: `${srcPath}/img/**/*`,
+  scss: `${bundlePath}/css/**/*.scss`,
+};
 
-const paths = {
-  imagenes: "../src/frontend/static_src/img/**/*",
-  scss: "../src/frontend/static_src/css/**/*.scss",
-  //js: 'src/js/**/*.js',
-  ts: "../src/frontend/static_src/js/**/*.ts",
+const dstPath = "../src/static";
+const dstPaths = {
+  img: `${dstPath}/img`,
+  scss: `${dstPath}/css`,
 };
 
 function css() {
-  return (
-    src(paths.scss)
-      .pipe(sourcemap.init())
-      .pipe(sass())
-      .pipe(postcss([autoprexifer(), cssnano()]))
-      //Para saber donde esta todo del codigo original
-      .pipe(sourcemap.write("."))
-      .pipe(dest("../src/frontend/static/css"))
-  );
+  let el = src(srcPaths.scss);
+  if (argv.dev) {
+    el = el.pipe(sourcemap.init());
+  }
+  el = el.pipe(sass()).pipe(postcss([autoprexifer(), cssnano()]));
+  if (argv.dev) {
+    el = el.pipe(sourcemap.write("."));
+  }
+  return el.pipe(dest(dstPaths.scss));
 }
 
-function javascript() {
-  return (
-    src(paths.ts)
-      .pipe(
-        typescript({
-          noImplicitAny: true,
-          outFile: "bundle.js",
-        })
-      )
-      // .pipe(sourcemap.init())
-      // .pipe(concat('bundle.js'))
-      // .pipe(terser())
-      // .pipe(sourcemap.write('.'))
-      // .pipe(rename({ suffix: '.min' }))
-      .pipe(dest("../src/frontend/static/js"))
-  );
+function optimizeImages() {
+  return src(srcPaths.img).pipe(imagenmin()).pipe(dest(dstPaths.img));
+  // .pipe(notify({ message: 'Imagen Minificada' }));
 }
 
 function versionWebp() {
-  return src(paths.imagenes)
-    .pipe(webp())
-    .pipe(dest("../src/frontend/static/img"));
+  return src(srcPaths.img).pipe(webp()).pipe(dest(dstPaths.img));
 }
 
-function watchArchivos() {
-  watch(paths.scss, css);
-  watch(paths.ts, javascript);
-  // * = La carpeta actual
-  // **/* = todos los archivos dentro de esa carpeta si importad en nivel de profundidad que tengan esa extension
+function watchFilesCss() {
+  watch([srcPaths.scss, `${srcPath}/css/**/*.scss`], css);
 }
 
-exports.javascript = javascript;
-exports.css = css;
-exports.default = series(css, javascript, versionWebp, watchArchivos);
-
+exports.build_css = css;
+exports.css = watchFilesCss;
+exports.images = series(optimizeImages, versionWebp);
+exports.default = parallel(css, versionWebp, watchFilesCss);
