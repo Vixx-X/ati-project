@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "showroom/base.html" %}
 
 {% block title %} Header {% endblock title %}
 {% block body %}
@@ -7,7 +7,7 @@
       <a href="#">
         <div class="main-logotype">
           <img
-            src="{% url_for("static", "img/logo.svg" %}"
+            src="{{ url_for('static', filename='img/logo.svg') }}"
             alt="DEGVA logotype" />
           <h1>DEGVA</h1>
         </div>
@@ -19,7 +19,7 @@
           <button class="button-search">
             <img
               class="icon logotype"
-              src="{% url_for("static", "img/icons/search.svg") %}"
+              src="{{ url_for("static", filename="img/icons/search.svg") }}"
               alt="Notifications logotype"
             />
           </button>
@@ -29,28 +29,28 @@
           <a href="#" class="search">
             <img
               class="icon"
-              src="{% url_for("static", "img/icons/search.svg") %}"
+              src="{{ url_for("static", filename="img/icons/search.svg") }}"
               alt="Notifications logotype"
             />
           </a>
           <a href="#">
             <img
               class="icon"
-              src="{% url_for("static", "img/icons/notifications.svg") %}"
+              src="{{ url_for("static", filename="img/icons/notifications.svg") }}"
               alt="Notifications logotype"
             />
           </a>
           <a href="#">
             <img
               class="icon"
-              src="{% url_for("static", "img/icons/settings.svg") %}"
+              src="{{ url_for("static", filename="img/icons/settings.svg") }}"
               alt="Notifications logotype"
             />
           </a>
           <a href="#">
             <img
               class="icon"
-              src="{% url_for("static", "img/icons/logout.svg") %}"
+              src="{{ url_for("static", filename="img/icons/logout.svg") }}"
               alt="Notifications logotype"
             />
           </a>

@@ -12,29 +12,33 @@ const cssnano = require("cssnano");
 const sourcemap = require("gulp-sourcemaps");
 
 const srcPath = "../src/frontend/static_src";
+const bundlePath = "../src/frontend/static_bundle";
 const srcPaths = {
   img: `${srcPath}/img/**/*`,
-  scss: `${srcPath}/css/**/*.scss`,
-  ts: `${srcPath}/js/**/*.ts`,
+  scss: `${bundlePath}/css/**/*.scss`,
 };
 
 const dstPath = "../src/static";
 const dstPaths = {
   img: `${dstPath}/img`,
   scss: `${dstPath}/css`,
-  ts: `${dstPath}/js`,
 };
 
 function css() {
-  return (
-    src(srcPaths.scss)
+  const isDev = argv.dev === undefined ? false : true;
+  if (isDev) {
+    return src(srcPaths.scss)
       .pipe(sourcemap.init())
       .pipe(sass())
       .pipe(postcss([autoprexifer(), cssnano()]))
-      // Map to original source
       .pipe(sourcemap.write("."))
-      .pipe(dest(dstPaths.scss))
-  );
+      .pipe(dest(dstPaths.scss));
+  } else {
+    return src(srcPaths.scss)
+      .pipe(sass())
+      .pipe(postcss([autoprexifer(), cssnano()]))
+      .pipe(dest(dstPaths.scss));
+  }
 }
 
 function optimizeImages() {
