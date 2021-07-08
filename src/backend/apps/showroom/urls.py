@@ -9,7 +9,7 @@ list_of_rooms = [
     ("botones", "Botones"),
     ("header", "Header"),
     ("user_icon", "Iconos de Usuario"),
-    ("card", "Card")
+    ("card", "Cart")
 ]
 
 bp.add_url_rule("/", view_func=views.Index.as_view("index"))

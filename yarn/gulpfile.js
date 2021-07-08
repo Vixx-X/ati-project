@@ -1,87 +1,79 @@
-const { series, parallel, src, dest, watch } = require("gulp"); // multiples funciones Importas lo que requires
-const sass = require("gulp-dart-sass"); // una sola funcion
-const imagenmin = require('gulp-imagemin');
-// const notify = require('gulp-notify');
+const { series, parallel, src, dest, watch } = require("gulp");
+
+const sass = require("gulp-dart-sass");
+const imagenmin = require("gulp-imagemin");
+const argv = require("yargs").argv;
 const webp = require("gulp-webp");
-const concat = require("gulp-concat");
 
-const gulp = require("gulp");
-const typescript = require("gulp-typescript");
-
-// Utilidades CSS
+// CSS
 const autoprexifer = require("autoprefixer");
 const postcss = require("gulp-postcss");
 const cssnano = require("cssnano");
 const sourcemap = require("gulp-sourcemaps");
 
-// Utilidades JS
-const terser = require("gulp-terser-js");
-const rename = require("gulp-rename");
+// JS
+// const terser = require("gulp-terser-js");
+const gru2 = require("gulp-rollup-2");
+const rollupOpts = require("./rollup.config");
 
-const paths = {
-  imagenes: "../src/frontend/static_src/img/**/*",
-  scss: "../src/frontend/static_src/css/**/*.scss",
-  //js: 'src/js/**/*.js',
-  ts: "../src/frontend/static_src/js/**/*.ts",
+const srcPath = "../src/frontend/static_src";
+const srcPaths = {
+  img: `${srcPath}/img/**/*`,
+  scss: `${srcPath}/css/**/*.scss`,
+  ts: `${srcPath}/js/**/*.ts`,
+};
+
+const dstPath = "../src/static";
+const dstPaths = {
+  img: `${dstPath}/img`,
+  scss: `${dstPath}/css`,
+  ts: `${dstPath}/js`,
 };
 
 function css() {
   return (
-    src(paths.scss)
+    src(srcPaths.scss)
       .pipe(sourcemap.init())
       .pipe(sass())
       .pipe(postcss([autoprexifer(), cssnano()]))
-      //Para saber donde esta todo del codigo original
+      // Map to original source
       .pipe(sourcemap.write("."))
-      .pipe(dest("../src/frontend/static/css"))
+      .pipe(dest(dstPaths.scss))
   );
 }
 
-function javascript() {
-  return (
-    src(paths.ts)
-      .pipe(
-        typescript({
-          noImplicitAny: true,
-          outFile: "bundle.js",
-        })
-      )
-      // .pipe(sourcemap.init())
-      // .pipe(concat('bundle.js'))
-      // .pipe(terser())
-      // .pipe(sourcemap.write('.'))
-      // .pipe(rename({ suffix: '.min' }))
-      .pipe(dest("../src/frontend/static/js"))
-  );
+async function javascript() {
+  return (await gru2.src(...rollupOpts))
+    .pipe(sourcemap.write("."))
+    .pipe(dest(dstPaths.ts));
 }
 
-function imagenes() {
-  return src(paths.imagenes)
-      .pipe(imagenmin())
-      .pipe(dest('../src/frontend/static/img'));
+function optimizeImages() {
+  return src(srcPaths.img).pipe(imagenmin()).pipe(dest(dstPaths.img));
   // .pipe(notify({ message: 'Imagen Minificada' }));
 }
 
 function versionWebp() {
-  return src(paths.imagenes)
-    .pipe(webp())
-    .pipe(dest("../src/frontend/static/img"));
+  return src(srcPaths.img).pipe(webp()).pipe(dest(dstPaths.img));
 }
 
-function watchArchivosJs() {
-  watch(paths.ts, javascript);
-  // * = La carpeta actual
-  // **/* = todos los archivos dentro de esa carpeta si importad en nivel de profundidad que tengan esa extension
+function watchFilesJs() {
+  watch(srcPaths.ts, javascript);
 }
 
-function watchArchivosCss(){
-  watch(paths.scss, css);
+function watchFilesCss() {
+  watch(srcPaths.scss, css);
 }
 
-
-exports.build_js= javascript;
+exports.build_js = javascript;
 exports.build_css = css;
-exports.js = watchArchivosJs;
-exports.css = watchArchivosCss;
-exports.images = series(imagenes, versionWebp);
-exports.default = parallel(css, javascript, versionWebp, watchArchivosJs, watchArchivosCss);
+exports.js = watchFilesJs;
+exports.css = watchFilesCss;
+exports.images = series(optimizeImages, versionWebp);
+exports.default = parallel(
+  css,
+  javascript,
+  versionWebp,
+  watchFilesJs,
+  watchFilesCss
+);

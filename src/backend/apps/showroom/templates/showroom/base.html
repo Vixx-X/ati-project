@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="{% block viewport %}width=device-width, initial-scale=1.0{% endblock %}" />
+    <link
+      rel="shortcut icon"
+      href="{% url_for("static", "img/logo.svg") %}"
+      type="image/x-icon"
+    />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <title>{% block title %}{% endblock %}</title>
+
+    {% block extrahead %}{% endblock %}
+
+    <link rel="stylesheet" href="{% url_for("static", "css/components.css") %}" >
+    {% block extrastyles %}{% endblock %}
+
+    <script type="module" src="{% url_for("static", "js/components.js") %}" ></script>
+    {% block extrascripts %}{% endblock %}
+  </head>
+  <body>
+    {% block body %}{% endblock %}
+    {% block onloadscripts %}{% endblock %}
+  </body>
+</html>
