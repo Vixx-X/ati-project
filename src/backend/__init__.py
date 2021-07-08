@@ -20,6 +20,10 @@ def init_app(config_file=None):
     if static_folder:
         app.static_folder = static_folder
 
+    template_folder = app.config["TEMPLATE_FOLDER"]
+    if template_folder:
+        app.template_folder = template_folder
+
     # Initialize Plugins
     db.init_app(app)
 

@@ -1,69 +1,61 @@
 {% extends "showroom/base.html" %}
 
+{% from "components/user-icon.html" import user_icon %}
+
 {% block title %} User Icon {% endblock title %}
 {% block body %}
 
     <!-- User basic -->
-    <div class="user-icon basic">
-        <a href="#">
-            <picture>
-                <source srcset="{{ url_for('static', filename='img/users/25641651.webp') }}" type="image/webp">
-                <source srcset="{{ url_for('static', filename='img/users/25641651.png') }}" type="image/png">
-                <img loading="lazy" src="{{ url_for('static', filename='img/users/25641651.png') }}" alt="User1 Photo">
-            </picture>
-        </a>
-    </div>
+    {{ user_icon(
+      img=url_for('static', filename='img/users/25641651.png'),
+      alt="User1 Photo",
+      type="basic",
+      png=url_for('static', filename='img/users/25641651.png'),
+      webp=url_for('static', filename='img/users/25641651.webp')
+    ) }}
 
     <div class="margin-section"></div>
 
     <!-- User profile shadow -->
-    <div class="user-icon shadow">
-        <a href="#">
-            <picture>
-                <source srcset="{{ url_for("static", filename="img/users/26956071.webp") }} " type="image/webp">
-                <source srcset="../../static/img/users/26956071.png" type="image/png">
-                <img loading="lazy" src="../../static/img/users/26956071.png" alt="User2 Photo">
-            </picture>
-        </a>
-    </div>
+    {{ user_icon(
+      img=url_for('static', filename='img/users/26956071.png'),
+      alt="User2 Photo",
+      type="shadow",
+      png=url_for('static', filename='img/users/26956071.png'),
+      webp=url_for('static', filename='img/users/26956071.webp')
+    ) }}
 
     <div class="margin-section"></div>
 
     <!-- User connect -->
-    <div class="user-icon connect">
-        <a href="#">
-            <picture>
-                <source srcset="../../static/img/users/26838989.webp" type="image/webp">
-                <source srcset="../../static/img/users/26838989.png" type="image/png">
-                <img loading="lazy" src="../../static/img/users/26838989.png" alt="User3 Photo">
-            </picture>
-        </a>
-    </div>
+    {{ user_icon(
+      img=url_for('static', filename='img/users/26838989.png'),
+      alt="User3 Photo",
+      type="connect",
+      png=url_for('static', filename='img/users/26838989.png'),
+      webp=url_for('static', filename='img/users/26838989.webp')
+    ) }}
 
     <div class="margin-section"></div>
 
     <!-- User disconnect -->
-    <div class="user-icon disconnect">
-        <a href="#">
-            <picture>
-                <source srcset="../../static/img/users/26272390.webp" type="image/webp">
-                <source srcset="../../static/img/users/26272390.png" type="image/png">
-                <img loading="lazy" src="../../static/img/users/26272390.png" alt="User3 Photo">
-            </picture>
-        </a>
-    </div>
+    {{ user_icon(
+      img=url_for('static', filename='img/users/26272390.png'),
+      alt="User4 Photo",
+      type="disconnect",
+      png=url_for('static', filename='img/users/26272390.png'),
+      webp=url_for('static', filename='img/users/26272390.webp')
+    ) }}
 
     <div class="margin-section"></div>
 
     <!-- User profile no-shadow -->
-    <div class="user-icon">
-        <a href="#">
-            <picture>
-                <source srcset="../../static/img/users/26838989.webp" type="image/webp">
-                <source srcset="../../static/img/users/26838989.png" type="image/png">
-                <img loading="lazy" src="../../static/img/users/26838989.png" alt="User3 Photo">
-            </picture>
-        </a>
-    </div>
+    {{ user_icon(
+      img=url_for('static', filename='img/users/26838989.png'),
+      alt="User5 Photo",
+      type="",
+      png=url_for('static', filename='img/users/26838989.png'),
+      webp=url_for('static', filename='img/users/26838989.webp')
+    ) }}
 
 {% endblock body %}

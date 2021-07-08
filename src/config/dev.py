@@ -33,4 +33,6 @@ SECRET_KEY = "secret"
 
 # Static folder
 STATIC_FOLDER = f"{BASE_DIR}/static/"
-print(STATIC_FOLDER)
+
+# Template folder
+TEMPLATE_FOLDER = f"{BASE_DIR}/templates/"
