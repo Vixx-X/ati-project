@@ -137,7 +137,15 @@ class Notification(BaseView):
 
 class SearchButton(BaseView):
     """
-    Showcase for notification component.
+    Showcase for search component.
     """
 
     template_name = "showroom/search-button.html"
+
+
+class Chat(BaseView):
+    """
+    Showcase for chat component.
+    """
+
+    template_name = "showroom/chat.html"
