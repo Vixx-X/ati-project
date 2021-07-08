@@ -1,14 +1,36 @@
 @import "../bases/variables";
 @import "../bases/mixins";
-body{
-    background-color: rgb(127, 168, 255);
+
+body {
+  background-color: rgb(127, 168, 255);
 }
-.search{
-    &.search-bg{
-        background-color: $light;
-    }
+
+.search {
+  & {
+    display: inline-block;
+    width: 25em;
+    border-radius: 2.5rem;
+  }
+  &.search-bg {
+    background-color: $light;
+  }
 }
-.container-search{
-    margin-left: 1rem;
-    display: inline;
+
+.container-search {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  padding: 2rem 0;
+}
+
+.container-search img {
+  margin: 0 2em 0 1.5em;
+}
+
+.container-search form input {
+  font-style: italic;
+  border: hidden;
+  background-color: $light;
+  width: 90%;
+  font-size: 1.5em;
 }
