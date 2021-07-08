@@ -11,11 +11,6 @@ const postcss = require("gulp-postcss");
 const cssnano = require("cssnano");
 const sourcemap = require("gulp-sourcemaps");
 
-// JS
-// const terser = require("gulp-terser-js");
-const gru2 = require("gulp-rollup-2");
-const rollupOpts = require("./rollup.config");
-
 const srcPath = "../src/frontend/static_src";
 const srcPaths = {
   img: `${srcPath}/img/**/*`,
@@ -42,12 +37,6 @@ function css() {
   );
 }
 
-async function javascript() {
-  return (await gru2.src(...rollupOpts))
-    .pipe(sourcemap.write("."))
-    .pipe(dest(dstPaths.ts));
-}
-
 function optimizeImages() {
   return src(srcPaths.img).pipe(imagenmin()).pipe(dest(dstPaths.img));
   // .pipe(notify({ message: 'Imagen Minificada' }));
@@ -57,23 +46,11 @@ function versionWebp() {
   return src(srcPaths.img).pipe(webp()).pipe(dest(dstPaths.img));
 }
 
-function watchFilesJs() {
-  watch(srcPaths.ts, javascript);
-}
-
 function watchFilesCss() {
   watch(srcPaths.scss, css);
 }
 
-exports.build_js = javascript;
 exports.build_css = css;
-exports.js = watchFilesJs;
 exports.css = watchFilesCss;
 exports.images = series(optimizeImages, versionWebp);
-exports.default = parallel(
-  css,
-  javascript,
-  versionWebp,
-  watchFilesJs,
-  watchFilesCss
-);
+exports.default = parallel(css, versionWebp, watchFilesCss);

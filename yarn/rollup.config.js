@@ -58,7 +58,7 @@ export default {
   plugins: [
     // Allows rollup to use multiple entry points, input glob pattern
     // and preserve asset/js tree structure in the static folder.
-    // multiInput({ relative: srcPath }),
+    multiInput({ relative: srcPath }),
 
     // Allows node_modules resolution
     nodeResolve({
@@ -74,7 +74,7 @@ export default {
 
     // Allow relative paths in your import directives
     includePaths({
-      paths: [paths.common],
+      paths: [srcPath],
       extensions: importExtensions,
     }),
 
