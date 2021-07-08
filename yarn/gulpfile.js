@@ -1,6 +1,7 @@
 const { series, parallel, src, dest, watch } = require("gulp"); // multiples funciones Importas lo que requires
 const sass = require("gulp-dart-sass"); // una sola funcion
 const imagenmin = require('gulp-imagemin');
+const argv = require('yargs').argv;
 // const notify = require('gulp-notify');
 const webp = require("gulp-webp");
 const concat = require("gulp-concat");
@@ -20,37 +21,45 @@ const rename = require("gulp-rename");
 
 const paths = {
   imagenes: "../src/frontend/static_src/img/**/*",
-  scss: "../src/frontend/static_src/css/**/*.scss",
+  scss: "../src/frontend/static_bundle/css/**/*.scss",
   //js: 'src/js/**/*.js',
-  ts: "../src/frontend/static_src/js/**/*.ts",
+  ts: "../src/frontend/static_bundle/js/**/*.ts",
 };
 
 function css() {
-  return (
-    src(paths.scss)
-      .pipe(sourcemap.init())
-      .pipe(sass())
-      .pipe(postcss([autoprexifer(), cssnano()]))
-      //Para saber donde esta todo del codigo original
-      .pipe(sourcemap.write("."))
-      .pipe(dest("../src/frontend/static/css"))
-  );
+  const isDev = (argv.dev === undefined) ? false : true;
+  if( isDev ){
+    return (
+      src(paths.scss)
+        .pipe(sourcemap.init())
+        .pipe(sass())
+        .pipe(postcss([autoprexifer(), cssnano()]))
+        .pipe(sourcemap.write("."))
+        .pipe(dest("../src/frontend/static/css"))
+    );
+  }else{
+    return (
+      src(paths.scss)
+        .pipe(sass())
+        .pipe(postcss([autoprexifer(), cssnano()]))
+        .pipe(dest("../src/frontend/static/css"))
+    );
+  }
 }
 
 function javascript() {
+  const isDev = (argv.dev === undefined) ? false : true;
   return (
     src(paths.ts)
       .pipe(
         typescript({
           noImplicitAny: true,
-          outFile: "bundle.js",
         })
       )
-      // .pipe(sourcemap.init())
+      .pipe(sourcemap.init())
       // .pipe(concat('bundle.js'))
-      // .pipe(terser())
-      // .pipe(sourcemap.write('.'))
-      // .pipe(rename({ suffix: '.min' }))
+      .pipe(terser())
+      .pipe(sourcemap.write('.'))
       .pipe(dest("../src/frontend/static/js"))
   );
 }
