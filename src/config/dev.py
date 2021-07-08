@@ -36,3 +36,11 @@ STATIC_FOLDER = f"{BASE_DIR}/static/"
 
 # Template folder
 TEMPLATE_FOLDER = f"{BASE_DIR}/templates/"
+
+LANGUAGES = {
+    'en': 'English',
+    'es': 'Español',
+    'pt': 'português',
+}
+BABEL_TRANSLATION_DIRECTORIES = f"{BASE_DIR}/translations/"
+
