@@ -1,35 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="../../static/img/logo.svg"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="../../static/css/app.css" />
-    <link rel="stylesheet" href="../../static/css/components/footer.css" />
-    <title>Footer</title>
-  </head>
+{% extends "showroom/base.html" %}
 
-  <body>
+{% block title %}{{ _('Buttons') }}{% endblock title %}
 
-    <div class="margin-section"></div>
+{% block body %}
+<div class="margin-section"></div>
 
-    <footer class="footer bg-footer">
-          <div class="container container-footer text-center">
-              Copyright &copy; ATI - Escuela de computacion
-          </div>
-    </footer>
+<footer class="footer bg-footer">
+  <div class="container container-footer text-center">
+    {{ _('Copyright &copy; ITA - Computer School') }}
+  </div>
+</footer>
 
-    <div class="margin-section"></div>
+<div class="margin-section"></div>
 
-    <footer class="footer bg-footer trasparent">
-          <div class="container container-footer text-center">
-              Copyright &copy; ATI - Escuela de computacion
-          </div>
-    </footer>
+<footer class="footer bg-footer trasparent">
+  <div class="container container-footer text-center">
+    {{ _('Copyright &copy; ITA - Computer School') }}
+  </div>
+</footer>
+{% endblock body %}
 
-  </body>

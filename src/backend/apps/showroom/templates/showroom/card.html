@@ -1,22 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "showroom/base.html" %}
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="{% url_for("static", "img/logo.svg") %}" type="image/x-icon" />
-    <link rel="stylesheet" href="{% url_for("static", "css/app.css" %}" />
-    <link rel="stylesheet" href="{% url_for("static", "css/components/card.css" %}" />
-    <title>Card</title>
-</head>
+{% block title %}{{ _('Card') }}{% endblock title %}
 
-<body>
-    <div class="card">
-        <h2>Text title</h2> <br>
-        <div class="box"> </div>
-        <p>Text Content</p>
-    </div>
-</body>
-
-</html>
+{% block body %}
+  <div class="card">
+    <h2>Text title</h2> <br>
+    <div class="box"> </div>
+    <p>Text Content</p>
+  </div>
+{% endblock body %}

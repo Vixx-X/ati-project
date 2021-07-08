@@ -1,52 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="../../static/img/logo.svg"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="../../static/css/app.css" />
-    <link rel="stylesheet" href="../../static/css/components/user-icon.css" />
-    <link rel="stylesheet" href="../../static/css/components/comments-users.css" />
-    <title>Comments-users</title>
-  </head>
-<body>
+{% extends "showroom/base.html" %}
+
+{% from "components/user-icon.html" import user_icon %}
+
+{% block title %}{{ _('Comments-User') }}{% endblock title %}
+
+{% block body %}
     <div class="comments-user">
         <div class="comments-group">
-            <div class="user-icon basic one">
-                <a href="#">
-                    <picture>
-                        <source srcset="../../static/img/users/25641651.webp" type="image/webp">
-                        <source srcset="../../static/img/users/25641651.png" type="image/png">
-                        <img loading="lazy" src="../../static/img/users/25641651.png" alt="User1 Photo">
-                    </picture>
-                </a>
-            </div>
-            <div class="user-icon basic two">
-                <a href="#">
-                    <picture>
-                        <source srcset="../../static/img/users/25641651.webp" type="image/webp">
-                        <source srcset="../../static/img/users/25641651.png" type="image/png">
-                        <img loading="lazy" src="../../static/img/users/25641651.png" alt="User1 Photo">
-                    </picture>
-                </a>
-            </div>
-            <div class="user-icon basic three">
-                <a href="#">
-                    <picture>
-                        <source srcset="../../static/img/users/25641651.webp" type="image/webp">
-                        <source srcset="../../static/img/users/25641651.png" type="image/png">
-                        <img loading="lazy" src="../../static/img/users/25641651.png" alt="User1 Photo">
-                    </picture>
-                </a>
-            </div>
+
+          {{ user_icon(
+            img=url_for('static', filename='img/users/25641651.png'),
+            alt="User1 Photo",
+            type="basic one",
+            png=url_for('static', filename='img/users/25641651.png'),
+            webp=url_for('static', filename='img/users/25641651.webp')
+          ) }}
+
+          {{ user_icon(
+            img=url_for('static', filename='img/users/26838989.png'),
+            alt="User2 Photo",
+            type="basic two",
+            png=url_for('static', filename='img/users/26838989.png'),
+            webp=url_for('static', filename='img/users/26838989.webp')
+          ) }}
+
+          {{ user_icon(
+            img=url_for('static', filename='img/users/26956071.png'),
+            alt="User3 Photo",
+            type="basic three",
+            png=url_for('static', filename='img/users/26956071.png'),
+            webp=url_for('static', filename='img/users/26956071.webp')
+          ) }}
+
         </div>
         <a href="#">Ver comentarios</a>
     </div>
-    
-</body>
-</html>
+{% endblock body %}

@@ -1,42 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="../../static/img/logo.svg"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="../../static/css/app.css" />
-    <link rel="stylesheet" href="../../static/css/components.css">
-    <title>Header-main</title>
-  </head>
-<body>
+{% extends "showroom/base.html" %}
+
+{% from "components/user-icon.html" import user_icon %}
+
+{% block title %}{{ _('Header Main') }} {% endblock title %}
+
+{% block body %}
   <div class="margin-section">
     <div class="header-main container">
-        <!-- User profile shadow -->
         <div class="section-left">
-          <div class="user-icon shadow">
-            <a href="#">
-                <picture>
-                    <source srcset="../../static/img/users/26956071.webp" type="image/webp">
-                    <source srcset="../../static/img/users/26956071.png" type="image/png">
-                    <img loading="lazy" src="../../static/img/users/26956071.png" alt="User2 Photo">
-                </picture>
-            </a>
-          </div>
+          {{ user_icon(
+            img=url_for('static', filename='img/users/26956071.png'),
+            alt="User2 Photo",
+            type="shadow",
+            png=url_for('static', filename='img/users/26956071.png'),
+            webp=url_for('static', filename='img/users/26956071.webp')
+          ) }}
           <button class="button create fw-normal">
             What do you think?...
           </button>
         </div>
         <button class="button primary with-icon fw-normal">
-          <img src="../../static/img/icons/notifications.svg" alt="Messages Icon">
+          <img src="{{ url_for("static", filename="img/icons/notifications.svg") }}" alt="Messages Icon">
           Messages
         </button>
     </div>
 
     </div>
-</body>
-</html>
+{% endblock body %}
