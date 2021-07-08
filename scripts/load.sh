@@ -1,7 +1,7 @@
 # Get the location path of this script file
 CURRENT_DIR=$(dirname $(realpath ${BASH_SOURCE[0]:-$0}))
 DIR=$(dirname $CURRENT_DIR)
-VENVDIR="${1:-$DIR/venv}"
+VENVDIR=${1:-$DIR/venv}
 
 # recursively source scripts
 for f in $(find $CURRENT_DIR/functions -type f); do
