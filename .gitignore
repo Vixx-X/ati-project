@@ -5,6 +5,7 @@
 
 # Yarn/Node
 **/node_modules
+# **/yarn-error.log
 
 # Media
 /media
