@@ -25,20 +25,15 @@ const dstPaths = {
 };
 
 function css() {
-  const isDev = argv.dev === undefined ? false : true;
-  if (isDev) {
-    return src(srcPaths.scss)
-      .pipe(sourcemap.init())
-      .pipe(sass())
-      .pipe(postcss([autoprexifer(), cssnano()]))
-      .pipe(sourcemap.write("."))
-      .pipe(dest(dstPaths.scss));
-  } else {
-    return src(srcPaths.scss)
-      .pipe(sass())
-      .pipe(postcss([autoprexifer(), cssnano()]))
-      .pipe(dest(dstPaths.scss));
+  let el = src(srcPaths.scss);
+  if (argv.dev) {
+    el = el.pipe(sourcemap.init());
   }
+  el = el.pipe(sass()).pipe(postcss([autoprexifer(), cssnano()]));
+  if (argv.dev) {
+    el = el.pipe(sourcemap.write("."));
+  }
+  return el.pipe(dest(dstPaths.scss));
 }
 
 function optimizeImages() {
@@ -51,7 +46,7 @@ function versionWebp() {
 }
 
 function watchFilesCss() {
-  watch(srcPaths.scss, css);
+  watch([srcPaths.scss, `${srcPath}/css/**/*.scss`], css);
 }
 
 exports.build_css = css;

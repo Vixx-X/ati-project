@@ -6,6 +6,7 @@ from flask import render_template
 from flask.helpers import url_for
 from flask.views import View
 
+from flask_babel import gettext as _
 
 class BaseView(View):
     """
@@ -56,7 +57,7 @@ class Index(BaseView):
         return {"list": urls}
 
 
-class Botones(BaseView):
+class Buttons(BaseView):
     """
     Showcase for button component.
     """
@@ -78,6 +79,7 @@ class UserIcon(BaseView):
     """
 
     template_name = "showroom/user-icon.html"
+
 
 class Card(BaseView):
     """

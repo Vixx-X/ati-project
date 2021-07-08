@@ -4,12 +4,14 @@ Main app factory to boostrap the application
 
 from flask import Flask
 from flask_mongoengine import MongoEngine
+from flask_babel import Babel
 
 db = MongoEngine()
-
+babel = Babel()
 
 def init_app(config_file=None):
     """Initialize the core application."""
+
     app = Flask(__name__, instance_relative_config=False)
 
     if not config_file:
@@ -20,8 +22,13 @@ def init_app(config_file=None):
     if static_folder:
         app.static_folder = static_folder
 
+    template_folder = app.config["TEMPLATE_FOLDER"]
+    if template_folder:
+        app.template_folder = template_folder
+
     # Initialize Plugins
     db.init_app(app)
+    babel.init_app(app)
 
     with app.app_context():
         # Include our Routes
