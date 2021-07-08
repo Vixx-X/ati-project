@@ -6,9 +6,15 @@ COPY requirements /requirements
 RUN apk add --update-cache && \
     apk add --update alpine-sdk && \
     apk add libffi-dev openssl-dev && \
-    apk --no-cache --update add build-base
+    apk add bash && \
+    apk --no-cache --update add build-base && \
+    apk add --update nodejs nodejs-npm
+
+RUN npm install --global yarn
 
 RUN pip install -r /requirements/dev.txt -r /requirements/prod.txt
+
+RUN yarn install
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh

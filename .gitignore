@@ -5,12 +5,13 @@
 
 # Yarn/Node
 **/node_modules
+**/yarn-error.log
 
 # Media
 /media
 
 # Static
-/static
+**/static/**
 
 # Mongo
 /db
@@ -36,6 +37,7 @@ docs/_build/
 docs/build/
 
 # Environments
+**.env
 .env
 .venv
 env/
