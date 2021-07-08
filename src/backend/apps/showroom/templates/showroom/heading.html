@@ -1,33 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "showroom/base.html" %}
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="../../static/img/logo.svg" type="image/x-icon" />
-    <link rel="stylesheet" href="../../static/css/app.css" />
-    <link rel="stylesheet" href="../../static/css/components/heading.css" />
-    <title>Heading</title>
-</head>
+{% block title %}{{ _('Heading') }}{% endblock title %}
 
-<body>
-
-    <!-- Default -->
-    <div class="heading white">
-        <h3 class="fw-normal">
-            TextTitle
-        </h3>
-        <hr>
-    </div>
-    <!-- Variant2 -->
-    <div class="heading black">
-        <h3 class="fw-normal">
-            TextTitle
-        </h3>
-        <hr>
-    </div>
-
-</body>
-
-</html>
+{% block body %}
+<!-- Default -->
+<div class="heading white">
+    <h3 class="fw-normal">
+        TextTitle
+    </h3>
+    <hr>
+</div>
+<!-- Variant2 -->
+<div class="heading black">
+    <h3 class="fw-normal">
+        TextTitle
+    </h3>
+    <hr>
+</div>
+{% endblock body %}
