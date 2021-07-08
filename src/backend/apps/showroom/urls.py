@@ -6,17 +6,17 @@ from flask_babel import gettext as _
 from . import bp, views
 
 list_of_rooms = [
-    ("buttons", _("Buttons")),
-    ("header", _("Header")),
-    ("user_icon", _("User Icons")),
-    ("card", _("Card")),
-    ("header2", _("Main Header")),
-    ("comments-users", _("Comments of Users")),
-    ("footer", _("Footer")),
-    ("heading", _("Heading")),
-    ("long-cards", _("Long Cards")),
-    ("notification", _("Notification")),
-    ("search-button", _("Search Button")),
+    ("buttons", _("Buttons - Gabriela Ustariz")),
+    ("header", _("Header - Gabriela Ustariz")),
+    ("user_icon", _("User Icons - Vittorio Adesso")),
+    ("card", _("Card - Daniel Vieira")),
+    ("header2", _("Main Header - Gabriela Ustariz")),
+    ("comments-users", _("Comments of Users - Vittorio Adesso")),
+    ("footer", _("Footer - Eduardo Saurez")),
+    ("heading", _("Heading - Daniel Vieira")),
+    ("long-cards", _("Long Cards - Daniel Vieira")),
+    ("notification", _("Notification - Vittorio Adesso")),
+    ("search-button", _("Search Button - Eduardo Suarez")),
 ]
 
 bp.add_url_rule("/", view_func=views.Index.as_view("index"))
