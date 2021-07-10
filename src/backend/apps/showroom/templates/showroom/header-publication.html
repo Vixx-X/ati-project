@@ -1,6 +1,6 @@
 {% extends "showroom/base.html" %}
 
-{% from "components/user-icon.html" import user_icon %}
+{% from "components/header-publication.html" import header_publication %}
 
 {% block title %}{{ _('Header Publication') }}{% endblock title %}
 {% block body %}
@@ -8,25 +8,11 @@
 <body>
 
     <div class="w-25 container"> <!-- this div is not part of the component -->
-        <div class="d-flex jc-space_between header-publication">
-            <div class="d-flex">
-                {{ user_icon(
-                    img=url_for('static', filename='img/users/26272390.png'),
-                    alt="User Photo",
-                    type="basic user",
-                    png=url_for('static', filename='img/users/26272390.png'),
-                    webp=url_for('static', filename='img/users/26272390.webp')
-                  ) }}
-                <div>
-                    <h2>Input Publication</h2>
-                    <div class="d-flex jc-space_between">
-                        <p>Author</p>
-                        <p>Time</p>
-                    </div>
-                </div>
-            </div>
-            <img src="{{url_for('static', filename='img/icons/menu_3_puntos_horizontal.svg')}}" alt="menu_3_puntos_horizontal" class="w-2">
-        </div>
+        {{ header_publication(
+            img=url_for('static', filename='img/users/26272390.png'),
+            png=url_for('static', filename='img/users/26272390.png'),
+            webp=url_for('static', filename='img/users/26272390.webp')
+        )}}
     </div>
 
 </body>
