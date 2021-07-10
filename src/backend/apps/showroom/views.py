@@ -6,6 +6,7 @@ from flask import render_template
 from flask.helpers import url_for
 from flask.views import View
 
+from flask_babel import gettext as _
 
 class BaseView(View):
     """
@@ -56,12 +57,12 @@ class Index(BaseView):
         return {"list": urls}
 
 
-class Botones(BaseView):
+class Buttons(BaseView):
     """
     Showcase for button component.
     """
 
-    template_name = "showroom/botones.html"
+    template_name = "showroom/buttons.html"
 
 
 class Header(BaseView):
@@ -79,9 +80,72 @@ class UserIcon(BaseView):
 
     template_name = "showroom/user-icon.html"
 
+
 class Card(BaseView):
     """
     Showcase for card component.
     """
 
     template_name = "showroom/card.html"
+
+
+class Header2(BaseView):
+    """
+    Showcase for header2 component.
+    """
+
+    template_name = "showroom/header2.html"
+
+class Comments(BaseView):
+    """
+    Showcase for comments-users component.
+    """
+
+    template_name = "showroom/comments-users.html"
+
+
+class Footers(BaseView):
+    """
+    Showcase for footer component.
+    """
+
+    template_name = "showroom/footer.html"
+
+
+class Heading(BaseView):
+    """
+    Showcase for heading component.
+    """
+
+    template_name = "showroom/heading.html"
+
+
+class LongCards(BaseView):
+    """
+    Showcase for long cards component.
+    """
+
+    template_name = "showroom/long-cards.html"
+
+class Notification(BaseView):
+    """
+    Showcase for notification component.
+    """
+
+    template_name = "showroom/notification.html"
+
+
+class SearchButton(BaseView):
+    """
+    Showcase for search component.
+    """
+
+    template_name = "showroom/search-button.html"
+
+
+class Chat(BaseView):
+    """
+    Showcase for chat component.
+    """
+
+    template_name = "showroom/chat.html"
