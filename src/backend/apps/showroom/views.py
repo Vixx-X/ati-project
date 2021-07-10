@@ -149,3 +149,11 @@ class Chat(BaseView):
     """
 
     template_name = "showroom/chat.html"
+
+
+class HeaderPublication(BaseView):
+    """
+    Showcase for chat component.
+    """
+
+    template_name = "showroom/header-publication.html"
