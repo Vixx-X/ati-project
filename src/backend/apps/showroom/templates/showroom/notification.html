@@ -1,0 +1,31 @@
+{% extends "showroom/base.html" %}
+
+{% block title %}{{ _('Notification') }}{% endblock title %}
+
+{% block body %}
+    <!-- Variant1: White -->
+    <div class="w-18 notification white">
+        <div class="d-flex">
+          <img src="{{ url_for('static', filename='img/icons/delete.svg') }}" alt="delete">
+          <h3>{{ _('Notification') }}</h3>
+          <img src="{{ url_for('static', filename='img/icons/image.svg') }}" alt="image">
+        </div>
+        <hr>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+            tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+    </div>
+    <br>
+    <!-- Variant2: Primary -->
+    <div class="w-18 notification primary">
+        <div class="d-flex">
+          <img src="{{ url_for('static', filename='img/icons/delete.svg') }}" alt="delete">
+          <h3>{{ _('Notification') }}</h3>
+          <img src="{{ url_for('static', filename='img/icons/image.svg') }}" alt="image">
+        </div>
+        <hr>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+            tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+    </div>
+{% endblock body %}

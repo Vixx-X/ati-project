@@ -33,4 +33,20 @@ SECRET_KEY = "secret"
 
 # Static folder
 STATIC_FOLDER = f"{BASE_DIR}/static/"
-print(STATIC_FOLDER)
+
+# Template folder
+TEMPLATE_FOLDER = f"{BASE_DIR}/templates/"
+
+# Languages
+LANGUAGES = {
+    'en': 'English',
+    'es': 'Español',
+    'pt': 'português',
+}
+BABEL_TRANSLATION_DIRECTORIES = f"{BASE_DIR}/translations/"
+
+# Template Auto Reload
+TEMPLATES_AUTO_RELOAD = True
+
+
+

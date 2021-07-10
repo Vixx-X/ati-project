@@ -1,0 +1,13 @@
+{% extends "showroom/base.html" %}
+
+{% block title %}{{ _('Bottom Search') }}{% endblock title %}
+{% block body %}
+<div class="search search-bg ">
+    <div class="container-search">
+      <img class="icon" src="{{ url_for('static', filename='img/icons/search.svg') }}" alt="Notifications logotype"/>
+      <form action="">
+        <input type="text" placeholder="Search">
+      </form>
+    </div>
+</div>
+{% endblock body %}

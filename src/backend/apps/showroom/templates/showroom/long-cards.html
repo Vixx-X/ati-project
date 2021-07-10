@@ -1,0 +1,36 @@
+{% extends "showroom/base.html" %}
+
+{% from "components/user-icon.html" import user_icon %}
+
+{% block title %}{{ _('Long Cards') }}{% endblock title %}
+{% block body %}
+<div>
+
+    <!-- Variant1: Primary -->
+    <div class="long-card primary">
+        <h4>Text Title</h4>
+        <p>Text Content</p>
+    </div>
+
+    <br>
+
+    <!-- Variant2: Secundary -->
+    <div class="long-card secundary">
+        <h4>Text Title</h4>
+        <p>Text Content</p>
+    </div>
+
+    <br>
+
+    <!-- Variant3: Primary, Long -->
+    <div class="long-card primary long">
+        <h4>Text Title</h4>
+        <p>Text Content</p>
+        <p>Text Content</p>
+    </div>
+
+    <br>
+
+</div>
+{% endblock body %}
+

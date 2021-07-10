@@ -1,0 +1,62 @@
+@import "../bases/variables";
+@import "../bases/mixins";
+
+.header-main{
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .user-icon{
+        display: none;
+        width: 100%;
+        @include tablet{
+            display: block;
+        }
+    }
+
+    .button{
+        font-size: 16px;
+        height: fit-content;
+        &.with-icon{
+            display: none;
+            @include tablet{
+                display: flex;
+                width: 25%;
+                align-items: center;
+                justify-content: center;
+                padding: 0.5em 1em;
+                img{
+                    filter: invert(100%) sepia(84%) saturate(8%) hue-rotate(283deg) brightness(114%) contrast(87%);
+                    margin-right: 0.5em;
+                }
+            }
+        }
+
+        &.create{
+            border: 0.15em solid $primary;
+            text-align: left;
+            width: 100%;
+            padding: 0 auto;
+            padding: 1em 1.5em;
+            @include tablet{
+                width: auto;
+                width: 100%;
+            }
+            color: lighten($black, 40%);
+        }
+
+    }
+
+    .section-left{
+        width: 100%;
+        @include tablet{
+            width: 60%;
+            margin-left: 0;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            align-items: center;
+            column-gap: 1em;
+        }
+    }
+    
+}

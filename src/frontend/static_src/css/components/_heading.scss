@@ -1,0 +1,22 @@
+body {
+    background-color: #AEA4E8;
+}
+
+.heading {
+    width: 12em;
+    hr {
+        border: none;
+        height: 2px;
+    }
+    &.white {
+        color: #EEE;
+        hr {
+            background-color: #EEE;
+        }
+    }&.black {
+        color: #000;
+        hr {
+            background-color: #000;
+        }
+    }
+}
