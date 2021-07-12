@@ -6,7 +6,7 @@ from flask import render_template
 from flask.helpers import url_for
 from flask.views import View
 
-from flask_babel import gettext as _
+# from flask_babel import gettext as _ # for i18n
 
 class BaseView(View):
     """
