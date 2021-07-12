@@ -14,3 +14,10 @@ Main file for testing procedures
 #     resp = client.get("/")
 #     assert resp.status == "200 OK"
 #     assert resp.data == b"Hello World!\n"
+
+
+def test_just_werks():
+    """Dummy test"""
+
+    a = "I use Arch btw"
+    assert "Arch" in a
