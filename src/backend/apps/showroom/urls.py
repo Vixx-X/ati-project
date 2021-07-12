@@ -22,6 +22,7 @@ list_of_rooms = [
     ("muro", _("Muro")),
     ("input-label", _("Input Label - Daniel Vieria")),
     ("list-friends", _("list-friends - Eduardo Suarez")),
+]
 
 bp.add_url_rule("/", view_func=views.Index.as_view("index"))
 bp.add_url_rule("/buttons/", view_func=views.Buttons.as_view("buttons"))
