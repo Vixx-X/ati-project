@@ -1,6 +1,8 @@
 {% macro user_icon(img, alt="", type="basic", url="", png="", webp="") -%}
 <div class="user-icon {{ type }}">
-    <a href="{{ '#' if not alt else alt }}">
+    {%if url-%}
+        <a href="{{ '#' if not alt else alt }}">
+    {%- endif %}
         <picture>
             {% if webp -%}
             <source srcset="{{ webp }}" type="image/webp">
@@ -10,6 +12,8 @@
             {%- endif %}
             <img loading="lazy" src="{{ img }}" alt="{{ alt }}">
         </picture>
-    </a>
+    {%if url-%}
+        </a>
+    {%- endif %}
 </div>
 {%- endmacro %}

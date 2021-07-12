@@ -150,17 +150,26 @@ class Chat(BaseView):
 
     template_name = "showroom/chat.html"
 
-
-class HeaderPublication(BaseView):
+class ListFriends(BaseView):
     """
     Showcase for chat component.
     """
 
+    template_name = "showroom/list-friends.html"
+class HeaderPublication(BaseView):
+    """
+    Showcase for chat component.
+    """
     template_name = "showroom/header-publication.html"
 
 class InputLabel(BaseView):
     """
     Showcase for chat component.
     """
-
     template_name = "showroom/input-label.html"
+
+class RadioButton(BaseView):
+  """
+  Showcase for chat component.
+  """
+  template_name = "showroom/radio-button.html"
