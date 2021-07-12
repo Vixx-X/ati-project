@@ -1,0 +1,15 @@
+{% macro card(img, title='Title', content='', png='', webp='', alt='') -%}
+<div class="card">
+    <h2>{{title}}</h2> <br>
+    <picture>
+        {% if webp -%}
+        <source srcset="{{ webp }}" type="image/webp">
+        {%- endif %}
+        {% if png -%}
+        <source srcset="{{ png }}" type="image/png">
+        {%- endif %}
+        <img loading="lazy" src="{{ img }}" alt="{{ alt }}">
+    </picture>
+    <p class="mt-half">{{content}}</p>
+</div>
+{%- endmacro %}
