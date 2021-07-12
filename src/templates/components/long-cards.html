@@ -1,0 +1,15 @@
+{% macro longCard(title="Title", content=[""], type="primary") -%}
+<!-- content parameter must be an array -->
+
+<div>
+
+    <div class="long-card {{type}}">
+        <h4>{{title}}</h4>
+        {% for cont in content %}
+            <p>{{cont}}</p>
+        {% endfor %}
+    </div>
+
+</div>
+
+{%- endmacro %}
