@@ -157,3 +157,10 @@ class HeaderPublication(BaseView):
     """
 
     template_name = "showroom/header-publication.html"
+
+class RadioButton(BaseView):
+    """
+    Showcase for chat component.
+    """
+
+    template_name = "showroom/radio-button.html"
