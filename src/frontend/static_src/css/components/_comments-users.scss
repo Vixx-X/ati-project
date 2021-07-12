@@ -8,19 +8,19 @@
     .comments-group{
         position: relative;
         display: flex;
-        min-width: 20em;
-        margin-right: 2em;
+        width: 15em;
+        margin-right: 3em;
         .two{
             position: absolute;
-            left: 6em;
+            left: 5em;
         }
         .three{
             position: absolute;
-            left: 12em;
+            left: 10em;
         }
     }
     a{
-        color: $light;
+        color: lighten($black, 20%);
         font-size: 1.8em;
         &:hover{
             text-decoration: underline $light;

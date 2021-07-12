@@ -90,7 +90,7 @@ body {
   a {
     display: grid;
     place-items: center;
-    &.search {
+    &.search-header{
       @include desktop {
         display: none;
       }
