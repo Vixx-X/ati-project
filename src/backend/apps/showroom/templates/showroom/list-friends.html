@@ -1,0 +1,10 @@
+{% extends "showroom/base.html" %}
+{% from "components/list-friends.html" import list_friends %}
+
+{% block title %}{{ _('List of Friends') }}{% endblock title %}
+
+{% block body %}
+<div class="margin-section"></div>
+{{list_friends()}}
+<div class="margin-section"></div>
+{% endblock body %}

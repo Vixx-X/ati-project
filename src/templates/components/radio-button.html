@@ -1,0 +1,13 @@
+{% macro radioButton(id=None, name=None, text="Text-Radio", classLabel="black", classInput="black") -%}
+<div class="radio-button d-flex jc-space_between">
+    <label class="{{classLabel}}" for="{{id}}">{{text}}</label>
+    <input class="{{classInput}}" 
+    {% if id -%}
+    id="{{id}}" 
+    {% endif %}
+    {% if name-%}
+    name="{{name}}" 
+    {% endif %}
+    type="radio" value="{{text}}">
+</div>
+{%- endmacro %}

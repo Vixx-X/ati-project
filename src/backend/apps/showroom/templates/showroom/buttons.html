@@ -1,29 +1,41 @@
 {% extends "showroom/base.html" %}
-
+{% from "components/buttons.html" import buttons %}
 {% block title %} Buttons {% endblock title %}
 
 {% block body %}
 <div class="button-container">
-  <button class="button primary text-uppercase fw-bold">
-    {{ _('Button 1') }}
-  </button>
+  {{buttons(
+    mensaje="Button 1",
+    type="primary",
+    font="fw-bold",
+    letters="text-uppercase")
+  }}
 
   <div class="margin-section"></div>
 
-  <button class="button secundary text-uppercase fw-bold">
-    {{ _('Button 2') }}
-  </button>
+  {{buttons(
+    mensaje="Button 2",
+    type="secundary",
+    font="fw-bold",
+    letters="text-uppercase")
+  }}
 
   <div class="margin-section"></div>
 
-  <button class="button transparent text-uppercase fw-bold">
-    {{ _('Button 3') }}
-  </button>
+  {{buttons(
+    mensaje="Button 3",
+    type="transparent",
+    font="fw-bold",
+    letters="text-uppercase")
+  }}
 
   <div class="margin-section"></div>
 
-  <button class="button primary fw-normal">
-    {{ _('Button 4') }}
-  </button>
+  {{buttons(
+    mensaje="Button 3",
+    type="transparent",
+    font="fw-normal",
+    letters="text-uppercase")
+  }}
 </div>
 {% endblock body %}
