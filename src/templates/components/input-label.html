@@ -1,0 +1,30 @@
+{% macro inputLabel(type, id=None, name=None, classLabel="", classInput="", textLabel="Text Label",
+    placeholderText="Placeholder Text", rows=5, cols=21) -%}
+<div class="input-label">
+    <label class="d-flex fw-bold {{classLabel}}" 
+    {% if id -%} 
+        for="{{id}}" 
+        {%- endif %} 
+    >{{textLabel}}</label>
+    {% if type == 'text' %}
+    <input class="{{classInput}}" 
+        {% if id -%} 
+        id="{{id}}" 
+        {%- endif %} 
+        {% if name -%} 
+        name="{{name}}" 
+        {%- endif %}
+        type="text" placeholder="{{placeholderText}}">
+    {% endif %}
+    {% if type == 'textarea' %}
+    <textarea class="{{classInput}}" 
+        {% if id -%} 
+        id="{{id}}" 
+        {%- endif %} 
+        {% if name -%} 
+        name="{{name}}" 
+        {%- endif %}
+        rows="{{rows}}" cols="{{cols}}" placeholder="{{placeholderText}}"></textarea>
+    {% endif %}
+</div>
+{%- endmacro %}
