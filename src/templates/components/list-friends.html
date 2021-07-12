@@ -1,77 +1,24 @@
 {% from "components/user-icon.html" import user_icon %}
-{% from "components/buttons.html" import buttons %}
-{% macro list_friends() %}
+
+{% macro list_friends(img, name, comunFriends="Comun Friends", png="", webp="", alt="", type="basic") -%}
 
 <div class="cont-listaAmigos">
-    <h2>Lista de amigos</h2>
-    <a href="#">
-    <div class="listaAmigos-item">
-        {{ user_icon(
-            img=url_for('static', filename='img/users/26838989.png'),
-            alt="User3 Photo",
-            type="connect",
-            png=url_for('static', filename='img/users/26838989.png'),
-            webp=url_for('static', filename='img/users/26838989.webp')
-          )}}
-          <div class="listaAmigos-item_description">
-            <p class="listaAmigos-item_description-usuario">User 1</p>
-            <p class="listaAmigos-item_description-numberFriends">Comun Friends</p>
-          </div>
-  </div>
-  </a>
+  <!-- TODO change # for a new parameter value -->
   <a href="#">
-  <div class="listaAmigos-item">
+    <div class="listaAmigos-item">
       {{ user_icon(
-            img=url_for('static', filename='img/users/26838989.png'),
-            alt="User3 Photo",
-            type="connect",
-            png=url_for('static', filename='img/users/26838989.png'),
-            webp=url_for('static', filename='img/users/26838989.webp')
-      )}}
+        img=img,
+        alt=alt,
+        type=type,
+        png=png,
+        webp=webp
+        )}}
       <div class="listaAmigos-item_description">
-        <p class="listaAmigos-item_description-usuario">User 1</p>
-        <p class="listaAmigos-item_description-numberFriends">Comun Friends</p>
-      </div>  
-  </div>
-  </a>
-  <a href="#">
-    <div class="listaAmigos-item">
-      
-        {{ user_icon(
-            img=url_for('static', filename='img/users/26838989.png'),
-            alt="User3 Photo",
-            type="connect",
-            png=url_for('static', filename='img/users/26838989.png'),
-            webp=url_for('static', filename='img/users/26838989.webp')
-          )}}
-          <div class="listaAmigos-item_description">
-            <p class="listaAmigos-item_description-usuario">User 1</p>
-            <p class="listaAmigos-item_description-numberFriends">Comun Friends</p>
-          </div>
-      
+        <p class="listaAmigos-item_description-usuario">{{name}}</p>
+        <p class="listaAmigos-item_description-numberFriends">{{comunFriends}}</p>
+      </div>
     </div>
   </a>
-  <a href="#">
-    <div class="listaAmigos-item">
-        {{ user_icon(
-            img=url_for('static', filename='img/users/26838989.png'),
-            alt="User3 Photo",
-            type="connect",
-            png=url_for('static', filename='img/users/26838989.png'),
-            webp=url_for('static', filename='img/users/26838989.webp')
-          )}}
-          <div class="listaAmigos-item_description">
-            <p class="listaAmigos-item_description-usuario">User 1</p>
-            <p class="listaAmigos-item_description-numberFriends">Comun Friends</p>
-          </div>
-    </div>
-  </a>
-    {{buttons(
-      mensaje="See All",
-      type="primary",
-      font="fw-bold",
-      letters="text-uppercase")
-    }}
 </div>
 
-{% endmacro %}
+{%- endmacro %}
