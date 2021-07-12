@@ -1,6 +1,6 @@
-{% macro list_friends(color="",mensaje="",type="") %}
-
-<div class=""></div>
-
+{% macro buttons(mensaje="Button",type="primary",font="fw-bold", letters="text-uppercase") %}
+<button class="button {{ type }} {{ letters }} {{ font }}">
+    {{mensaje}}
+</button>
 {% endmacro %}
 

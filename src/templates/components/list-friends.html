@@ -1,4 +1,5 @@
 {% from "components/user-icon.html" import user_icon %}
+{% from "components/buttons.html" import buttons %}
 {% macro list_friends() %}
 
 <div class="cont-listaAmigos">
@@ -58,6 +59,12 @@
           <p class="listaAmigos-item_description-numberFriends">Comun Friends</p>
         </div>
     </div>
+    {{buttons(
+      mensaje="See All",
+      type="primary",
+      font="fw-bold",
+      letters="text-uppercase")
+    }}
 </div>
 
 {% endmacro %}
