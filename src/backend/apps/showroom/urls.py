@@ -19,6 +19,7 @@ list_of_rooms = [
     ("search-button", _("Search Button - Eduardo Suarez")),
     ("chat", _("Chat - Eduardo Suarez")),
     ("list-friends", _("list-friends - Eduardo Suarez")),
+    ("header_publication", _("Header Publication - DanielVieria")),
 ]
 
 bp.add_url_rule("/", view_func=views.Index.as_view("index"))
@@ -35,3 +36,4 @@ bp.add_url_rule("/notification/", view_func=views.Notification.as_view("notifica
 bp.add_url_rule("/search-button/", view_func=views.SearchButton.as_view("search-button"))
 bp.add_url_rule("/chat/", view_func=views.Chat.as_view("chat"))
 bp.add_url_rule("/list-friends/", view_func=views.ListFriends.as_view("list-friends"))
+bp.add_url_rule("/header-publication/", view_func=views.HeaderPublication.as_view("header_publication"))
