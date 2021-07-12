@@ -4,6 +4,7 @@
 
 <div class="cont-listaAmigos">
     <h2>Lista de amigos</h2>
+    <a href="#">
     <div class="listaAmigos-item">
         {{ user_icon(
             img=url_for('static', filename='img/users/26838989.png'),
@@ -17,48 +18,54 @@
             <p class="listaAmigos-item_description-numberFriends">Comun Friends</p>
           </div>
   </div>
-
+  </a>
+  <a href="#">
   <div class="listaAmigos-item">
-    {{ user_icon(
-          img=url_for('static', filename='img/users/26838989.png'),
-          alt="User3 Photo",
-          type="connect",
-          png=url_for('static', filename='img/users/26838989.png'),
-          webp=url_for('static', filename='img/users/26838989.webp')
-    )}}
-    <div class="listaAmigos-item_description">
-      <p class="listaAmigos-item_description-usuario">User 1</p>
-      <p class="listaAmigos-item_description-numberFriends">Comun Friends</p>
-    </div>
+      {{ user_icon(
+            img=url_for('static', filename='img/users/26838989.png'),
+            alt="User3 Photo",
+            type="connect",
+            png=url_for('static', filename='img/users/26838989.png'),
+            webp=url_for('static', filename='img/users/26838989.webp')
+      )}}
+      <div class="listaAmigos-item_description">
+        <p class="listaAmigos-item_description-usuario">User 1</p>
+        <p class="listaAmigos-item_description-numberFriends">Comun Friends</p>
+      </div>  
   </div>
-
+  </a>
+  <a href="#">
     <div class="listaAmigos-item">
-      {{ user_icon(
-          img=url_for('static', filename='img/users/26838989.png'),
-          alt="User3 Photo",
-          type="connect",
-          png=url_for('static', filename='img/users/26838989.png'),
-          webp=url_for('static', filename='img/users/26838989.webp')
-        )}}
-        <div class="listaAmigos-item_description">
-          <p class="listaAmigos-item_description-usuario">User 1</p>
-          <p class="listaAmigos-item_description-numberFriends">Comun Friends</p>
-        </div>
+      
+        {{ user_icon(
+            img=url_for('static', filename='img/users/26838989.png'),
+            alt="User3 Photo",
+            type="connect",
+            png=url_for('static', filename='img/users/26838989.png'),
+            webp=url_for('static', filename='img/users/26838989.webp')
+          )}}
+          <div class="listaAmigos-item_description">
+            <p class="listaAmigos-item_description-usuario">User 1</p>
+            <p class="listaAmigos-item_description-numberFriends">Comun Friends</p>
+          </div>
+      
     </div>
-
+  </a>
+  <a href="#">
     <div class="listaAmigos-item">
-      {{ user_icon(
-          img=url_for('static', filename='img/users/26838989.png'),
-          alt="User3 Photo",
-          type="connect",
-          png=url_for('static', filename='img/users/26838989.png'),
-          webp=url_for('static', filename='img/users/26838989.webp')
-        )}}
-        <div class="listaAmigos-item_description">
-          <p class="listaAmigos-item_description-usuario">User 1</p>
-          <p class="listaAmigos-item_description-numberFriends">Comun Friends</p>
-        </div>
+        {{ user_icon(
+            img=url_for('static', filename='img/users/26838989.png'),
+            alt="User3 Photo",
+            type="connect",
+            png=url_for('static', filename='img/users/26838989.png'),
+            webp=url_for('static', filename='img/users/26838989.webp')
+          )}}
+          <div class="listaAmigos-item_description">
+            <p class="listaAmigos-item_description-usuario">User 1</p>
+            <p class="listaAmigos-item_description-numberFriends">Comun Friends</p>
+          </div>
     </div>
+  </a>
     {{buttons(
       mensaje="See All",
       type="primary",
