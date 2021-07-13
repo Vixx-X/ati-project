@@ -12,7 +12,7 @@
 {% block body %}
 <header class="header bg-header">
     <div class="container container-header">
-      <a href="#">
+      <a href="{{url_for('app.home')}}">
         <div class="main-logotype">
           <img
             src="{{ url_for('static', filename='img/logo.svg') }}"
@@ -55,7 +55,7 @@
               alt="Notifications logotype"
             />
           </a>
-          <a href="#">
+          <a href="{{url_for('app.landing')}}">
             <img
               class="icon"
               src="{{ url_for("static", filename="img/icons/logout.svg") }}"
