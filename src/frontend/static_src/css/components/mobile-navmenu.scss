@@ -1,9 +1,5 @@
 @import "../bases/variables";
 
-body {
-    background-color: rgba(123, 97, 255, 30%);
-}
-
 .container-menu{
     font-size: 10px;
     width: 360px;
@@ -35,10 +31,7 @@ body {
                     background-color: $primary;
                 }   
             }
-
-
         }
-
     }
     .contents-tabs{
         font-size: 1.6em;

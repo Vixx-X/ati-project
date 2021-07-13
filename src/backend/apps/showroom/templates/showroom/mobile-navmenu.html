@@ -1,0 +1,34 @@
+{% extends "showroom/base.html" %}
+
+{% block title %}{{ _('Mobile Nav Menu')}}{% endblock title %}
+{% block body%}
+<div class="mobile-navmenu container-menu">
+    <ul class="options-tabs">
+        <li class="active-tab">
+            <button>
+                <img src="{{url_for('static', filename='img/icons/publications.svg')}}" alt="Publication tab" />
+            </button>
+        </li>
+        <li>
+            <button>
+                <img src="{{url_for('static', filename='img/icons/details.svg')}}" alt="Details tab " />
+            </button>
+        </li>
+    </ul>
+
+    <ul class=contents-tabs>
+        <li class="active-content">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, repudiandae architecto. Nostrum
+                corrupti quo, sequi adipisci doloribus rerum beatae quae ullam eos. Asperiores architecto nobis, sequi
+                vel quidem dolorem natus.</p>
+        </li>
+        <li>
+            <p>Otro parrafo de oro itemTempora nisi quam vel necessitatibus nulla, delectus amet consequuntur doloribus
+                perspiciatis aliquid numquam, aspernatur enim, veritatis modi. Hic ad eligendi quam laboriosam! Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus sunt perferendis aliquam
+                exercitationem unde maiores dignissimos magni. Itaque corporis reprehenderit suscipit, in odit nihil
+                doloremque magnam facilis repellat rem sunt!</p>
+        </li>
+    </ul>
+</div>
+{% endblock body %}

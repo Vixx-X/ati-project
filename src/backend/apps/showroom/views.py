@@ -219,3 +219,9 @@ class ListChats(BaseView):
   Showcase for footer mobile component.
   """
   template_name = "showroom/list-chats.html"
+
+class MobileNavMenu(BaseView):
+  """
+  Showcase for mobile nav menu component.
+  """
+  template_name = "showroom/mobile-navmenu.html"

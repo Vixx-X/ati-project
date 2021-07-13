@@ -28,6 +28,7 @@ list_of_rooms = [
     ("drop-down-list", _("Drop Down List - Eduardo Suarez")),
     ("footer-mobile", _("Footer Mobile - Daniel Vieria")),
     ("list-chats", _("List Chats - Daniel Vieria")),
+    ("mobile-navmenu", _("Mobile Nav Menu - Gabriela Uztariz")),
 ]
 
 bp.add_url_rule("/", view_func=views.Index.as_view("index"))
@@ -54,3 +55,4 @@ bp.add_url_rule("/boolean-button/", view_func=views.BooleanButton.as_view("boole
 bp.add_url_rule("/drop-down-list/", view_func=views.DropDownList.as_view("drop-down-list"))
 bp.add_url_rule("/footer-mobile/", view_func=views.FooterMobile.as_view("footer-mobile"))
 bp.add_url_rule("/list-chats/", view_func=views.ListChats.as_view("list-chats"))
+bp.add_url_rule("/mobile-navmenu/", view_func=views.MobileNavMenu.as_view("mobile-navmenu"))
