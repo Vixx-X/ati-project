@@ -11,9 +11,18 @@ import os
 BASE_DIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
 # Define the database - we are working with
-# # SQLite for this example
-# SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(BASE_DIR, "app.db")
-# DATABASE_CONNECT_OPTIONS = {}
+# MongoDB for this example
+MONGODB_SETTINGS = {
+    'db': 'project',
+    'username':'admin',
+    'password':'1234',
+    'host':'localhost',
+    'port':27017,
+}
+
+# Flask-User configs
+# https://flask-user.readthedocs.io/en/latest/configuring_settings.html
+USER_EMAIL_SENDER_EMAIL = "noreply@vittorioadesso.com"
 
 # Application threads. A common general assumption is
 # using 2 per available processor cores - to handle
@@ -39,8 +48,8 @@ TEMPLATE_FOLDER = f"{BASE_DIR}/templates/"
 
 # Languages
 LANGUAGES = {
-    'en': 'English',
-    'es': 'Español',
+    'en': 'english',
+    'es': 'español',
     'pt': 'português',
 }
 BABEL_TRANSLATION_DIRECTORIES = f"{BASE_DIR}/translations/"
