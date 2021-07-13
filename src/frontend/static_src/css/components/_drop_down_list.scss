@@ -1,0 +1,16 @@
+@import "../bases/variables";
+
+.drop-down-items{
+    position: relative;
+    background-color: $primary;
+    color: $white;
+    width: 10em;
+    padding: 0.9em;
+    border:none
+}
+
+.drop-down-items:after{
+    position: absolute;
+    content:url("../../../static/img/icons/triangle.svg");
+}
+

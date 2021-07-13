@@ -21,6 +21,7 @@ list_of_rooms = [
     ("header_publication", _("Header Publication - Daniel Vieria")),
     ("input-label", _("Input Label - Daniel Vieria")),
     ("list-friends", _("list-friends - Eduardo Suarez")),
+    ("drop-down-list", _("Drop down List - Eduardo Suarez")),
 ]
 
 bp.add_url_rule("/", view_func=views.Index.as_view("index"))
@@ -40,4 +41,5 @@ bp.add_url_rule("/list-friends/", view_func=views.ListFriends.as_view("list-frie
 bp.add_url_rule("/header-publication/", view_func=views.HeaderPublication.as_view("header_publication"))
 bp.add_url_rule("/input-label/", view_func=views.InputLabel.as_view("input-label"))
 bp.add_url_rule("/radio-button/", view_func=views.RadioButton.as_view("radio-button"))
+bp.add_url_rule("/drop-down-list/", view_func=views.DropDownList.as_view("drop-down-list"))
 
