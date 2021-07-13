@@ -1,0 +1,38 @@
+{% from "components/user-icon.html" import user_icon %}
+{% from "components/buttons.html" import buttons %}
+{% macro element_friend_list(user="User1",comunFriends="Comun friends", button="", connect="",trasparent="", url="", png="", webp="") %}
+<div class="cont-element-friend-list {% if trasparent %} trasparent {% endif %}">
+    {% if connect %}
+        {{ user_icon(
+            img=url,
+            alt=User,
+            type="connect",
+            png=png,
+            webp=webp
+        )}}
+    {% endif %}
+    {% if not connect %}
+        {{ user_icon(
+            img=url,
+            alt=User,
+            type="basic",
+            png=png,
+            webp=webp
+        )}}
+    {% endif %}
+    <div class="cont-element-friend-list-description">
+        <p class="element_friend_list_user">{{user}}</p>
+        <p class="element_friend_list_commun_friends">{{comunFriends}}</p>
+    </div>
+    <div class="cont-element-friend-button">
+        {% if button %}
+            {{buttons(
+                mensaje="Friends",
+                type="primary",
+                font="fw-bold",
+                letters="text-uppercase")
+        }}
+        {% endif %}
+    </div>
+</div>
+{%endmacro %}

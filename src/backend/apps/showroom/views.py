@@ -207,7 +207,13 @@ class DropDownList(BaseView):
   Showcase for chat component.
   """
   template_name = "showroom/drop-down-list.html"
-
+  
+class ElementFriendList(BaseView):
+  """
+  Showcase for chat component.
+  """
+  template_name = "showroom/element-friend-list.html"
+  
 class FooterMobile(BaseView):
   """
   Showcase for footer mobile component.
@@ -220,3 +226,8 @@ class Register(BaseView):
   """
   template_name = "showroom/register.html"
   
+class ListChats(BaseView):
+  """
+  Showcase for footer mobile component.
+  """
+  template_name = "showroom/list-chats.html"

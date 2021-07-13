@@ -27,7 +27,12 @@ list_of_rooms = [
     ("muro", _("Muro")),
     ("home", _("Home")),
     ("login", _("LogIn")),
-    ("register", _("Register"))
+    ("register", _("Register")),
+    ("boolean-button", _("Boolean Button - Daniel Vieria")),
+    ("drop-down-list", _("Drop Down List - Eduardo Suarez")),
+    ("footer-mobile", _("Footer Mobile - Daniel Vieria")),
+    ("list-chats", _("List Chats - Daniel Vieria")),
+    ("element-friend-list", _("Element Friend List - Eduardo Suarez")),
 ]
 
 bp.add_url_rule("/", view_func=views.Index.as_view("index"))
@@ -52,5 +57,7 @@ bp.add_url_rule("/home/", view_func=views.Home.as_view("home"))
 bp.add_url_rule("/login/", view_func=views.LogIn.as_view("login"))
 bp.add_url_rule("/boolean-button/", view_func=views.BooleanButton.as_view("boolean-button"))
 bp.add_url_rule("/drop-down-list/", view_func=views.DropDownList.as_view("drop-down-list"))
+bp.add_url_rule("/element-friend-list/", view_func=views.ElementFriendList.as_view("element-friend-list"))
 bp.add_url_rule("/footer-mobile/", view_func=views.FooterMobile.as_view("footer-mobile"))
 bp.add_url_rule("/register/", view_func=views.Register.as_view("register"))
+bp.add_url_rule("/list-chats/", view_func=views.ListChats.as_view("list-chats"))
