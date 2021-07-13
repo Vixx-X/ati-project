@@ -238,3 +238,9 @@ class ListChats(BaseView):
   """
   template_name = "showroom/list-chats.html"
 
+class Configurations(BaseView):
+  """
+  Showcase for configuration view.
+  """
+  template_name = "showroom/configurations.html"
+
