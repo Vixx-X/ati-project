@@ -1,0 +1,49 @@
+{% extends "showroom/base.html" %}
+
+{% from "components/element-friend-list.html" import element_friend_list %}
+
+{% block title %}{{ _('Element friend list') }}{% endblock title %}
+
+{% block body %}
+
+<div class="margin-section"></div>
+
+{{element_friend_list(
+    user="Edu",
+    comunFriends="40mil",
+    button="1",
+    connect="1",
+    trasparent="1", 
+    url=url_for('static', filename='img/users/25641651.png'), 
+    png=url_for('static', filename='img/users/25641651.png'), 
+    webp=url_for('static', filename='img/users/25641651.webp')
+)}}
+
+<div class="margin-section"></div>
+
+{{element_friend_list(
+    user="Vitto",
+    comunFriends="40mil",
+    button="",
+    connect="",
+    trasparent="1", 
+    url=url_for('static', filename='img/users/26838989.png'), 
+    png=url_for('static', filename='img/users/26838989.png'), 
+    webp=url_for('static', filename='img/users/26838989.webp')
+)}}
+
+<div class="margin-section"></div>
+
+{{element_friend_list(
+    user="Vitto",
+    comunFriends="40mil",
+    button="1",
+    connect="1",
+    trasparent="", 
+    url=url_for('static', filename='img/users/25641651.png'), 
+    png=url_for('static', filename='img/users/25641651.png'), 
+    webp=url_for('static', filename='img/users/25641651.webp')
+)}}
+
+<div class="margin-section"></div>
+{% endblock body %}
