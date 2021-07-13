@@ -1,0 +1,22 @@
+{% extends "showroom/base.html" %}
+
+{% block title %}{{ _('Boolean Button') }}{% endblock title %}
+{% block body %}
+
+<div class="margin-section"></div>
+<div class="margin-section"></div>
+<div class="margin-section"></div>
+<div class="margin-section"></div>
+<div class="margin-section"></div>
+
+<div class="w-25 container">
+    <div class="boolean-button d-flex jc-space_between">
+        <label for="booleanButton">Label</label>
+        <label id="booleanButton" class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+        </label>
+    </div>
+</div>
+
+{% endblock body %}

@@ -181,3 +181,9 @@ class RadioButton(BaseView):
   Showcase for chat component.
   """
   template_name = "showroom/radio-button.html"
+
+class BooleanButton(BaseView):
+  """
+  Showcase for chat component.
+  """
+  template_name = "showroom/boolean-button.html"

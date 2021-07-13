@@ -22,6 +22,7 @@ list_of_rooms = [
     ("muro", _("Muro")),
     ("input-label", _("Input Label - Daniel Vieria")),
     ("list-friends", _("list-friends - Eduardo Suarez")),
+    ("boolean-button", _("Boolean Button - Daniel Vieria")),
 ]
 
 bp.add_url_rule("/", view_func=views.Index.as_view("index"))
@@ -42,4 +43,5 @@ bp.add_url_rule("/list-friends/", view_func=views.ListFriends.as_view("list-frie
 bp.add_url_rule("/header-publication/", view_func=views.HeaderPublication.as_view("header_publication"))
 bp.add_url_rule("/input-label/", view_func=views.InputLabel.as_view("input-label"))
 bp.add_url_rule("/radio-button/", view_func=views.RadioButton.as_view("radio-button"))
+bp.add_url_rule("/boolean-button/", view_func=views.BooleanButton.as_view("boolean-button"))
 
