@@ -21,12 +21,9 @@ list_of_rooms = [
     ("header_publication", _("Header Publication - DanielVieria")),
     ("input-label", _("Input Label - Daniel Vieria")),
     ("list-friends", _("list-friends - Eduardo Suarez")),
-<<<<<<< HEAD
-    ("boolean-button", _("Boolean Button - Daniel Vieria")),
-=======
     ("muro", _("Muro")),
     ("home", _("Home")),
->>>>>>> develop
+    ("boolean-button", _("Boolean Button - Daniel Vieria")),
 ]
 
 bp.add_url_rule("/", view_func=views.Index.as_view("index"))
