@@ -1,0 +1,65 @@
+@import "bases/variables";
+@import "bases/mixins";
+
+.section-header{
+    position: relative;
+    background-color: $black;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.51), rgba(0, 0, 0, 0.51)), url("../../../static/img/background1.jpg");
+    background-size: cover;
+    background-position: center center;
+    min-height: 30vh;
+    @include tablet{
+        height: 50vh;
+    }
+}
+
+.profile-icon{
+    margin: 0 auto;
+    .user-icon{
+        font-size: 2.3rem;
+        margin: -8rem auto auto auto !important;
+        @include tablet{
+            font-size: 3.5rem;
+            margin: -18rem auto auto auto !important;
+        }
+    }
+    p{
+        text-align: center;
+        font-size: 3rem;
+    }
+}
+
+.navegation-desktop{
+    width: 100%;
+    position: absolute;
+    margin: -12rem 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: absolute;
+    font-size: 0.7rem;
+    .button{
+        width: 20rem;
+        padding: 1rem;
+        .tercero{
+            grid-column: 4 / 5;
+        }
+    }
+}
+
+.publication{
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px dashed $secundary;
+    padding: 3rem;
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+    .image-publication{
+        img{
+            margin: 2rem 0;
+            width: 100%;
+        }
+    }
+}
+
+.container-section{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}

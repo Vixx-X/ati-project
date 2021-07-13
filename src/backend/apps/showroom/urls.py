@@ -30,6 +30,7 @@ list_of_rooms = [
     ("register", _("Register")),
     ("configurations", _("Configurations")),
     ("notifications", _("Notifications")),
+    ("profile1", _("Profile")),
     ("boolean-button", _("Boolean Button - Daniel Vieria")),
     ("drop-down-list", _("Drop Down List - Eduardo Suarez")),
     ("footer-mobile", _("Footer Mobile - Daniel Vieria")),
@@ -65,3 +66,4 @@ bp.add_url_rule("/register/", view_func=views.Register.as_view("register"))
 bp.add_url_rule("/list-chats/", view_func=views.ListChats.as_view("list-chats"))
 bp.add_url_rule("/notifications/", view_func=views.Notifications.as_view("notifications"))
 bp.add_url_rule("/configurations/", view_func=views.Configurations.as_view("configurations"))
+bp.add_url_rule("/profile1/", view_func=views.Profile1.as_view("profile1"))
