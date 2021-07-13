@@ -20,6 +20,10 @@ MONGODB_SETTINGS = {
     'port':27017,
 }
 
+# Flask-User configs
+# https://flask-user.readthedocs.io/en/latest/configuring_settings.html
+USER_EMAIL_SENDER_EMAIL = "noreply@vittorioadesso.com"
+
 # Application threads. A common general assumption is
 # using 2 per available processor cores - to handle
 # incoming requests using one and performing background

@@ -2,9 +2,11 @@
 Main app factory to boostrap the application
 """
 
-from flask import Flask
+from flask import Flask, request, session
 from flask_mongoengine import MongoEngine
 from flask_babel import Babel
+from flask_user.user_manager import UserManager
+from backend.apps.user.models import User
 
 db = MongoEngine()
 babel = Babel()
@@ -29,6 +31,7 @@ def init_app(config_file=None):
     # Initialize Plugins
     db.init_app(app)
     babel.init_app(app)
+    user_manager = UserManager(app, db, User)
 
     with app.app_context():
         # Include our Routes
@@ -45,5 +48,11 @@ def init_app(config_file=None):
         # app.register_blueprint(multimedia.bp)
         # app.register_blueprint(posts.bp)
         # app.register_blueprint(user.bp)
+
+        @babel.localeselector
+        def get_locale():
+            if request.args.get('lang'):
+                session['lang'] = request.args.get('lang')
+            return session.get('lang', 'en')
 
         return app

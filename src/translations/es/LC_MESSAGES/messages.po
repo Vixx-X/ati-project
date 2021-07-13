@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-07-08 04:08-0400\n"
-"PO-Revision-Date: 2021-07-08 04:09-0400\n"
+"POT-Creation-Date: 2021-07-13 06:11-0400\n"
+"PO-Revision-Date: 2021-07-13 06:11-0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
 "Language-Team: es <LL@li.org>\n"
@@ -18,28 +18,123 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
-#: backend/apps/showroom/urls.py:9
+#: backend/apps/showroom/templates/showroom/boolean-button.html:5
+msgid "Boolean Button"
+msgstr ""
+
+#: backend/apps/showroom/templates/showroom/card.html:3
+msgid "Card"
+msgstr ""
+
+#: backend/apps/showroom/templates/showroom/chat.html:3
+msgid "Chat"
+msgstr ""
+
+#: backend/apps/showroom/templates/showroom/comments-users.html:5
+msgid "Comments-User"
+msgstr ""
+
+#: backend/apps/showroom/templates/showroom/drop-down-list.html:5
+msgid "Drop Down List"
+msgstr ""
+
+#: backend/apps/showroom/templates/showroom/element-friend-list.html:5
+msgid "Element friend list"
+msgstr ""
+
+#: backend/apps/showroom/templates/showroom/footer-mobile.html:5
+msgid "Footer Mobile"
+msgstr ""
+
+#: backend/apps/showroom/templates/showroom/footer.html:3
 msgid "Buttons"
-msgstr "Botones"
+msgstr ""
 
-#: backend/apps/showroom/urls.py:10
-msgid "Header"
+#: backend/apps/showroom/templates/showroom/footer.html:10
+#: backend/apps/showroom/templates/showroom/footer.html:18
+#: backend/apps/showroom/templates/showroom/home.html:48
+#: backend/apps/showroom/templates/showroom/login.html:81
+#: backend/apps/showroom/templates/showroom/muro.html:296
+#: backend/apps/showroom/templates/showroom/register.html:91
+msgid "Copyright &copy; ITA - Computer School"
+msgstr "Copyright &copy; ATI - Escuela de Computación"
+
+#: backend/apps/showroom/templates/showroom/header-publication.html:5
+msgid "Header Publication"
+msgstr "Cabecera de la Publicación"
+
+#: backend/apps/showroom/templates/showroom/header2.html:5
+msgid "Header Main"
+msgstr "Cabecera Principal"
+
+#: backend/apps/showroom/templates/showroom/heading.html:3
+msgid "Heading"
 msgstr "Cabecera"
-
-#: backend/apps/showroom/urls.py:11
-msgid "User Icons"
-msgstr "Iconos de Usuario"
-
-#: backend/apps/showroom/urls.py:12
-msgid "Cart"
-msgstr "Carta"
 
 #: backend/apps/showroom/templates/showroom/index.html:3
 #: backend/apps/showroom/templates/showroom/index.html:6
 msgid "Component list"
 msgstr "Lista de Componentes"
 
+#: backend/apps/showroom/templates/showroom/input-label.html:5
+msgid "Input Label"
+msgstr "Etiqueta de Inputs"
+
+#: backend/apps/showroom/templates/showroom/list-chats.html:5
+msgid "List Chats"
+msgstr "Lista Chats"
+
+#: backend/apps/showroom/templates/showroom/list-friends.html:4
+msgid "List of Friends"
+msgstr "Lista de Amigos"
+
+#: backend/apps/showroom/templates/showroom/long-cards.html:5
+msgid "Long Cards"
+msgstr "Cartas Largas"
+
+#: backend/apps/showroom/templates/showroom/notification.html:3
+#: backend/apps/showroom/templates/showroom/notification.html:10
+#: backend/apps/showroom/templates/showroom/notification.html:23
+msgid "Notification"
+msgstr "Notificación"
+
+#: backend/apps/showroom/templates/showroom/radio-button.html:5
+msgid "Radio Button"
+msgstr "Botón Radio"
+
+#: backend/apps/showroom/templates/showroom/search-button.html:3
+msgid "Bottom Search"
+msgstr "Botón de Búsqueda"
+
 #: backend/apps/showroom/templates/showroom/user-icon.html:5
 msgid "User icon"
-msgstr "Icono de usuario"
+msgstr "Icono de Usuario"
+
+#: backend/apps/user/models.py:15
+msgid "public"
+msgstr "publica"
+
+#: backend/apps/user/models.py:15
+msgid "private"
+msgstr "privada"
+
+#: backend/apps/user/models.py:20
+msgid "light mode"
+msgstr "modo claro"
+
+#: backend/apps/user/models.py:20
+msgid "dark mode"
+msgstr "modo oscuro"
+
+#: backend/apps/user/models.py:43
+msgid "femenine"
+msgstr "femenino"
+
+#: backend/apps/user/models.py:43
+msgid "masculine"
+msgstr "masculino"
+
+#: backend/apps/user/models.py:43
+msgid "other"
+msgstr "otro"
 
