@@ -165,20 +165,27 @@ class HeaderPublication(BaseView):
 
 class Muro(BaseView):
     """
-    Showcase for chat component.
+    Showcase for muro view.
     """
 
     template_name = "showroom/muro.html"
 
-class InputLabel(BaseView):
+class Home(BaseView):
     """
     Showcase for chat component.
+    """
+
+    template_name = "showroom/home.html"
+
+class InputLabel(BaseView):
+    """
+    Showcase for inputLabel component.
     """
     template_name = "showroom/input-label.html"
 
 class RadioButton(BaseView):
   """
-  Showcase for chat component.
+  Showcase for RadioButton component.
   """
   template_name = "showroom/radio-button.html"
 
