@@ -194,3 +194,9 @@ class BooleanButton(BaseView):
   Showcase for chat component.
   """
   template_name = "showroom/boolean-button.html"
+
+class DropDownList(BaseView):
+  """
+  Showcase for chat component.
+  """
+  template_name = "showroom/drop-down-list.html"
