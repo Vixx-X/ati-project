@@ -25,3 +25,10 @@
 .p-2 {
   padding: 0 2em;
 }
+
+.margin-mobile{
+  margin-bottom: 17rem !important;
+  @include cell{
+    margin-bottom: 0rem !important;
+  }
+}

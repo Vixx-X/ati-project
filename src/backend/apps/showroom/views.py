@@ -225,9 +225,16 @@ class Register(BaseView):
   Showcase for register component.
   """
   template_name = "showroom/register.html"
-  
-class ListChats(BaseView):
+
+class Notifications(BaseView):
   """
   Showcase for footer mobile component.
   """
+  template_name = "showroom/notifications.html"
+  
+class ListChats(BaseView):
+  """
+  Showcase for chat list component.
+  """
   template_name = "showroom/list-chats.html"
+
