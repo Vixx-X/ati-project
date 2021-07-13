@@ -11,7 +11,7 @@
     <div class="background-dark-transparent">
         <div class="container content-distribution">
             <div class="container-left">
-                <a href="#">
+                <a href="{{url_for('app.landing')}}">
                     <div class="main-logotype">
                         <img
                         src="{{ url_for('static', filename='img/logo.svg') }}"
@@ -43,16 +43,18 @@
                     textLabel='Password',
                     placeholderText='Your Password'
                 )}}
-                <a href="#" id="linkaccount">
+                <a href="{{url_for('app.register')}}" id="linkaccount">
                     <p class="text-uppercase fw-bold">Don't have account?</p>
                 </a>
                 <div class="container-button">
-                    {{buttons(
-                        mensaje="Sign In",
-                        type="primary",
-                        font="fw-bold",
-                        letters="text-uppercase")
-                    }}
+                    <a href="{{url_for('app.home')}}">
+                        {{buttons(
+                            mensaje="Sign In",
+                            type="primary",
+                            font="fw-bold",
+                            letters="text-uppercase")
+                        }}
+                    </a>
                 </div>
                 <div class="container-api">
                     {{buttons(
