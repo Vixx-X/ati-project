@@ -34,7 +34,17 @@
         {% if name -%} 
         name="{{name}}" 
         {%- endif %}
-        type="text" placeholder="{{placeholderText}}">
+        type="password" placeholder="{{placeholderText}}">
+    {% endif %}
+    {% if type == 'email' %}
+    <input class="{{classInput}}" 
+        {% if id -%} 
+        id="{{id}}" 
+        {%- endif %} 
+        {% if name -%} 
+        name="{{name}}" 
+        {%- endif %}
+        type="email" placeholder="{{placeholderText}}">
     {% endif %}
 </div>
 {%- endmacro %}
