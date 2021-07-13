@@ -26,5 +26,25 @@
         {%- endif %}
         rows="{{rows}}" cols="{{cols}}" placeholder="{{placeholderText}}"></textarea>
     {% endif %}
+    {% if type == 'password' %}
+    <input class="{{classInput}}" 
+        {% if id -%} 
+        id="{{id}}" 
+        {%- endif %} 
+        {% if name -%} 
+        name="{{name}}" 
+        {%- endif %}
+        type="password" placeholder="{{placeholderText}}">
+    {% endif %}
+    {% if type == 'email' %}
+    <input class="{{classInput}}" 
+        {% if id -%} 
+        id="{{id}}" 
+        {%- endif %} 
+        {% if name -%} 
+        name="{{name}}" 
+        {%- endif %}
+        type="email" placeholder="{{placeholderText}}">
+    {% endif %}
 </div>
 {%- endmacro %}

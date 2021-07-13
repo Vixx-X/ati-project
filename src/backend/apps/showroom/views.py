@@ -158,7 +158,7 @@ class ListFriends(BaseView):
     template_name = "showroom/list-friends.html"
 class HeaderPublication(BaseView):
     """
-    Showcase for chat component.
+    Showcase for header publication component.
     """
     template_name = "showroom/header-publication.html"
 
@@ -172,10 +172,17 @@ class Muro(BaseView):
 
 class Home(BaseView):
     """
-    Showcase for chat component.
+    Showcase for home view.
     """
 
     template_name = "showroom/home.html"
+
+class LogIn(BaseView):
+    """
+    Showcase for login view.
+    """
+
+    template_name = "showroom/login.html"
 
 class InputLabel(BaseView):
     """
@@ -200,3 +207,27 @@ class DropDownList(BaseView):
   Showcase for chat component.
   """
   template_name = "showroom/drop-down-list.html"
+  
+class ElementFriendList(BaseView):
+  """
+  Showcase for chat component.
+  """
+  template_name = "showroom/element-friend-list.html"
+  
+class FooterMobile(BaseView):
+  """
+  Showcase for footer mobile component.
+  """
+  template_name = "showroom/footer-mobile.html"
+
+class Register(BaseView):
+  """
+  Showcase for register component.
+  """
+  template_name = "showroom/register.html"
+  
+class ListChats(BaseView):
+  """
+  Showcase for footer mobile component.
+  """
+  template_name = "showroom/list-chats.html"

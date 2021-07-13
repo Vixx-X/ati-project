@@ -1,17 +1,15 @@
 {% extends "showroom/base.html" %}
+
 {% from "components/list-friends.html" import list_friends %}
 
-{% block title %}{{ _('List of Friends') }}{% endblock title %}
-{% from "components/buttons.html" import buttons %}
-
-{% block body %}
+{% block title %}{{ _('List Chats') }}{% endblock title %}
+{% block body -%}
 <div class="margin-section"></div>
 
-<div class="container w-25" style="width: fit-content;">
-    <!-- To create the list is necesary create the following div -->
+<div class="container" style="width: 25em;">
     <div class="cont-listaAmigos p-2">
         <div class="center">
-            <h2>List Friends</h2>
+            <h2>Chats</h2>
             <hr>
         </div>
         {{list_friends(
@@ -19,9 +17,9 @@
         name="User 1",
         alt="User1 Photo",
         type="connect",
-        comunFriends="Comun Friends",
+        comunFriends="Text Messages",
         png=url_for('static', filename='img/users/26838989.png'),
-        webp=url_for('static', filename='img/users/26838989.webp')
+        webp=url_for('static', filename='img/users/26838989.webp'),
         )}}
 
         {{list_friends(
@@ -29,9 +27,9 @@
         name="User 2",
         alt="User2 Photo",
         type="connect",
-        comunFriends="Comun Friends",
+        comunFriends="Text Messages",
         png=url_for('static', filename='img/users/25641651.png'),
-        webp=url_for('static', filename='img/users/25641651.webp')
+        webp=url_for('static', filename='img/users/25641651.webp'),
         )}}
 
         {{list_friends(
@@ -39,17 +37,20 @@
         name="User 3",
         alt="User3 Photo",
         type="connect",
-        comunFriends="Comun Friends",
+        comunFriends="Text Messages",
         png=url_for('static', filename='img/users/26272390.png'),
-        webp=url_for('static', filename='img/users/26272390.webp')
+        webp=url_for('static', filename='img/users/26272390.webp'),
         )}}
 
-        {{buttons(
-        mensaje="See All",
-        type="primary",
-        font="fw-bold",
-        letters="text-uppercase")
-        }}
+        {{list_friends(
+        img=url_for('static', filename='img/users/.png'),
+        name="User 4",
+        alt="User4 Photo",
+        type="connect",
+        comunFriends="Text Messages",
+        png=url_for('static', filename='img/users/26956071.png'),
+        webp=url_for('static', filename='img/users/26956071.webp'),
+        )}}
     </div>
 </div>
-{% endblock body %}
+{%- endblock body %}
