@@ -1,0 +1,56 @@
+{% extends "showroom/base.html" %}
+
+{% from "components/list-friends.html" import list_friends %}
+
+{% block title %}{{ _('List Chats') }}{% endblock title %}
+{% block body -%}
+<div class="margin-section"></div>
+
+<div class="container w-25">
+    <div class="cont-listaAmigos">
+        <div class="center">
+            <h2>Chats</h2>
+            <hr>
+        </div>
+        {{list_friends(
+            img=url_for('static', filename='img/users/26838989.png'),
+            name="User 1",
+            alt="User1 Photo",
+            type="connect",
+            comunFriends="Text Messages",
+            png=url_for('static', filename='img/users/26838989.png'),
+            webp=url_for('static', filename='img/users/26838989.webp'),
+            )}}
+    
+            {{list_friends(
+            img=url_for('static', filename='img/users/25641651.png'),
+            name="User 2",
+            alt="User2 Photo",
+            type="connect",
+            comunFriends="Text Messages",
+            png=url_for('static', filename='img/users/25641651.png'),
+            webp=url_for('static', filename='img/users/25641651.webp'),
+            )}}
+    
+            {{list_friends(
+            img=url_for('static', filename='img/users/26272390.png'),
+            name="User 3",
+            alt="User3 Photo",
+            type="connect",
+            comunFriends="Text Messages",
+            png=url_for('static', filename='img/users/26272390.png'),
+            webp=url_for('static', filename='img/users/26272390.webp'),
+            )}}
+
+            {{list_friends(
+                img=url_for('static', filename='img/users/.png'),
+                name="User 4",
+                alt="User4 Photo",
+                type="connect",
+                comunFriends="Text Messages",
+                png=url_for('static', filename='img/users/26956071.png'),
+                webp=url_for('static', filename='img/users/26956071.webp'),
+                )}}
+    </div>
+</div>
+{%- endblock body %}
