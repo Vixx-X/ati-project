@@ -24,6 +24,9 @@ list_of_rooms = [
     ("muro", _("Muro")),
     ("home", _("Home")),
     ("login", _("LogIn")),
+    ("boolean-button", _("Boolean Button - Daniel Vieria")),
+    ("drop-down-list", _("Drop Down List - Eduardo Suarez")),
+    ("footer-mobile", _("Footer Mobile - Daniel Vieria"))
 ]
 
 bp.add_url_rule("/", view_func=views.Index.as_view("index"))
@@ -46,4 +49,6 @@ bp.add_url_rule("/radio-button/", view_func=views.RadioButton.as_view("radio-but
 bp.add_url_rule("/muro/", view_func=views.Muro.as_view("muro"))
 bp.add_url_rule("/home/", view_func=views.Home.as_view("home"))
 bp.add_url_rule("/login/", view_func=views.LogIn.as_view("login"))
-
+bp.add_url_rule("/boolean-button/", view_func=views.BooleanButton.as_view("boolean-button"))
+bp.add_url_rule("/drop-down-list/", view_func=views.DropDownList.as_view("drop-down-list"))
+bp.add_url_rule("/footer-mobile/", view_func=views.FooterMobile.as_view("footer-mobile"))
