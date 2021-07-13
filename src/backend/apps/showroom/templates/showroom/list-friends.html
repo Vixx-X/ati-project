@@ -7,10 +7,13 @@
 {% block body %}
 <div class="margin-section"></div>
 
-<div class="container" style="width: fit-content;">
+<div class="container w-25" style="width: fit-content;">
     <!-- To create the list is necesary create the following div -->
-    <div class="cont-listaAmigos">
-        <h2>Lista de amigos</h2>
+    <div class="cont-listaAmigos p-2">
+        <div class="center">
+            <h2>List Friends</h2>
+            <hr>
+        </div>
         {{list_friends(
         img=url_for('static', filename='img/users/26838989.png'),
         name="User 1",
