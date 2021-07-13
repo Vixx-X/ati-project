@@ -2,7 +2,6 @@
 Urls for showroom module/blueprint
 """
 
-from flask_babel import gettext as _
 from . import bp, views
 
 list_of_rooms = [

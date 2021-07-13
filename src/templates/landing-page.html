@@ -1,0 +1,52 @@
+{% extends "showroom/base.html" %}
+
+{% from "components/buttons.html" import buttons %}
+
+{% block title %} Home {% endblock title %}
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" >{% endblock %}
+
+{% block body %}
+    <div class="container-center">
+        <div class="background-dark-transparent">
+            <div class="container content-distribution">
+                <a href="#">
+                    <div class="main-logotype">
+                        <img
+                        src="{{ url_for('static', filename='img/logo.svg') }}"
+                        alt="DEGVA logotype" />
+                        <h1>DEGVA</h1>
+                    </div>
+                </a>
+                <p class="text-logo">Stay 127.0.0.1 use 255.255.255.0</p>
+                <a href="#" id="linkaccount">
+                    <p class="text-uppercase fw-bold">Don't have account?</p>
+                </a>
+                <div class="container-button">
+                    {{buttons(
+                        mensaje="LogIn",
+                        type="primary",
+                        font="fw-bold",
+                        letters="text-uppercase")
+                    }}
+                    {{buttons(
+                        mensaje="Sign Up",
+                        type="primary",
+                        font="fw-bold",
+                        letters="text-uppercase")
+                    }}
+                </div>
+
+                <a href="#" id="linkpassword">
+                    <p class="text-uppercase fw-bold">Forgot your Password?</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+<footer class="footer bg-footer">
+    <div class="container container-footer text-center">
+        {{ _('Copyright &copy; ITA - Computer School') }}
+    </div>
+</footer>
+    
+{% endblock body %}
