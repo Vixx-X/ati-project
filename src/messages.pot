@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-07-13 06:11-0400\n"
+"POT-Creation-Date: 2021-07-13 08:28-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,34 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
+
+#: backend/apps/posts/models.py:15 backend/apps/user/models.py:15
+msgid "public"
+msgstr ""
+
+#: backend/apps/posts/models.py:15 backend/apps/user/models.py:15
+msgid "private"
+msgstr ""
+
+#: backend/apps/posts/models.py:20 backend/apps/user/models.py:20
+msgid "light mode"
+msgstr ""
+
+#: backend/apps/posts/models.py:20 backend/apps/user/models.py:20
+msgid "dark mode"
+msgstr ""
+
+#: backend/apps/posts/models.py:43 backend/apps/user/models.py:43
+msgid "femenine"
+msgstr ""
+
+#: backend/apps/posts/models.py:43 backend/apps/user/models.py:43
+msgid "masculine"
+msgstr ""
+
+#: backend/apps/posts/models.py:43 backend/apps/user/models.py:43
+msgid "other"
+msgstr ""
 
 #: backend/apps/showroom/templates/showroom/boolean-button.html:5
 msgid "Boolean Button"
@@ -33,6 +61,20 @@ msgstr ""
 msgid "Comments-User"
 msgstr ""
 
+#: backend/apps/showroom/templates/showroom/configurations.html:117
+#: backend/apps/showroom/templates/showroom/footer.html:10
+#: backend/apps/showroom/templates/showroom/footer.html:18
+#: backend/apps/showroom/templates/showroom/home.html:48
+#: backend/apps/showroom/templates/showroom/login.html:81
+#: backend/apps/showroom/templates/showroom/muro.html:286
+#: backend/apps/showroom/templates/showroom/notifications.html:182
+#: backend/apps/showroom/templates/showroom/register.html:91
+#: templates/home.html:286 templates/landing-page.html:48
+#: templates/login.html:81 templates/register.html:91
+#: templates/user/configurations.html:117 templates/user/notifications.html:182
+msgid "Copyright &copy; ITA - Computer School"
+msgstr ""
+
 #: backend/apps/showroom/templates/showroom/drop-down-list.html:5
 msgid "Drop Down List"
 msgstr ""
@@ -47,15 +89,6 @@ msgstr ""
 
 #: backend/apps/showroom/templates/showroom/footer.html:3
 msgid "Buttons"
-msgstr ""
-
-#: backend/apps/showroom/templates/showroom/footer.html:10
-#: backend/apps/showroom/templates/showroom/footer.html:18
-#: backend/apps/showroom/templates/showroom/home.html:48
-#: backend/apps/showroom/templates/showroom/login.html:81
-#: backend/apps/showroom/templates/showroom/muro.html:296
-#: backend/apps/showroom/templates/showroom/register.html:91
-msgid "Copyright &copy; ITA - Computer School"
 msgstr ""
 
 #: backend/apps/showroom/templates/showroom/header-publication.html:5
@@ -94,6 +127,20 @@ msgstr ""
 #: backend/apps/showroom/templates/showroom/notification.html:3
 #: backend/apps/showroom/templates/showroom/notification.html:10
 #: backend/apps/showroom/templates/showroom/notification.html:23
+#: backend/apps/showroom/templates/showroom/notifications.html:78
+#: backend/apps/showroom/templates/showroom/notifications.html:90
+#: backend/apps/showroom/templates/showroom/notifications.html:101
+#: backend/apps/showroom/templates/showroom/notifications.html:112
+#: backend/apps/showroom/templates/showroom/notifications.html:123
+#: backend/apps/showroom/templates/showroom/notifications.html:134
+#: backend/apps/showroom/templates/showroom/notifications.html:145
+#: backend/apps/showroom/templates/showroom/notifications.html:156
+#: backend/apps/showroom/templates/showroom/notifications.html:167
+#: templates/user/notifications.html:78 templates/user/notifications.html:90
+#: templates/user/notifications.html:101 templates/user/notifications.html:112
+#: templates/user/notifications.html:123 templates/user/notifications.html:134
+#: templates/user/notifications.html:145 templates/user/notifications.html:156
+#: templates/user/notifications.html:167
 msgid "Notification"
 msgstr ""
 
@@ -107,33 +154,5 @@ msgstr ""
 
 #: backend/apps/showroom/templates/showroom/user-icon.html:5
 msgid "User icon"
-msgstr ""
-
-#: backend/apps/user/models.py:15
-msgid "public"
-msgstr ""
-
-#: backend/apps/user/models.py:15
-msgid "private"
-msgstr ""
-
-#: backend/apps/user/models.py:20
-msgid "light mode"
-msgstr ""
-
-#: backend/apps/user/models.py:20
-msgid "dark mode"
-msgstr ""
-
-#: backend/apps/user/models.py:43
-msgid "femenine"
-msgstr ""
-
-#: backend/apps/user/models.py:43
-msgid "masculine"
-msgstr ""
-
-#: backend/apps/user/models.py:43
-msgid "other"
 msgstr ""
 
