@@ -1,8 +1,6 @@
 {% extends "showroom/base.html" %}
 
 {% from "components/buttons.html" import buttons %}
-{% from "components/user-icon.html" import user_icon %}
-{% from "components/header-publication.html" import header_publication %}
 
 {% block title %} Home {% endblock title %}
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" >{% endblock %}
@@ -37,6 +35,7 @@
                         letters="text-uppercase")
                     }}
                 </div>
+
                 <a href="#" id="linkpassword">
                     <p class="text-uppercase fw-bold">Forgot your Password?</p>
                 </a>
