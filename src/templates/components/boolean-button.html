@@ -1,0 +1,17 @@
+{% macro boolean_button(id=None, text="Label") -%}
+<div class="boolean-button d-flex jc-space_between">
+    <label 
+    {% if id %}
+    for="{{id}}"
+    {% endif %}
+    >{{text}}</label>
+    <label 
+    {% if id %}
+    id="{{id}}"
+    {% endif %}
+    class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+    </label>
+</div>
+{%- endmacro %}
