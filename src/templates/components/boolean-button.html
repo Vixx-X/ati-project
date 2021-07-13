@@ -1,6 +1,6 @@
-{% macro boolean_button(id=None, text="Label") -%}
+{% macro boolean_button(id=None, text="Label", class="black") -%}
 <div class="boolean-button d-flex jc-space_between">
-    <label 
+    <label class="{{class}}"
     {% if id %}
     for="{{id}}"
     {% endif %}
