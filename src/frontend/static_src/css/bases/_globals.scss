@@ -52,3 +52,20 @@ p {
   font-size: 1.6rem;
   color: lighten($black, 30%);
 }
+
+
+.footer{
+  display: none;
+  @include cell{
+    display: block;
+  }
+}
+
+.footer-mobile{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  @include cell{
+    display: none;
+  }
+}
