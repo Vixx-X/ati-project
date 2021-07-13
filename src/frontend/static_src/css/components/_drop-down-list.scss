@@ -1,0 +1,12 @@
+@import "../bases/mixins";
+@import "../bases/variables";
+@import "../bases/globals";
+
+.cont-item-drop-down-list{
+    background-color: #6BB0A9;
+    width: 10em;
+    padding: 0.9em;
+    color: white;
+    border: none;
+    border-radius: 0.5em;
+}
