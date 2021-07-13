@@ -1,0 +1,67 @@
+@import "../bases/variables";
+@import "../bases/mixins";
+
+body{
+    background-color: $black;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.51), rgba(0, 0, 0, 0.51)), url("../../../static/img/background1.jpg");
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+}
+
+.text-logo{
+    display: none;
+    @include tablet{
+        display: block;
+    }
+}
+
+.main-logotype {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    width: auto;
+    img{
+        width: 8rem;
+        @include tablet{
+            width: 10rem;
+        }
+    }
+
+    h1 {
+        display: block;
+        font-size: 7rem;
+        font-weight: 300;
+        color: $light;
+        @include tablet{
+            font-size: 10rem;
+        }
+    }
+  }
+
+
+.container-center{
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    width: 100%;
+}
+
+.background-dark-transparent{
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5rem 0;
+    width: 100%;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+p{
+    color: $light;
+    font-size: 2rem;
+    z-index: 4;
+}
