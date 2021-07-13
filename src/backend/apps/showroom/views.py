@@ -194,3 +194,9 @@ class BooleanButton(BaseView):
   Showcase for chat component.
   """
   template_name = "showroom/boolean-button.html"
+
+class FooterMobile(BaseView):
+  """
+  Showcase for footer mobile component.
+  """
+  template_name = "showroom/footer-mobile.html"
