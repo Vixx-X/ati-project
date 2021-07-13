@@ -1,0 +1,13 @@
+{% extends "showroom/base.html" %}
+
+{% block title %}{{ _('Card') }}{% endblock title %}
+{% from "components/card.html" import card %} 
+
+{% block body %}
+  {{ card(
+    title='Text Title',
+    content='Text Content',
+    img=url_for('static', filename='img/users/26272390.png',
+    alt='Image')
+  ) }}
+{% endblock body %}

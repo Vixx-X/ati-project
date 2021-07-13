@@ -1,0 +1,36 @@
+{% extends "showroom/base.html" %}
+
+{% from "components/long-cards.html" import longCard %}
+
+{% block title %}{{ _('Long Cards') }}{% endblock title %}
+{% block body %}
+<div>
+
+    <!-- Variant1: Primary -->
+    {{ longCard(
+        title='Text Title',
+        content=['Text Content'],
+        type='primary'
+    ) }}
+
+    <div class="margin-section"></div>
+
+    <!-- Variant2: Secundary -->
+    {{longCard(
+        title='Text Title',
+        content=['Text Content'],
+        type='secundary'
+    )}}
+
+    <div class="margin-section"></div>
+
+    <!-- Variant3: Primary, Long -->
+    {{longCard(
+        title='Text Title',
+        content=['Text Content', 'Text Content'],
+        type='primary long'
+    )}}
+
+</div>
+{% endblock body %}
+

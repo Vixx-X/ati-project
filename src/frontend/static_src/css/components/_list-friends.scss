@@ -1,0 +1,48 @@
+@import "../bases/variables";
+@import "../bases/mixins";
+
+.cont-listaAmigos {
+    background-color: $light;
+    display: flex;
+    flex-flow: column;
+    margin: 1rem;
+    h2 {
+        font-weight: 500;
+        font-style: italic;
+        margin: 2rem;
+    }
+    button {
+        font-size: 1em;
+        margin: 1.5em;
+    }
+    hr {
+        height: 0.3em;
+        background-color: black;
+        width: 100%;
+      }
+    .center {
+        display: flex;
+        align-items: center;
+        flex-flow: column;
+    }
+}
+
+.listaAmigos-item {
+    display: flex;
+    color: $black;
+}
+
+.listaAmigos-item_description {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    padding-bottom: 1em;
+    margin-left: 1em;
+}
+.listaAmigos-item_description-usuario {
+    font-size: x-large;
+}
+
+.listaAmigos-item_description-numberFriends {
+    font-size: inherit;
+}

@@ -1,0 +1,24 @@
+{% from "components/user-icon.html" import user_icon %}
+
+{% macro list_friends(img, name, comunFriends="Comun Friends", png="", webp="", alt="", type="basic") -%}
+
+<div class="cont-listaAmigos">
+  <!-- TODO change # for a new parameter value -->
+  <a href="#">
+    <div class="listaAmigos-item">
+      {{ user_icon(
+        img=img,
+        alt=alt,
+        type=type,
+        png=png,
+        webp=webp
+        )}}
+      <div class="listaAmigos-item_description">
+        <p class="listaAmigos-item_description-usuario">{{name}}</p>
+        <p class="listaAmigos-item_description-numberFriends">{{comunFriends}}</p>
+      </div>
+    </div>
+  </a>
+</div>
+
+{%- endmacro %}

@@ -1,0 +1,6 @@
+{% macro buttons(mensaje="Button",type="primary",font="fw-bold", letters="text-uppercase") %}
+<button class="button {{ type }} {{ letters }} {{ font }}">
+    {{mensaje}}
+</button>
+{% endmacro %}
+

@@ -1,0 +1,43 @@
+@import "../bases/mixins";
+
+.header-publication {
+    position: relative;
+    h2, p {
+        font-size: 1em;
+        box-sizing: border-box;
+        @include tablet {
+        font-size: 1.25em;
+        }
+        @include desktop {
+          font-size: 1.5em;
+        }
+    }
+    .user {
+        margin-right: 0.3em;
+    }
+    .w-100 {
+        width: 100%;
+    }
+    .modify{
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
+.d-flex {
+    display: flex;
+    align-items: center;
+}
+
+.jc-space_between {
+    justify-content: space-between;
+}
+
+.w-25 {
+    width: 25em;
+}
+
+.w-2 {
+    width: 2em;
+}

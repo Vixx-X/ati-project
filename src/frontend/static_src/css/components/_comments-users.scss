@@ -1,0 +1,29 @@
+@import "../bases/variables";
+
+.comments-user{
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    .comments-group{
+        position: relative;
+        display: flex;
+        width: 15em;
+        margin-right: 3em;
+        .two{
+            position: absolute;
+            left: 5em;
+        }
+        .three{
+            position: absolute;
+            left: 10em;
+        }
+    }
+    a{
+        color: lighten($black, 20%);
+        font-size: 1.8em;
+        &:hover{
+            text-decoration: underline $light;
+        }
+    }
+}
