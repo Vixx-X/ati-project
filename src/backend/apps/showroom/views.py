@@ -200,3 +200,15 @@ class DropDownList(BaseView):
   Showcase for chat component.
   """
   template_name = "showroom/drop-down-list.html"
+
+class DropDownList(BaseView):
+  """
+  Showcase for chat component.
+  """
+  template_name = "showroom/drop-down-list.html"
+
+class ElementFriendList(BaseView):
+  """
+  Showcase for chat component.
+  """
+  template_name = "showroom/element-friend-list.html"
