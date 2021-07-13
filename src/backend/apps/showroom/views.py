@@ -220,9 +220,14 @@ class FooterMobile(BaseView):
   """
   template_name = "showroom/footer-mobile.html"
 
+class Register(BaseView):
+  """
+  Showcase for register component.
+  """
+  template_name = "showroom/register.html"
+  
 class ListChats(BaseView):
   """
   Showcase for footer mobile component.
   """
   template_name = "showroom/list-chats.html"
-

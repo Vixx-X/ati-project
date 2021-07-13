@@ -21,9 +21,13 @@ list_of_rooms = [
     ("header_publication", _("Header Publication - DanielVieria")),
     ("input-label", _("Input Label - Daniel Vieria")),
     ("list-friends", _("list-friends - Eduardo Suarez")),
+    ("boolean-button", _("Boolean Button - Daniel Vieria")),
+    ("drop-down-list", _("Drop Down List - Eduardo Suarez")),
+    ("footer-mobile", _("Footer Mobile - Daniel Vieria")),
     ("muro", _("Muro")),
     ("home", _("Home")),
     ("login", _("LogIn")),
+    ("register", _("Register")),
     ("boolean-button", _("Boolean Button - Daniel Vieria")),
     ("drop-down-list", _("Drop Down List - Eduardo Suarez")),
     ("footer-mobile", _("Footer Mobile - Daniel Vieria")),
@@ -55,5 +59,5 @@ bp.add_url_rule("/boolean-button/", view_func=views.BooleanButton.as_view("boole
 bp.add_url_rule("/drop-down-list/", view_func=views.DropDownList.as_view("drop-down-list"))
 bp.add_url_rule("/element-friend-list/", view_func=views.ElementFriendList.as_view("element-friend-list"))
 bp.add_url_rule("/footer-mobile/", view_func=views.FooterMobile.as_view("footer-mobile"))
+bp.add_url_rule("/register/", view_func=views.Register.as_view("register"))
 bp.add_url_rule("/list-chats/", view_func=views.ListChats.as_view("list-chats"))
-
