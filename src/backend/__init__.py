@@ -38,7 +38,7 @@ def init_app(config_file=None):
         from . import routes
 
         # from .apps import api, chat, multimedia, posts, user
-        from .apps import showroom, user
+        from .apps import showroom, user, posts
 
         # Register Blueprints
         app.register_blueprint(routes.bp)
@@ -46,7 +46,7 @@ def init_app(config_file=None):
         # app.register_blueprint(api.bp)
         # app.register_blueprint(chat.bp)
         # app.register_blueprint(multimedia.bp)
-        # app.register_blueprint(posts.bp)
+        app.register_blueprint(posts.bp)
         app.register_blueprint(user.bp, url_prefix="/user")
 
         @babel.localeselector
