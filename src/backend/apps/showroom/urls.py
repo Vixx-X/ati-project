@@ -35,7 +35,7 @@ list_of_rooms = [
     ("footer-mobile", "Footer Mobile - Daniel Vieria"),
     ("list-chats", "List Chats - Daniel Vieria"),
     ("element-friend-list", "Element Friend List - Eduardo Suarez"),
-    ("mobile-navmenu", _("Mobile Nav Menu - Gabriela Uztariz")),
+    ("mobile-navmenu", "Mobile Nav Menu - Gabriela Uztariz"),
 ]
 
 bp.add_url_rule("/", view_func=views.Index.as_view("index"))

@@ -206,6 +206,7 @@ class ListChats(BaseView):
   """
   template_name = "showroom/list-chats.html"
 
+class Configurations(BaseView):
   """
   Showcase for configuration view.
   """
@@ -222,4 +223,3 @@ class MobileNavMenu(BaseView):
   Showcase for mobile nav menu component.
   """
   template_name = "showroom/mobile-navmenu.html"
-class Configurations(BaseView):
