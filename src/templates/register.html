@@ -2,6 +2,7 @@
 
 {% from "components/input-label.html" import inputLabel %}
 {% from "components/buttons.html" import buttons %}
+{% from "components/footer.html" import footer %}
 
 {% block title %} Sign Up {% endblock title %}
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}" >{% endblock %}
@@ -88,10 +89,6 @@
     </div>
 </div>
 
-<footer class="footer bg-footer">
-    <div class="container container-footer text-center">
-        {{ _('Copyright &copy; ITA - Computer School') }}
-    </div>
-</footer>
+{{footer()}}
 
 {% endblock body %}

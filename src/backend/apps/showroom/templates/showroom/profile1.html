@@ -78,6 +78,7 @@
         ) }}   
         <p class="fw-bold">Gabriela Ustariz</p>   
     </div>
+    
 
     <!-- <div class="container">
         <nav class="navegation-desktop">
@@ -107,7 +108,8 @@
             }}
         </nav>
     </div> -->
-    <div class=" container container-section margin-section">
+
+    <div class="container main-container">
         <div class="publication">    
             {{ header_publication(
                 img=url_for('static', filename='img/users/26272390.png'),
@@ -162,13 +164,7 @@
         </aside>
     </div>
 
-    <div class="margin-mobile margin-section"></div>
-    <footer class="footer bg-footer">
-        <div class="container container-footer text-center">
-            {{ _('Copyright &copy; ITA - Computer School') }}
-        </div>
-      </footer>
-      
-    {{footer_mobile(class="black")}}
+{{footer()}}
+{{footer_mobile(class="black")}}
 
 {%- endblock body %}

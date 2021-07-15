@@ -46,6 +46,16 @@
     }
 }
 
+.main-container{
+    margin: 4rem auto;
+    @include desktop{
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        column-gap: 2rem;
+    }
+
+}
+
 .publication{
     background-color: rgba(255, 255, 255, 0.9);
     border: 1px dashed $secundary;
@@ -55,6 +65,29 @@
         img{
             margin: 2rem 0;
             width: 100%;
+        }
+    }
+    .comments-user{
+        font-size: 0.7rem;
+        @include desktop{
+            font-size: 1rem;
+        }
+        a{
+            font-size: 1.5rem;
+            @include desktop{
+                font-size: 2rem;
+            }
+        }
+    }
+    
+    .header-publication{
+        .user-icon{
+            width: 9rem;
+        }
+        @include desktop{
+            .user-icon{
+                width: 15rem;
+            }
         }
     }
 }
