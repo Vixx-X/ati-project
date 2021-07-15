@@ -2,32 +2,39 @@
 Urls for showroom module/blueprint
 """
 
-from flask_babel import gettext as _
 from . import bp, views
 
 list_of_rooms = [
-    ("buttons", _("Buttons - Gabriela Ustariz")),
-    ("header", _("Header - Gabriela Ustariz")),
-    ("user_icon", _("User Icons - Vittorio Adesso")),
-    ("card", _("Card - Daniel Vieira")),
-    ("header2", _("Main Header - Gabriela Ustariz")),
-    ("comments-users", _("Comments of Users - Vittorio Adesso")),
-    ("footer", _("Footer - Eduardo Saurez")),
-    ("heading", _("Heading - Daniel Vieira")),
-    ("long-cards", _("Long Cards - Daniel Vieira")),
-    ("notification", _("Notification - Vittorio Adesso")),
-    ("search-button", _("Search Button - Eduardo Suarez")),
-    ("chat", _("Chat - Eduardo Suarez")),
-    ("header_publication", _("Header Publication - DanielVieria")),
-    ("input-label", _("Input Label - Daniel Vieria")),
-    ("list-friends", _("list-friends - Eduardo Suarez")),
-    ("muro", _("Muro")),
-    ("home", _("Home")),
-    ("login", _("LogIn")),
-    ("boolean-button", _("Boolean Button - Daniel Vieria")),
-    ("drop-down-list", _("Drop Down List - Eduardo Suarez")),
-    ("footer-mobile", _("Footer Mobile - Daniel Vieria")),
-    ("list-chats", _("List Chats - Daniel Vieria")),
+    ("buttons", "Buttons - Gabriela Ustariz"),
+    ("header", "Header - Gabriela Ustariz"),
+    ("user_icon", "User Icons - Vittorio Adesso"),
+    ("card", "Card - Daniel Vieira"),
+    ("header2", "Main Header - Gabriela Ustariz"),
+    ("comments-users", "Comments of Users - Vittorio Adesso"),
+    ("footer", "Footer - Eduardo Saurez"),
+    ("heading", "Heading - Daniel Vieira"),
+    ("long-cards", "Long Cards - Daniel Vieira"),
+    ("notification", "Notification - Vittorio Adesso"),
+    ("search-button", "Search Button - Eduardo Suarez"),
+    ("chat", "Chat - Eduardo Suarez"),
+    ("header_publication", "Header Publication - DanielVieria"),
+    ("input-label", "Input Label - Daniel Vieria"),
+    ("list-friends", "list-friends - Eduardo Suarez"),
+    ("boolean-button", "Boolean Button - Daniel Vieria"),
+    ("drop-down-list", "Drop Down List - Eduardo Suarez"),
+    ("footer-mobile", "Footer Mobile - Daniel Vieria"),
+    ("muro", "Muro"),
+    ("home", "Home"),
+    ("login", "LogIn"),
+    ("register", "Register"),
+    ("configurations", "Configurations"),
+    ("notifications", "Notifications"),
+    ("profile1", "Profile"),
+    ("boolean-button", "Boolean Button - Daniel Vieria"),
+    ("drop-down-list", "Drop Down List - Eduardo Suarez"),
+    ("footer-mobile", "Footer Mobile - Daniel Vieria"),
+    ("list-chats", "List Chats - Daniel Vieria"),
+    ("element-friend-list", "Element Friend List - Eduardo Suarez"),
     ("mobile-navmenu", _("Mobile Nav Menu - Gabriela Uztariz")),
 ]
 
@@ -53,6 +60,11 @@ bp.add_url_rule("/home/", view_func=views.Home.as_view("home"))
 bp.add_url_rule("/login/", view_func=views.LogIn.as_view("login"))
 bp.add_url_rule("/boolean-button/", view_func=views.BooleanButton.as_view("boolean-button"))
 bp.add_url_rule("/drop-down-list/", view_func=views.DropDownList.as_view("drop-down-list"))
+bp.add_url_rule("/element-friend-list/", view_func=views.ElementFriendList.as_view("element-friend-list"))
 bp.add_url_rule("/footer-mobile/", view_func=views.FooterMobile.as_view("footer-mobile"))
+bp.add_url_rule("/register/", view_func=views.Register.as_view("register"))
 bp.add_url_rule("/list-chats/", view_func=views.ListChats.as_view("list-chats"))
+bp.add_url_rule("/notifications/", view_func=views.Notifications.as_view("notifications"))
+bp.add_url_rule("/configurations/", view_func=views.Configurations.as_view("configurations"))
+bp.add_url_rule("/profile1/", view_func=views.Profile1.as_view("profile1"))
 bp.add_url_rule("/mobile-navmenu/", view_func=views.MobileNavMenu.as_view("mobile-navmenu"))

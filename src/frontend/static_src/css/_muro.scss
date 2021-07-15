@@ -54,16 +54,26 @@ body{
 
 .header{
     margin-bottom: 4rem;
-    &.waves{
-        display: none;
-    }
+}
+
+.header-main{
+    margin-bottom: 4rem;
+}
+
+aside{
+    font-size: 12px;
+    display: none;
     @include desktop{
-        margin-bottom: 0rem;
-        &.waves{
-            display: block;
-        }
-        &.bg-header{
-            display: none;
-        }
+        display: block;
+    }
+    .button{
+        display: block;
+    }
+}
+
+
+main{
+    @include desktop{
+        grid-column: 2;
     }
 }
