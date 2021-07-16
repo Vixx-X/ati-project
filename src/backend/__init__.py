@@ -31,7 +31,7 @@ def init_app(config_file=None):
     # Initialize Plugins
     db.init_app(app)
     babel.init_app(app)
-    user_manager = UserManager(app, db, User)
+    user_manager = UserManager(app, db, User) # pylint: disable=W0612
 
     with app.app_context():
         # Include our Routes
