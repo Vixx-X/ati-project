@@ -7,36 +7,58 @@
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.51), rgba(0, 0, 0, 0.51)), url("../../../static/img/background1.jpg");
     background-size: cover;
     background-position: center center;
-    min-height: 25vh;
+    min-height: 25rem;
     @include tablet{
-        height: 50vh;
+        min-height: 40rem;
+    }
+}
+
+.header-group{
+    background-color: #fff;
+    @include desktop{
+        background-color: transparent;
     }
 }
 
 .profile-icon{
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
     .user-icon{
         font-size: 2.3rem;
         position: absolute;
         bottom: -8rem;
         @include tablet{
-            bottom: -10rem;
             font-size: 3.5rem;
-            margin: -18rem auto auto auto !important;
         }
     }
+
     p{
+        position: absolute;
+        bottom: -14rem;
         text-align: center;
         font-size: 3rem;
+    }
+}
+
+.mobile-navmenu{
+    width: 100%;
+    @include desktop{
+        display: none;
     }
 }
 
 .mobile-content{
     display: flex;
     justify-content: space-between;
-    margin: 2rem 0 10rem 0;
+    padding: 2rem 0 10rem 0;
     @include desktop{
         display: none;
+    }
+
+    .navegation-mobile{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 }
 
@@ -72,12 +94,30 @@
     }
 }
 
+
+
+
 .main-container{
-    margin: 4rem auto;
     @include desktop{
+        margin: 8rem auto;
         display: grid;
         grid-template-columns: 3fr 1fr;
         column-gap: 2rem;
+    }
+
+    aside{
+        display: none;
+        .container-details{
+            display: flex;
+            margin-top: 3rem;
+            img{
+                width: 2.5rem;
+                margin-right: 1rem;
+            }
+        }
+        @include desktop{
+            display: block;
+        }
     }
 
 }
@@ -101,7 +141,7 @@
         a{
             font-size: 1.5rem;
             @include desktop{
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
         }
     }

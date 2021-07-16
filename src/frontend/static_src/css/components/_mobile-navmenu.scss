@@ -11,9 +11,10 @@
     }
     .options-tabs{
         display: flex;
+        margin: 0;
         li{
             position: relative;
-            flex-basis: 18em;
+            flex-basis: 50%;
             background-color: $white;
             padding: 2.5rem 0;
             text-align: center;
