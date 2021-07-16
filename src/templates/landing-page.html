@@ -1,6 +1,7 @@
 {% extends "showroom/base.html" %}
 
 {% from "components/buttons.html" import buttons %}
+{% from "components/footer.html" import footer %}
 
 {% block title %} Home {% endblock title %}
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" >{% endblock %}
@@ -9,7 +10,7 @@
     <div class="container-center">
         <div class="background-dark-transparent">
             <div class="container content-distribution">
-                <a href="#">
+                <a href="{{url_for('app.home')}}">
                     <div class="main-logotype">
                         <img
                         src="{{ url_for('static', filename='img/logo.svg') }}"
@@ -18,22 +19,26 @@
                     </div>
                 </a>
                 <p class="text-logo">Stay 127.0.0.1 use 255.255.255.0</p>
-                <a href="#" id="linkaccount">
+                <a href="{{url_for('app.register')}}" id="linkaccount">
                     <p class="text-uppercase fw-bold">Don't have account?</p>
                 </a>
                 <div class="container-button">
-                    {{buttons(
-                        mensaje="LogIn",
-                        type="primary",
-                        font="fw-bold",
-                        letters="text-uppercase")
-                    }}
-                    {{buttons(
-                        mensaje="Sign Up",
-                        type="primary",
-                        font="fw-bold",
-                        letters="text-uppercase")
-                    }}
+                    <a href="{{url_for('app.login')}}">
+                        {{buttons(
+                            mensaje="LogIn",
+                            type="primary",
+                            font="fw-bold",
+                            letters="text-uppercase")
+                        }}
+                    </a>
+                    <a href="{{url_for('app.register')}}">
+                        {{buttons(
+                            mensaje="Sign Up",
+                            type="primary",
+                            font="fw-bold",
+                            letters="text-uppercase")
+                        }}
+                    </a>
                 </div>
 
                 <a href="#" id="linkpassword">
@@ -43,10 +48,6 @@
         </div>
     </div>
 
-<footer class="footer bg-footer">
-    <div class="container container-footer text-center">
-        {{ _('Copyright &copy; ITA - Computer School') }}
-    </div>
-</footer>
+{{footer()}}
     
 {% endblock body %}

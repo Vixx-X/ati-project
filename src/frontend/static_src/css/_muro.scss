@@ -26,31 +26,31 @@ body{
             width: 100%;
         }
     }
-}
-
-.comments-user{
-    font-size: 0.7rem;
-    @include desktop{
-        font-size: 1rem;
-    }
-    a{
-        font-size: 1.5rem;
+    .comments-user{
+        font-size: 0.7rem;
         @include desktop{
-            font-size: 2rem;
+            font-size: 1rem;
+        }
+        a{
+            font-size: 1.5rem;
+            @include desktop{
+                font-size: 2rem;
+            }
+        }
+    }
+    
+    .header-publication{
+        .user-icon{
+            width: 9rem;
+        }
+        @include desktop{
+            .user-icon{
+                width: 15rem;
+            }
         }
     }
 }
 
-.header-publication{
-    .user-icon{
-        width: 9rem;
-    }
-    @include desktop{
-        .user-icon{
-            width: 15rem;
-        }
-    }
-}
 
 .header{
     margin-bottom: 4rem;

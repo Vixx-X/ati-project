@@ -2,6 +2,8 @@
 
 {% from "components/input-label.html" import inputLabel %}
 {% from "components/buttons.html" import buttons %}
+{% from "components/footer.html" import footer %}
+
 
 {% block title %} LogIn {% endblock title %}
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}" >{% endblock %}
@@ -11,7 +13,7 @@
     <div class="background-dark-transparent">
         <div class="container content-distribution">
             <div class="container-left">
-                <a href="#">
+                <a href="{{url_for('app.landing')}}">
                     <div class="main-logotype">
                         <img
                         src="{{ url_for('static', filename='img/logo.svg') }}"
@@ -43,16 +45,18 @@
                     textLabel='Password',
                     placeholderText='Your Password'
                 )}}
-                <a href="#" id="linkaccount">
+                <a href="{{url_for('app.register')}}" id="linkaccount">
                     <p class="text-uppercase fw-bold">Don't have account?</p>
                 </a>
                 <div class="container-button">
-                    {{buttons(
-                        mensaje="Sign In",
-                        type="primary",
-                        font="fw-bold",
-                        letters="text-uppercase")
-                    }}
+                    <a href="{{url_for('app.home')}}">
+                        {{buttons(
+                            mensaje="Sign In",
+                            type="primary",
+                            font="fw-bold",
+                            letters="text-uppercase")
+                        }}
+                    </a>
                 </div>
                 <div class="container-api">
                     {{buttons(
@@ -76,10 +80,6 @@
     </div>
 </div>
 
-<footer class="footer bg-footer">
-    <div class="container container-footer text-center">
-        {{ _('Copyright &copy; ITA - Computer School') }}
-    </div>
-</footer>
+{{footer()}}
 
 {% endblock body %}
