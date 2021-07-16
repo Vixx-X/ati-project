@@ -8,7 +8,7 @@
         align-items: center;
         padding: 1em 1em .5em;
         position: relative;
-        width: 15.5em;
+        flex-basis: 50%;
         flex-flow: row;
         display: flex;
     }
@@ -22,7 +22,7 @@
     }
     & .user-icon{
         width: auto;
-        flex-basis: 25%;
+        flex-basis: 20%;
     }
     & .cont-chat{
         &{
@@ -46,17 +46,3 @@
     }
 }
 
-// .chat .user-icon{
-//     width: auto;
-//     flex-basis: 25%;
-// }
-
-// .cont-chat{
-//     &{
-//         margin-left: 1em;
-//         flex: 1;
-//     }
-//     & p{
-//         word-break: break-all;
-//     }
-// }
