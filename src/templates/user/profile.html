@@ -1,0 +1,63 @@
+{% extends "showroom/base.html" %}
+
+{% from "components/user-icon.html" import user_icon %}
+{% from "components/header-publication.html" import header_publication %}
+{% from "components/footer-mobile.html" import footer_mobile %}
+{% from "components/drop-down-list.html" import drop_down_list %}
+{% from "components/boolean-button.html" import boolean_button %}
+{% from "components/radio-button.html" import radioButton %}
+{% from "components/header.html" import header %}
+{% from "components/footer.html" import footer %}
+
+{% block title %} Configurations {% endblock title %}
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/configurations.css') }}" >{% endblock %}
+
+{% block body -%}
+{{ header(classname="bg-header") }}
+  <section class="container configurations-view">
+    <div class="heading black">
+        <h3 class="fw-normal">
+            Configuraciones
+        </h3>
+        <hr>
+    </div>
+    {{boolean_button(
+        id="booleanButton",
+        text="Privacidad",
+        class="black fw-bold"
+    )}}
+    {{boolean_button(
+        id="booleanButton",
+        text="Notificaciones correo",
+        class="black fw-bold"
+    )}}
+    {{drop_down_list()}}
+    <div class="heading black other">
+        <h3 class="fw-normal">
+            Personalización
+        </h3>
+        <hr>
+    </div>
+    <p>Temas</p>
+    <div class="container-personalization">
+        {{radioButton(
+            id='Test',
+            name='Gray-radio-button',
+            text='Modo diurno',
+            classLabel='black',
+            classInput='black'
+        )}}
+        {{radioButton(
+            id='Test',
+            name='Gray-radio-button',
+            text='Modo nocturno',
+            classLabel='black',
+            classInput='black'
+        )}}
+    </div>
+  </section>
+
+{{footer()}}
+{{footer_mobile(class="black")}}
+
+{% endblock body %}
