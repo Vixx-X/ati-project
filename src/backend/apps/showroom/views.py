@@ -217,4 +217,8 @@ class Profile1(BaseView):
   Showcase for profile1 view.
   """
   template_name = "showroom/profile1.html"
-
+class ListComments(BaseView):
+  """
+  Showcase for profile1 view.
+  """
+  template_name = "showroom/list-comments.html"
