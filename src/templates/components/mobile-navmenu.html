@@ -1,0 +1,28 @@
+<!-- TODO creo que se debe agregar que no solo sea texto -->
+{% macro mobile_navmenu(details="", publication="") -%}
+
+<div class="mobile-navmenu container-menu">
+    <ul class="options-tabs">
+        <li id="tab-publication" class="active-tab">
+            <button id="buttonPublication">
+                <img src="{{url_for('static', filename='img/icons/publications.svg')}}" alt="Publication tab" />
+            </button>
+        </li>
+        <li id="tab-details">
+            <button id="buttonDetails">
+                <img src="{{url_for('static', filename='img/icons/details.svg')}}" alt="Details tab " />
+            </button>
+        </li>
+    </ul>
+
+    <ul class=contents-tabs>
+        <li id="publication" class="active-content">
+            <p>{{publication}}</p>
+        </li>
+        <li id="details">
+            <p>{{details}}</p>
+        </li>
+    </ul>
+</div>
+
+{%- endmacro %}
