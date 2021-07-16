@@ -1,25 +1,16 @@
 @import "../bases/variables";
 @import "../bases/mixins";
-
-#svg-filtro-principal{ }
-#svg-filtro-light{ }
-
-.chat-container{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
 .chat{
     &{
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        width: 15.5em;
-        height: 5.5em;
-        padding: 1em 1em 0.5em 1em;
-        border-radius: 0.8em;
+        border-radius: .8em;
+        height: auto;
         justify-content: space-between;
+        align-items: center;
+        padding: 1em 1em .5em;
+        position: relative;
+        width: 15.5em;
+        flex-flow: row;
+        display: flex;
     }
     &.reply{
         fill: $light;
@@ -29,25 +20,43 @@
         fill: $primary;
         background-color: $primary;
     }
-    &.chat-end{
-        &.reply:after{
-            position: absolute;
-            content: url("../../../static/img/icons/triangle.svg");
-            filter:url("../../../static/img/icons/triangle.svg") invert(99%) sepia(2%) saturate(138%) hue-rotate(69deg) brightness(114%) contrast(87%);
-            bottom:-0.6rem;
-            left:-1.2rem;
+    & .user-icon{
+        width: auto;
+        flex-basis: 25%;
+    }
+    & .cont-chat{
+        &{
+            margin-left: 1em;
+            flex: 1;
         }
-        &.response:after{
-            position: absolute;
-            content: url("../../../static/img/icons/triangle.svg");
-            filter:url("../../../static/img/icons/triangle.svg") invert(62%) sepia(32%) saturate(405%) hue-rotate(125deg) brightness(97%) contrast(88%);
-            bottom:-0.6rem;
-            right:-1.2rem;
+        & p{
+            word-break: break-all;
+        }
+    }
+    & .cont-chat-description{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1em;
+
+        & button{
+            background-color: transparent;
+            border: none;
+            color: #6e6e6e;
         }
     }
 }
 
-.chat-DateTime{
-    text-align: right;
-    font-size: 0.75em;
-}
+// .chat .user-icon{
+//     width: auto;
+//     flex-basis: 25%;
+// }
+
+// .cont-chat{
+//     &{
+//         margin-left: 1em;
+//         flex: 1;
+//     }
+//     & p{
+//         word-break: break-all;
+//     }
+// }
