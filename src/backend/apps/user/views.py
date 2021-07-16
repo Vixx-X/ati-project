@@ -42,7 +42,9 @@ class Profile(BaseView):
     template_name = "user/profile.html"
 
     def get_context_data(self, pk):
-        return super().get_context_data()
+        ctx = super().get_context_data()
+        ctx["is_myuser"] = pk==1
+        return ctx
 
 
 class EditProfile(BaseView):
