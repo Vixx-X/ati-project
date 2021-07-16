@@ -1,5 +1,7 @@
 {% extends "showroom/base.html" %}
 
+{% from "components/mobile-navmenu.html" import mobile_navmenu %}
+
 {% block title %}{{ _('Mobile Nav Menu')}}{% endblock title %}
 {% block onloadscripts %}
 <script src="{{url_for('static', filename='js/components/mobile-navmenu.js')}}"> </script>
@@ -8,37 +10,21 @@
 <div class="margin-section"></div>
 
 <div class="container">
-    <div class="mobile-navmenu container-menu">
-        <ul class="options-tabs">
-            <li id="tab-publication" class="active-tab">
-                <button id="buttonPublication">
-                    <img src="{{url_for('static', filename='img/icons/publications.svg')}}" alt="Publication tab" />
-                </button>
-            </li>
-            <li id="tab-details">
-                <button id="buttonDetails">
-                    <img src="{{url_for('static', filename='img/icons/details.svg')}}" alt="Details tab " />
-                </button>
-            </li>
-        </ul>
+    {{mobile_navmenu(
+    details="Otro parrafo de oro itemTempora nisi quam vel necessitatibus nulla, delectus amet consequuntur
+    doloribus
+    perspiciatis aliquid numquam, aspernatur enim, veritatis modi. Hic ad eligendi quam laboriosam!
+    Lorem
+    ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus sunt perferendis aliquam
+    exercitationem unde maiores dignissimos magni. Itaque corporis reprehenderit suscipit, in odit nihil
+    doloremque magnam facilis repellat rem sunt!",
 
-        <ul class=contents-tabs>
-            <li id="publication" class="active-content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, repudiandae architecto. Nostrum
-                    corrupti quo, sequi adipisci doloribus rerum beatae quae ullam eos. Asperiores architecto nobis,
-                    sequi
-                    vel quidem dolorem natus.</p>
-            </li>
-            <li id="details">
-                <p>Otro parrafo de oro itemTempora nisi quam vel necessitatibus nulla, delectus amet consequuntur
-                    doloribus
-                    perspiciatis aliquid numquam, aspernatur enim, veritatis modi. Hic ad eligendi quam laboriosam!
-                    Lorem
-                    ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus sunt perferendis aliquam
-                    exercitationem unde maiores dignissimos magni. Itaque corporis reprehenderit suscipit, in odit nihil
-                    doloremque magnam facilis repellat rem sunt!</p>
-            </li>
-        </ul>
-    </div>
+
+    publication="Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, repudiandae architecto.
+    Nostrum
+    corrupti quo, sequi adipisci doloribus rerum beatae quae ullam eos. Asperiores architecto nobis,
+    sequi
+    vel quidem dolorem natus."
+    )}}
 </div>
 {% endblock body %}
