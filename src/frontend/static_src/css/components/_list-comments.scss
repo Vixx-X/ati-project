@@ -1,0 +1,13 @@
+.list-comments{
+    display: flex;
+    flex-flow: column;
+}
+.list-comments .item.right{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.item.left .chat{
+    display: flex;
+    justify-content: flex-start;;
+}
