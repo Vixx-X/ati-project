@@ -3,6 +3,7 @@
 {% block title %}{{ _('Chat') }}{% endblock title %}
 {% block body %}
   <div class="margin-section"></div>
+  <div class="container">
     {{chat(
       type="reply",
       menssage="So much Text that edu cant imaginate more text",
@@ -12,7 +13,9 @@
       webp=url_for('static', filename='img/users/25641651.webp'),
       alt=""
     )}}
+  </div>
     <div class="margin-section"></div>
+    <div class="container">
     {{chat(
       type="response",
       menssage="So much Text that edu cant imaginate more text",
@@ -22,7 +25,9 @@
       webp=url_for('static', filename='img/users/25641651.webp'),
       alt=""
     )}}
+  </div>
     <div class="margin-section"></div>
+    <div class="container">
     {{chat(
       type="reply",
       menssage="So much Text that edu cant imaginate more text",
@@ -32,7 +37,9 @@
       webp=url_for('static', filename='img/users/25641651.webp'),
       alt=""
     )}}
+  </div>
     <div class="margin-section"></div>
+    <div class="container">
     {{chat(
       type="response",
       menssage="So much Text that edu cant imaginate more text",
@@ -42,6 +49,7 @@
       webp=url_for('static', filename='img/users/25641651.webp'),
       alt=""
     )}}
+  </div>
   <!--
   <div class="chat chat-end reply">
     <p class="chat-body">So much Text that edu cant imaginate more text</p>
