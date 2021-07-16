@@ -39,6 +39,7 @@ function help {
 	echo ""
 	echo "black          - run formatter (black)"
 	echo "runtests       - run pylint and pytest tests"
+	echo "dos2unix       - run dos2unix recursively from root dir"
 	echo ""
 	echo "setup_dev      - bring docker files and start dev workspace"
 	echo "setup_db       - bring prod docker files (use in production)"

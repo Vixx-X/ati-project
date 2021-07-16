@@ -4,6 +4,7 @@
 {% from "components/header-publication.html" import header_publication %}
 {% from "components/footer-mobile.html" import footer_mobile %}
 {% from "components/buttons.html" import buttons %}
+{% from "components/header.html" import header %}
 {% from "components/footer.html" import footer %}
 
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" >{% endblock %}
@@ -11,104 +12,64 @@
 {% block title %} Profile {% endblock title %}
 
 {% block body -%}
+  <div class="header-group">
     <div class="section-header">
-        <header class="header bg-header transparent">
-            <div class="container container-header">
-              <a href="#">
-                <div class="main-logotype">
-                  <img
-                    src="{{ url_for('static', filename='img/logo.svg') }}"
-                    alt="DEGVA logotype" />
-                  <h1>DEGVA</h1>
-                </div>
-              </a>
-              <div class="container-right">
-                <form class="form-search">
-                  <label for="search"></label>
-                  <input type="text" id="search" />
-                  <button class="button-search">
-                    <img
-                      class="icon logotype"
-                      src="../../static/img/icons/search.svg"
-                      alt="Notifications logotype"
-                    />
-                  </button>
-                </form>
-
-                <nav class="navegation">
-                  <a href="#" class="search-header">
-                    <img
-                      class="icon"
-                      src="{{ url_for("static", filename="img/icons/search.svg") }}"
-                      alt="Notifications logotype"
-                    />
-                  </a>
-                  <a href="#">
-                    <img
-                      class="icon"
-                      src="{{ url_for("static", filename="img/icons/notifications.svg") }}"
-                      alt="Notifications logotype"
-                    />
-                  </a>
-                  <a href="#">
-                    <img
-                      class="icon"
-                      src="{{ url_for("static", filename="img/icons/settings.svg") }}"
-                      alt="Notifications logotype"
-                    />
-                  </a>
-                  <a href="#">
-                    <img
-                      class="icon"
-                      src="{{ url_for("static", filename="img/icons/logout.svg") }}"
-                      alt="Notifications logotype"
-                    />
-                  </a>
-                </nav>
-              </div>
-            </div>
-          </header>
-    </div>
-    <div class="profile-icon">
+      {{ header(classname="bg-header transparent") }}
+      <div class="profile-icon">
         {{ user_icon(
             img=url_for('static', filename='img/users/26956071.png'),
             alt="User2 Photo",
             type="shadow",
             png=url_for('static', filename='img/users/26956071.png'),
             webp=url_for('static', filename='img/users/26956071.webp')
-        ) }}
-        <p class="fw-bold">Gabriela Ustariz</p>
+        ) }}   
+      <p class="fw-bold">Gabriela Ustariz</p>   
+    </div>
+  </div>
+
+  </div>
+
+    <div class="desktop-content">
+      <nav class="container navegation-desktop">
+          {{buttons(
+              mensaje="See description",
+              type="primary",
+              font="fw-bold",
+              letters="")
+          }}
+          {{buttons(
+              mensaje="Friends",
+              type="primary",
+              font="fw-bold",
+              letters="")
+          }}
+              {{buttons(
+                  mensaje="Edit profile",
+                  type="primary tercero",
+                  font="fw-bold",
+                  letters="")
+              }}
+          {{buttons(
+              mensaje="Publications",
+              type="primary last",
+              font="fw-bold",
+              letters="")
+          }}
+      </nav>
     </div>
 
-
-    <!-- <div class="container">
-        <nav class="navegation-desktop">
-            {{buttons(
-                mensaje="See description",
-                type="primary",
-                font="fw-bold",
-                letters="")
-            }}
-            {{buttons(
-                mensaje="Friends",
-                type="primary",
-                font="fw-bold",
-                letters="")
-            }}
-                {{buttons(
-                    mensaje="Edit profile",
-                    type="primary tercero",
-                    font="fw-bold",
-                    letters="")
-                }}
-            {{buttons(
-                mensaje="Publications",
-                type="primary last",
-                font="fw-bold",
-                letters="")
-            }}
+    <div class="mobile-content">
+      <div class="container margin-section ">
+        <nav class="container navegation-desktop">
+          <a href="#">
+            <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
+          </a>
+          <a href="#">
+            <img src="{{url_for('static', filename='img/icons/edit.svg')}}" alt="Edit Profile">
+          </a>
         </nav>
-    </div> -->
+      </div>
+    </div>
 
     <div class="container main-container">
         <div class="publication">    
