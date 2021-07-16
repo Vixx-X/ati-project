@@ -9,62 +9,45 @@
     background-position: center center;
     min-height: 30vh;
     @include tablet{
-        height: 45vh;
+        height: 50vh;
     }
 }
 
 .profile-icon{
-    display: flex;
-    justify-content: center;
+    margin: 0 auto;
     .user-icon{
         font-size: 2.3rem;
-        position: absolute;
-        bottom: -10rem;
+        margin: -8rem auto auto auto !important;
         @include tablet{
             font-size: 3.5rem;
+            margin: -18rem auto auto auto !important;
         }
     }
     p{
-        position: absolute;
-        bottom: -14rem;
         text-align: center;
         font-size: 3rem;
     }
 }
 
-.center-content{
-    display: flex;
-    justify-content: center;
-    min-height: 4rem;
-    height: auto;
-    .navegation-desktop{
-        width: 100%;
-        margin: 0 auto 4rem auto;
-        @include desktop{
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            position: absolute;
-            font-size: 0.7rem;
-            .button{
-                margin: 0 auto;
-                width: 20rem;
-                padding: 1rem;
-                &.tercero{
-                    grid-column: 4;
-                }
-                &.last{
-                    grid-column: 5;
-                }
-            }
+.navegation-desktop{
+    width: 100%;
+    position: absolute;
+    margin: -12rem 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: absolute;
+    font-size: 0.7rem;
+    .button{
+        width: 20rem;
+        padding: 1rem;
+        .tercero{
+            grid-column: 4 / 5;
         }
     }
 }
 
-
-
-
 .main-container{
-    margin: 8rem auto;
+    margin: 4rem auto;
     @include desktop{
         display: grid;
         grid-template-columns: 3fr 1fr;
