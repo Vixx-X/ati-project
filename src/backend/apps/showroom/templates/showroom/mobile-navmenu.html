@@ -2,37 +2,12 @@
 
 {% block title %}{{ _('Mobile Nav Menu')}}{% endblock title %}
 {% block onloadscripts %}
-<script src="{{url_for('static', filename='js/js/components/mobile-navmenu.js')}}"> </script> 
-
-
-
-<!-- ESTE SCRIPT ESTA PARA QUE FUNCIONE PERO HA Y QUE PONERLO EN EL ARCHIVO SOLO QUE NO SE DONDE
-PORQUE DONDE LO HABIA PUESTO NO FURULO -->
-<script>
-
-    function showDetails() {
-        document.getElementById("details").setAttribute("class", "active-content");
-        document.getElementById("tab-details").setAttribute("class", "active-tab");
-        document.getElementById("publication").setAttribute("class", "");
-        document.getElementById("tab-publication").setAttribute("class", "");
-    }
-
-    function showPublication() {
-        document.getElementById("publication").setAttribute("class", "active-content");
-        document.getElementById("tab-publication").setAttribute("class", "active-tab");
-        document.getElementById("details").setAttribute("class", "");
-        document.getElementById("tab-details").setAttribute("class", "");
-    }
-
-    document.getElementById("buttonDetails").addEventListener("click", showDetails);
-    document.getElementById("buttonPublication").addEventListener("click", showPublication);
-</script>
-
-
-
+<script src="{{url_for('static', filename='js/components/mobile-navmenu.js')}}"> </script>
 {% endblock onloadscripts %}
 {% block body%}
-<div class="center container">
+<div class="margin-section"></div>
+
+<div class="container">
     <div class="mobile-navmenu container-menu">
         <ul class="options-tabs">
             <li id="tab-publication" class="active-tab">
@@ -67,5 +42,3 @@ PORQUE DONDE LO HABIA PUESTO NO FURULO -->
     </div>
 </div>
 {% endblock body %}
-
-
