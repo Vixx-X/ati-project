@@ -7,7 +7,7 @@
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.51), rgba(0, 0, 0, 0.51)), url("../../../static/img/background1.jpg");
     background-size: cover;
     background-position: center center;
-    min-height: 30vh;
+    min-height: 25vh;
     @include tablet{
         height: 45vh;
     }
@@ -19,8 +19,9 @@
     .user-icon{
         font-size: 2.3rem;
         position: absolute;
-        bottom: -10rem;
+        bottom: -8rem;
         @include tablet{
+            bottom: -10rem;
             font-size: 3.5rem;
         }
     }
@@ -32,11 +33,24 @@
     }
 }
 
-.center-content{
+.mobile-content{
     display: flex;
-    justify-content: center;
-    min-height: 4rem;
-    height: auto;
+    justify-content: space-between;
+    margin: 2rem 0 10rem 0;
+    @include desktop{
+        display: none;
+    }
+}
+
+.desktop-content{
+    margin: 4rem 0;
+    display: none;
+    @include desktop{
+        display: flex;
+        justify-content: center;
+        min-height: 4rem;
+        height: auto;
+    }
     .navegation-desktop{
         width: 100%;
         margin: 0 auto 4rem auto;
