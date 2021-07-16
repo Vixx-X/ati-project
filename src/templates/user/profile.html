@@ -17,7 +17,8 @@
 {% block title %} Profile {% endblock title %}
 
 {% block body -%}
-  <div class="header-group">
+
+  <div class="header-group ">
     <div class="section-header">
       {{ header(classname="bg-header transparent") }}
       <div class="profile-icon">
@@ -47,24 +48,39 @@
               font="fw-bold",
               letters="")
           }}
-              {{buttons(
-                  mensaje="Edit profile",
-                  type="primary tercero",
-                  font="fw-bold",
-                  letters="")
-              }}
-          {{buttons(
-              mensaje="Publications",
-              type="primary last",
-              font="fw-bold",
-              letters="")
-          }}
+          {% if is_myuser %}
+            {{buttons(
+                mensaje="Edit profile",
+                type="primary tercero",
+                font="fw-bold",
+                letters="")
+            }}  
+            {{buttons(
+                mensaje="Publications",
+                type="primary last",
+                font="fw-bold",
+                letters="")
+            }}
+          {% else %}
+            {{buttons(
+                mensaje="Be friends",
+                type="primary tercero",
+                font="fw-bold",
+                letters="")
+            }}  
+            {{buttons(
+                mensaje="Chat",
+                type="primary last",
+                font="fw-bold",
+                letters="")
+            }}
+          {% endif %}
       </nav>
     </div>
 
     <div class="mobile-content">
-      <div class="container margin-section ">
-        <nav class="container navegation-mobile">
+      <div class="container margin-section">
+        <nav class="navegation-mobile">
           <a href="#">
             <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
           </a>
