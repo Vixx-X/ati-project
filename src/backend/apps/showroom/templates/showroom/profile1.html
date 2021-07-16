@@ -6,8 +6,13 @@
 {% from "components/buttons.html" import buttons %}
 {% from "components/header.html" import header %}
 {% from "components/footer.html" import footer %}
+{% from "components/mobile-navmenu.html" import mobile_navmenu %}
+{% from "components/long-cards.html" import longCard %}
 
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" >{% endblock %}
+{% block onloadscripts %}
+<script src="{{url_for('static', filename='js/components/mobile-navmenu.js')}}"> </script>
+{% endblock onloadscripts %}
 
 {% block title %} Profile {% endblock title %}
 
@@ -24,10 +29,8 @@
             webp=url_for('static', filename='img/users/26956071.webp')
         ) }}   
       <p class="fw-bold">Gabriela Ustariz</p>   
+      </div>
     </div>
-  </div>
-
-  </div>
 
     <div class="desktop-content">
       <nav class="container navegation-desktop">
@@ -60,7 +63,7 @@
 
     <div class="mobile-content">
       <div class="container margin-section ">
-        <nav class="container navegation-desktop">
+        <nav class="container navegation-mobile">
           <a href="#">
             <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
           </a>
@@ -70,6 +73,9 @@
         </nav>
       </div>
     </div>
+  </div>
+
+  {{mobile_navmenu(publication=True, url="https://www.plus2net.com/html_tutorial/button-linking.php")}}
 
     <div class="container main-container">
         <div class="publication">    
@@ -122,7 +128,29 @@
             </div>
         </div>
         <aside>
-
+          {{longCard(
+            title='Video Games',
+            content=['Call of duty: Mobile', 'Beyond: Two Souls'],
+            type='secundary'
+          )}}
+          <div class="margin-section"></div>
+            {{ longCard(
+              title='Books',
+              content=['Inferno'],
+              type='secundary'
+            ) }}
+          <div class="margin-section"></div>
+            {{ longCard(
+              title='Languages',
+              content=['Python3', 'Haskell'],
+              type='secundary'
+            ) }}
+            <a href="#" class="container-details">
+              <img src="{{ url_for('static', filename='img/icons/menu_3_puntos_horizontal.svg') }}" alt="Details">
+              <p>
+                View Description of User
+              </p>
+            </a>
         </aside>
     </div>
 
