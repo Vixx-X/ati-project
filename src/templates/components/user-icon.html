@@ -1,7 +1,7 @@
-{% macro user_icon(img, alt="", type="basic", url="", png="", webp="") -%}
+{% macro user_icon(img, alt="", type="basic", url=None, png="", webp="") -%}
 <div class="user-icon {{ type }}">
     {%if url-%}
-        <a href="{{ '#' if not alt else alt }}">
+        <a href="{{ url }}">
     {%- endif %}
         <picture>
             {% if webp -%}
