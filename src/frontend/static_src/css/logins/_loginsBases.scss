@@ -16,6 +16,15 @@ body{
     }
 }
 
+a{
+    p{
+        opacity: 0.7;
+        &:hover{
+            opacity: 1;
+        }
+    }
+}
+
 .main-logotype {
     display: flex;
     align-items: center;
@@ -54,10 +63,13 @@ body{
 }
 
 .footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    display: block;
     z-index: 1;
+    @include cell{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
 }
 
 p{
