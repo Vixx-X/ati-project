@@ -1,5 +1,5 @@
-{% macro buttons(mensaje="Button",type="primary",font="fw-bold", letters="text-uppercase") %}
-<button class="button {{ type }} {{ letters }} {{ font }}">
+{% macro buttons(mensaje="Button",type="primary",font="fw-bold", letters="text-uppercase", function="") %}
+<button class="button {{ type }} {{ letters }} {{ font }}" onclick="{{ function }}">
     {{mensaje}}
 </button>
 {% endmacro %}
