@@ -8,7 +8,7 @@
     justify-content: space-between;
     .user-icon{
         display: none;
-        width: 100%;
+        width: 70%;
         @include tablet{
             display: block;
         }
@@ -17,6 +17,7 @@
     .button{
         font-size: 16px;
         height: fit-content;
+
         &.with-icon{
             display: none;
             @include tablet{
@@ -26,7 +27,7 @@
                 justify-content: center;
                 padding: 0.5em 1em;
                 img{
-                    filter: invert(100%) sepia(84%) saturate(8%) hue-rotate(283deg) brightness(114%) contrast(87%);
+                    filter: inherit;
                     margin-right: 0.5em;
                 }
             }
@@ -60,3 +61,4 @@
     }
     
 }
+

@@ -3,61 +3,175 @@
 {% from "components/user-icon.html" import user_icon %}
 {% from "components/header-publication.html" import header_publication %}
 {% from "components/footer-mobile.html" import footer_mobile %}
-{% from "components/drop-down-list.html" import drop_down_list %}
-{% from "components/boolean-button.html" import boolean_button %}
-{% from "components/radio-button.html" import radioButton %}
+{% from "components/buttons.html" import buttons %}
 {% from "components/header.html" import header %}
 {% from "components/footer.html" import footer %}
+{% from "components/mobile-navmenu.html" import mobile_navmenu %}
+{% from "components/long-cards.html" import longCard %}
 
-{% block title %} Configurations {% endblock title %}
-{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/configurations.css') }}" >{% endblock %}
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" >{% endblock %}
+{% block onloadscripts %}
+<script src="{{url_for('static', filename='js/components/mobile-navmenu.js')}}"> </script>
+{% endblock onloadscripts %}
+
+{% block title %} Profile {% endblock title %}
 
 {% block body -%}
-{{ header(classname="bg-header") }}
-  <section class="container configurations-view">
-    <div class="heading black">
-        <h3 class="fw-normal">
-            Configuraciones
-        </h3>
-        <hr>
+
+  <div class="header-group ">
+    <div class="section-header">
+      {{ header(classname="bg-header transparent") }}
+      <div class="profile-icon">
+        {{ user_icon(
+            img=url_for('static', filename='img/users/26956071.png'),
+            alt="User2 Photo",
+            type="shadow",
+            url=url_for("user.profile", pk=1),
+            png=url_for('static', filename='img/users/26956071.png'),
+            webp=url_for('static', filename='img/users/26956071.webp')
+        ) }}   
+      <p class="fw-bold">Gabriela Ustariz</p>   
+      </div>
     </div>
-    {{boolean_button(
-        id="booleanButton",
-        text="Privacidad",
-        class="black fw-bold"
-    )}}
-    {{boolean_button(
-        id="booleanButton",
-        text="Notificaciones correo",
-        class="black fw-bold"
-    )}}
-    {{drop_down_list()}}
-    <div class="heading black other">
-        <h3 class="fw-normal">
-            Personalización
-        </h3>
-        <hr>
+
+    <div class="desktop-content">
+      <nav class="container navegation-desktop">
+          {{buttons(
+              mensaje="See description",
+              type="primary",
+              font="fw-bold",
+              letters="")
+          }}
+          {{buttons(
+              mensaje="Friends",
+              type="primary",
+              font="fw-bold",
+              letters="")
+          }}
+          {% if is_myuser %}
+            {{buttons(
+                mensaje="Edit profile",
+                type="primary tercero",
+                font="fw-bold",
+                letters="")
+            }}  
+            {{buttons(
+                mensaje="Publications",
+                type="primary last",
+                font="fw-bold",
+                letters="")
+            }}
+          {% else %}
+            {{buttons(
+                mensaje="Be friends",
+                type="primary tercero",
+                font="fw-bold",
+                letters="")
+            }}  
+            {{buttons(
+                mensaje="Chat",
+                type="primary last",
+                font="fw-bold",
+                letters="")
+            }}
+          {% endif %}
+      </nav>
     </div>
-    <p>Temas</p>
-    <div class="container-personalization">
-        {{radioButton(
-            id='Test',
-            name='Gray-radio-button',
-            text='Modo diurno',
-            classLabel='black',
-            classInput='black'
-        )}}
-        {{radioButton(
-            id='Test',
-            name='Gray-radio-button',
-            text='Modo nocturno',
-            classLabel='black',
-            classInput='black'
-        )}}
+
+    <div class="mobile-content">
+      <div class="container margin-section">
+        <nav class="navegation-mobile">
+          <a href="#">
+            <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
+          </a>
+          <a href="#">
+            <img src="{{url_for('static', filename='img/icons/edit.svg')}}" alt="Edit Profile">
+          </a>
+        </nav>
+      </div>
     </div>
-  </section>
+  </div>
+
+  {{mobile_navmenu(publication=True, url="https://www.plus2net.com/html_tutorial/button-linking.php")}}
+
+    <div class="container main-container">
+        <div class="publication">    
+            {{ header_publication(
+                img=url_for('static', filename='img/users/26272390.png'),
+                input="New Publication",
+                author="Daniel Vieira",
+                time="Today",
+                png=url_for('static', filename='img/users/26272390.png'),
+                webp=url_for('static', filename='img/users/26272390.webp')
+            )}}
+            <a href="#">
+                <div class="image-publication">
+                    <picture>
+                        <source srcset="{{ url_for("static", filename="img/media1.webp") }}" type="image/webp">
+                        <source srcset="{{ url_for("static", filename="img/media1.png") }}" type="image/png">
+                        <img loading="lazy" src="{{ url_for("static", filename="img/media1.png") }}" alt="Photo publication">
+                    </picture>
+                </div>
+            </a>
+            <div class="comments-user">
+                <div class="comments-group">
+
+                {{ user_icon(
+                    img=url_for('static', filename='img/users/25641651.png'),
+                    alt="User1 Photo",
+                    type="basic one",
+                    png=url_for('static', filename='img/users/25641651.png'),
+                    webp=url_for('static', filename='img/users/25641651.webp')
+                ) }}
+
+                {{ user_icon(
+                    img=url_for('static', filename='img/users/26838989.png'),
+                    alt="User2 Photo",
+                    type="basic two",
+                    png=url_for('static', filename='img/users/26838989.png'),
+                    webp=url_for('static', filename='img/users/26838989.webp')
+                ) }}
+
+                {{ user_icon(
+                    img=url_for('static', filename='img/users/26956071.png'),
+                    alt="User3 Photo",
+                    type="basic three",
+                    png=url_for('static', filename='img/users/26956071.png'),
+                    webp=url_for('static', filename='img/users/26956071.webp')
+                ) }}
+
+                </div>
+                <a href="#">Ver comentarios</a>
+            </div>
+        </div>
+        <aside>
+          {{longCard(
+            title='Video Games',
+            content=['Call of duty: Mobile', 'Beyond: Two Souls'],
+            type='secundary'
+          )}}
+          <div class="margin-section"></div>
+            {{ longCard(
+              title='Books',
+              content=['Inferno'],
+              type='secundary'
+            ) }}
+          <div class="margin-section"></div>
+            {{ longCard(
+              title='Languages',
+              content=['Python3', 'Haskell'],
+              type='secundary'
+            ) }}
+            <a href="#" class="container-details">
+              <img src="{{ url_for('static', filename='img/icons/menu_3_puntos_horizontal.svg') }}" alt="Details">
+              <p>
+                View Description of User
+              </p>
+            </a>
+        </aside>
+    </div>
 
 {{footer()}}
 {{footer_mobile(class="black")}}
 
-{% endblock body %}
+{%- endblock body %}
