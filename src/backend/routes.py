@@ -13,7 +13,7 @@ bp.add_url_rule("/", view_func=views.Home.as_view("home"))
 bp.add_url_rule("/home/", view_func=views.LandingPage.as_view("landing"))
 bp.add_url_rule("/login/", view_func=views.Login.as_view("login"))
 bp.add_url_rule("/register/", view_func=views.Register.as_view("register"))
-bp.add_url_rule("/forgotpassword/", view_func=views.Register.as_view("forgotpassword"))
+bp.add_url_rule("/forgotpassword/", view_func=views.ForgotPassword.as_view("forgotpassword"))
 
 @bp.errorhandler(404)
 def not_found(error):
