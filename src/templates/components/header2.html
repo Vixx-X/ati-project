@@ -1,0 +1,21 @@
+{% from "components/user-icon.html" import user_icon %}
+{% macro header2(img="", alt="", typeIcon="", png="", webp="", type="") -%}
+<div class="header-main container">
+    <div class="section-left">
+      {{ user_icon(
+        img=url_for('static', filename='img/users/26956071.png'),
+        alt="User2 Photo",
+        type="shadow",
+        png=url_for('static', filename='img/users/26956071.png'),
+        webp=url_for('static', filename='img/users/26956071.webp')
+      ) }}
+      <button class="button create fw-normal">
+        What do you think?...
+      </button>
+    </div>
+    <button class="button primary with-icon fw-normal">
+      <img src="{{ url_for("static", filename="img/icons/notifications.svg") }}" alt="Messages Icon">
+      Messages
+    </button>
+</div>
+{%- endmacro %}
