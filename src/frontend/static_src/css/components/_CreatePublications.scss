@@ -1,0 +1,77 @@
+@import "../bases/variables";
+@import "../bases/mixins";
+
+// .header-publication {
+//     position: relative;
+//     h2, p {
+//         font-size: 1em;
+//         box-sizing: border-box;
+//         @include tablet {
+//         font-size: 1.25em;
+//         }
+//         @include desktop {
+//           font-size: 1.5em;
+//         }
+//     }
+// }
+
+.cont-create-publication{
+    & .cont-create-publication-header{
+        display: flex;
+        height: 5em;
+        justify-content: space-between;
+        align-items: center;
+        margin: 1em 0;
+        
+        & .cont-create-publication-header-icon{
+            display: block;
+            @include desktop{
+                display: none;
+            }
+        }
+
+        & button{
+            font-size: 1em;
+            padding: 1em 4em;
+            height: 2.5em;
+        }
+    }
+    & .cont-create-publication-body{
+        display: flex;
+        margin-bottom:2em ;
+        flex-direction: column;
+        background-color:#f2f2f2;
+        padding: 0 1em;
+        & div{
+            margin:1em 0;
+        }
+
+        & .cont-create-publication-body-boolean-button{
+            margin: 1em 0;
+            
+            & div{
+                display: flex;
+                justify-content: start;
+            }
+
+            & div label{
+                margin: 0 1em;
+            }
+        }
+
+        & .cont-create-publication-body-tittle{
+            display: flex;
+            flex-flow: column;
+
+            & div input{
+                border: 1px solid $black;
+            }
+            & div textarea{
+                border: 1px solid $black;
+            }
+        }
+    }
+    }
+//     @include tablet {
+//         }
+// }
