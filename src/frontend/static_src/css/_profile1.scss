@@ -61,10 +61,20 @@
         justify-content: space-between;
         align-items: center;
     }
+
+    .navegation-mobile-other{
+        display: flex;
+        justify-content: space-between;
+        .container-right{
+            min-width: 9rem;
+            width: 15%;
+            filter:  invert(34%) sepia(1%) saturate(0%) hue-rotate(179deg) brightness(93%) contrast(84%);
+        }
+    }
 }
 
 .desktop-content{
-    margin: 4rem 0;
+    margin: 2rem 0;
     display: none;
     @include desktop{
         display: flex;

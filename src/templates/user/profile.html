@@ -80,6 +80,7 @@
 
     <div class="mobile-content">
       <div class="container margin-section">
+        {% if is_myuser %}
         <nav class="navegation-mobile">
           <a href="#">
             <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
@@ -88,6 +89,21 @@
             <img src="{{url_for('static', filename='img/icons/edit.svg')}}" alt="Edit Profile">
           </a>
         </nav>
+        {% else %}
+        <nav class="navegation-mobile-other">
+          <a href="#">
+            <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
+          </a>
+          <div class="container-right">
+            <a href="#">
+              <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
+            </a>
+            <a href="#">
+              <img src="{{url_for('static', filename='img/icons/chat.svg')}}" alt="Edit Profile">
+            </a>
+          </div>
+        </nav>
+        {% endif %}
       </div>
     </div>
   </div>

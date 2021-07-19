@@ -3,61 +3,123 @@
 {% from "components/user-icon.html" import user_icon %}
 {% from "components/header-publication.html" import header_publication %}
 {% from "components/footer-mobile.html" import footer_mobile %}
-{% from "components/drop-down-list.html" import drop_down_list %}
-{% from "components/boolean-button.html" import boolean_button %}
-{% from "components/radio-button.html" import radioButton %}
+{% from "components/buttons.html" import buttons %}
 {% from "components/header.html" import header %}
 {% from "components/footer.html" import footer %}
+{% from "components/mobile-navmenu.html" import mobile_navmenu %}
+{% from "components/long-cards.html" import longCard %}
 
-{% block title %} Configurations {% endblock title %}
-{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/configurations.css') }}" >{% endblock %}
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" >
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile2.css') }}" >
+{% endblock %}
+{% block onloadscripts %}
+<script src="{{url_for('static', filename='js/components/mobile-navmenu.js')}}"> </script>
+{% endblock onloadscripts %}
+
+{% block title %} Profile {% endblock title %}
 
 {% block body -%}
-{{ header(classname="bg-header") }}
-  <section class="container configurations-view">
-    <div class="heading black">
-        <h3 class="fw-normal">
-            Configuraciones
-        </h3>
-        <hr>
+
+    <div class="header-group ">
+        <div class="section-header">
+        {{ header(classname="bg-header transparent") }}
+        <div class="container profile-icon">
+            {{ user_icon(
+                img=url_for('static', filename='img/users/26956071.png'),
+                alt="User2 Photo",
+                type="shadow",
+                url=url_for("user.profile", pk=1),
+                png=url_for('static', filename='img/users/26956071.png'),
+                webp=url_for('static', filename='img/users/26956071.webp')
+            ) }}
+        <p class="container-name fw-bold">Gabriela Ustariz</p>   
+        </div>
+        </div>
+
+        <div class="desktop-content">
+        <nav class="container navegation-desktop">
+            {% if is_myuser %}
+                {{buttons(
+                    mensaje="Publications",
+                    type="primary last",
+                    font="fw-bold",
+                    letters="")
+                }}
+            {% else %}
+                {{buttons(
+                    mensaje="Be friends",
+                    type="primary tercero",
+                    font="fw-bold",
+                    letters="")
+                }}  
+                {{buttons(
+                    mensaje="Chat",
+                    type="primary last",
+                    font="fw-bold",
+                    letters="")
+                }}
+            {% endif %}
+        </nav>
+        </div>
+
+        <div class="mobile-content">
+            <div class="container margin-section">
+            {% if is_myuser %}
+            <nav class="navegation-mobile">
+                <a href="#">
+                <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
+                </a>
+                <a href="#">
+                <img src="{{url_for('static', filename='img/icons/edit.svg')}}" alt="Edit Profile">
+                </a>
+            </nav>
+            {% else %}
+            <nav class="navegation-mobile-other">
+                <a href="#">
+                <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
+                </a>
+                <div class="container-right">
+                <a href="#">
+                    <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
+                </a>
+                <a href="#">
+                    <img src="{{url_for('static', filename='img/icons/chat.svg')}}" alt="Edit Profile">
+                </a>
+                </div>
+            </nav>
+            {% endif %}
+            </div>
+        </div>
     </div>
-    {{boolean_button(
-        id="booleanButton",
-        text="Privacidad",
-        class="black fw-bold"
-    )}}
-    {{boolean_button(
-        id="booleanButton",
-        text="Notificaciones correo",
-        class="black fw-bold"
-    )}}
-    {{drop_down_list()}}
-    <div class="heading black other">
-        <h3 class="fw-normal">
-            Personalización
-        </h3>
-        <hr>
+
+    {{mobile_navmenu(publication=True, url="https://www.plus2net.com/html_tutorial/button-linking.php")}}
+
+    <div class="container">
+        <p class="details">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. sunt in culpa qui officia deserunt mollit anim id est laborum.”</p>
+        <div class="container-header-friends">
+            <div class="heading black">
+                <h3 class="fw-normal">
+                    Friends
+                </h3>
+                <hr>
+            </div>
+            <div class="search-main-container">
+                <div class="search search-bg ">
+                    <div class="container-search">
+                    <img class="icon" src="{{ url_for('static', filename='img/icons/search.svg') }}" alt="Notifications logotype"/>
+                    <form action="">
+                        <input type="text" placeholder="Search">
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="number">155</p>
+
     </div>
-    <p>Temas</p>
-    <div class="container-personalization">
-        {{radioButton(
-            id='Test',
-            name='Gray-radio-button',
-            text='Modo diurno',
-            classLabel='black',
-            classInput='black'
-        )}}
-        {{radioButton(
-            id='Test',
-            name='Gray-radio-button',
-            text='Modo nocturno',
-            classLabel='black',
-            classInput='black'
-        )}}
-    </div>
-  </section>
 
 {{footer()}}
 {{footer_mobile(class="black")}}
 
-{% endblock body %}
+{%- endblock body %}

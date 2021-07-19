@@ -1,0 +1,57 @@
+@import "bases/variables";
+@import "bases/mixins";
+
+.profile-icon{
+    @include desktop{
+        justify-content: flex-start;
+        p{
+            position: absolute;
+            bottom: -6.5rem;
+        }
+    
+        .container-name{
+            width: 72rem;
+            margin: 0 auto;
+        }
+    }
+}
+
+.details{
+    p{
+        margin: 3.5rem 0;
+        text-align: center;
+    }
+}
+
+.heading{
+    font-size: 2rem;
+    width: 100%;
+    hr{
+        width: 80%;
+        margin-left: 0;
+    }
+}
+
+.container-header-friends{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 1rem;
+    .search{
+        width: 50%;
+    }
+    .container-search{
+        padding: 0.6em 0;
+    }
+}
+
+.search-main-container{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.number{
+    font-style: italic;
+    font-size: 2rem;
+    margin-top: 0;
+}
