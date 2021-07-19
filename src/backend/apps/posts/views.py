@@ -14,7 +14,7 @@ class Post(BaseView):
 
     template_name = "posts/post.html"
 
-    def __init__(self, id) -> None:
+    def __init__(self) -> None:
         return
 
 
@@ -25,5 +25,5 @@ class Comment(BaseView):
 
     template_name = "user/comment.html"
 
-    def __init__(self, id) -> None:
+    def __init__(self) -> None:
         return

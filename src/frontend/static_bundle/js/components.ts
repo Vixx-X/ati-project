@@ -1,1 +1,2 @@
-document.writeln("<script type='text/javascript' src='../../static_src/js/chat.ts'></script>");
+import "js/components/chat.ts";
+import "js/components/mobile-navmenu.ts"

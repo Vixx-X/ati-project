@@ -223,3 +223,15 @@ class CreatePublications(BaseView):
   Showcase for profile1 view.
   """
   template_name = "showroom/CreatePublications.html"
+  
+class MobileNavMenu(BaseView):
+  """
+  Showcase for mobile nav menu component.
+  """
+  template_name = "showroom/mobile-navmenu.html"
+
+class ListComments(BaseView):
+  """
+  Showcase for profile1 view.
+  """
+  template_name = "showroom/list-comments.html"

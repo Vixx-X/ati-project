@@ -4,9 +4,15 @@ body {
     background-color: #000;
 }
 
-.long-card {
-    padding: 1em;
+.content-showroom-long-card{
     width: 18em;
+}
+
+.long-card {
+    padding: 1.5em;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     &.primary{
         padding: 1em;
         background-color: #f2f2f2;
@@ -18,26 +24,14 @@ body {
         }
     }
     &.secundary{
-        color: $white;
-        background-color: $primary;
-        color: $white;
+        color: #333;
+        background-color: lighten($primary, 20%);
     }
     h4 {
         margin-bottom: 1em;
     }
 
     p {
-        margin-bottom: 1em;
-        margin-left: 0.5em;
-    }
-}
-
-.long {
-    h4 {
-        margin-bottom: 2em;
-    }
-    p {
-        margin-bottom: 2em;
-        margin-left: 0.5em;
+        margin-bottom: 0.8em;
     }
 }
