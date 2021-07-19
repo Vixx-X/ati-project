@@ -1,17 +1,31 @@
+{% from "components/buttons.html" import buttons %}
 <!-- TODO creo que se debe agregar que no solo sea texto -->
-{% macro mobile_navmenu(details=None, publication=None, url="#") -%}
+{% macro mobile_navmenu(details=None, publication=None, url="#", mensaje="Button", type="primary",
+    font="fw-bold", letters="text-uppercase", functionPublication="", functionDetails="") -%}
 
 <div class="mobile-navmenu container-menu">
     <ul class="options-tabs">
         <li id="tab-publication" {% if publication -%} class="active-tab" {%- endif %} ">
-            <button id="buttonDetails" {% if details -%} onClick="parent.location='{{url_for('app.home')}}'" {%- endif %}>
-                <img src="{{url_for('static', filename='img/icons/publications.svg')}}" alt="Publication tab" />
-            </button>
+            {{buttons(
+                id = "buttonDetails",
+                class="",
+                type="",
+                font="",
+                letters="",
+                function=functionPublication,
+                mensaje = "<img src=" + url_for('static', filename='img/icons/publications.svg') + " alt='Publication tab' >"
+            )}}
         </li>
         <li id="tab-details" {% if details -%} class="active-tab" {%- endif %} >
-            <button id="buttonDetails" {% if publication -%} onClick="parent.location='{{url_for('app.home')}}'" {%- endif %}>
-                <img src="{{url_for('static', filename='img/icons/details.svg')}}" alt="Details tab " />
-            </button>
+            {{buttons(
+                id = "buttonDetails",
+                class="",
+                type="",
+                font="",
+                letters="",
+                function=functionDetails,
+                mensaje = "<img src=" + url_for('static', filename='img/icons/details.svg') + " alt='Publication tab' >"
+            )}}
         </li>
     </ul>
 
