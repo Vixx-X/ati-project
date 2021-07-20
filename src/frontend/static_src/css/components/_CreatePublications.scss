@@ -1,20 +1,6 @@
 @import "../bases/variables";
 @import "../bases/mixins";
 
-// .header-publication {
-//     position: relative;
-//     h2, p {
-//         font-size: 1em;
-//         box-sizing: border-box;
-//         @include tablet {
-//         font-size: 1.25em;
-//         }
-//         @include desktop {
-//           font-size: 1.5em;
-//         }
-//     }
-// }
-
 .cont-create-publication{
     & .cont-create-publication-header{
         display: flex;
@@ -51,7 +37,7 @@
             
             & div{
                 display: flex;
-                justify-content: start;
+                justify-content: flex-start;
             }
 
             & div label{
