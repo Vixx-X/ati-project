@@ -23,9 +23,11 @@
         png=url_for('static', filename='img/users/26956071.png'),
         webp=url_for('static', filename='img/users/26956071.webp')
         ) }}
-        <button class="button create fw-normal">
-        What do you think?...
-        </button>
+        <a href="{{url_for('app.createpublication')}}">
+            <button class="button create fw-normal">
+                What do you think?...
+            </button>
+        </a>
     </div>
     <button class="button primary with-icon fw-normal">
         <img class="icon" src="{{ url_for("static", filename="img/icons/chat.svg") }}" alt="Messages Icon">

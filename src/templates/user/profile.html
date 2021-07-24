@@ -108,7 +108,8 @@
     </div>
   </div>
 
-  {{mobile_navmenu(publication=True, url="https://www.plus2net.com/html_tutorial/button-linking.php")}}
+  {{mobile_navmenu(publication=True, url="https://www.plus2net.com/html_tutorial/button-linking.php", 
+    functionPublication="parent.location='" + url_for('app.home') + "'", functionDetails="parent.location='" + url_for('app.home') + "'")}}
 
     <div class="container main-container">
         <div class="publication">    
