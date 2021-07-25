@@ -1,24 +1,67 @@
 {% from "components/user-icon.html" import user_icon %}
-{% macro list_friends(img, name, comunFriends="Comun Friends", url=None, png="", webp="", alt="", type="basic") -%}
+{% from "components/buttons.html" import buttons %}
+{% from "components/element-friend-list.html" import element_friend_list %}
+{% macro list_friends(img, name, comunFriends="Comun Friends", url=None, png="", webp="", alt="", type="basic",button="",txtbutton="") %}
 
 <div class="cont-listaAmigos">
   <!-- TODO change # for a new parameter value -->
+
+  <div class="center">
+    <h2>List Friends</h2>
+    <hr>
+  </div>
+  
   <a href="#">
-    <div class="listaAmigos-item">
-      {{ user_icon(
-        img=img,
-        alt=alt,
-        type=type,
-        url=url,
-        png=png,
-        webp=webp
-        )}}
-      <div class="listaAmigos-item_description">
-        <p class="listaAmigos-item_description-usuario">{{name}}</p>
-        <p class="listaAmigos-item_description-numberFriends">{{comunFriends}}</p>
-      </div>
-    </div>
+    {{element_friend_list(
+      user=name,
+      comunFriends=comunFriends,
+      button=button,
+      txtbutton=txtbutton,
+      connect=False,
+      trasparent="",
+      url="",
+      png=png,
+      webp=webp,
+      img=img,
+    )}}
   </a>
+  <a href="#">
+    {{element_friend_list(
+      user=name,
+      comunFriends=comunFriends,
+      button=button,
+      txtbutton=txtbutton,
+      connect=False,
+      trasparent="",
+      url="",
+      png=png,
+      webp=webp,
+      img=img,
+    )}}
+  </a>
+  <a href="#">
+    {{element_friend_list(
+      user=name,
+      comunFriends=comunFriends,
+      button=button,
+      txtbutton=txtbutton,
+      connect=False,
+      trasparent="",
+      url="",
+      png=png,
+      webp=webp,
+      img=img,
+    )}}
+  </a>
+  {{buttons(
+    mensaje="See All",
+    type="primary",
+    font="fw-bold",
+    letters="text-uppercase")
+  }}
+  
+
+  
 </div>
 
-{%- endmacro %}
+{% endmacro %}

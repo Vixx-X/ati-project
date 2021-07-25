@@ -5,6 +5,7 @@
 }
 
 .cont-element-friend-list{
+    margin: 1em 0;
     display: flex;
     background-color: $light;
     border-radius: 1em;
@@ -20,6 +21,10 @@
 .cont-element-friend-list-description{
     flex: 1;
     margin-left: 1em;
+}
+
+.cont-element-friend-list .user-icon{
+    width: 5em;
 }
 
 .element_friend_list_user{
