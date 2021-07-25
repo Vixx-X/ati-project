@@ -36,13 +36,14 @@
 
     <div class="desktop-content">
       <nav class="container navegation-desktop">
+          {% if is_myuser %}
           {{buttons(
               mensaje="See description",
               type="primary",
               font="fw-bold",
-              letters="")
+              letters="",
+              function="parent.location='" + url_for('user.description', pk=2) + "'")
           }}
-          {% if is_myuser %}
           {{buttons(
               mensaje="Friends",
               type="primary",
@@ -63,6 +64,13 @@
                 letters="")
             }}
           {% else %}
+            {{buttons(
+              mensaje="See description",
+              type="primary",
+              font="fw-bold",
+              letters="",
+              function="parent.location='" + url_for('user.description', pk=2) + "'")
+            }}
             {{buttons(
               mensaje="Friends",
               type="primary",
@@ -116,8 +124,8 @@
     </div>
   </div>
 
-  {{mobile_navmenu(publication=True, url="https://www.plus2net.com/html_tutorial/button-linking.php", 
-    functionPublication="parent.location='" + url_for('app.home') + "'", functionDetails="parent.location='" + url_for('app.home') + "'")}}
+  {{mobile_navmenu(publication=True, 
+    functionPublication="parent.location='" + url_for('user.profile', pk=1) + "'", functionDetails="parent.location='" + url_for('user.description', pk=1) + "'")}}
 
     <div class="container main-container">
         <div class="publication">    

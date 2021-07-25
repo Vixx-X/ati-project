@@ -97,8 +97,6 @@
                 </div>
             </div>
         </div>
-
-        {{mobile_navmenu(publication=True, url="https://www.plus2net.com/html_tutorial/button-linking.php")}}
         
             <p class="container details margin-section">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. sunt in culpa qui officia deserunt mollit anim id est laborum.”</p>
 
@@ -125,40 +123,38 @@
     </div>   
 
     {% set number_friends =  9 %}
-        <div class="container">
-            <p class="number">{{number_friends}}</p>
-            <div class="container-friends margin-bottom">
-                
-                {% for i in range(number_friends) %}
-                    {% if is_myuser %}
-                    {{element_friend_list(
-                        user="Vittorio",
-                        comunFriends="35", 
-                        button=True,
-                        trasparent=False, 
-                        url=url_for("user.profile", pk=2), 
-                        png=url_for('static', filename='img/users/26838989.png'),
-                        webp=url_for('static', filename='img/users/26838989.webp'),
-                        img=url_for('static', filename='img/users/26838989.png'),
-                        txtbutton="Delete")
-                    }}
-                    {% else %}
-                    {{element_friend_list(
-                        user="Vittorio",
-                        comunFriends="35", 
-                        button=True,
-                        trasparent=False, 
-                        url=url_for("user.profile", pk=2), 
-                        png=url_for('static', filename='img/users/26838989.png'),
-                        webp=url_for('static', filename='img/users/26838989.webp'),
-                        img=url_for('static', filename='img/users/26838989.png'),
-                        txtbutton="Be Friends")
-                    }}
-                    {% endif %}
-                {% endfor %}
-            </div>
+    <div class="container">
+        <p class="number">{{number_friends}}</p>
+        <div class="container-friends margin-bottom">
+            
+            {% for i in range(number_friends) %}
+                {% if is_myuser %}
+                {{element_friend_list(
+                    user="Vittorio",
+                    comunFriends="35", 
+                    button=True,
+                    trasparent=False, 
+                    url=url_for("user.profile", pk=2), 
+                    png=url_for('static', filename='img/users/26838989.png'),
+                    webp=url_for('static', filename='img/users/26838989.webp'),
+                    img=url_for('static', filename='img/users/26838989.png'),
+                    txtbutton="Delete")
+                }}
+                {% else %}
+                {{element_friend_list(
+                    user="Vittorio",
+                    comunFriends="35", 
+                    button=True,
+                    trasparent=False, 
+                    url=url_for("user.profile", pk=2), 
+                    png=url_for('static', filename='img/users/26838989.png'),
+                    webp=url_for('static', filename='img/users/26838989.webp'),
+                    img=url_for('static', filename='img/users/26838989.png'),
+                    txtbutton="Be Friends")
+                }}
+                {% endif %}
+            {% endfor %}
         </div>
-
     </div>
 
 {{footer()}}
