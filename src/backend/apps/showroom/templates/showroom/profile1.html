@@ -4,71 +4,23 @@
 {% from "components/header-publication.html" import header_publication %}
 {% from "components/footer-mobile.html" import footer_mobile %}
 {% from "components/buttons.html" import buttons %}
+{% from "components/header.html" import header %}
+{% from "components/footer.html" import footer %}
+{% from "components/mobile-navmenu.html" import mobile_navmenu %}
+{% from "components/long-cards.html" import longCard %}
 
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" >{% endblock %}
+{% block onloadscripts %}
+<script src="{{url_for('static', filename='js/components/mobile-navmenu.js')}}"> </script>
+{% endblock onloadscripts %}
 
 {% block title %} Profile {% endblock title %}
 
 {% block body -%}
+  <div class="header-group">
     <div class="section-header">
-        <header class="header bg-header transparent">
-            <div class="container container-header">
-              <a href="#">
-                <div class="main-logotype">
-                  <img
-                    src="{{ url_for('static', filename='img/logo.svg') }}"
-                    alt="DEGVA logotype" />
-                  <h1>DEGVA</h1>
-                </div>
-              </a>
-              <div class="container-right">
-                <form class="form-search">
-                  <label for="search"></label>
-                  <input type="text" id="search" />
-                  <button class="button-search">
-                    <img
-                      class="icon logotype"
-                      src="../../static/img/icons/search.svg"
-                      alt="Notifications logotype"
-                    />
-                  </button>
-                </form>
-        
-                <nav class="navegation">
-                  <a href="#" class="search-header">
-                    <img
-                      class="icon"
-                      src="{{ url_for("static", filename="img/icons/search.svg") }}"
-                      alt="Notifications logotype"
-                    />
-                  </a>
-                  <a href="#">
-                    <img
-                      class="icon"
-                      src="{{ url_for("static", filename="img/icons/notifications.svg") }}"
-                      alt="Notifications logotype"
-                    />
-                  </a>
-                  <a href="#">
-                    <img
-                      class="icon"
-                      src="{{ url_for("static", filename="img/icons/settings.svg") }}"
-                      alt="Notifications logotype"
-                    />
-                  </a>
-                  <a href="#">
-                    <img
-                      class="icon"
-                      src="{{ url_for("static", filename="img/icons/logout.svg") }}"
-                      alt="Notifications logotype"
-                    />
-                  </a>
-                </nav>
-              </div>
-            </div>
-          </header>
-    </div>
-    <div class="profile-icon">
+      {{ header(classname="bg-header transparent") }}
+      <div class="profile-icon">
         {{ user_icon(
             img=url_for('static', filename='img/users/26956071.png'),
             alt="User2 Photo",
@@ -76,39 +28,54 @@
             png=url_for('static', filename='img/users/26956071.png'),
             webp=url_for('static', filename='img/users/26956071.webp')
         ) }}   
-        <p class="fw-bold">Gabriela Ustariz</p>   
+      <p class="fw-bold">Gabriela Ustariz</p>   
+      </div>
     </div>
-    
 
-    <!-- <div class="container">
-        <nav class="navegation-desktop">
-            {{buttons(
-                mensaje="See description",
-                type="primary",
-                font="fw-bold",
-                letters="")
-            }}
-            {{buttons(
-                mensaje="Friends",
-                type="primary",
-                font="fw-bold",
-                letters="")
-            }}
-                {{buttons(
-                    mensaje="Edit profile",
-                    type="primary tercero",
-                    font="fw-bold",
-                    letters="")
-                }}
-            {{buttons(
-                mensaje="Publications",
-                type="primary last",
-                font="fw-bold",
-                letters="")
-            }}
+    <div class="desktop-content">
+      <nav class="container navegation-desktop">
+          {{buttons(
+              mensaje="See description",
+              type="primary",
+              font="fw-bold",
+              letters="")
+          }}
+          {{buttons(
+              mensaje="Friends",
+              type="primary",
+              font="fw-bold",
+              letters="")
+          }}
+              {{buttons(
+                  mensaje="Edit profile",
+                  type="primary tercero",
+                  font="fw-bold",
+                  letters="")
+              }}
+          {{buttons(
+              mensaje="Publications",
+              type="primary last",
+              font="fw-bold",
+              letters="")
+          }}
+      </nav>
+    </div>
+
+    <div class="mobile-content">
+      <div class="container margin-section ">
+        <nav class="container navegation-mobile">
+          <a href="#">
+            <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
+          </a>
+          <a href="#">
+            <img src="{{url_for('static', filename='img/icons/edit.svg')}}" alt="Edit Profile">
+          </a>
         </nav>
-    </div> -->
+      </div>
+    </div>
+  </div>
 
+  {{mobile_navmenu(publication=True, url="https://www.plus2net.com/html_tutorial/button-linking.php")}}
     <div class="container main-container">
         <div class="publication">    
             {{ header_publication(
@@ -160,7 +127,29 @@
             </div>
         </div>
         <aside>
-
+          {{longCard(
+            title='Video Games',
+            content=['Call of duty: Mobile', 'Beyond: Two Souls'],
+            type='secundary'
+          )}}
+          <div class="margin-section"></div>
+            {{ longCard(
+              title='Books',
+              content=['Inferno'],
+              type='secundary'
+            ) }}
+          <div class="margin-section"></div>
+            {{ longCard(
+              title='Languages',
+              content=['Python3', 'Haskell'],
+              type='secundary'
+            ) }}
+            <a href="#" class="container-details">
+              <img src="{{ url_for('static', filename='img/icons/menu_3_puntos_horizontal.svg') }}" alt="Details">
+              <p>
+                View Description of User
+              </p>
+            </a>
         </aside>
     </div>
 

@@ -23,11 +23,11 @@ class BaseView(View):
         """
         return render_template(self.get_template_name(), **context)
 
-    def get_context_data(self): # pylint: disable=R0201
+    def get_context_data(self, *args, **kwargs): # pylint: disable=R0201
         """
         Stud method to get context data
         """
         return {}
 
-    def dispatch_request(self):
-        return self.render_template(self.get_context_data())
+    def dispatch_request(self, *args, **kwargs):
+        return self.render_template(self.get_context_data(*args, **kwargs))

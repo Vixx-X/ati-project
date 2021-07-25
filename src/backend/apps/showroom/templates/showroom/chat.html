@@ -1,15 +1,56 @@
 {% extends "showroom/base.html" %}
-
+{% from "components/chat.html" import chat %} 
 {% block title %}{{ _('Chat') }}{% endblock title %}
-
 {% block body %}
-<div class="chat-container container">
-  <br>
-  <div class="chat chat-body reply">
-    <p class="chat-body">So much Text that edu cant imaginate more text</p>
-    <p class="chat-DateTime">Date Time</p>
+  <div class="margin-section"></div>
+  <div class="container">
+    {{chat(
+      type="reply",
+      menssage="So much Text that edu cant imaginate more text",
+      date_time="Date Time",
+      comment="1",
+      png=url_for('static', filename='img/users/25641651.png'),
+      webp=url_for('static', filename='img/users/25641651.webp'),
+      alt=""
+    )}}
   </div>
-  <br>
+    <div class="margin-section"></div>
+    <div class="container">
+    {{chat(
+      type="response",
+      menssage="So much Text that edu cant imaginate more text",
+      date_time="Date Time",
+      comment="",
+      png=url_for('static', filename='img/users/25641651.png'),
+      webp=url_for('static', filename='img/users/25641651.webp'),
+      alt=""
+    )}}
+  </div>
+    <div class="margin-section"></div>
+    <div class="container">
+    {{chat(
+      type="reply",
+      menssage="So much Text that edu cant imaginate more text",
+      date_time="Date Time",
+      comment="",
+      png=url_for('static', filename='img/users/25641651.png'),
+      webp=url_for('static', filename='img/users/25641651.webp'),
+      alt=""
+    )}}
+  </div>
+    <div class="margin-section"></div>
+    <div class="container">
+    {{chat(
+      type="response",
+      menssage="So much Text that edu cant imaginate more text",
+      date_time="Date Time",
+      comment="1",
+      png=url_for('static', filename='img/users/25641651.png'),
+      webp=url_for('static', filename='img/users/25641651.webp'),
+      alt=""
+    )}}
+  </div>
+  <!--
   <div class="chat chat-end reply">
     <p class="chat-body">So much Text that edu cant imaginate more text</p>
     <p class="chat-DateTime">Date Time</p>
@@ -34,5 +75,5 @@
     <p class="chat-body">So much Text that edu cant imaginate more text</p>
     <p class="chat-DateTime">Date Time</p>
   </div>
-</div>
+</div> -->
 {% endblock body %}

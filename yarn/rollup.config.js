@@ -50,7 +50,7 @@ export default {
       terser(), // minify the output
     ],
 
-    dir: dstPaths.ts,
+    dir: dstPath,
     // Appended source map to the resulting output file as a data URI
     sourcemap: development ? "inline" : false,
   },

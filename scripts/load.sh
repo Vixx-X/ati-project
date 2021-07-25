@@ -9,6 +9,7 @@ for f in $(find $CURRENT_DIR/functions -type f); do
 done
 
 # alias for common developer commnads
+alias dos2unix="find ${DIR} -type f  -not -path '*/node_modules*' -not -path '*/venv/*'  -exec dos2unix {} +"
 alias venv="source ${VENVDIR}/bin/activate"
 alias build="source ${CURRENT_DIR}/build.sh"
 alias format="black $DIR/src/backend/ $DIR/src/wsgi.py $DIR/src/tests/"

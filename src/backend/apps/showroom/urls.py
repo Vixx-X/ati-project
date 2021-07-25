@@ -35,8 +35,10 @@ list_of_rooms = [
     ("footer-mobile", "Footer Mobile - Daniel Vieria"),
     ("list-chats", "List Chats - Daniel Vieria"),
     ("element-friend-list", "Element Friend List - Eduardo Suarez"),
+    ("CreatePublications", "CreatePublications - Eduardo Suarez"),
+    ("mobile-navmenu", "Mobile Nav Menu - Gabriela Uztariz"),
+    ("list-comments", "List Comments - Eduardo Suarez"),
 ]
-
 bp.add_url_rule("/", view_func=views.Index.as_view("index"))
 bp.add_url_rule("/buttons/", view_func=views.Buttons.as_view("buttons"))
 bp.add_url_rule("/header/", view_func=views.Header.as_view("header"))
@@ -66,3 +68,6 @@ bp.add_url_rule("/list-chats/", view_func=views.ListChats.as_view("list-chats"))
 bp.add_url_rule("/notifications/", view_func=views.Notifications.as_view("notifications"))
 bp.add_url_rule("/configurations/", view_func=views.Configurations.as_view("configurations"))
 bp.add_url_rule("/profile1/", view_func=views.Profile1.as_view("profile1"))
+bp.add_url_rule("/CreatePublications/", view_func=views.CreatePublications.as_view("CreatePublications"))
+bp.add_url_rule("/mobile-navmenu/", view_func=views.MobileNavMenu.as_view("mobile-navmenu"))
+bp.add_url_rule("/list-comments/", view_func=views.ListComments.as_view("list-comments"))

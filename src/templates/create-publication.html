@@ -1,0 +1,62 @@
+{% extends "showroom/base.html" %}
+
+{% from "components/user-icon.html" import user_icon %}
+{% from "components/buttons.html" import buttons %}
+{% from "components/header.html" import header %}
+{% from "components/footer.html" import footer%}
+{% from "components/input-label.html" import inputLabel %}
+{% from "components/footer-mobile.html" import footer_mobile %}
+{% from "components/boolean-button.html" import boolean_button %}
+{% block title %}{{ _('CreatePublications') }}{% endblock title %}
+{% block body %}
+
+{{ header(classname="bg-header") }}
+<div class="cont-create-publication container">
+   <div class="cont-create-publication-header">
+       <div class="cont-create-publication-header-icon">
+        <img
+        src="{{ url_for('static', filename='img/logo.svg') }}"
+        alt="DEGVA logotype" />
+       </div>
+       <h2>Create Publication</h2>
+       {{buttons(
+            mensaje="PUBLIC",
+            type="primary",
+            font="fw-bold",
+            letters="text-uppercase"
+            )}}
+   </div>
+   <div class="cont-create-publication-body">
+        <div class="cont-create-publication-body-boolean-button">
+            {{boolean_button(
+                id="booleanButton",
+                text="Label",
+                class="black"
+            )}}
+        </div>
+        <div class="cont-create-publication-body-tittle">
+            {{inputLabel(
+                type='text',
+                classInput='white w-100',
+                classLabel='black',
+                textLabel="Tittle",
+                placeholderText="Write Title"
+            )}}
+            {{inputLabel(
+                type='textarea',
+                classInput='white w-100',
+                classLabel='black',
+                textLabel="Content",
+                placeholderText="Write Content"
+            )}}
+            <form action="GET">
+                <input type="file">
+            </form>
+        </div>
+    </div>
+   </div>
+</div>
+{{footer_mobile(class="black")}}
+{{ footer() }}
+
+{% endblock body %}

@@ -20,15 +20,18 @@
         img=url_for('static', filename='img/users/26956071.png'),
         alt="User2 Photo",
         type="shadow",
+        url=url_for("user.profile", pk=1),
         png=url_for('static', filename='img/users/26956071.png'),
         webp=url_for('static', filename='img/users/26956071.webp')
         ) }}
-        <button class="button create fw-normal">
-        What do you think?...
-        </button>
+        <a href="{{url_for('app.createpublication')}}">
+            <button class="button create fw-normal">
+                What do you think?...
+            </button>
+        </a>
     </div>
     <button class="button primary with-icon fw-normal">
-        <img src="{{ url_for("static", filename="img/icons/notifications.svg") }}" alt="Messages Icon">
+        <img class="icon" src="{{ url_for("static", filename="img/icons/chat.svg") }}" alt="Messages Icon">
         Messages
     </button>
 </div>
@@ -43,6 +46,7 @@
         img=url_for('static', filename='img/users/26838989.png'),
         name="User 1",
         alt="User1 Photo",
+        url=url_for("user.profile", pk=2),
         type="connect",
         comunFriends="Comun Friends",
         png=url_for('static', filename='img/users/26838989.png'),
@@ -53,6 +57,7 @@
         img=url_for('static', filename='img/users/25641651.png'),
         name="User 2",
         alt="User2 Photo",
+        url=url_for("user.profile", pk=3),
         type="connect",
         comunFriends="Comun Friends",
         png=url_for('static', filename='img/users/25641651.png'),
@@ -63,6 +68,7 @@
         img=url_for('static', filename='img/users/26272390.png'),
         name="User 3",
         alt="User3 Photo",
+        url=url_for("user.profile", pk=4),
         type="connect",
         comunFriends="Comun Friends",
         png=url_for('static', filename='img/users/26272390.png'),
