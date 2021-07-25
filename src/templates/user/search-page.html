@@ -22,17 +22,15 @@
             <hr>
         </div>
         <div class="search-main-container">
-            <div class="search search-bg ">
-                <div class="container-search">
-                <img class="icon" src="{{ url_for('static', filename='img/icons/search.svg') }}" alt="Notifications logotype"/>
-                <form action="">
-                    <input type="text" placeholder="Search">
-                </form>
-                </div>
+            <div class="container-search search search-bg">
+            <img class="icon" src="{{ url_for('static', filename='img/icons/search.svg') }}" alt="Notifications logotype"/>
+            <form action="">
+                <input type="text" placeholder="Search">
+            </form>
             </div>
         </div>
     </div>
-    
+
     {% set number_friends =  18 %}
     <div class="container">
         <p class="number">{{number_friends}}</p>

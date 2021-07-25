@@ -72,7 +72,7 @@ class Description(BaseView):
     Edit Profile View
     """
 
-    template_name = "user/search-page.html"
+    template_name = "user/profile-description.html"
 
     def get_context_data(self, pk):
         ctx = super().get_context_data()
