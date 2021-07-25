@@ -1,0 +1,76 @@
+{% extends "showroom/base.html" %}
+
+{% from "components/user-icon.html" import user_icon %}
+{% from "components/header-publication.html" import header_publication %}
+{% from "components/footer-mobile.html" import footer_mobile %}
+{% from "components/header.html" import header %}
+{% from "components/footer.html" import footer %}
+{% from "components/element-friend-list.html" import element_friend_list %}
+
+{% block title %} Search Results {% endblock title %}
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/searchpage.css') }}" >{% endblock %}
+
+{% block body -%}
+{{ header(classname="bg-header") }}
+{% set search =  'Vittorio' %}
+
+    <div class="container container-header-friends search-view">
+        <div class="heading black">
+            <h3 class="fw-normal">
+                Search Results: {{search}}
+            </h3>
+            <hr>
+        </div>
+        <div class="search-main-container">
+            <div class="search search-bg ">
+                <div class="container-search">
+                <img class="icon" src="{{ url_for('static', filename='img/icons/search.svg') }}" alt="Notifications logotype"/>
+                <form action="">
+                    <input type="text" placeholder="Search">
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% set number_friends =  18 %}
+    <div class="container">
+        <p class="number">{{number_friends}}</p>
+        <div class="container-friends margin-bottom">
+            
+            {% for i in range(number_friends) %}
+                {% if is_myuser %}
+                {{element_friend_list(
+                    user="Vittorio",
+                    comunFriends="35", 
+                    button=True,
+                    trasparent=False, 
+                    url=url_for("user.profile", pk=2), 
+                    png=url_for('static', filename='img/users/26838989.png'),
+                    webp=url_for('static', filename='img/users/26838989.webp'),
+                    img=url_for('static', filename='img/users/26838989.png'),
+                    txtbutton="Delete")
+                }}
+                {% else %}
+                {{element_friend_list(
+                    user="Vittorio",
+                    comunFriends="35", 
+                    button=True,
+                    trasparent=False, 
+                    url=url_for("user.profile", pk=2), 
+                    png=url_for('static', filename='img/users/26838989.png'),
+                    webp=url_for('static', filename='img/users/26838989.webp'),
+                    img=url_for('static', filename='img/users/26838989.png'),
+                    txtbutton="Be Friends")
+                }}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+  </section>
+
+
+{{footer()}}
+{{footer_mobile(class="black")}}
+
+{% endblock body %}

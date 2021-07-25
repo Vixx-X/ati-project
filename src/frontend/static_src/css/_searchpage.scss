@@ -1,0 +1,53 @@
+@import "bases/variables";
+@import "bases/mixins";
+
+
+.search-view{
+    margin: 4rem auto;
+    .heading{
+        font-size: 2.3rem;
+        width: 100%;
+        margin: 2rem 0;
+        
+    }
+}
+
+.container-header-friends{
+    display: grid;
+    @include grid(1, 2rem);
+    row-gap: 2rem;
+    margin: 3.5rem auto;
+    .container-search{
+        padding: 0.6em 0;
+    }
+    .search{
+        width: 100%;
+    }
+    @include tablet{
+        margin: 0 auto;
+        @include grid(2, 2rem);
+        font-size: 1rem;
+        .search{
+            width: 50%;
+        }
+    }
+
+}
+
+.search-main-container{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.container-friends{
+    font-size: 1rem;
+    @include grid(1, 2rem);
+    row-gap: 2rem;
+    @include tablet{
+        @include grid(2, 2rem);
+    }
+    @include desktop{
+        @include grid(3, 2rem);
+    }
+}

@@ -59,13 +59,20 @@ class EditProfile(BaseView):
     def get_context_data(self, pk):
         return super().get_context_data()
 
+class Search(BaseView):
+    """
+    Search View
+    """
+
+    template_name = "user/search-page.html"
+
 
 class Description(BaseView):
     """
     Edit Profile View
     """
 
-    template_name = "user/profile-description.html"
+    template_name = "user/search-page.html"
 
     def get_context_data(self, pk):
         ctx = super().get_context_data()
