@@ -35,10 +35,9 @@
 .cards-desktop{
     display: none;
     margin-bottom: 4rem;
-    row-gap: 3rem;
     @include tablet{
         display: grid;
-        @include grid(3, 10rem);
+        @include grid(4, 3rem);
     }
     @include desktop{
         @include grid(4, 8rem);
