@@ -1,8 +1,24 @@
 @import "bases/variables";
 @import "bases/mixins";
 
+
+.main-container-header{
+    display: none;
+    @include tablet{
+        display: block;
+    }
+    .bg-header.transparent{
+        display: block;
+        @include tablet{
+            display: block;
+    
+        }
+    }
+
+}
+
 .profile-icon{
-    @include desktop{
+    @include tablet{
         justify-content: flex-start;
         p{
             position: absolute;
@@ -17,6 +33,7 @@
 }
 
 .details{
+    margin: 4rem auto;
     p{
         margin: 3.5rem 0;
         text-align: center;
@@ -27,21 +44,34 @@
     font-size: 2rem;
     width: 100%;
     hr{
-        width: 80%;
+        @include tablet{
+            width: 80%;
+        }
         margin-left: 0;
     }
+
 }
 
 .container-header-friends{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    font-size: 1rem;
-    .search{
-        width: 50%;
-    }
+    @include grid(1, 2rem);
+    row-gap: 2rem;
+    margin: 3.5rem 0;
     .container-search{
         padding: 0.6em 0;
     }
+    .search{
+        width: 100%;
+    }
+    @include tablet{
+        margin: 0;
+        @include grid(2, 2rem);
+        font-size: 1rem;
+        .search{
+            width: 50%;
+        }
+    }
+
 }
 
 .search-main-container{
@@ -54,4 +84,47 @@
     font-style: italic;
     font-size: 2rem;
     margin-top: 0;
+}
+
+.container-friends{
+    font-size: 1rem;
+    @include grid(1, 2rem);
+    row-gap: 2rem;
+    @include tablet{
+        @include grid(2, 2rem);
+    }
+    @include desktop{
+        @include grid(3, 2rem);
+    }
+}
+
+.mobile-content{
+    @include tablet{
+        display: none;
+    }
+}
+
+.desktop-content{
+    @include tablet{
+        display: block;
+    }
+}
+
+.mobile-navmenu{
+    @include tablet{
+        display: none;
+    }
+}
+
+.header-group{
+    @include tablet{
+        background: transparent;
+    }
+}
+
+.bg-header{
+    display: block;
+    @include tablet{
+        display: none;
+    }
 }
