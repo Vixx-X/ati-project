@@ -4,10 +4,12 @@
 {% from "components/card.html" import card %} 
 
 {% block body %}
-  {{ card(
-    title='Text Title',
-    content='Text Content',
-    img=url_for('static', filename='img/users/26272390.png',
-    alt='Image')
-  ) }}
+  <div class="container-showroom-card">
+    {{ card(
+      title='Text Title',
+      content=['Text Content'],
+      img=url_for('static', filename='img/users/26272390.png',
+      alt='Image')
+    ) }}
+  </div>
 {% endblock body %}

@@ -9,11 +9,15 @@ body {
 .card {
     border: 1px dashed $secundary; 
     border-radius: 1.5em;
-    padding: 1.5em;
-    width: 12em;
+    padding: 1.5em; 
     background-color: $white;
+    text-align: center;
 }
 
 .mt-half{
     margin-top: 0.5em;
+}
+
+.container-showroom-card{
+    width: 12em;
 }

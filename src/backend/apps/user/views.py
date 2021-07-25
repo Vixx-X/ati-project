@@ -31,7 +31,9 @@ class Friend(BaseView):
     template_name = "user/friend-list.html"
 
     def get_context_data(self, pk):
-        return super().get_context_data()
+        ctx = super().get_context_data()
+        ctx["is_myuser"] = pk==1
+        return ctx
 
 
 class Profile(BaseView):
@@ -56,3 +58,16 @@ class EditProfile(BaseView):
 
     def get_context_data(self, pk):
         return super().get_context_data()
+
+
+class Description(BaseView):
+    """
+    Edit Profile View
+    """
+
+    template_name = "user/profile-description.html"
+
+    def get_context_data(self, pk):
+        ctx = super().get_context_data()
+        ctx["is_myuser"] = pk==1
+        return ctx
