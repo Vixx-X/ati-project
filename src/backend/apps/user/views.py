@@ -56,3 +56,14 @@ class EditProfile(BaseView):
 
     def get_context_data(self, pk):
         return super().get_context_data()
+
+
+class Description(BaseView):
+    """
+    Edit Profile View
+    """
+
+    template_name = "user/profile-description.html"
+
+    def get_context_data(self, pk):
+        return super().get_context_data()
