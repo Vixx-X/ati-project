@@ -3,10 +3,10 @@
 
 <div class="footer-mobile {{class}}">
     <div class="container d-flex jc-space_between">
-        <a href="#">
+        <a href="{{url_for('user.profile', pk=1)}}">
             <img loading="lazy" src="{{ url_for("static", filename="img/icons/user.svg") }}" alt="User icon">
         </a>
-        <a href="#">
+        <a href="{{url_for('app.createpublication')}}">
             <img loading="lazy" src="{{ url_for("static", filename="img/icons/plus-sign.svg") }}" alt="Add publication">
         </a>
         <a href="#">

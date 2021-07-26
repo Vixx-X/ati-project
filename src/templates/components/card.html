@@ -10,6 +10,9 @@
         {%- endif %}
         <img loading="lazy" src="{{ img }}" alt="{{ alt }}">
     </picture>
-    <p class="mt-half">{{content}}</p>
+    {% for cont in content %}
+        <p class="mt-half">{{cont}}</p>
+    {% endfor %}
+    
 </div>
 {%- endmacro %}

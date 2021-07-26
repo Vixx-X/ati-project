@@ -7,6 +7,7 @@
 {% from "components/list-friends.html" import list_friends %}
 {% from "components/header.html" import header %}
 {% from "components/footer.html" import footer %}
+{% from "components/media.html" import media %}
 
 {% block title %} DEGVA {% endblock title %}
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/muro.css') }}" >{% endblock %}
@@ -23,9 +24,11 @@
         png=url_for('static', filename='img/users/26956071.png'),
         webp=url_for('static', filename='img/users/26956071.webp')
         ) }}
-        <button class="button create fw-normal">
-        What do you think?...
-        </button>
+        <a href="{{url_for('app.createpublication')}}">
+            <button class="button create fw-normal">
+                What do you think?...
+            </button>
+        </a>
     </div>
     <button class="button primary with-icon fw-normal">
         <img class="icon" src="{{ url_for("static", filename="img/icons/chat.svg") }}" alt="Messages Icon">
@@ -35,70 +38,84 @@
 <div class="container main-container margin-section">  
     <aside>
       <div class="cont-listaAmigos p-2">
-        <div class="center">
-            <h2>List Friends</h2>
-            <hr>
-        </div>
         {{list_friends(
         img=url_for('static', filename='img/users/26838989.png'),
-        name="User 1",
+        name="Vittorio",
         alt="User1 Photo",
         url=url_for("user.profile", pk=2),
         type="connect",
-        comunFriends="Comun Friends",
+        comunFriends="32",
         png=url_for('static', filename='img/users/26838989.png'),
         webp=url_for('static', filename='img/users/26838989.webp')
         )}}
-
-        {{list_friends(
-        img=url_for('static', filename='img/users/25641651.png'),
-        name="User 2",
-        alt="User2 Photo",
-        url=url_for("user.profile", pk=3),
-        type="connect",
-        comunFriends="Comun Friends",
-        png=url_for('static', filename='img/users/25641651.png'),
-        webp=url_for('static', filename='img/users/25641651.webp')
-        )}}
-
-        {{list_friends(
-        img=url_for('static', filename='img/users/26272390.png'),
-        name="User 3",
-        alt="User3 Photo",
-        url=url_for("user.profile", pk=4),
-        type="connect",
-        comunFriends="Comun Friends",
-        png=url_for('static', filename='img/users/26272390.png'),
-        webp=url_for('static', filename='img/users/26272390.webp')
-        )}}
-
-        {{buttons(
-        mensaje="See All",
-        type="primary",
-        font="fw-bold",
-        letters="text-uppercase")
-        }}
     </div>
     </aside>
     <main>
         <div class="publication">    
             {{ header_publication(
                 img=url_for('static', filename='img/users/26272390.png'),
-                input="New Publication",
+                input="UCV, la casa que vence las sombras",
                 author="Daniel Vieira",
+                url=url_for("user.profile", pk=4),
                 time="Today",
                 png=url_for('static', filename='img/users/26272390.png'),
                 webp=url_for('static', filename='img/users/26272390.webp')
             )}}
-            <a href="#">
-                <div class="image-publication">
-                    <picture>
-                        <source srcset="{{ url_for("static", filename="img/media1.webp") }}" type="image/webp">
-                        <source srcset="{{ url_for("static", filename="img/media1.png") }}" type="image/png">
-                        <img loading="lazy" src="{{ url_for("static", filename="img/media1.png") }}" alt="Photo publication">
-                    </picture>
+
+            {{ media(
+                type="img",
+                img=url_for("static", filename="img/media1.png"),
+                png=url_for("static", filename="img/media1.png"),
+                webp=url_for("static", filename="img/media1.webp"),
+                alt="Photo Publication"
+            )}}
+            <div class="comments-user">
+                <div class="comments-group">
+
+                {{ user_icon(
+                    img=url_for('static', filename='img/users/25641651.png'),
+                    alt="User1 Photo",
+                    type="basic one",
+                    png=url_for('static', filename='img/users/25641651.png'),
+                    webp=url_for('static', filename='img/users/25641651.webp')
+                ) }}
+
+                {{ user_icon(
+                    img=url_for('static', filename='img/users/26838989.png'),
+                    alt="User2 Photo",
+                    type="basic two",
+                    png=url_for('static', filename='img/users/26838989.png'),
+                    webp=url_for('static', filename='img/users/26838989.webp')
+                ) }}
+
+                {{ user_icon(
+                    img=url_for('static', filename='img/users/26956071.png'),
+                    alt="User3 Photo",
+                    type="basic three",
+                    png=url_for('static', filename='img/users/26956071.png'),
+                    webp=url_for('static', filename='img/users/26956071.webp')
+                ) }}
+
                 </div>
-            </a>
+                <a href="#">Ver comentarios</a>
+            </div>
+        </div>
+        <div class="publication margin-section">    
+            {{ header_publication(
+                img=url_for('static', filename='img/users/26272390.png'),
+                input="UCV, la casa que vence las sombras",
+                author="Daniel Vieira",
+                url=url_for("user.profile", pk=4),
+                time="Today",
+                png=url_for('static', filename='img/users/26272390.png'),
+                webp=url_for('static', filename='img/users/26272390.webp')
+            )}}
+            {{ media(
+                type="text",
+                text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptates quisquam unde excepturi nisi nulla esse reprehenderit alias provident maiores at iure vel dolorum. Aut accusantium commodi ratione cumque repudiandae.
+
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum accusamus consectetur dolorem doloremque quasi incidunt, aspernatur culpa quae temporibus sint accusantium nisi delectus ut est perferendis eos dicta commodi dolor!"
+            )}}
             <div class="comments-user">
                 <div class="comments-group">
 
@@ -139,14 +156,13 @@
                 png=url_for('static', filename='img/users/26272390.png'),
                 webp=url_for('static', filename='img/users/26272390.webp')
             )}}
-            <a href="#">
-                <div class="text-publication margin-section">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptates quisquam unde excepturi nisi nulla esse reprehenderit alias provident maiores at iure vel dolorum. Aut accusantium commodi ratione cumque repudiandae.
-
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum accusamus consectetur dolorem doloremque quasi incidunt, aspernatur culpa quae temporibus sint accusantium nisi delectus ut est perferendis eos dicta commodi dolor!
-                    </p>
-                </div>
-            </a>
+            {{media(
+                type="img",
+                img=url_for("static", filename="img/media1.png"),
+                png=url_for("static", filename="img/media1.png"),
+                webp= url_for("static", filename="img/media1.webp"),
+                alt="Photo publication"
+            )}}
             <div class="comments-user">
                 <div class="comments-group">
 
@@ -178,6 +194,54 @@
                 <a href="#">Ver comentarios</a>
             </div>
         </div>
+
+
+        <div class="publication margin-section">    
+            {{ header_publication(
+                img=url_for('static', filename='img/users/26272390.png'),
+                input="La canción favorita",
+                author="Daniel Vieira",
+                url=url_for("user.profile", pk=4),
+                time="Today",
+                png=url_for('static', filename='img/users/26272390.png'),
+                webp=url_for('static', filename='img/users/26272390.webp')
+            )}}
+            {{media(
+                type="video",
+                src=url_for('static', filename='video/QuickTime Sample Video Warning Video is 5 Seconds Long_v144P.mp4')
+            )}}
+            <div class="comments-user">
+                <div class="comments-group">
+
+                {{ user_icon(
+                    img=url_for('static', filename='img/users/25641651.png'),
+                    alt="User1 Photo",
+                    type="basic one",
+                    png=url_for('static', filename='img/users/25641651.png'),
+                    webp=url_for('static', filename='img/users/25641651.webp')
+                ) }}
+
+                {{ user_icon(
+                    img=url_for('static', filename='img/users/26838989.png'),
+                    alt="User2 Photo",
+                    type="basic two",
+                    png=url_for('static', filename='img/users/26838989.png'),
+                    webp=url_for('static', filename='img/users/26838989.webp')
+                ) }}
+
+                {{ user_icon(
+                    img=url_for('static', filename='img/users/26956071.png'),
+                    alt="User3 Photo",
+                    type="basic three",
+                    png=url_for('static', filename='img/users/26956071.png'),
+                    webp=url_for('static', filename='img/users/26956071.webp')
+                ) }}
+
+                </div>
+                <a href="#">Ver comentarios</a>
+            </div>
+        </div>
+
         <div class="publication margin-section">    
             {{ header_publication(
                 img=url_for('static', filename='img/users/26272390.png'),
@@ -187,15 +251,10 @@
                 png=url_for('static', filename='img/users/26272390.png'),
                 webp=url_for('static', filename='img/users/26272390.webp')
             )}}
-            <a href="#">
-                <div class="image-publication">
-                    <picture>
-                        <source srcset="{{ url_for("static", filename="img/media1.webp") }}" type="image/webp">
-                        <source srcset="{{ url_for("static", filename="img/media1.png") }}" type="image/png">
-                        <img loading="lazy" src="{{ url_for("static", filename="img/media1.png") }}" alt="Photo publication">
-                    </picture>
-                </div>
-            </a>
+            {{media(
+                type="audio",
+                src=url_for('static', filename='video/QuickTime Sample Video Warning Video is 5 Seconds Long_v144P.mp4')
+            )}}
             <div class="comments-user">
                 <div class="comments-group">
 
@@ -227,6 +286,7 @@
                 <a href="#">Ver comentarios</a>
             </div>
         </div>
+
     </main>
 </div>
 

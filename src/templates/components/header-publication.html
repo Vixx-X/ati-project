@@ -1,12 +1,13 @@
 {% from "components/user-icon.html" import user_icon %}
 
-{% macro header_publication(img, input, author, time, png="", webp="") -%}
+{% macro header_publication(img, input, author, time, png="", webp="", url="") -%}
 <div class="d-flex jc-space_between header-publication">
     <div class="d-flex">
         {{ user_icon(
             img=img,
             alt="User Photo",
             type="basic user",
+            url=url,
             png=png,
             webp=webp
           ) }}

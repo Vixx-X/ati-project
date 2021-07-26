@@ -9,9 +9,10 @@
 {% from "components/mobile-navmenu.html" import mobile_navmenu %}
 {% from "components/long-cards.html" import longCard %}
 {% from "components/element-friend-list.html" import element_friend_list %}
+{% from "components/card.html" import card %}
 
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" >
-<link rel="stylesheet" href="{{ url_for('static', filename='css/profile2.css') }}" >
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile3.css') }}" >
 {% endblock %}
 {% block onloadscripts %}
 <script src="{{url_for('static', filename='js/components/mobile-navmenu.js')}}"> </script>
@@ -20,7 +21,6 @@
 {% block title %} Friends {% endblock title %}
 
 {% block body -%}
-    {{ header(classname="bg-header") }}
 
     <div class="main-container-header">
         <div class="header-group ">
@@ -98,64 +98,64 @@
             </div>
         </div>
         
-            <p class="container details margin-section">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. sunt in culpa qui officia deserunt mollit anim id est laborum.”</p>
+        {{mobile_navmenu(details=True, 
+            functionPublication="parent.location='" + url_for('user.profile', pk=1) + "'", functionDetails="parent.location='" + url_for('user.description', pk=1) + "'")}}
+
+        <p class="container details">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. sunt in culpa qui officia deserunt mollit anim id est laborum.”</p>
 
     </div>
-    <div class="container">
-        <div class="container-header-friends">
-            <div class="heading black">
-                <h3 class="fw-normal">
-                    Friends
-                </h3>
-                <hr>
-            </div>
-            <div class="search-main-container">
-                <div class="search search-bg ">
-                    <div class="container-search">
-                    <img class="icon" src="{{ url_for('static', filename='img/icons/search.svg') }}" alt="Notifications logotype"/>
-                    <form action="">
-                        <input type="text" placeholder="Search">
-                    </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>   
 
-    {% set number_friends =  9 %}
-    <div class="container">
-        <p class="number">{{number_friends}}</p>
-        <div class="container-friends margin-bottom">
-            
-            {% for i in range(number_friends) %}
-                {% if is_myuser %}
-                {{element_friend_list(
-                    user="Vittorio",
-                    comunFriends="35", 
-                    button=True,
-                    trasparent=False, 
-                    url=url_for("user.profile", pk=2), 
-                    png=url_for('static', filename='img/users/26838989.png'),
-                    webp=url_for('static', filename='img/users/26838989.webp'),
-                    img=url_for('static', filename='img/users/26838989.png'),
-                    txtbutton="Delete")
-                }}
-                {% else %}
-                {{element_friend_list(
-                    user="Vittorio",
-                    comunFriends="35", 
-                    button=True,
-                    trasparent=False, 
-                    url=url_for("user.profile", pk=2), 
-                    png=url_for('static', filename='img/users/26838989.png'),
-                    webp=url_for('static', filename='img/users/26838989.webp'),
-                    img=url_for('static', filename='img/users/26838989.png'),
-                    txtbutton="Be Friends")
-                }}
-                {% endif %}
-            {% endfor %}
-        </div>
+    <hr class="container">
+
+    <div class="margin-top"></div>
+
+    <div class="container cards-mobile">
+        {{longCard(
+            title='Video Games',
+            content=['Call of duty: Mobile', 'Beyond: Two Souls'],
+            type='secundary'
+        )}}
+        {{ longCard(
+          title='Books',
+          content=['Inferno'],
+          type='secundary'
+        )}}
+        {{ longCard(
+            title='Languages',
+            content=['Python3', 'Haskell'],
+            type='secundary'
+        )}}
+        {{ longCard(
+            title='Music',
+            content=['Pop', 'Indie'],
+            type='secundary'
+        )}}
     </div>
+
+    <div class="container cards-desktop">
+        {{card(img, 
+            title='Books', 
+            content=['Call of duty: Mobile', 'Beyond: Two Souls'], 
+            png=url_for('static', filename='img/books.svg'), 
+            alt='Video Games Photo')}}
+        {{card(img, 
+            title='Music', 
+            content=['Call of duty: Mobile', 'Beyond: Two Souls'], 
+            png=url_for('static', filename='img/music.svg'), 
+            alt='Video Games Photo')}}
+        {{card(img, 
+            title='Video Games', 
+            content=['Call of duty: Mobile', 'Beyond: Two Souls'], 
+            png=url_for('static', filename='img/videogames.svg'), 
+            alt='Video Games Photo')}}
+        {{card(img, 
+            title='Languages', 
+            content=['Call of duty: Mobile', 'Beyond: Two Souls'], 
+            png=url_for('static', filename='img/laguages.svg'), 
+            alt='Video Games Photo')}}
+    </div>
+    
+
 
 {{footer()}}
 {{footer_mobile(class="black")}}

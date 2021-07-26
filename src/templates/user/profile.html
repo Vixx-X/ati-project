@@ -36,19 +36,21 @@
 
     <div class="desktop-content">
       <nav class="container navegation-desktop">
+          {% if is_myuser %}
           {{buttons(
               mensaje="See description",
               type="primary",
               font="fw-bold",
-              letters="")
+              letters="",
+              function="parent.location='" + url_for('user.description', pk=2) + "'")
           }}
           {{buttons(
               mensaje="Friends",
               type="primary",
               font="fw-bold",
-              letters="")
+              letters="",
+              function="parent.location='" + url_for('user.friend', pk=1) + "'")
           }}
-          {% if is_myuser %}
             {{buttons(
                 mensaje="Edit profile",
                 type="primary tercero",
@@ -62,6 +64,20 @@
                 letters="")
             }}
           {% else %}
+            {{buttons(
+              mensaje="See description",
+              type="primary",
+              font="fw-bold",
+              letters="",
+              function="parent.location='" + url_for('user.description', pk=2) + "'")
+            }}
+            {{buttons(
+              mensaje="Friends",
+              type="primary",
+              font="fw-bold",
+              letters="",
+              function="parent.location='" + url_for('user.friend', pk=2) + "'")
+            }}
             {{buttons(
                 mensaje="Be friends",
                 type="primary tercero",
@@ -80,20 +96,36 @@
 
     <div class="mobile-content">
       <div class="container margin-section">
+        {% if is_myuser %}
         <nav class="navegation-mobile">
-          <a href="#">
+          <a href="{{url_for('user.friend', pk=1)}}">
             <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
           </a>
           <a href="#">
             <img src="{{url_for('static', filename='img/icons/edit.svg')}}" alt="Edit Profile">
           </a>
         </nav>
+        {% else %}
+        <nav class="navegation-mobile-other">
+          <a href="{{url_for('user.friend', pk=2)}}">
+            <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
+          </a>
+          <div class="container-right">
+            <a href="#">
+              <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
+            </a>
+            <a href="#">
+              <img src="{{url_for('static', filename='img/icons/chat.svg')}}" alt="Edit Profile">
+            </a>
+          </div>
+        </nav>
+        {% endif %}
       </div>
     </div>
   </div>
 
-  {{mobile_navmenu(publication=True, url="https://www.plus2net.com/html_tutorial/button-linking.php", 
-    functionPublication="parent.location='" + url_for('app.home') + "'", functionDetails="parent.location='" + url_for('app.home') + "'")}}
+  {{mobile_navmenu(publication=True, 
+    functionPublication="parent.location='" + url_for('user.profile', pk=1) + "'", functionDetails="parent.location='" + url_for('user.description', pk=1) + "'")}}
 
     <div class="container main-container">
         <div class="publication">    

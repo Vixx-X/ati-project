@@ -1,14 +1,17 @@
 @import "../bases/variables";
 
-.cont-element-friend-list .user-icon{
-    margin: 0.5em;
+.container-showroom-list-friends{
+    width: 40em;
 }
 
 .cont-element-friend-list{
+    margin: 1em 0;
     display: flex;
     background-color: $light;
-    width: 35em;
     border-radius: 1em;
+    padding: 1em;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .cont-element-friend-list.trasparent{
@@ -16,13 +19,18 @@
 }
 
 .cont-element-friend-list-description{
-    margin: auto 1em;
+    flex: 1;
+    margin-left: 1em;
+}
+
+.cont-element-friend-list .user-icon{
+    width: 5em;
 }
 
 .element_friend_list_user{
-    font-size: 2.5em;
-    font-weight: 500;
-    height: 1.5em;
+    font-size: 2em;
+    line-height: 1;
+
 }
 
 .element_friend_list_commun_friends{
@@ -31,7 +39,8 @@
 .cont-element-friend-button{
     display: flex;
     align-items: center;
-    margin-left: 4em;
+    justify-content: flex-end;
+    font-size: 1.2rem;
 }
 
 .cont-element-friend-button .button{
