@@ -27,3 +27,18 @@ class Comment(BaseView):
 
     def __init__(self) -> None:
         return
+
+class CreatePublication(BaseView):
+    """
+    Create Publication View.
+    """
+
+    template_name = "posts/create-publication.html"
+
+
+class ModifyPublication(BaseView):
+    """
+    Modify Publication View.
+    """
+
+    template_name = "posts/modify-publication.html"

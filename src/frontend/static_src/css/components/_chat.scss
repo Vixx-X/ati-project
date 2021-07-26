@@ -1,28 +1,33 @@
 @import "../bases/variables";
 @import "../bases/mixins";
+
+.container-chat-showroom{
+    width: 40rem;
+}
 .chat{
-    &{
-        border-radius: .8em;
-        height: auto;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1em 1em .5em;
-        position: relative;
-        flex-basis: 50%;
-        flex-flow: row;
-        display: flex;
+    border-radius: .8em;
+    justify-content: space-between;
+    align-items: top;
+    padding: 1em 1em .5em;
+    position: relative;
+    flex-flow: row;
+    flex-basis: 90%;
+    display: flex;
+
+    p{
+        line-height: 1.5;
+        font-size: 1em;
     }
-    &.reply{
+    &.response{
         fill: $light;
         background-color: $light;
     }
-    &.response{
+    &.reply{
         fill: $primary;
         background-color: $primary;
     }
     & .user-icon{
-        width: auto;
-        flex-basis: 20%;
+        flex-basis: 4em;
     }
     & .cont-chat{
         &{
