@@ -13,7 +13,7 @@
         <form class="form-search">
           <label for="search"></label>
           <input type="text" id="search" />
-          <button class="button-search">
+          <button class="button-search" onClick="location.href='{{url_for('user.search')}}'">
             <img
               class="icon logotype"
               src="{{ url_for("static", filename="img/icons/search.svg") }}"
@@ -23,7 +23,7 @@
         </form>
 
         <nav class="navegation">
-          <a href="#" class="search-header">
+          <a href="{{url_for('user.search')}}" class="search-header">
             <img
               class="icon"
               src="{{ url_for("static", filename="img/icons/search.svg") }}"
