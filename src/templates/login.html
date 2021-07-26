@@ -52,7 +52,7 @@
                      label=form.password.label(class="d-flex fw-bold black"+(
                         " required" if form.password.flags.required else ""
                      )),
-                     errors=form.username.errors,
+                     errors=form.password.errors,
                 )}}
                 <a href="{{url_for('app.register')}}" id="linkaccount">
                     <p class="text-uppercase fw-bold">Don't have account?</p>
