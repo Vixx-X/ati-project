@@ -59,6 +59,7 @@ class EditProfile(BaseView):
     def get_context_data(self, pk):
         return super().get_context_data()
 
+
 class Search(BaseView):
     """
     Search View
