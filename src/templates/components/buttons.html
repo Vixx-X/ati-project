@@ -1,9 +1,9 @@
 {% macro buttons(id=None, class="button", mensaje="Button", type="primary",font="fw-bold", letters="text-uppercase", function=None) %}
-<button 
+<button
 {% if id -%}
 id = "{{id}}"
 {%- endif %}
-class="{{class}} {{type}} {{letters}} {{font}}" 
+class="{{class}} {{type}} {{letters}} {{font}}"
 {% if function and function != "" -%}
 onclick="{{function}}"
 {%- endif %}

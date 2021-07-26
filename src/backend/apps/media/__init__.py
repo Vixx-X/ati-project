@@ -1,5 +1,5 @@
 """
-Multimedia module
+Media module
 """
 
 from flask import Blueprint

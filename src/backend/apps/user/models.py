@@ -50,3 +50,6 @@ class User(db.Document, UserMixin):
     # Relationships
     friends = db.SortedListField(db.ReferenceField("self", reverse_delete_url=db.CASCADE), default=[])
 
+    meta = {
+        'collection': 'users',
+    }
