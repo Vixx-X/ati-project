@@ -1,0 +1,13 @@
+{
+	"nombre":"José Miguel Medina Valero",
+	"descripcion":"Soy estudiante de Lic. en Computación de la UCV. Trabajé en el Centro de Monitoreo de Megasoft, empresa que administra vías de pago, en el cargo de Monitor 1. Además, tengo el cargo de preparador en la oficina LADO de la sala MICROS de la Facultad de Ciencias. Mis fuertes en la carrera son: Redes y Desarrollo de software.",
+	"color":"Azul",
+	"libro": ["Hacia Rutas salvajes"],
+	"musica": ["Rock de los 90 para abajo"],
+	"video_juego": ["Resident Evil 2"],
+	"lenguajes":["Java", "C", "C++", "Haskell", "Ensamblador"],
+	"email":"jsmiguel1702@gmail.com",
+	"ci":"23561277",
+	"genero": "Masculino",
+	"fecha_nacimiento":"17/02/1995"
+}

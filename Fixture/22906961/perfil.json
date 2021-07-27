@@ -1,0 +1,13 @@
+{
+    "nombre" : "Deybit Gutierrez",
+    "descripcion" : "Actualmente soy estudiante de Ciencias de la computación en la Facultad de Ciencias de la UCV. Soy fanático de la tecnologia y    recientemente de la electronica, me apasiona leer y componer cuentos cortos.",
+    "color" : "Negro",
+    "libro" : ["Las intermitencias de la muerte"],
+    "musica" : ["EDM y las variantes del Rock"],
+    "video_juego" : ["Castlevania SOTN", "Resident Evil", "RIOT"], 
+    "lenguajes" : [ "SQL", "C", "C++"],
+    "email" : "deybitgutierrez@gmail.com",
+    "ci" : "22906961",
+    "genero" : "masculino",
+    "fecha_nacimiento" : "15/07/1994"
+}

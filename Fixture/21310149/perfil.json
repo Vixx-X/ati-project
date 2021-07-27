@@ -1,0 +1,13 @@
+{	
+	"nombre": "Moises Rodriguez",
+	"descripcion":"Soy estudiante de la escuela de computación de la facultad de ciencias de la UCV. Estoy en mi último semestre de materias, también soy delegado del futbol sala tanto masculino como femenino de la facultad, soy jugador de la selección de futbol sala de la UCV y pertenezco a la plancha de CLUSTER",
+	"color": "Azul",
+	"libro": ["Falsa identidad"],
+	"musica": ["Todos los generos menos vallenato"],
+	"video_juego": ["FIFA", "Super Smash", "Far Cry", "Call of Duty", "Twisted Metal ","Mario Kart"],
+	"lenguajes": ["C++","php","java","html","python"],
+	"email":"marm.1404@gmail.com",
+	"ci": "21310149",
+	"genero": "masculino",
+	"fecha_nacimiento":"14/04/1994"
+}

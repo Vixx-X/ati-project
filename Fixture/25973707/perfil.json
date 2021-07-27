@@ -1,0 +1,13 @@
+{	
+	"nombre":"Fabián Alexander Ziffzer Sánchez",
+	"ci":"25973707",
+	"genero":"masculino",
+	"fecha_nacimiento":"31/07/1996",
+	"descripcion":"Soy estudiante del 7mo semestre de Computación en la Universidad Central de Venezuela. He formado parte del grupo docente de la materia Administración de Bases de Datos por dos semestres como preparador de la práctica de la materia y luego de los laboratorios. Soy partidario de los DDHH, la libertad de opinión y prensa. Me gustan los idiomas y los e-sports",
+	"color":"Azul",
+	"libro":["El Hobbit"],
+	"musica":"Clásica",
+	"video_juego":["World of Warcraft", "Dota Auto Chess", "League of Legends", "Hearthstone", "Zelda", "Pokemon", "ZeroRanger"],
+	"lenguajes":["C/C++", "Java", "Haskell", "Prolog", "Ensamblador (IA-32 y MIPS)", "SQL"],
+	"email":"fabianziffzer@gmail.com"
+}

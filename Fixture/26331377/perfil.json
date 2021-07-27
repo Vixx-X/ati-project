@@ -1,0 +1,13 @@
+{
+	"nombre":"Andrew Fuentes",
+	"descripcion":"Soy estudiantes en Computacion de la UCV. Actualmente me encuentro cursando las materias ATI,NOSQL,Distribuidas,deportes II, Ingles II y haciendo el Servicio comunitario pienso especializarme en el area de base de datos o sistemas de informacion",
+	"color": "Gris",
+	"libro": ["El Conde De Montecristo"],
+	"musica": ["Rock"],
+	"video_juego": ["Art of conquest"],
+	"lenguajes": ["c++","Sql","java","haskell"],
+	"email": "andrewfuentes55@gmail.com",
+	"ci": "26331377",
+	"genero": "masculino",
+	"fecha_nacimiento": "02/09/1996"
+}

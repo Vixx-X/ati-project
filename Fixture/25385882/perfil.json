@@ -1,0 +1,13 @@
+{
+    "nombre":  "Ricardo Alejandro Osuna R.",
+    "descripcion": "Soy Estudiante de la catedra de Ciencias de la Computación en la Universidad Central de Venezuela. Me desempeño en el área de computación grafica, con conocimientos en tecnologías como AR,VR y XR,usando principalmente Three.js, WebGL y Unity. Actualmente trabajo en Mipto-Tech.",
+    "color" : "Morado",
+    "libro": ["Star Wars Thrawn Alliances"],
+    "musica": ["Cualquier cancion que me guste en su momento"],
+    "video_juego": ["Warframe"],
+    "lenguajes": ["HTML", "CSS", "JavaScript", "C", "C++", "Python"],
+    "email" : "ricardosuna97@gmail.com",
+    "CI" : "25385882",
+    "genero" : "masculino",
+    "fecha_nacimiento" : "28/04/1997"
+}

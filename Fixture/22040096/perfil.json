@@ -1,0 +1,13 @@
+{
+  "nombre": "Yldemaro Romero",
+  "descripcion": "Soy Estudiante de computación en la UCV y Desarrollador web.",
+  "color": "Azul",
+  "libro": ["Los juegos del hambre: en llamas"],
+  "musica": ["Cualquiera menos vallenato"],
+  "video_juego": ["Mario kart tour, Marvel's future fight"],
+  "lenguajes": ["Java", " Javascript", " Python", " PHP", " C#"],
+  "email": "yldemaro.1994@gmail.com",
+  "ci":"22040096",
+  "gender": "masculino",
+  "fecha_nacimiento":"27/06/1994"
+}

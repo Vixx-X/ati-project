@@ -1,0 +1,13 @@
+{
+"nombre":"Carlos Julio Iglesias Monsalve",
+"descripcion":"Soy estudiante de computación en la UCV y trabajo dentro de la misma como auxiliar docente.",
+"color":"Azul",
+"libro":["Narnia: El Sobrino del Mago"],
+"musica":["Electrónica","Pop"],
+"video_juego":["Uncharted","Tomb Raider"],
+"lenguajes":["C++","Java","Prolog","Ruby"],
+"email":"iglesiasmonsalve.carlosjulio@gmail.com",
+"ci":"25948243",
+"genero":"masculino",
+"fecha_nacimiento":"24/10/1997"
+}

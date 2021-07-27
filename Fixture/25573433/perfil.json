@@ -1,0 +1,13 @@
+{
+    "nombre": "Juan Navas",
+    "descripcion": "Soy estudiante de computación en la UCV. También, soy programador web con experiencia en librerías y frameworks como React.js, Laravel, Express.js. Además, me formé como músico en el Sistema de Orquestas, desempeñándome por 10 años como fagotista.",
+    "color": "Azul",
+    "libro": ["Pasiones Narcoticas"],
+    "musica": ["POP"],
+    "video_juego": ["F1"],
+    "lenguajes": ["php", "javascript", "java"],
+    "email": "navascruzf@gmail.com",
+    "ci": 25573433,
+    "genero": "masculino",
+    "fecha_nacimiento": "17/07/1997"
+}

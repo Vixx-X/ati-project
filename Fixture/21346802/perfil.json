@@ -1,0 +1,13 @@
+{
+	"nombre": "Erick Rincones",
+	"descripcion": "Soy estudiante de computación de la UCV, preparador de Probabilidad y Estadística y miembro activo del Coro de la Facultad de Ciencias en la cuerda de tenor. Estudié Cuatro acompañante y Piano Principal en la Escuela Superior de Música José Ángel Lámas hasta el cuarto año y cuatro semestres de Biología antes de realizar el cambio a mi carrera actual, en la que me falta poco para obtener el título de Licenciado en Computación.",
+	"color": "Verde",
+	"libro": ["Tahan, M., (1949), El hombre que calculaba"],
+	"musica": ["Sacra"],
+	"video_juego": ["Assassin's Creed"],
+	"lenguajes": [ "C", "C++", "Java", "GLSL", "LaTeX", "LilyPond" ],
+	"email": "erick.rincones@ciens.ucv.ve",
+	"ci": "21346802",
+	"genero": "m",
+	"fecha_nacimiento": "10/11/1994"
+}

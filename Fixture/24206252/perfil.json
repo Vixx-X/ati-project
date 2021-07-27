@@ -1,0 +1,13 @@
+{
+	"nombre": "Jesús Mambie",
+	"descripcion": "Soy estudiante de computación en la facultad de ciencias de la UCV, me gustan los deportes, la programación e ir al cine. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis diam laoreet, aliquet massa at, mollis felis. Etiam condimentum id dolor vel finibus. Proin et orci eget nisi consectetur viverra sit amet et magna. Ut at magna porta, dapibus metus eu, sodales erat. Integer eget turpis in nunc venenatis sodales in non eros. Pellentesque quis libero ut est ornare bibendum. Aliquam condimentum non diam vel volutpat.",
+	"color": "Rosado",
+	"libro": ["El Psicoanalista"],
+	"musica": ["Todos"],
+	"videojuego": ["Call of Duty"],
+	"lenguajes": ["HTML", "Ruby", "Java", "C++"],
+	"email": "jesusmambie14@gmail.com",
+	"ci": "24206252",
+	"genero": "masculino",
+	"fecha_nacimiento": "14/12/1994"
+}

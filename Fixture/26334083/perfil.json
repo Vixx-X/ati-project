@@ -1,0 +1,13 @@
+{
+	"nombre":"Ricardo Andrés Ríos Padrón",
+	"descripcion":"Soy un estudiante de Computación de la UCV. Estoy cursando mi 6to semestre, en este año 2018. Me conocen como Ricardo, Hulk, Dios o Kuma porque me atropello un carro y el carro salio perdiendo, también cabe destacar que me encantan los dulces. Aún no se por cual mención me ire pero las opciones son ATI o Redes.",
+	"color":"No tengo ninguno color favorito en particular",
+	"libro": ["No leo libros, pero si mangas"],
+	"musica": ["Me gustan casi todos los estilos de música, menos el rap"],
+	"video_juego":["Las sagas de The Legend Of Zelda","Pokemon"],
+	"lenguajes":["Java","C","C++","Octave","Html"],
+	"email":"riosricardo1234@gmail.com",
+	"ci":"26334083",
+	"genero":"Masculino",
+	"fecha_nacimiento":"10/06/2018"
+}

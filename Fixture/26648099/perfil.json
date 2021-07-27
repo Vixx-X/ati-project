@@ -1,0 +1,13 @@
+{
+	"nombre":"Alejandra Vanessa del Valle Vento González",
+	"descripcion":"Soy estudiante de la escuela de computación, en la facultad de ciencias, de la Universidad Central de Venezuela, cursante del 6to semestre, me desempeño como auxiliar docente en el laboratorio docente de la Sala de Micros, también en el cargo de asistente de administración en el Restaurant La Santillana del Mar, además de desarrollar páginas web en wordpress como freelancer.",
+	"color":"Amarillo",
+	"libro": ["Crónicas de Una Muerte Anunciada"],
+	"musica":"Pop",
+	"video_juego":["League Of Legends", "Bioshock 1", "Bioshock 2", "Bioshock 3"],
+	"lenguajes":["C++","C","Haskell","Prolog","Java","Mips","IA32"],
+	"email":"alejandra.vengon@gmail.com",
+	"ci":"26648099",
+	"genero":"femenino",
+	"fecha_nacimiento":"31/07/2019"
+}	

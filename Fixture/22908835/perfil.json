@@ -1,0 +1,13 @@
+{
+    "nombre": "Kevin Daniel Blanco Salas",
+    "descripcion": " Actualmente soy estudiante de computacion de la UCV. Mi rama favorita de la computacion es el desarrollo de aplicaciones web y me encantaria aprender desarrollo de aplicaciones mobile. Como las tecnologias van en constante evolución trato de mantenerme al dia, por medio de articulos, tutoriales y foros. Mis pasatiempos suelen ser ver series, salir con mis amigos y realizar actividades fisicas.",
+    "color": "Vinotinto",
+    "libro": ["La Odisea"],
+    "musica": ["Cualquier estilo de musica"],
+    "video_juego": ["Counter Strike", "League of Legends"],
+    "lenguajes": ["Java", "Javascript", "c++", "php", "mysql"],
+    "email": "kevob1994@gmail.com",
+    "ci": "22908835",
+    "genero": "Masculino",
+    "fecha_nacimiento": "25/02/1994"
+}

@@ -1,0 +1,13 @@
+{
+"nombre":"Vanessa", 
+"descripcion":"Soy estudiante de Computación en la Universidad Central de Venezuela. Quiero graduarme con la menciones de Base de datos y Sistemas de informacion. me gusta mucho la playa, bailar, escuchar musica. Me gustaria irme del pais para Chile, me parece que hay muchas oportunidades alli. Me considero alegre y divertida",
+"color":"negro",
+"libro": ["no tengo"],
+"musica": ["bachata"],
+"video_juegos": ["no tengo"],
+"lenguajes": ["C++"],
+"email":"vanessa-604@hotmail.com",
+"ci":"23691134",
+"genero": "femenino",
+"fecha_nacimiento":"12/11/1994"
+}

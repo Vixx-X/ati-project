@@ -1,0 +1,13 @@
+{
+    "nombre": "Roberto Montes de Oca",
+    "descripcion":"Soy bachiller actualmente cursando como estudiante en la escuela de Computación de la UCV. Actualmente trabajo como analista de procesos de negocios para una consultora. Me gustan los deportes en especial el fútbol, el cual actualmente práctico. En mi tiempo libre me gusta bailar, ver series, jugar videojuegos y pasar tiempo con mis amistades. ",
+    "color": "Rojo",
+    "libro":["La Orden del Temple"],
+    "musica": ["Cualquiera menos ballenato"],
+    "video_juego": ["Clash Royale", "Brawl Stars","Counter Strike"],
+    "lenguajes":["javascript", "Groovy", "JAVA", "HTML"],
+    "email": "robbiemdo79@gmail.com",
+    "ci": "24221399",
+    "genero": "Masculino",
+    "fecha_nacimiento":"09/03/1994"
+}

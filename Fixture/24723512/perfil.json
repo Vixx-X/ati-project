@@ -1,0 +1,13 @@
+{	
+	"nombre":"David Bou",
+	"descripcion":"Estudiante UCV",
+	"color":"en este momento rojo",
+	"libro": ["provervios de Salomon"],
+	"musica": ["cualquiera"],
+	"video_juego": ["Tarzan", "spyro", "spiderman", "crash bandicoot", "pepsiman"],
+	"lenguajes":["C", "C++", "Java", "python", "x86 ASM", "Haskell","Prolog"],
+	"email":"isdavidbou@gmail.com",
+	"ci":"24723512",
+	"genero": "masculino",
+	"fecha_nacimiento":"00/00/1900"
+}

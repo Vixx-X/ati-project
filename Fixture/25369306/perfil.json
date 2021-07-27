@@ -1,0 +1,13 @@
+{
+	"nombre": "Felix Urbano",
+	"descripcion": "Soy estudiante de computación en la facultad de ciencias de la UCV. Actualmente curso las materias pertenecientes al sexto semestre de la carrera en cuestión. Aspiro desempeñarme como profesional desarrollando aplicaciones con la tecnología internet.",
+	"color": "Azul",
+	"libro": ["vuelven los fantasmas"],
+	"musica": ["Todo menos reggeton y vallenato"],
+	"video_juego": ["Saga Batman Arkham"],
+	"lenguajes": ["Java", "C++", "Php", "Python"],
+	"email": "felixgabur@yahoo.com",
+	"ci": "25369306",
+	"genero": "masculino",
+	"fecha_nacimiento": "23/10/1996"
+}

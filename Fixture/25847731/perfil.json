@@ -1,0 +1,13 @@
+{
+    "nombre": "Adrian Mejias",
+    "descripcion":"Amante del caos y de llevar la contraria solo porque sí. Mi salsa favorita pa comer con lo que sea es el siropesito",
+    "color":"Verde",
+    "libro":["The Breaker (2007)"],
+    "musica":["Salsa pa la camionetica"],
+    "video_juego":["Maincra", "MTGA", "LOL", "AOE"],
+    "lenguajes":["Español", "ingles"],
+    "email":"adrianjmejias@gmail.com",
+    "ci": "25847731",
+    "genero": "masculino",
+    "fecha_nacimiento":"30/09/1997"
+}
