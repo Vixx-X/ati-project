@@ -1,0 +1,13 @@
+{
+	"nombre": "Hector Eduardo Arellano",
+	"descripcion": "Soy estudiante de la Universidad Central de Venezuela, Facultad de Ciencias, escuela de Computacion, me inclino mas hacia la rama de base de datos y redes. Actualmente me encuentro trabajando en el area que me gusta y he aprendido bastante. Todos los dias siempre hay algo nuevo que aprender.",
+	"color": "Verde",
+	"libro": ["El Tunel"],
+	"musica": "Rock",
+	"video_juego": ["Team Fortress 2"],
+	"lenguajes": ["C++", "JAVA", "Python"],
+	"email": "arellanonegrin2@hotmail.com",
+	"ci": "24073379",
+	"genero": "masculino",
+	"fecha_nacimiento": "16/05/1994"
+}

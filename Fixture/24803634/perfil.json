@@ -1,0 +1,13 @@
+{
+    "nombre" : "Julio Cesar Yanes",
+    "descripcion": "Soy estudiante de Computacion en la UCV.Entusiasta de la tecnologia, amante de los deportes y de los videojuegos.No se que mas hablar de mi asi que coloco esto para llenar espacio (Ñ).",
+    "color": "Morado",
+    "libro": ["La carretera"],
+    "musica": ["Todo menos trap/regueton"],
+    "video_juego": ["SKYRIM"],
+    "lenguajes": ["PHP","PYTHON","JAVA","C","C++"],
+    "email": "cara.pinta1@gmail.com",
+    "ci":"24803634",
+    "genero": ["Masculino","Femenino"],
+    "fecha_nacimiento": "11/11/1996"
+}

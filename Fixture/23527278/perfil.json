@@ -1,0 +1,13 @@
+{
+	"nombre": "Juan Figueira",
+	"descripcion": "Soy estudiante de Computación de la Universidad Central de Venezuela. Me especializo en el área de desarrollo web y móvil híbrido. Me gusta el fútbol, tocar guitarra, jugar videojuegos, entre otras cosas.",
+	"color": "Naranja",
+	"libro": ["¿Harry Potter y el prisionero de Azkaban?"],
+	"musica": ["Cualquiera menos ¿Trap, Vallenato?"],
+	"video_juego": ["World of Warcraft", "Dota 2", "Tibia"],
+	"lenguajes": ["C", "C++", "JavaScript"],
+	"email": "JuanDFF10@gmail.com",
+	"ci": "23527278",
+	"genero": "Masculino",
+	"fecha_nacimiento": "23/12/1992"
+}

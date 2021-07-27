@@ -1,0 +1,13 @@
+{
+	"nombre":"Anthony Jose Lacruz Vera",
+	"descripcion": "Soy estudiante de la Universidad Central de Venezuela, en la Facultad de Ciencias-Computación. Trabajo como desarrollador web en Outsource Software. En mis tiempos libres leo noticias sobre geopolítica, reportes científicos y un poco de astrología. Me gusta cocinar y el atletismo, aunque últimamente no tengo mucho tiempo para entrenar.",
+	"color":"Ultra Violet 18-3838",
+	"libro":["Notas de cocina de Leonardo Da Vinci"],
+	"musica":["Rock y ruedalo"],
+	"video_juego":["Megaman"],
+	"lenguajes":["c++", "c#", "python"],
+	"email":"lacruzanthony20@gmail.com",
+	"ci":"24220943",
+	"genero":"masculino",
+	"fecha_nacimiento":"24/02/94"
+}

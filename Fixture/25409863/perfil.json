@@ -1,0 +1,14 @@
+{
+	"nombre": "Miguel Angel Magdalena Ybarra",
+	"descripcion": "Soy estudiante de computación de la facultad de Ciencias en la Universidad Central de Venezuela (UCV). Tengo interés en las áreas de Computación Gráfica, Aplicaciones con la Tecnología Internet y un poco con el área de Minería de Datos. Tengo fascinación por las nuevas tecnologías y/o últimos desarrollos tecnológicos que nos mejoran nuestra calidad de vida o nos permiten hacer cosas inimaginables en el pasado. Por otra parte soy un poco aficionado de los videojuegos, desde mmorpg, mmo, shooters, de estrategía, entre otros.",
+	"color": "Azul",
+	"libro": ["Ojitos de Ángel"],
+	"musica": ["Casi todas"],
+	"video_juego": ["Paladins: Champions of the Realm", "Clash of Clans", "Magic Duels", "Robocraft", "Fortnite - Battle Royale","... Y siempre explorando nuevos juegos :P"],
+	"lenguajes": ["Español","Ingles (Básico) ","Japones (Básico)", "C++", "C", "Java", "Python", "R"],
+	"email": "miguelangelmagdalena@gmail.com",
+	"ci": 25409863,
+	"genero": "masculino",
+	"fecha_nacimiento": "09/03/1997"
+
+}

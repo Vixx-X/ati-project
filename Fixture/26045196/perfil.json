@@ -1,0 +1,13 @@
+{
+	"nombre": "Jesús Vezga Gonzalez",
+	"descripcion":"Soy estudiante en computación de la UCV. Me desempeño en el área de tecnologías educativas, y en el área web, tambien preparador de Algoritmos y programación, formo parte del centro de estudiantes y consejero de escuela. Actualmente trabajo como Full Stack Developer para Licitaciones Inteligentes de Costa Rica.",
+	"color":"Amarillo",
+	"libro":["La Chica del Tren"],
+	"musica":["Pop", "Rock"],
+	"video_juego":["Brawl Stars"],
+	"lenguajes":[ "C++", "java", "php", "javascript", "python" ],
+	"email":"jesusvezgag@gmail.com",
+	"ci":"26045196",
+	"genero":"masculino",
+	"fecha_nacimiento":"6/11/1995"
+}

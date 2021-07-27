@@ -1,0 +1,13 @@
+{	
+	"nombre":"Johanna Rojas",
+	"descripcion":"Estudio Licenciatura en Computacion en la UCV. Hice un curso basico de programacion web, me gustaria aprender mas de esta area y el desarrollo de aplicaciones.",
+	"color":"Morado",
+	"libro": ["No tengo"],
+	"musica": ["Electrónica"],
+	"video_juego": ["League of Leguends"],
+	"lenguajes":["C","C++","PHP"],
+	"email":"johiirojas@gmail.com",
+	"ci":"22908075",
+	"genero":"femenino",
+	"fecha_nacimiento":"13/06/1995"
+}

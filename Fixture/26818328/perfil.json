@@ -1,0 +1,13 @@
+{	
+	"nombre":"Laura C. Zambrano",
+	"descripcion": "Soy estudiante de la Universidad Central de Venezuela de la carrera Licenciatura en Computación, me encuentro en el sexto semestre de dicha carrera. Actualmente ejerzo el cargo de preparador en Laboratorio Docente de las Salas de Micros en la facultad de Ciencias.",
+	"color":"Gris",
+	"libro":["Prohibido a los Nerviosos"],
+	"musica":["Rock"],
+	"video_juego":[ "Legend of Zelda", " Pokemon" ],
+	"lenguajes":["C/C++", " PHP", " Python", " Haskell", " Prolog", " MySQL"],
+	"email":"laurac3108@gmail.com",
+	"ci":"26818328",
+	"genero":"femenino",
+	"fecha_nacimiento":"31/08/1998"
+}

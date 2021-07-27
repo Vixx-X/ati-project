@@ -1,0 +1,13 @@
+{
+    "nombre": "Osvani Colina",
+    "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius tristique risus, sed dignissim diam dictum a. Mauris molestie suscipit quam ac pharetra. Ut accumsan, nibh a tempus scelerisque, lorem lorem consequat quam, et semper urna neque vitae metus. Donec dui elit, vehicula sit amet tortor placerat, euismod sodales justo. Pellentesque id velit non augue volutpat congue. Morbi et congue metus. Cras tempor libero ac dignissim commodo.",
+    "color": "Verde",
+    "libro": ["El Último Deseo (Saga Geralt de Rivia)"],
+    "musica": ["Pop", "Bachata"],
+    "video_juego": ["Dragon Age: Origins", "The Witcher 3"],
+    "lenguajes": ["C++", "java", "C", "Javascript", "Python"],
+    "email": "osvacolijim@gmail.com",
+    "ci": "22382655",
+    "genero": "masculino",
+    "fecha_nacimiento": "20/10/1994"
+}

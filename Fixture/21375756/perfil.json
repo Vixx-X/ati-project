@@ -1,0 +1,13 @@
+{	
+	"nombre": "Jennifer Cádiz",
+    "descripcion": "Soy estudiante de Computación de la UCV. Me desempeño en el area de desarrollo web. Curso el sexto y septimo semestre de Computación. Me gusta dedicar mi tiempo libre a salir y escuchar musica.",
+    "color": "Fucsia",
+    "libro": ["El alquimista"],
+    "musica": ["Salsa y merengue"],
+    "video_juego": ["Clash Royale"],
+    "lenguajes": ["C++", "C", "HTML", "CSS"],
+    "email": "jcadiz03@gmail.com",
+    "ci": "21375756",
+    "genero": "Femenino",
+    "fecha_nacimiento": "03/08/1994"
+}	

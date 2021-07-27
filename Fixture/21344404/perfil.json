@@ -1,0 +1,13 @@
+{
+    "nombre":"Thirone Bermúdez",
+    "descripcion":"Soy estudiante del 6to semestre de Computación en la Universidad Central de Venezuela. Soy un programador web con 1 año de experiencia en lenguajes de programación como C, C++, Java, PHP, VB .NET.. haciendo uso de base de datos relacionales MySQL, MariaDB, PostgreSQL y SQL Server, trabajo bajo ambiente Linux y Windows, como                    front-end tengo conocimiento en HTML5, CSS3, Bootstrap, JavaScript y Resposive Design.",
+    "color": "Azul",
+    "libro": ["No poseo un libro favorito"],
+    "musica":["Electrónica"],
+    "video_juego":["League Of Legends", "Need For Speed", "FIFA"],
+    "lenguajes":["C", "C++", "PHP", "JavaScript", "VB .NET."],
+    "email":"bermudezth@gmail.com",
+    "ci":"21344404",
+    "genero":"masculino",
+    "fecha_nacimiento":"27/12/1993"
+}

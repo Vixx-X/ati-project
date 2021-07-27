@@ -1,0 +1,15 @@
+{	
+	"nombre":"Reinaldo Rafael Requena Salazar",
+	"descripcion":"Soy estudiante de la facultad de Ciencias de la Universidad Central de Venezuela, estudio Computacion. El area que mas me interesa y me llama la atencion de la carrera desde el inicio es el desarrollo web, del que ya poseo cierto conocimiento y en el que me desenvuelvo laboralmente",
+	"color": "negro",
+	"libro": ["La quinta ola"],
+	"musica": ["Pop y Urbano"],
+	"video_juego": ["Clash_Royale, FIFA"],
+	"lenguajes":["C++","C","java", "Haskell", "Prolog", "HTML", "php", "javascript"],
+	"email":"reinaldorequena1@gmail.com",
+	"ci":"21192721",
+	"genero": "masculino",
+	"fecha_nacimiento":"12/08/1994"
+}
+
+

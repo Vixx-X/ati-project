@@ -1,0 +1,13 @@
+{	
+	"nombre": "Armando Rivas",
+	"descripcion": "Soy estudiante de la escuela de computacion de la Univcersidad Central de Venezuela, actualmente cursando aplicaciones con la tecnologia de internet. Mi meta es graduarme antes del 2021, para eso estaré inscribiendo extracreditos todos los semestres que me quedan. Me gusta el area de bases de datos e indagar en las demas areas como: Graficas, Web, IA",
+	"color": "Negro",
+	"libro": ["Psicoanalista"],
+	"musica": ["Cualquiera menos cumbia"],
+	"video_juego": ["League of Legends, PUBG"],
+	"lenguajes":["C++", "Python"],
+	"email": "armandojrivasc@gmail.com",
+	"ci":"24205909",
+	"genero":",asculino",
+	"fecha_nacimiento":"13/06/1994"
+}

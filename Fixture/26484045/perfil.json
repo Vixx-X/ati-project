@@ -1,0 +1,13 @@
+{
+    "nombre": "Carlos Pino",
+    "descripcion": "Estudiante de la Escuela de Computación de la Facultad de Ciencias de la UCV y auxiliar docente del Centro de Computación de la Facultad de Ciencias de la misma, específicamente en el área de sistemas. Actualmente dicto cursos de Wordpress y Ensamblaje de computadoras en la Facultad de ciencias,además trabajo como freelancer realizando páginas web.",
+    "color": "Azul",
+    "libro": ["Divergente"],
+    "musica": ["Electrónica"],
+    "video_juego": ["Crash Bandicoot"],
+    "lenguajes": ["php", "javascript", "java", "c/c++"],
+    "email": "carlospino.ucv@gmail.com",
+    "ci": "26484045",
+    "genero": "masculino",
+    "fecha_nacimiento": "10/03/1998"
+}

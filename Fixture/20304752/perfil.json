@@ -1,0 +1,13 @@
+{	
+	"nombre":"Valentina Vargas",
+	"descripcion":"Soy estudiante del 8vo semestre de Computación en la Universidad Central de Venezuela. Quiero la mencion de Sistemas de Informacion con Base de Datos. Me gusta escuchar musica, viajar.",
+	"color": "Rosado",
+	"libro": ["El tunel"],
+	"musica": ["Balada"],
+	"video_juego": ["no poseo juego favorito"],
+	"lenguajes":["C", "C++", "HTML", "MySQL"],
+	"email":"valentinavargas92@hotmail.com",
+	"ci":"20304752",
+	"genero": "femenino",
+	"fecha_nacimiento":""
+}

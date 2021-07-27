@@ -1,0 +1,13 @@
+{
+	"nombre":"Carlos E. Martinez R.",
+	"descripción":"Soy estudiante de computacion de 7mo semestre en la UCV, actualemte trabajo como vendedor de repuestos al mayor, he participado en una variedad de cursos que van desde Kizomba (baile) hasta Autocad 3D",
+	"color" :"Azul",
+	"libro" : ["A Game of Thrones"],
+	"musica" : ["Rap", "Hip Hop"],
+	"video_juego": ["Rayman 2: The Great Escape"],
+	"lenguajes":["Java, C/C++, HTML"],
+	"email":"carlos.martinez.r@ucv.ve",
+	"ci":"27007153",
+	"genero":"masculino",
+	"fecha_nacimiento":"02/01/1997"
+}

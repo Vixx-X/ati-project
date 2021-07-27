@@ -1,0 +1,14 @@
+{
+    "nombre": "Leonardo Andres Pinzón Mendez",
+	"descripcion": "Soy estudiante del 7mo semestre de licenciatura en computacion, actualmente me encuento laborando como desarrollador en una consultaria del area de computacion grafica, al igual que haciendo untrabajo freelance en el cual soy lider de proyecto, he realizo un curso de chef que duro 1 año, actualmente mi meta es graduarme lo mas pronto posible.",
+    "color": "verde",
+    "libro": ["Hermosas Criaturas"],
+    "musica": ["Reggae", "electronica", "salsa"],
+    "video_juego": ["lol", "Call of Duty", "Warframe"],
+    "lenguajes": ["C/C++/C# ", "Java", "Ensamblador", "Python", "Ruby", "etc"],
+    "email": "leonardo3103@gmail.com",
+    "ci": "25619885",
+    "genero": "masculino",
+    "fecha_nacimiento": "31/03/1995"
+    
+}

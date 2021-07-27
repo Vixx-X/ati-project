@@ -1,0 +1,13 @@
+{
+    "nombre":"Geraldo Villarroel",
+    "descripcion":  "Soy estudiante de computación en la Universidad Central de Venezuela. En mis tiempos libres me dedico a practicar con la guitarra mis canciones favoritas. Durante un tiempo practique Tenis y Béisbol, el béisbol es mi deporte favorito y al que mas doy seguimiento en los juegos profesionales.",
+    "color" :"Azul",
+    "libro" :["Límites"],
+    "musica":["Pop Rock"],
+    "video_juego": ["Call Of Duty", "MLB The Show", "FIFA"],
+    "lenguajes": ["C++", "C", "Java", "Typescript", "Python"],
+    "email": "gvillarroel9@gmail.com",
+    "ci": "26122359",
+    "genero":"masculino",
+    "fecha_nacimiento":"02/10/1997"
+}

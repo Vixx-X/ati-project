@@ -1,0 +1,13 @@
+{
+	"nombre":"Satoru Díaz Nakada",
+	"descripcion":"Soy estudiante de Computación de la UCV, actualmente cursando 6to. semestre de la carrera. Bachiller egresado del Colegio Francia de Caracas (Promoción 42 - 1er. lugar). Auxiliar docente en Laboratorio Docente de Sala de Micros (LADO) y profesor de japonés para niños y adolescentes en el curso Nihongo Kyoushitsu de Caracas (NKC). He participado dos veces como representante de Venezuela en las Olimpiadas Internacionales de Informática (IOI, por sus siglas en inglés) y varias veces en Maratones Locales Universitarios ACM-ICPC en el ámbito de la programación competitiva. Me gustaría destacar igualmente en eventos deportivos y de deportes electrónicos (E-Sports).",
+	"color":"Gris",
+	"libro":["La Odisea"],
+	"musica":["Electrónica"],
+	"video_juego":["Osu!","Stepmania","Dance Dance Revolution","Pump It Up","Overwatch","Paladins"],
+	"lenguajes":["C++","C","Java","Haskell","Prolog"],
+	"email":"satorudiaz@gmail.com",
+	"ci":"25385451",
+	"genero":"masculino",
+	"fecha_nacimiento":"25/04/1997"
+}

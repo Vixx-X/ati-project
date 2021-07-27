@@ -1,0 +1,13 @@
+{
+	"nombre": "Maria Castro",
+	"descripcion": "Mi nombre completo es María Victoria Aimme Castro Durán, tengo 23 años. Actualmente soy estudiante de la Escuela de Computacion de la UCV desde el semestre II-2013. Anteriormente estuve un poco más de 1 año en otra universidad estudiando una carrera afín.<BR> Uno de tantos sueños que tengo, el primero que espero cumplir, es poder graduarme en mi país.", 
+	"color": "Verde Manzana",
+	"libro": ["Harry Potter"],
+	"musica": ["Pop"],
+	"video_juego": ["Mario tennis 64"],
+	"lenguajes": ["c","c++","java"],
+	"email": "marivicastro_94@hotmail.com",
+	"ci": "22522548",
+	"genero": "femenino",
+	"fecha_nacimiento": "16/08/1994"
+}
