@@ -1,15 +1,16 @@
 {% from "components/user-icon.html" import user_icon %}
 {% from "components/buttons.html" import buttons %}
 {% from "components/element-friend-list.html" import element_friend_list %}
-{% macro list_friends(img, name, comunFriends="Comun Friends", url=None, png="", webp="", alt="", type="basic",button="",txtbutton="") %}
+{% macro list_friends(img, name, comunFriends="Comun Friends", url=None, png="", webp="", alt="", type="basic",button="",txtbutton="", titlelist="List Friends") %}
 
 <div class="cont-listaAmigos">
   <!-- TODO change # for a new parameter value -->
-
+  {% if titlelist -%}
   <div class="center">
-    <h2>List Friends</h2>
+    <h2>{{titlelist}}</h2>
     <hr>
   </div>
+  {%- endif %}
   
   <a href="#">
     {{element_friend_list(
@@ -18,7 +19,7 @@
       button=button,
       txtbutton=txtbutton,
       connect=False,
-      trasparent="",
+      trasparent=true,
       url="",
       png=png,
       webp=webp,
@@ -32,7 +33,7 @@
       button=button,
       txtbutton=txtbutton,
       connect=False,
-      trasparent="",
+      trasparent=true,
       url="",
       png=png,
       webp=webp,
@@ -46,7 +47,49 @@
       button=button,
       txtbutton=txtbutton,
       connect=False,
-      trasparent="",
+      trasparent=true,
+      url="",
+      png=png,
+      webp=webp,
+      img=img,
+    )}}
+  </a>
+  <a href="#">
+    {{element_friend_list(
+      user=name,
+      comunFriends=comunFriends,
+      button=button,
+      txtbutton=txtbutton,
+      connect=False,
+      trasparent=true,
+      url="",
+      png=png,
+      webp=webp,
+      img=img,
+    )}}
+  </a>
+  <a href="#">
+    {{element_friend_list(
+      user=name,
+      comunFriends=comunFriends,
+      button=button,
+      txtbutton=txtbutton,
+      connect=False,
+      trasparent=true,
+      url="",
+      png=png,
+      webp=webp,
+      img=img,
+    )}}
+  </a>
+  <a href="#">
+    {{element_friend_list(
+      user=name,
+      comunFriends=comunFriends,
+      button=button,
+      txtbutton=txtbutton,
+      connect=False,
+      trasparent=true,
       url="",
       png=png,
       webp=webp,

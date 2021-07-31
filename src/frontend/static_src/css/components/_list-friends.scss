@@ -1,24 +1,28 @@
 @import "../bases/variables";
 @import "../bases/mixins";
 
+
+.container-showroom-list{
+    width: 30rem;
+    font-size: 10px;
+}
+
 .cont-listaAmigos {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 5px;
+    background: rgb(255, 255, 255);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 1px dashed #6BB0A9;
     display: flex;
     flex-flow: column;
-    margin: 1rem;
+    padding: 2rem;
     h2 {
         font-weight: 500;
         font-style: italic;
-        margin: 2rem;
     }
     button {
         font-size: 1em;
-        margin: 1.5em;
+        margin-top: 1em;
     }
     hr {
-        height: 0.3em;
-        background-color: $black;
         width: 100%;
       }
     .center {
