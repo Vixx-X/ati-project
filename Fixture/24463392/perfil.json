@@ -1,0 +1,13 @@
+{
+	"nombre":"Ricardo Baptista" ,	
+	"descripcion":"Soy estudiante de computación de la UCV, sin una mención definidad pero que entre las posibles opciones destacá Aplicaciones en Internet, Base de Datos y Redes. Me encantán los dulces y cantar por diversión, anteriormente estudié la licenciatura en matématicas llegando al 3er semestre de la carrera.",
+	"color": "Verde",
+	"libro": ["Eragon"],
+	"musica": ["Todo menos Vallenato"],
+	"video_juego": ["Dragon Age", "World of Warcraft", "Dota 2"],
+	"lenguajes":["C","C++","SWI Prolog","Java(netbeans)"],
+	"email": "rabs5678@gmail.com",
+	"ci": "24463392",
+	"genero":"Masculino",
+	"fecha_nacimiento":"12/09/1993"
+}

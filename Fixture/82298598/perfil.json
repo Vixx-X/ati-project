@@ -1,0 +1,13 @@
+{	
+	"nombre": "Jhonatan Llerena Vidales",
+    "descripcion": "Soy estudiante de sexto semestre en Lic. en Computación de la Universidad Central de Venezuela. Me desempeño en el área de desarrollo web, me gusta aprender de las nuevas tecnologías que me ayudan a mejorar mis destrezas y conocimiento como desarrollador.",
+    "color": "Azul",
+    "libro": ["No es cuestión de leche. Es cuestión de actitud"],
+    "musica": ["De todo un poco"],
+    "video_juego": ["Fifa"],
+    "lenguajes": ["C", "C++", "Java", "PHP"],
+    "email": "jonlleucv@gmail.com",
+    "ci": "82298598",
+    "genero": "Masculino",
+    "fecha_nacimiento": "19/07/1992"
+}	

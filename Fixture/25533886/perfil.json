@@ -1,0 +1,13 @@
+{
+"nombre": "Carlos Sanguña",
+"descripcion":"Soy estudiante de Computación en la Universidad Central de Venezuela,estoy en el sexto semestre de la carrera, me gusta jugar futbol, considero que Messi es el 3er mejor jugador del mundo y CR7 el segundo, en cuanto a la carrera me gustaría sacar una especialidad en Redes o Inteligencia Artificial.",
+"color": "Fucsia",
+"libro": ["No leo"],
+"musica": ["Regueton"],
+"video_juegos":["Fifa"],
+"lenguajes":["C", "C++", "JAVA", "HTML","MIPS","IA32"],
+"email":"carlos.daniel.009@hotmail.com",
+"ci":"25.533.886",
+"genero":"Masculino",
+"fecha_nacimiento":"22/02/1997"
+}

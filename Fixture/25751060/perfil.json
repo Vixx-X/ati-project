@@ -1,0 +1,13 @@
+{
+	"nombre":"Maria Martynski",
+	"descripcion":"Hola! Soy estudiante de la Facultad de Ciencias de la UCV del 6to semestre. Adicionalmente soy Auxiliar Docente de la Escuela de Computación y Preparadora de Cálculo Científico. Me gusta mucho hacer ejercicio y bailar todo tipo de música. Me encanta el francés y sueño un día con visitar París. En otras palabras, je veux visiter La France! Enchanté!",
+	"color":"Negro",
+	"libro":["Once minutos"],
+	"musica":["Pop","merengue"],
+	"video_juego":["Super Smash Bros","Mario Party","Just Dance"],
+	"lenguajes":["Haskell","SQL"],
+	"email":"maria.martynski@gmail.com",
+	"ci":"25751060",
+	"genero":"Femenino",
+	"fecha_nacimiento":"25/04/1997"
+}

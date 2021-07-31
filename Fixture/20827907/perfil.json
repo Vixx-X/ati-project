@@ -1,0 +1,13 @@
+{
+  "nombre": "Nelson Alejandro Rivas",
+  "descripcion": "Estudiante de la licenciatura en computación en la UCV. Fanático de los gloriosos Leones del Caracas.",
+  "color": "Azul",
+  "libro": ["La Ladrona de Libros"],
+  "musica": ["Reggae"],
+  "video_juegos": ["Age o Empires"],
+  "lenguajes": ["C", "C++", "JAVA", "Haskell", "Python"],
+  "email": "studentuniversitario@gmail.com",
+  "ci": "20827907",
+  "genero": "masculino",
+  "fecha_nacimiento": "11-28-1992"
+}

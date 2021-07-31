@@ -1,0 +1,13 @@
+{
+  "nombre": "Daniel Giannotti",
+  "Descripcion": "Soy bachiller, me encuentro estudiando Computación en la UCV, en la facultad de Ciencias. Me interesa mucho la parte de computación gráfica por los videojuegos y tambien la parte de Redes por \"Seguridad informatica\". Y actualmente lidero una fundacion llamada \"Note NGO Ryal\", así que si quieren donar a la causa me pueden contactar al correo de abajo xD.",
+  "color":"Azul",
+  "libro": ["Harry Potter"],
+  "musica": ["Variado"],
+  "video_juego": ["Assassin'S Creed", "Red Dead Redemption"],
+  "lenguajes": ["C++", "C", "Java"],
+  "email": "g.clases24@gmail.com",
+  "ci": "26396050",
+  "genero": "masculino",
+  "fecha de nacimiento": "20/08/1998"
+}

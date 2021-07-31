@@ -1,0 +1,13 @@
+{ 
+  "nombre": "Alberto Gil", 
+  "descripcion": "Mi nombre es Alberto Alejandro Gil Dávila. Tengo 21 años. Soy estudiante de Computación en la UCV desde finales del año 2013. Me gustaría especializarme en el área de desarrollo web. Tengo planeado graduarme e irme a vivir a Argentina.",  
+  "color": "Negro",  
+  "libro": ["Lanzas Coloradas"],
+  "musica": ["Rock Clasico"],  
+  "video_juego": ["Crash Bandicoot"],
+  "lenguajes": ["Java", "Javascript", "C++", "Go"], 
+  "email": "agildav@gmail.com",
+  "ci":"24933027",
+  "genero": "Masculino",
+  "fecha_nacimiento": "23/06/1996"
+}

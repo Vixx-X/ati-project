@@ -1,0 +1,13 @@
+{
+	"nombre":"Ronald More",
+	"descripcion":"Soy estudiante de la UCV de la carrera computacion, trabajo y estudio , actualmente estoy cursando el 8vo semestre y quiero graduarme rapido, me gusta jugar juegos online, me gusta dormir mucho sin ruido y que nadie me despierte.",
+	"color": "Gris",
+	"libro": ["No tengo libro favorito"],
+	"musica": ["Escucho cualquier musica menos el Requeton"],
+	"video_juego": ["Alchemist Code"],
+	"lenguajes": ["c,c++","Sql","haskell","BPM"],
+	"email": "ronaldmore1424@gmail.com",
+	"ci":"23944011",
+	"genero": "masculino",
+	"fecha_nacimiento":"00/00/1900"
+}

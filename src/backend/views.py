@@ -71,10 +71,3 @@ class ForgotPassword(BaseView):
 
     template_name = "forgotpassword.html"
 
-class CreatePublication(BaseView):
-    """
-    CreatePublication View.
-    """
-
-    template_name = "create-publication.html"
-

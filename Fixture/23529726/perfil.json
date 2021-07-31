@@ -1,0 +1,13 @@
+{	
+    "nombre": "Sidney Lizardi",
+	"descripcion":"Soy Estudiante de Computacion en la Facultad de Ciencias de la UCV, actualmente curso la materia Aplicaciones Con La Tecnología Internet, trabajo como administradora de base de datos y soy bailarina.",
+	"color":"Fucsia",
+	"libro": ["Pideme lo que quieras"],
+	"musica": ["Cualquiera menos vallenato"],
+	"video_juego": ["No juego :/"],
+    "lenguajes": ["C++", "Java", "PHP"],
+    "email":"Sidneyli1994@gmail.com",
+    "ci":"23529726",
+    "genero":"femenino",
+    "fecha_nacimiento":"28/11/1994"
+}

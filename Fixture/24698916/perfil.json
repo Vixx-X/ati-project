@@ -1,0 +1,13 @@
+{
+	"nombre":"Hector Alayon",
+	"descripcion":"Soy estudiante de Computacion en la Facultad de Ciencias de la UCV. Actualmente realizo pasantias en la empresa Talento Creativo Consultores S.A. desempeñando el rol de desarrollador backend, fanatico de juegos de tronos y las nuevas tecnologias(IOT y AI). Me gustan los perros, viajar y producir musica electronica.",
+	"color":"Azul",
+	"libro": ["Inferno", "IT"],
+	"musica": ["Rock"],
+	"video_juego": ["The Last of Us", "FIFA"],
+	"lenguajes":["c,"," c++,"," java y"," php"],
+	"email":"hector080896@gmail.com",
+	"ci":"24698916",
+	"genero":"masculino",
+	"fecha_nacimiento":"08/08/1996"
+}

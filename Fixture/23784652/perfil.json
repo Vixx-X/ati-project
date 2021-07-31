@@ -1,0 +1,13 @@
+{	
+	"nombre":"Karla Pereira",
+	"descripcion":"Soy estudiante de la Universidad Central de Venezuela, en la falcultad de Ciencias en la escuela de computación, actualmente cursando el 8vo semestre.",
+	"color":"Morado",
+	"libro": ["La sombra del viento"],
+	"musica": ["Morado"],
+	"video_juego": ["Mario Bross"],
+	"lenguajes":["Java", "JavaScript", "C++"],
+	"email":"Karla30pm@gmail.com",
+	"ci":"23784652",
+	"genero": "femenino",
+	"fecha_nacimiento":""
+}

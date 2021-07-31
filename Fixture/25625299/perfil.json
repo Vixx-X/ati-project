@@ -1,0 +1,13 @@
+{	
+	"nombre": "Maria Elena Forcucci Atteuche",
+	"descripcion": "Hola, soy estudiante de computación en la facultad de ciencias de la UCV. Me gusta hacer postres, comer mucho dulce :3, ver películas, ropa, maquillaje, peinados y jugar videojuegos. También soy preparadora de Base de Datos en la UCV desde hace 3 semestres.",
+	"color": "Rosado",
+	"libro": ["Cien años de soledad"],
+	"musica": ["Pop", "Baladas", "Merengue"],
+	"video_juego": ["Candy Crush Saga", "Candy Crush Soda Saga", "Candy Crush Jelly Saga", "Candy Crush Saga Friends", "The Sims FreePlay"],
+	"lenguajes": ["SQL", "C++", "C"],
+	"email": "mefa9701@gmail.com",
+	"ci": "25625299",
+	"genero":"femenino",
+	"fecha_nacimiento":"08/01/1997"
+}

@@ -1,0 +1,13 @@
+{	
+	"nombre":"Frank Ponte",
+	"descripción":"Soy estudiante de Licenciatura en Computación en la UCV. 6to semestre. Preparador del curso de Probabilidad y estadística. Guitarrista eléctrico y cantante. Estudio e imparto clases de mi instrumento en la academia Yamaha Musical de Venezuela. Además, poseo una agrupación musical del género funk que lleva el nombre de Arepastereo.",
+	"color":"Negro",
+	"libro": ["La ciudad de las bestias"],
+    "musica": ["Rock"],
+    "video_juego": ["Dead Space"],
+    "lenguajes":["C", "C++", "Java", "Haskell", "Prolog"],
+    "email":"frankponte95@gmail.com",
+    "ci":"23950509",
+    "genero":"masculino",
+    "fecha_nacimiento":"05/06/1995"
+}

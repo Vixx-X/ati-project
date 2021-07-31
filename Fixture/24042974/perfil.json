@@ -1,0 +1,14 @@
+{	
+	"nombre": "Brian Torres",
+	"descripcion": "Soy estudiante de Computación en la Universidad Central de Venezuela, actualmente trabajo medio tiempo en el area de Desarrollo Web en una compañia pequeña que maneja diversas especializadas. Tengo pensado graduarme optando por la mención de Graficas y ser un futuro desarrollador de videojuegos.",
+	"color": "Azul",
+	"libro": ["Canción de hielo y fuego"],
+	"musica": ["Rock alternativo"],
+	"video_juego": ["Metal Gear Solid"],
+	"lenguajes": [ "C++", "C#", "JavaScript", "PHP" ],
+	"email": "luxormagnes@gmail.com",
+	"ci": "24042974",
+	"genero": "masculino",
+	"fecha_nacimiento": "25/08/1995"
+	
+}

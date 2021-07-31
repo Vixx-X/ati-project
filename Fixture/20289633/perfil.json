@@ -1,0 +1,13 @@
+{	
+	"nombre":"Maria Eugenia Pulido",
+	"descripcion":"Soy estudiante de Licenciatura en Computación en la UCV. Este es mi ultimo semestre de electivas, por lo que espero poder empezar el seminario el año que viene, tengo poca experiencia en Desarrollo Web ya que me he enfocado más en las Bases de Datos.",
+	"color": "Morado",
+	"libro": ["Harry Potter y el Principe Mestizo / Lady Johanna de Julie Garwood"],
+	"musica": ["Pop-Rock Latino"],
+	"video_juego": ["LEGO Star Wars"],
+	"lenguajes":["C", "C++", "Python", "SQL", "Java"],
+	"email":"mepulido19@gmail.com",
+	"ci":"20289633",
+	"genero": "femenino",
+	"fecha_nacimiento":"00/00/1900"
+}

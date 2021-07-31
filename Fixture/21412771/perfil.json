@@ -1,0 +1,13 @@
+{
+	"nombre":"Gabriela Araujo",
+	"descripcion":"Soy estudiante de la Licenciatura en Computacion de la UCV. He representado a mi pais como atleta de alto rendimiento en la disciplina de Badminton, asistiendo a eventos como los Juegos Panamericanos Guadalajara 2011. Soy amante de la lectura, de la cocina y el deporte.",
+	"color": "Azul",
+	"libro": ["El libro que calculaba."],
+	"musica": ["Balada"],
+	"video_juego": ["Mario Bros."],
+	"lenguajes":["HTML","PHP","C", "JAVA"],
+	"email":"gabyara71@gmail.com",
+	"ci":"21412771",
+	"genero":"Femenino",
+	"fecha_nacimiento":"07/01/1992"
+}

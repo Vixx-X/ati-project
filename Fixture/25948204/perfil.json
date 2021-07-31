@@ -1,0 +1,13 @@
+{	
+    "nombre": "Orianna Capote",
+	"descripcion":" Soy Estudiante de Computacion en la Facultad de Ciencias de la UCV, soy preparadora de la materia Matematicas Discretas II desde hace 4 semestres, actualmente soy docente auxiliar del Laboratorio de Docentes (LADO).",
+	"color":"Azul Verdoso",
+	"libro":["Juegos del Hambre"],
+	"musica":["No tengo, escucho todo tipo de musica"],
+	"video_juego":["Counter-Strike", "Halo", "Call of Duty", "Tom Clancy's Rainbow Six",  "Crash Bandicoot"],
+    "lenguajes": ["C++", "Java", "SQL", "MatLab", "Prolog", "Haskell"],
+    "email":"oriannacapoteopsu@gmail.com",
+    "ci":"25948204",
+    "genero":"femenino",
+    "fecha_nacimiento":"03/09/1997"
+}

@@ -1,0 +1,13 @@
+{
+	"nombre":"Danny Alejandro Caldeira Correia",
+	"descripcion":"Soy estudiante de pregado de la Universidad Central de Venezuela en la licenciatura de Computacion",
+	"color":"Azul",
+	"libro": ["Harry Potter"],
+	"musica": ["De todo un poco"],
+	"video_juego": ["Clash Royale"],
+	"lenguajes":["Java","C","C++","Haskell","Prolog"],
+	"email":"dannyelportu2013@gmail.com",
+	"ci":"24900667",
+	"genero":"Masculino",
+	"fecha_nacimiento":"16/11/93"
+}

@@ -1,0 +1,14 @@
+{ 
+	"nombre": "Jose Enrique Tirado", 
+	"descripcion": "Soy estudiante de computación del 7mo semestre de la Universidad Central. Busco graduarme con doble mención en Computacion Grafica e Inteligencia Artificial, y desde hace varios años me encuentro trabajando con el motor grafico Unity3D.", 
+	"color" :"Negro", 
+	"libro": ["Steppenwolf de Hermann Hesse"],
+	"musica": ["Rock", "Electronica"],
+	"videojuego": ["Dark Souls", "The Legend of Zelda"],
+	"lenguaje": ["Python", "C++", "Ruby", "Javascript", "Java"], 
+	"email": "jose_enrique_29@gmail.com", 
+	"ci": "25235661", 
+	"genero": "masculino", 
+	"fecha_nacimiento": "29/02/1996" 
+}
+

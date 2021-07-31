@@ -1,0 +1,13 @@
+{
+    "nombre":"Yuliana Fernández Makoukji",
+    "descripcion": "Soy estudiante de la Licenciatura de Computación en la Facultad de Ciencias de la UCV. Estoy cursando las materias de computación gráfica, de igual manera me interesa el desarrollo web y bases de datos. Actualmente trabajo en desarrollo de aplicaciones con Ionic como framework. Y de forma autodidacta estudio ilustración digital.",
+    "color": "Rosado",
+    "libro": ["El principito"],
+    "musica": ["La balada"],
+    "video_juego": ["Animal Crossing","Grand Fantasia", "Stardew Valley"],
+    "lenguajes": ["C", "C++", "Phyton", "Typescript"], 
+    "email": "yuliferna123@gmail.com" ,
+    "ci": "26838996",
+    "genero": "femenino",
+    "fecha_nacimiento": "14/02/1998"
+}

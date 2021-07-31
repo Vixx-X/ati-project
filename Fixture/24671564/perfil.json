@@ -1,0 +1,13 @@
+{
+    "nombre": "Abraham Leonardo Navarro Jimenez",
+    "descripcion":"Soy estudiante de la licenciatura computacion en la UCV.  Me encuentro cursando el 6to y parte del 7mo semestre de mi carrera.  Actualmente me encuentro cursando una segunda carrera en el area de la aeronautica en la cual desempeño en papel de piloto privado.", 
+    "color":"Azul Rey", 
+    "libro":["No leo novelas"], 
+    "musica":["De todo un poco (excepto el vallenato)"], 
+    "video_juego":["Dragon ball","Resident Evil","Fifa"], 
+    "lenguajes":["C/C++","Java","Python","PHP","Prolog","Haskell"],
+    "email":"abrahancho6@hotmail.com",
+    "ci":"24671564",
+    "genero":"masculino",
+    "fecha_nacimiento":"20/10/1994"
+}
