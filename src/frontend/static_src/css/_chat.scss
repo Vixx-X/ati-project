@@ -1,0 +1,89 @@
+@import "bases/variables";
+@import "bases/mixins";
+
+.main-container-chat{
+    margin: 0 auto !important;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    @include desktop{
+        margin: 4rem auto !important;
+        grid-template-columns: 1fr 3fr;
+    }
+}
+
+aside{
+    font-size: 12px;
+    display: none;
+    @include desktop{
+        display: block;
+    }
+}
+
+.main-chat{
+    background: url("../../../static/img/background-chat.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: fixed;
+    @include desktop{
+        position: relative;
+        height: 74vh;
+    }
+    
+    .header-chat{
+        height: 7rem;
+        background-color: lighten($primary, 10%);
+        font-size: 1.2rem;
+        .cont-element-friend-list{
+            margin: 0;
+            padding: 0.5rem 2rem;
+            .element_friend_list_user{
+                color:$black;
+            }
+        }
+    }
+    .footer-chat{
+        height: 7rem;
+        background-color: lighten($primary, 10%);
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        padding: 1rem;
+        .send-message{
+            display: flex;
+            justify-content: space-between;
+            border-style: inset;
+            border-color: $light;
+            background: $white;
+            border-radius: 2rem;
+            width: 100%;
+            padding: 1rem;
+            input[type=text]{
+                flex: 1;
+                border: none;
+                background: transparent;
+            }
+        }
+    }
+
+    .messages{
+        padding: 4rem 2rem;
+        overflow-y: scroll;
+        height: calc(100vh - 23rem);
+        @include desktop{    
+            height: calc(74vh - 14rem);
+        }
+        .chat{
+            margin: 2rem 0;
+            width: 80%;
+            @include desktop{
+                width: 60%;
+            }
+        }
+        .reply{
+            background-color: lighten($primary, 10%);
+            margin-right: 0;
+            margin-left: auto;
+        }
+    }
+}

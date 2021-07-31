@@ -79,3 +79,10 @@ class Description(BaseView):
         ctx = super().get_context_data()
         ctx["is_myuser"] = pk==1
         return ctx
+
+class Chat(BaseView):
+    """
+    Chat View
+    """
+
+    template_name = "user/chat.html"

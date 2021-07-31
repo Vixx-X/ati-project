@@ -5,11 +5,11 @@
 }
 
 .cont-element-friend-list{
-    margin: 1em 0;
+    margin: 0.5em 0;
     display: flex;
     background-color: $light;
     border-radius: 1em;
-    padding: 1em;
+    padding: 0.5em;
     align-items: center;
     justify-content: space-between;
 }
@@ -24,17 +24,18 @@
 }
 
 .cont-element-friend-list .user-icon{
-    width: 5em;
+    font-size: 0.7em;
+    align-self: flex-start;
 }
 
 .element_friend_list_user{
-    font-size: 2em;
-    line-height: 1;
-
+    font-size: 1.5em;
+    line-height: 1.4;
+    font-weight: 500;
 }
 
 .element_friend_list_commun_friends{
-    font-size: 1.7em;
+    font-size: 1em;
 }
 .cont-element-friend-button{
     display: flex;

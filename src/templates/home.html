@@ -17,38 +17,44 @@
 <div class="header-main container">
     <div class="section-left">
         {{ user_icon(
-        img=url_for('static', filename='img/users/26956071.png'),
-        alt="User2 Photo",
-        type="shadow",
-        url=url_for("user.profile", pk=1),
-        png=url_for('static', filename='img/users/26956071.png'),
-        webp=url_for('static', filename='img/users/26956071.webp')
+            img=url_for('static', filename='img/users/26956071.png'),
+            alt="User2 Photo",
+            type="shadow",
+            url=url_for("user.profile", pk=1),
+            png=url_for('static', filename='img/users/26956071.png'),
+            webp=url_for('static', filename='img/users/26956071.webp')
         ) }}
-        <a href="{{url_for('posts.createpublication')}}">
-            <button class="button create fw-normal">
-                What do you think?...
-            </button>
-        </a>
+        {{buttons(
+            mensaje="What do you think?...",
+            type="create",
+            function="parent.location='" + url_for('posts.createpublication') + "'",
+            font = "fw-normal",
+            letters="")
+        }}
     </div>
-    <button class="button primary with-icon fw-normal">
-        <img class="icon" src="{{ url_for("static", filename="img/icons/chat.svg") }}" alt="Messages Icon">
-        Messages
-    </button>
+    {{buttons(
+        mensaje="Messages",
+        type="primary with-icon",
+        function="parent.location='" + url_for('user.chat') + "'",
+        icon=url_for("static", filename="img/icons/chat.svg"),
+        alticon="Messages Icon",
+        font = "fw-normal",
+        letters="")
+    }}
 </div>
 <div class="container main-container margin-section full-mobile">  
     <aside>
-      <div class="cont-listaAmigos p-2">
         {{list_friends(
         img=url_for('static', filename='img/users/26838989.png'),
-        name="Vittorio",
+        name="Vittorio Adesso",
         alt="User1 Photo",
         url=url_for("user.profile", pk=2),
         type="connect",
         comunFriends="32",
         png=url_for('static', filename='img/users/26838989.png'),
-        webp=url_for('static', filename='img/users/26838989.webp')
+        webp=url_for('static', filename='img/users/26838989.webp'),
+        globalbutton="True"
         )}}
-    </div>
     </aside>
     <main>
         <div class="publication">    
@@ -101,7 +107,6 @@
                 <a href="#">Ver comentarios</a>
             </div>
         </div>
-        
         <div class="publication margin-section">    
             {{ header_publication(
                 img=url_for('static', filename='img/users/26272390.png'),
@@ -150,6 +155,55 @@
                 <a href="#">Ver comentarios</a>
             </div>
         </div>
+        <div class="publication margin-section">    
+            {{ header_publication(
+                img=url_for('static', filename='img/users/26272390.png'),
+                input="New Publication",
+                author="Daniel Vieira",
+                time="Today",
+                png=url_for('static', filename='img/users/26272390.png'),
+                webp=url_for('static', filename='img/users/26272390.webp')
+            )}}
+            {{media(
+                type="img",
+                img=url_for("static", filename="img/media1.png"),
+                png=url_for("static", filename="img/media1.png"),
+                webp= url_for("static", filename="img/media1.webp"),
+                alt="Photo publication",
+                url=url_for("posts.post", id=1)
+            )}}
+            <div class="comments-user">
+                <div class="comments-group">
+
+                {{ user_icon(
+                    img=url_for('static', filename='img/users/25641651.png'),
+                    alt="User1 Photo",
+                    type="basic one",
+                    png=url_for('static', filename='img/users/25641651.png'),
+                    webp=url_for('static', filename='img/users/25641651.webp')
+                ) }}
+
+                {{ user_icon(
+                    img=url_for('static', filename='img/users/26838989.png'),
+                    alt="User2 Photo",
+                    type="basic two",
+                    png=url_for('static', filename='img/users/26838989.png'),
+                    webp=url_for('static', filename='img/users/26838989.webp')
+                ) }}
+
+                {{ user_icon(
+                    img=url_for('static', filename='img/users/26956071.png'),
+                    alt="User3 Photo",
+                    type="basic three",
+                    png=url_for('static', filename='img/users/26956071.png'),
+                    webp=url_for('static', filename='img/users/26956071.webp')
+                ) }}
+
+                </div>
+                <a href="#">Ver comentarios</a>
+            </div>
+        </div>
+
 
         <div class="publication margin-section">    
             {{ header_publication(
