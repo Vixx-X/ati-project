@@ -101,7 +101,9 @@
     mensaje="See All",
     type="primary",
     font="fw-bold",
-    letters="text-uppercase")
+    letters="text-uppercase",
+    function="parent.location='" + url_for('user.friend', pk=1) + "'",
+    )
   }}
   {%- endif %}
   

@@ -1,14 +1,11 @@
 {% extends "showroom/base.html" %}
 
-{% from "components/user-icon.html" import user_icon %}
-{% from "components/header-publication.html" import header_publication %}
+{% from "components/element-friend-list.html" import element_friend_list %}
 {% from "components/footer-mobile.html" import footer_mobile %}
-{% from "components/buttons.html" import buttons %}
 {% from "components/list-friends.html" import list_friends %}
 {% from "components/header.html" import header %}
+{% from "components/chat.html" import chat %} 
 {% from "components/footer.html" import footer %}
-{% from "components/media.html" import media %}
-{% from "components/chat.html" import chat %}
 
 {% block title %} Chat {% endblock title %}
 
@@ -18,8 +15,112 @@
 
 {{ header(classname="bg-header") }}
 
-<div class="main-container-chat container margin-section full-mobile">
-
+<div class="main-container-chat container full-mobile margin-section full-mobile">
+    <aside>
+        {{list_friends(
+            img=url_for('static', filename='img/users/26838989.png'),
+            name="User 1",
+            alt="User1 Photo",
+            type="connect",
+            comunFriends="Comun Friends",
+            png=url_for('static', filename='img/users/26838989.png'),
+            webp=url_for('static', filename='img/users/26838989.webp'),
+            titlelist="Chats"
+        )}}
+    </aside>
+    <main class="main-chat">
+        <div class="header-chat">
+            {{element_friend_list(
+                user='Vittorio Addeso',
+                comunFriends='En linea',
+                type='connect',
+                trasparent=true,
+                png=url_for('static', filename='img/users/26838989.png'),
+                webp=url_for('static', filename='img/users/26838989.webp'),
+                img=url_for('static', filename='img/users/26838989.png'),
+            )}}
+        </div>
+        <div class="messages">
+            {{chat(
+                type="reply",
+                menssage="So much Text that edu cant imaginate more text",
+                date_time="Date Time",
+                comment="",
+                png=url_for('static', filename='img/users/25641651.png'),
+                webp=url_for('static', filename='img/users/25641651.webp'),
+                alt=""
+              )}}
+              {{chat(
+                type="reply",
+                menssage="So much Text that edu cant imaginate more text",
+                date_time="Date Time",
+                comment="",
+                png=url_for('static', filename='img/users/25641651.png'),
+                webp=url_for('static', filename='img/users/25641651.webp'),
+                alt=""
+              )}}
+              {{chat(
+                type="response",
+                menssage="So much Text that edu cant imaginate more text",
+                date_time="Date Time",
+                comment="",
+                png=url_for('static', filename='img/users/25641651.png'),
+                webp=url_for('static', filename='img/users/25641651.webp'),
+                alt=""
+              )}}
+              {{chat(
+                type="response",
+                menssage="So much Text that edu cant imaginate more text",
+                date_time="Date Time",
+                comment="",
+                png=url_for('static', filename='img/users/25641651.png'),
+                webp=url_for('static', filename='img/users/25641651.webp'),
+                alt=""
+              )}}
+              {{chat(
+                type="response",
+                menssage="So much Text that edu cant imaginate more text",
+                date_time="Date Time",
+                comment="",
+                png=url_for('static', filename='img/users/25641651.png'),
+                webp=url_for('static', filename='img/users/25641651.webp'),
+                alt=""
+              )}}
+              {{chat(
+                type="reply",
+                menssage="So much Text that edu cant imaginate more text ",
+                date_time="Date Time",
+                comment="",
+                png=url_for('static', filename='img/users/25641651.png'),
+                webp=url_for('static', filename='img/users/25641651.webp'),
+                alt=""
+              )}}
+              {{chat(
+                type="reply",
+                menssage="So much Text that edu cant imaginate more text",
+                date_time="Date Time",
+                comment="",
+                png=url_for('static', filename='img/users/25641651.png'),
+                webp=url_for('static', filename='img/users/25641651.webp'),
+                alt=""
+              )}}
+              {{chat(
+                type="reply",
+                menssage="So much Text that edu cant imaginate more text. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos amet quo excepturi odit est, aspernatur temporibus adipisci aliquam. Vitae assumenda fuga officia rem unde nihil minima similique quas ducimus autem. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos amet quo excepturi odit est, aspernatur temporibus adipisci aliquam. Vitae assumenda fuga officia rem unde nihil minima similique quas ducimus autem.",
+                date_time="Date Time",
+                comment="",
+                png=url_for('static', filename='img/users/25641651.png'),
+                webp=url_for('static', filename='img/users/25641651.webp'),
+                alt=""
+              )}}
+        </div>
+        <div class="footer-chat">
+            <div class="send-message">
+                <input type="text" placeholder="Send Text Messages">
+                <input type="submit" value="Send">
+            </div>
+        </div>
+    </main>
 </div>
 
 
