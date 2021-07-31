@@ -30,10 +30,15 @@
             </button>
         </a>
     </div>
-    <button class="button primary with-icon fw-normal">
-        <img class="icon" src="{{ url_for("static", filename="img/icons/chat.svg") }}" alt="Messages Icon">
-        Messages
-    </button>
+    {{buttons(
+        mensaje="Messages",
+        type="primary with-icon",
+        function="parent.location='" + url_for('user.chat') + "'",
+        icon=url_for("static", filename="img/icons/chat.svg"),
+        alticon="Messages Icon",
+        font = "fw-normal",
+        letters="")
+    }}
 </div>
 <div class="container main-container margin-section">  
     <aside>

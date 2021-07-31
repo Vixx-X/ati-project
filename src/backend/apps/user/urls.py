@@ -12,3 +12,4 @@ bp.add_url_rule("/<int:pk>/edit/", view_func=views.EditProfile.as_view("edit-pro
 bp.add_url_rule("/<int:pk>/friends/", view_func=views.Friend.as_view("friend"))
 bp.add_url_rule("/<int:pk>/description/", view_func=views.Description.as_view("description"))
 bp.add_url_rule("/search/", view_func=views.Search.as_view("search"))
+bp.add_url_rule("/chat/", view_func=views.Chat.as_view("chat"))
