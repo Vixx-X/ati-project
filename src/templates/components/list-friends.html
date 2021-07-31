@@ -1,7 +1,7 @@
 {% from "components/user-icon.html" import user_icon %}
 {% from "components/buttons.html" import buttons %}
 {% from "components/element-friend-list.html" import element_friend_list %}
-{% macro list_friends(img, name, comunFriends="Comun Friends", url=None, png="", webp="", alt="", type="basic",button="",txtbutton="", titlelist="List Friends") %}
+{% macro list_friends(img, name, comunFriends="Comun Friends", url=None, png="", webp="", alt="", type="basic",button="",txtbutton="", titlelist="List Friends", globalbutton=None) %}
 
 <div class="cont-listaAmigos">
   <!-- TODO change # for a new parameter value -->
@@ -18,7 +18,7 @@
       comunFriends=comunFriends,
       button=button,
       txtbutton=txtbutton,
-      connect=False,
+      type=type,
       trasparent=true,
       url="",
       png=png,
@@ -32,7 +32,7 @@
       comunFriends=comunFriends,
       button=button,
       txtbutton=txtbutton,
-      connect=False,
+      type=type,
       trasparent=true,
       url="",
       png=png,
@@ -46,7 +46,7 @@
       comunFriends=comunFriends,
       button=button,
       txtbutton=txtbutton,
-      connect=False,
+      type=type,
       trasparent=true,
       url="",
       png=png,
@@ -60,7 +60,7 @@
       comunFriends=comunFriends,
       button=button,
       txtbutton=txtbutton,
-      connect=False,
+      type=type,
       trasparent=true,
       url="",
       png=png,
@@ -74,7 +74,7 @@
       comunFriends=comunFriends,
       button=button,
       txtbutton=txtbutton,
-      connect=False,
+      type=type,
       trasparent=true,
       url="",
       png=png,
@@ -88,7 +88,7 @@
       comunFriends=comunFriends,
       button=button,
       txtbutton=txtbutton,
-      connect=False,
+      type=type,
       trasparent=true,
       url="",
       png=png,
@@ -96,12 +96,14 @@
       img=img,
     )}}
   </a>
+  {% if globalbutton -%}
   {{buttons(
     mensaje="See All",
     type="primary",
     font="fw-bold",
     letters="text-uppercase")
   }}
+  {%- endif %}
   
 
   
