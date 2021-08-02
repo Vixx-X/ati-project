@@ -11,6 +11,9 @@
 
 {% block title %} DEGVA {% endblock title %}
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/muro.css') }}" >{% endblock %}
+{% block onloadscripts %}
+<script src="{{url_for('static', filename='js/components/test.js')}}"> </script>
+{% endblock onloadscripts %}
 
 {% block body %}
 {{ header(classname="bg-header") }}
@@ -104,7 +107,7 @@
                 ) }}
 
                 </div>
-                <a href="#">Ver comentarios</a>
+                <a href="{{url_for('posts.post', id=1)}}">Ver comentarios</a>
             </div>
         </div>
         <div class="publication margin-section">    
@@ -152,7 +155,7 @@
                 ) }}
 
                 </div>
-                <a href="#">Ver comentarios</a>
+                <a href="{{url_for('posts.post', id=1)}}">Ver comentarios</a>
             </div>
         </div>
         <div class="publication margin-section">    
@@ -200,7 +203,7 @@
                 ) }}
 
                 </div>
-                <a href="#">Ver comentarios</a>
+                <a href="{{url_for('posts.post', id=1)}}">Ver comentarios</a>
             </div>
         </div>
 
@@ -248,7 +251,7 @@
                 ) }}
 
                 </div>
-                <a href="#">Ver comentarios</a>
+                <a href="{{url_for('posts.post', id=1)}}">Ver comentarios</a>
             </div>
         </div>
 
@@ -294,7 +297,7 @@
                 ) }}
 
                 </div>
-                <a href="#">Ver comentarios</a>
+                <a href="{{url_for('posts.post', id=1)}}">Ver comentarios</a>
             </div>
         </div>
 
@@ -304,4 +307,10 @@
 {{footer()}}
 {{footer_mobile(class="black")}}
 
+<script>
+    function holaMundo(){
+      console.log(HolaMundo);
+      window.location.href = "http://www.w3schools.com";
+    }
+</script>
 {% endblock body %}
