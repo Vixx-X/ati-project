@@ -1,13 +1,26 @@
-{% macro longCard(title="Title", content=[""], type="primary") -%}
+{% macro longCard(title="Title", content=[""], type="primary", edit=None) -%}
 <!-- content parameter must be an array -->
 
 <div>
-
     <div class="long-card {{type}}">
         <h4>{{title}}</h4>
         {% for cont in content %}
-            <p>{{cont}}</p>
+            {% if edit %}
+            <div class="input-content">
+                <input type="text" value="{{cont}}">
+                <button type="button">
+                    <img id='element{{loop.index}}' class="delete-content" loading="lazy" src="{{ url_for("static", filename="img/icons/delete.svg") }}" alt="Delete detail">
+                </button>
+            </div>
+            {% else %}
+                <p>{{cont}}</p>
+            {% endif %}
         {% endfor %}
+        {% if edit %}
+            <button class="more-content">
+                <img loading="lazy" src="{{ url_for("static", filename="img/icons/plus-sign.svg") }}" alt="Add publication">
+            </button>
+        {% endif %}
     </div>
 
 </div>

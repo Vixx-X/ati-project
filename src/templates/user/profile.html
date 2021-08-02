@@ -55,7 +55,8 @@
                 mensaje="Edit profile",
                 type="primary tercero",
                 font="fw-bold",
-                letters="")
+                letters="",
+                function="parent.location='" + url_for("user.edit", pk=1) + "'")
             }}  
             {{buttons(
                 mensaje="Publications",
@@ -101,7 +102,7 @@
           <a href="{{url_for('user.friend', pk=1)}}">
             <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
           </a>
-          <a href="#">
+          <a href="{{url_for('user.edit', pk=1)}}">
             <img src="{{url_for('static', filename='img/icons/edit.svg')}}" alt="Edit Profile">
           </a>
         </nav>

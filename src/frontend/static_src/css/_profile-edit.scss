@@ -1,0 +1,37 @@
+@import "bases/variables";
+@import "bases/mixins";
+
+.profile-icon{
+    @include desktop{
+        justify-content: flex-start;
+        p{
+            position: absolute;
+            bottom: -6.5rem;
+        }
+    
+        .container-name{
+            width: 72rem;
+            margin: 0 auto;
+        }
+    }
+}
+
+.details{
+    width: 100%;
+    height: max-content;
+    margin: 4rem auto;
+    overflow: hidden;
+    resize: none;
+    p{
+        margin: 3.5rem 0;
+        text-align: center;
+    }
+}
+
+.cards-edit{
+    display: grid;
+    gap: 3rem;
+    @include tablet{
+        @include grid(2, 3rem);
+    }
+}
