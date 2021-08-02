@@ -61,7 +61,8 @@
                             mensaje="Chat",
                             type="primary last",
                             font="fw-bold",
-                            letters="")
+                            letters="",
+                            function="parent.location='" + url_for('user.chat') + "'")
                         }}
                     {% endif %}
                 </nav>
@@ -69,31 +70,31 @@
             </div>
 
             <div class="mobile-content">
-                <div class="container margin-section">
-                {% if is_myuser %}
-                <nav class="navegation-mobile">
-                    <a href="#">
-                    <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
+                <div class="container margin-bottom">
+                  {% if is_myuser %}
+                  <nav class="navegation-mobile">
+                    <a href="{{url_for('user.friend', pk=1)}}">
+                      <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
                     </a>
-                    <a href="#">
-                    <img src="{{url_for('static', filename='img/icons/edit.svg')}}" alt="Edit Profile">
+                    <a href="{{url_for('user.edit', pk=1)}}">
+                      <img src="{{url_for('static', filename='img/icons/edit.svg')}}" alt="Edit Profile">
                     </a>
-                </nav>
-                {% else %}
-                <nav class="navegation-mobile-other">
-                    <a href="#">
-                    <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
+                  </nav>
+                  {% else %}
+                  <nav class="navegation-mobile-other">
+                    <a href="{{url_for('user.friend', pk=2)}}">
+                      <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
                     </a>
                     <div class="container-right">
-                    <a href="#">
-                        <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
-                    </a>
-                    <a href="#">
-                        <img src="{{url_for('static', filename='img/icons/chat.svg')}}" alt="Edit Profile">
-                    </a>
+                      <a href="#">
+                        <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="Add Friends">
+                      </a>
+                      <a href="{{url_for('user.chat')}}">
+                        <img src="{{url_for('static', filename='img/icons/chat.svg')}}" alt="Chat icon link">
+                      </a>
                     </div>
-                </nav>
-                {% endif %}
+                  </nav>
+                  {% endif %}
                 </div>
             </div>
         </div>

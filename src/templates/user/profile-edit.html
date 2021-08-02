@@ -25,17 +25,20 @@
     <div class="main-container-header">
         <div class="header-group ">
             <div class="section-header">
+            <button id="changeheader">
+                <img src="{{ url_for('static', filename='img/icons/gallery.svg') }}" alt="Camara icon">
+            </button>
             {{ header(classname="bg-header transparent") }}
             <div class="container profile-icon">
                 {{ user_icon(
                     img=url_for('static', filename='img/users/26956071.png'),
                     alt="User2 Photo",
-                    type="shadow",
+                    type="change",
                     url=url_for("user.profile", pk=1),
                     png=url_for('static', filename='img/users/26956071.png'),
                     webp=url_for('static', filename='img/users/26956071.webp')
                 ) }}
-            <p class="container-name fw-bold">Gabriela Ustariz</p>   
+                <p class="container-name fw-bold">Gabriela Ustariz</p>   
             </div>
             </div>
 
@@ -44,7 +47,7 @@
                 <nav class=" navegation-desktop">
                     {% if is_myuser %}
                         {{buttons(
-                            mensaje="Friends",
+                            mensaje="Save",
                             type="primary last",
                             font="fw-bold",
                             letters="",
@@ -56,13 +59,15 @@
             </div>
 
             <div class="mobile-content">
-                <div class="container margin-section">
+                <div class="container margin-bottom">
                 {% if is_myuser %}
-                <nav class="navegation-mobile">
-                    <a href="#">
-                    <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
-                    </a>
-                </nav>
+                    {{buttons(
+                        mensaje="Save",
+                        type="primary last",
+                        font="fw-bold",
+                        letters="",
+                        function="parent.location='" + url_for('user.profile', pk=1) + "'")
+                    }}
                 {% endif %}
                 </div>
             </div>
@@ -71,10 +76,13 @@
         {{mobile_navmenu(details=True, 
             functionPublication="parent.location='" + url_for('user.profile', pk=1) + "'", functionDetails="parent.location='" + url_for('user.description', pk=1) + "'")}}
 
-        <div class="container">
-            <textarea id='note' class="details" >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <div class="text-area-container container">
+            <textarea id='note' maxlength="255" class="details">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi ducimus tenetur aliquid reprehenderit tempore asperiores omnis debitis rem.
             </textarea>
+            <p id="number">
+                120/255
+            </p>
         </div>
 
     </div>

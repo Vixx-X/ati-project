@@ -8,6 +8,7 @@
 {% from "components/footer.html" import footer %}
 {% from "components/mobile-navmenu.html" import mobile_navmenu %}
 {% from "components/long-cards.html" import longCard %}
+{% from "components/media.html" import media %}
 
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" >{% endblock %}
 {% block onloadscripts %}
@@ -62,7 +63,8 @@
                 mensaje="Publications",
                 type="primary last",
                 font="fw-bold",
-                letters="")
+                letters="",
+                function="parent.location='" + url_for("user.profile", pk=1) + "'")
             }}
           {% else %}
             {{buttons(
@@ -89,14 +91,15 @@
                 mensaje="Chat",
                 type="primary last",
                 font="fw-bold",
-                letters="")
+                letters="",
+                function="parent.location='" + url_for('user.chat') + "'")
             }}
           {% endif %}
       </nav>
     </div>
 
     <div class="mobile-content">
-      <div class="container margin-section">
+      <div class="container margin-bottom">
         {% if is_myuser %}
         <nav class="navegation-mobile">
           <a href="{{url_for('user.friend', pk=1)}}">
@@ -113,10 +116,10 @@
           </a>
           <div class="container-right">
             <a href="#">
-              <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
+              <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="Add Friends">
             </a>
-            <a href="#">
-              <img src="{{url_for('static', filename='img/icons/chat.svg')}}" alt="Edit Profile">
+            <a href="{{url_for('user.chat')}}">
+              <img src="{{url_for('static', filename='img/icons/chat.svg')}}" alt="Chat icon link">
             </a>
           </div>
         </nav>
@@ -129,80 +132,85 @@
     functionPublication="parent.location='" + url_for('user.profile', pk=1) + "'", functionDetails="parent.location='" + url_for('user.description', pk=1) + "'")}}
 
     <div class="container full-mobile main-container">
-        <div class="publication">    
-            {{ header_publication(
-                img=url_for('static', filename='img/users/26272390.png'),
-                input="New Publication",
-                author="Daniel Vieira",
-                time="Today",
-                png=url_for('static', filename='img/users/26272390.png'),
-                webp=url_for('static', filename='img/users/26272390.webp')
-            )}}
-            <a href="#">
-                <div class="image-publication">
-                    <picture>
-                        <source srcset="{{ url_for("static", filename="img/media1.webp") }}" type="image/webp">
-                        <source srcset="{{ url_for("static", filename="img/media1.png") }}" type="image/png">
-                        <img loading="lazy" src="{{ url_for("static", filename="img/media1.png") }}" alt="Photo publication">
-                    </picture>
-                </div>
-            </a>
-            <div class="comments-user">
-                <div class="comments-group">
+      <div class="publication">    
+        {{ header_publication(
+            img=url_for('static', filename='img/users/26272390.png'),
+            input="UCV, la casa que vence las sombras",
+            author="Daniel Vieira",
+            url=url_for("user.profile", pk=4),
+            time="Today",
+            png=url_for('static', filename='img/users/26272390.png'),
+            webp=url_for('static', filename='img/users/26272390.webp')
+        )}}
 
-                {{ user_icon(
-                    img=url_for('static', filename='img/users/25641651.png'),
-                    alt="User1 Photo",
-                    type="basic one",
-                    png=url_for('static', filename='img/users/25641651.png'),
-                    webp=url_for('static', filename='img/users/25641651.webp')
-                ) }}
+        {{ media(
+            type="img",
+            img=url_for("static", filename="img/media1.png"),
+            png=url_for("static", filename="img/media1.png"),
+            webp=url_for("static", filename="img/media1.webp"),
+            alt="Photo Publication",
+            url=url_for("posts.post", id=1)
+        )}}
+        <div class="comments-user">
+            <div class="comments-group">
 
-                {{ user_icon(
-                    img=url_for('static', filename='img/users/26838989.png'),
-                    alt="User2 Photo",
-                    type="basic two",
-                    png=url_for('static', filename='img/users/26838989.png'),
-                    webp=url_for('static', filename='img/users/26838989.webp')
-                ) }}
+            {{ user_icon(
+                img=url_for('static', filename='img/users/25641651.png'),
+                alt="User1 Photo",
+                type="basic one",
+                png=url_for('static', filename='img/users/25641651.png'),
+                webp=url_for('static', filename='img/users/25641651.webp')
+            ) }}
 
-                {{ user_icon(
-                    img=url_for('static', filename='img/users/26956071.png'),
-                    alt="User3 Photo",
-                    type="basic three",
-                    png=url_for('static', filename='img/users/26956071.png'),
-                    webp=url_for('static', filename='img/users/26956071.webp')
-                ) }}
+            {{ user_icon(
+                img=url_for('static', filename='img/users/26838989.png'),
+                alt="User2 Photo",
+                type="basic two",
+                png=url_for('static', filename='img/users/26838989.png'),
+                webp=url_for('static', filename='img/users/26838989.webp')
+            ) }}
 
-                </div>
-                <a href="#">Ver comentarios</a>
+            {{ user_icon(
+                img=url_for('static', filename='img/users/26956071.png'),
+                alt="User3 Photo",
+                type="basic three",
+                png=url_for('static', filename='img/users/26956071.png'),
+                webp=url_for('static', filename='img/users/26956071.webp')
+            ) }}
+
             </div>
+            <a href="{{url_for('posts.post', id=1)}}">Ver comentarios</a>
         </div>
-        <aside>
-          {{longCard(
-            title='Video Games',
-            content=['Call of duty: Mobile', 'Beyond: Two Souls'],
+      </div>
+      <aside>
+        {{longCard(
+          title='Video Games',
+          content=['Call of duty: Mobile', 'Beyond: Two Souls'],
+          type='secundary'
+        )}}
+        <div class="margin-section"></div>
+          {{ longCard(
+            title='Books',
+            content=['Inferno'],
             type='secundary'
-          )}}
-          <div class="margin-section"></div>
-            {{ longCard(
-              title='Books',
-              content=['Inferno'],
-              type='secundary'
-            ) }}
-          <div class="margin-section"></div>
-            {{ longCard(
-              title='Languages',
-              content=['Python3', 'Haskell'],
-              type='secundary'
-            ) }}
-            <a href="#" class="container-details">
-              <img src="{{ url_for('static', filename='img/icons/menu_3_puntos_horizontal.svg') }}" alt="Details">
-              <p>
-                View Description of User
-              </p>
-            </a>
-        </aside>
+          ) }}
+        <div class="margin-section"></div>
+          {{ longCard(
+            title='Languages',
+            content=['Python3', 'Haskell'],
+            type='secundary'
+          ) }}
+          {% if is_myuser %}
+          <a href="{{url_for('user.description', pk=1)}}" class="container-details">
+          {% else %}
+          <a href="{{url_for('user.description', pk=2)}}" class="container-details">
+          {% endif %}
+            <img src="{{ url_for('static', filename='img/icons/menu_3_puntos_horizontal.svg') }}" alt="Details">
+            <p>
+              View Description of User
+            </p>
+          </a>
+      </aside>
     </div>
 
 {{footer()}}

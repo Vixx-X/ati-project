@@ -3,6 +3,7 @@ function showDetails() {
     document.getElementById("tab-details").setAttribute("class", "active-tab");
     document.getElementById("publication").setAttribute("class", "");
     document.getElementById("tab-publication").setAttribute("class", "");
+    console.log('hola')
 }
 
 function showPublication() {

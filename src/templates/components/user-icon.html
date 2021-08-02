@@ -15,5 +15,10 @@
     {%if url-%}
         </a>
     {%- endif %}
+    {%if type=="change"-%}
+        <button id="changeimgageprofile">
+            <img src="{{ url_for('static', filename='img/icons/gallery.svg') }}" alt="Camara icon">
+        </button>
+    {%- endif %}
 </div>
 {%- endmacro %}
