@@ -37,6 +37,7 @@
             border: 0.15em solid $primary;
             text-align: left;
             width: 100%;
+            font-style: italic;
             padding: 0 auto;
             padding: 1em 1.5em;
             @include tablet{
@@ -59,6 +60,5 @@
             column-gap: 1em;
         }
     }
-    
 }
 
