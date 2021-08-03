@@ -56,11 +56,6 @@ class Views(Index):
     title = _("Views Showcase")
     list_of_rooms = "list_of_views"
 
-    def __init__(self) -> None:
-        super().__init__()
-        from .urls import list_of_views
-        self.list_of_rooms = list_of_views
-
 
 class Buttons(BaseView):
     """
