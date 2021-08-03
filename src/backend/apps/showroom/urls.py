@@ -3,11 +3,29 @@ Urls for showroom module/blueprint
 """
 
 from . import bp, views
+from flask_babel import lazy_gettext as _ # for i18n
+
+
+VA = "Vittorio Adesso"
+GU = "Gabriela Ustariz"
+ED = "Eduardo Suarez"
+DV = "Daniel Vieira"
 
 list_of_rooms = [
-    ("buttons", "Buttons - Gabriela Ustariz"),
-    ("header", "Header - Gabriela Ustariz"),
-    ("user_icon", "User Icons - Vittorio Adesso"),
+    ("components", "Components"),
+    ("views", "Views"),
+]
+
+bp.add_url_rule("/", view_func=views.Index.as_view("index"))
+
+##############
+# Components #
+##############
+
+list_of_components = [
+    ("buttons", ["Buttons", GU]),
+    ("header", ["Header", GU]),
+    ("user_icon", ["User Icons", VA]),
     ("card", "Card - Daniel Vieira"),
     ("header2", "Main Header - Gabriela Ustariz"),
     ("comments-users", "Comments of Users - Vittorio Adesso"),
@@ -23,23 +41,9 @@ list_of_rooms = [
     ("boolean-button", "Boolean Button - Daniel Vieria"),
     ("drop-down-list", "Drop Down List - Eduardo Suarez"),
     ("footer-mobile", "Footer Mobile - Daniel Vieria"),
-    ("muro", "Muro"),
-    ("home", "Home"),
-    ("login", "LogIn"),
-    ("register", "Register"),
-    ("configurations", "Configurations"),
-    ("notifications", "Notifications"),
-    ("profile1", "Profile"),
-    ("boolean-button", "Boolean Button - Daniel Vieria"),
-    ("drop-down-list", "Drop Down List - Eduardo Suarez"),
-    ("footer-mobile", "Footer Mobile - Daniel Vieria"),
-    ("list-chats", "List Chats - Daniel Vieria"),
-    ("element-friend-list", "Element Friend List - Eduardo Suarez"),
-    ("CreatePublications", "CreatePublications - Eduardo Suarez"),
-    ("mobile-navmenu", "Mobile Nav Menu - Gabriela Uztariz"),
-    ("list-comments", "List Comments - Eduardo Suarez"),
 ]
-bp.add_url_rule("/", view_func=views.Index.as_view("index"))
+
+bp.add_url_rule("/components/", view_func=views.Components.as_view("components"))
 bp.add_url_rule("/buttons/", view_func=views.Buttons.as_view("buttons"))
 bp.add_url_rule("/header/", view_func=views.Header.as_view("header"))
 bp.add_url_rule("/user-icon/", view_func=views.UserIcon.as_view("user_icon"))
@@ -56,6 +60,31 @@ bp.add_url_rule("/list-friends/", view_func=views.ListFriends.as_view("list-frie
 bp.add_url_rule("/header-publication/", view_func=views.HeaderPublication.as_view("header_publication"))
 bp.add_url_rule("/input-label/", view_func=views.InputLabel.as_view("input-label"))
 bp.add_url_rule("/radio-button/", view_func=views.RadioButton.as_view("radio-button"))
+
+
+#########
+# Views #
+#########
+
+list_of_views = [
+    ("muro", "Muro"),
+    ("home", "Home"),
+    ("login", "LogIn"),
+    ("register", "Register"),
+    ("configurations", "Configurations"),
+    ("notifications", "Notifications"),
+    ("profile1", "Profile"),
+    ("boolean-button", "Boolean Button - Daniel Vieria"),
+    ("drop-down-list", "Drop Down List - Eduardo Suarez"),
+    ("footer-mobile", "Footer Mobile - Daniel Vieria"),
+    ("list-chats", "List Chats - Daniel Vieria"),
+    ("element-friend-list", "Element Friend List - Eduardo Suarez"),
+    ("CreatePublications", "CreatePublications - Eduardo Suarez"),
+    ("mobile-navmenu", "Mobile Nav Menu - Gabriela Uztariz"),
+    ("list-comments", "List Comments - Eduardo Suarez"),
+]
+
+bp.add_url_rule("/views/", view_func=views.Views.as_view("views"))
 bp.add_url_rule("/muro/", view_func=views.Muro.as_view("muro"))
 bp.add_url_rule("/home/", view_func=views.Home.as_view("home"))
 bp.add_url_rule("/login/", view_func=views.LogIn.as_view("login"))
@@ -71,3 +100,4 @@ bp.add_url_rule("/profile1/", view_func=views.Profile1.as_view("profile1"))
 bp.add_url_rule("/CreatePublications/", view_func=views.CreatePublications.as_view("CreatePublications"))
 bp.add_url_rule("/mobile-navmenu/", view_func=views.MobileNavMenu.as_view("mobile-navmenu"))
 bp.add_url_rule("/list-comments/", view_func=views.ListComments.as_view("list-comments"))
+

@@ -1,9 +1,9 @@
 {% extends "showroom/base.html" %}
 
-{% block title %}{{ _('Component list') }}{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 {% block body %}
 
-  <h1>{{ _('Component list') }}</h1>
+  <h1>{{ title }}</h1>
 
   <ol>
   {% for a, b in list.items() %}

@@ -4,8 +4,13 @@ Views for the showroom module.
 
 from flask.helpers import url_for
 from backend.utils.views import BaseView
-from flask_babel import gettext as _ # for i18n
+from flask_babel import lazy_gettext as _ # for i18n
 
+def get_trans(tag):
+    if isinstance(tag, list):
+        a, b = tag
+        return (_(a) + ' - %s') % b
+    return _(tag)
 
 class Index(BaseView):
     """
@@ -13,16 +18,48 @@ class Index(BaseView):
     """
 
     template_name = "showroom/index.html"
+    title = _("Showroom Showcase")
+
+    def __init__(self) -> None:
+        super().__init__()
+        from .urls import list_of_rooms
+        self.list_of_rooms = list_of_rooms
 
     def get_context_data(self):
         """
         Place the list_of_rooms in the context
         """
 
-        from .urls import list_of_rooms
+        urls_list = {
+            get_trans(tag): url_for(f"showroom.{name}") for name, tag in self.list_of_rooms
+        }
+        return {"list": urls_list, "title": self.title}
 
-        urls = {_(tag): url_for(f"showroom.{name}") for name, tag in list_of_rooms}
-        return {"list": urls}
+
+class Components(Index):
+    """
+    Index View to showcase all components.
+    """
+
+    title = _("Components Showcase")
+
+    def __init__(self) -> None:
+        super().__init__()
+        from .urls import list_of_components
+        self.list_of_rooms = list_of_components
+
+
+class Views(Index):
+    """
+    Index View to showcase all views.
+    """
+
+    title = _("Views Showcase")
+
+    def __init__(self) -> None:
+        super().__init__()
+        from .urls import list_of_views
+        self.list_of_rooms = list_of_views
 
 
 class Buttons(BaseView):
