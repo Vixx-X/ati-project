@@ -27,9 +27,7 @@
         {% if name -%}
         name="{{name}}"
         {%- endif %}
-        rows="{{rows}}" cols="{{cols}}" placeholder="{{placeholderText}}">
-        {{value}}
-    </textarea>
+        rows="{{rows}}" cols="{{cols}}" placeholder="{{placeholderText}}">{% if value %}{{value}}{% endif %}</textarea>
     {% endif %}
     {% if type == 'password' %}
     <input class="{{classInput}}"

@@ -25,7 +25,8 @@
             comunFriends="Comun Friends",
             png=url_for('static', filename='img/users/26838989.png'),
             webp=url_for('static', filename='img/users/26838989.webp'),
-            titlelist="Chats"
+            titlelist="Chats",
+            number=15
         )}}
     </aside>
     <main class="main-chat">
@@ -117,7 +118,9 @@
         <div class="footer-chat">
             <div class="send-message">
                 <input type="text" placeholder="Send Text Messages">
-                <input type="submit" value="Send">
+                <button>
+                  <img src="{{ url_for('static', filename='img/icons/send_message.svg') }}" alt="">
+                </button>
             </div>
         </div>
     </main>
