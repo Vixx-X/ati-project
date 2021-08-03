@@ -6,10 +6,14 @@ from flask.helpers import url_for
 from backend.utils.views import BaseView
 from flask_babel import lazy_gettext as _ # for i18n
 
-def get_trans(tag):
+def get_tag(tag):
+    """
+    Get tag item to translate with ownership if the case
+    """
+
     if isinstance(tag, list):
-        a, b = tag
-        return (_(a) + ' - %s') % b
+        label, owner = tag
+        return (_(label) + ' - %s') % owner
     return _(tag)
 
 class Index(BaseView):
@@ -19,19 +23,17 @@ class Index(BaseView):
 
     template_name = "showroom/index.html"
     title = _("Showroom Showcase")
-
-    def __init__(self) -> None:
-        super().__init__()
-        from .urls import list_of_rooms
-        self.list_of_rooms = list_of_rooms
+    list_of_rooms = "list_of_rooms"
 
     def get_context_data(self):
         """
         Place the list_of_rooms in the context
         """
+        from . import urls
+        list_of_rooms = getattr(urls, self.list_of_rooms)
 
         urls_list = {
-            get_trans(tag): url_for(f"showroom.{name}") for name, tag in self.list_of_rooms
+            get_tag(tag): url_for(f"showroom.{name}") for name, tag in list_of_rooms
         }
         return {"list": urls_list, "title": self.title}
 
@@ -42,11 +44,8 @@ class Components(Index):
     """
 
     title = _("Components Showcase")
+    list_of_rooms = "list_of_components"
 
-    def __init__(self) -> None:
-        super().__init__()
-        from .urls import list_of_components
-        self.list_of_rooms = list_of_components
 
 
 class Views(Index):
@@ -55,6 +54,7 @@ class Views(Index):
     """
 
     title = _("Views Showcase")
+    list_of_rooms = "list_of_views"
 
     def __init__(self) -> None:
         super().__init__()
