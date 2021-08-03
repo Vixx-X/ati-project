@@ -3,7 +3,7 @@ Models for Media module
 """
 
 import mongoengine as db
-from flask_babel import gettext as _
+# from flask_babel import gettext as _
 
 class Media(db.Document):
     """

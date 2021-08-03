@@ -3,6 +3,7 @@ Views for the media module.
 """
 
 from flask.views import MethodView
+
 # from flask_babel import gettext as _ # for i18n
 
 
@@ -12,6 +13,9 @@ class Image(MethodView):
     """
 
     def get(self):
+        """
+        Gets image
+        """
         return ""
 
 
@@ -21,6 +25,9 @@ class Video(MethodView):
     """
 
     def get(self):
+        """
+        Gets video
+        """
         return ""
 
 
@@ -30,5 +37,7 @@ class Audio(MethodView):
     """
 
     def get(self):
+        """
+        Gets audio
+        """
         return ""
-
