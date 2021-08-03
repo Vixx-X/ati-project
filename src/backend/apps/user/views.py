@@ -30,9 +30,10 @@ class Friend(BaseView):
 
     template_name = "user/friend-list.html"
 
-    def get_context_data(self, pk):
+    def get_context_data(self, **kwargs):
+        pk = kwargs.get("pk", None)
         ctx = super().get_context_data()
-        ctx["is_myuser"] = pk==1
+        ctx["is_myuser"] = pk == 1
         return ctx
 
 
@@ -43,9 +44,10 @@ class Profile(BaseView):
 
     template_name = "user/profile.html"
 
-    def get_context_data(self, pk):
+    def get_context_data(self, **kwargs):
+        pk = kwargs.get("pk", None)
         ctx = super().get_context_data()
-        ctx["is_myuser"] = pk==1
+        ctx["is_myuser"] = pk == 1
         return ctx
 
 
@@ -56,9 +58,10 @@ class EditProfile(BaseView):
 
     template_name = "user/profile-edit.html"
 
-    def get_context_data(self, pk):
+    def get_context_data(self, **kwargs):
+        pk = kwargs.get("pk", None)
         ctx = super().get_context_data()
-        ctx["is_myuser"] = pk==1
+        ctx["is_myuser"] = pk == 1
         return ctx
 
 
@@ -77,10 +80,12 @@ class Description(BaseView):
 
     template_name = "user/profile-description.html"
 
-    def get_context_data(self, pk):
+    def get_context_data(self, **kwargs):
+        pk = kwargs.get("pk", None)
         ctx = super().get_context_data()
-        ctx["is_myuser"] = pk==1
+        ctx["is_myuser"] = pk == 1
         return ctx
+
 
 class Chat(BaseView):
     """

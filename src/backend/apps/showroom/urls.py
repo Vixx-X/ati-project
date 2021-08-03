@@ -3,7 +3,6 @@ Urls for showroom module/blueprint
 """
 
 from . import bp, views
-from flask_babel import lazy_gettext as _ # for i18n
 
 
 VA = "Vittorio Adesso"
@@ -54,10 +53,15 @@ bp.add_url_rule("/footer/", view_func=views.Footers.as_view("footer"))
 bp.add_url_rule("/heading/", view_func=views.Heading.as_view("heading"))
 bp.add_url_rule("/long-cards/", view_func=views.LongCards.as_view("long-cards"))
 bp.add_url_rule("/notification/", view_func=views.Notification.as_view("notification"))
-bp.add_url_rule("/search-button/", view_func=views.SearchButton.as_view("search-button"))
+bp.add_url_rule(
+    "/search-button/", view_func=views.SearchButton.as_view("search-button")
+)
 bp.add_url_rule("/chat/", view_func=views.Chat.as_view("chat"))
 bp.add_url_rule("/list-friends/", view_func=views.ListFriends.as_view("list-friends"))
-bp.add_url_rule("/header-publication/", view_func=views.HeaderPublication.as_view("header_publication"))
+bp.add_url_rule(
+    "/header-publication/",
+    view_func=views.HeaderPublication.as_view("header_publication"),
+)
 bp.add_url_rule("/input-label/", view_func=views.InputLabel.as_view("input-label"))
 bp.add_url_rule("/radio-button/", view_func=views.RadioButton.as_view("radio-button"))
 
@@ -88,16 +92,35 @@ bp.add_url_rule("/views/", view_func=views.Views.as_view("views"))
 bp.add_url_rule("/muro/", view_func=views.Muro.as_view("muro"))
 bp.add_url_rule("/home/", view_func=views.Home.as_view("home"))
 bp.add_url_rule("/login/", view_func=views.LogIn.as_view("login"))
-bp.add_url_rule("/boolean-button/", view_func=views.BooleanButton.as_view("boolean-button"))
-bp.add_url_rule("/drop-down-list/", view_func=views.DropDownList.as_view("drop-down-list"))
-bp.add_url_rule("/element-friend-list/", view_func=views.ElementFriendList.as_view("element-friend-list"))
-bp.add_url_rule("/footer-mobile/", view_func=views.FooterMobile.as_view("footer-mobile"))
+bp.add_url_rule(
+    "/boolean-button/", view_func=views.BooleanButton.as_view("boolean-button")
+)
+bp.add_url_rule(
+    "/drop-down-list/", view_func=views.DropDownList.as_view("drop-down-list")
+)
+bp.add_url_rule(
+    "/element-friend-list/",
+    view_func=views.ElementFriendList.as_view("element-friend-list"),
+)
+bp.add_url_rule(
+    "/footer-mobile/", view_func=views.FooterMobile.as_view("footer-mobile")
+)
 bp.add_url_rule("/register/", view_func=views.Register.as_view("register"))
 bp.add_url_rule("/list-chats/", view_func=views.ListChats.as_view("list-chats"))
-bp.add_url_rule("/notifications/", view_func=views.Notifications.as_view("notifications"))
-bp.add_url_rule("/configurations/", view_func=views.Configurations.as_view("configurations"))
+bp.add_url_rule(
+    "/notifications/", view_func=views.Notifications.as_view("notifications")
+)
+bp.add_url_rule(
+    "/configurations/", view_func=views.Configurations.as_view("configurations")
+)
 bp.add_url_rule("/profile1/", view_func=views.Profile1.as_view("profile1"))
-bp.add_url_rule("/CreatePublications/", view_func=views.CreatePublications.as_view("CreatePublications"))
-bp.add_url_rule("/mobile-navmenu/", view_func=views.MobileNavMenu.as_view("mobile-navmenu"))
-bp.add_url_rule("/list-comments/", view_func=views.ListComments.as_view("list-comments"))
-
+bp.add_url_rule(
+    "/CreatePublications/",
+    view_func=views.CreatePublications.as_view("CreatePublications"),
+)
+bp.add_url_rule(
+    "/mobile-navmenu/", view_func=views.MobileNavMenu.as_view("mobile-navmenu")
+)
+bp.add_url_rule(
+    "/list-comments/", view_func=views.ListComments.as_view("list-comments")
+)

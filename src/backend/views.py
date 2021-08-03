@@ -11,11 +11,15 @@ from urllib.parse import urlparse, urljoin
 
 # from flask_babel import gettext as _ # for i18n
 
+
 def is_safe_url(target):
+    """
+    Check if a url is safe to redirect to
+    """
     ref_url = urlparse(request.host_url)
     test_url = urlparse(urljoin(request.host_url, target))
-    return test_url.scheme in ('http', 'https') and \
-           ref_url.netloc == test_url.netloc
+    return test_url.scheme in ("http", "https") and ref_url.netloc == test_url.netloc
+
 
 class Home(BaseView):
     """
@@ -47,14 +51,14 @@ def Login():
         # user should be an instance of your `User` class
         login_user(current_user)
 
-        next = request.args.get('next')
+        url = request.args.get("next")
         # is_safe_url should check if the url is safe for redirects.
-        if not is_safe_url(next):
+        if not is_safe_url(url):
             return abort(400)
 
-        return redirect(next or url_for('app.home'))
+        return redirect(url or url_for("app.home"))
 
-    return render_template('login.html', form=form)
+    return render_template("login.html", form=form)
 
 
 class Register(BaseView):
@@ -64,10 +68,10 @@ class Register(BaseView):
 
     template_name = "register.html"
 
+
 class ForgotPassword(BaseView):
     """
     ForgotPassword View.
     """
 
     template_name = "forgotpassword.html"
-

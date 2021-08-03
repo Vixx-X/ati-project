@@ -12,13 +12,14 @@ import sys
 import traceback
 from importlib import import_module
 
+
 def import_string(dotted_path):
     """
     Import a dotted module path and return the attribute/class designated by the
     last name in the path. Raise ImportError if the import failed.
     """
     try:
-        module_path, class_name = dotted_path.rsplit('.', 1)
+        module_path, class_name = dotted_path.rsplit(".", 1)
     except ValueError as err:
         raise ImportError("%s doesn't look like a module path" % dotted_path) from err
 
@@ -27,12 +28,13 @@ def import_string(dotted_path):
     try:
         return getattr(module, class_name)
     except AttributeError as err:
-        raise ImportError('Module "%s" does not define a "%s" attribute/class' % (
-            module_path, class_name)
+        raise ImportError(
+            'Module "%s" does not define a "%s" attribute/class'
+            % (module_path, class_name)
         ) from err
 
 
-def get_class(module_label, classname, module_prefix='backend.apps'):
+def get_class(module_label, classname, module_prefix="backend.apps"):
     """
     Dynamically import a single class from the given module.
 
@@ -49,8 +51,13 @@ def get_class(module_label, classname, module_prefix='backend.apps'):
     """
     return get_classes(module_label, [classname], module_prefix)[0]
 
-def get_classes(module_label, classnames, module_prefix='backend.apps'):
+
+def get_classes(module_label, classnames, module_prefix="backend.apps"):
+    """
+    Wrapper for the class loader
+    """
     return class_loader(module_label, classnames, module_prefix)
+
 
 def class_loader(module_label, classnames, module_prefix):
     """
@@ -93,18 +100,15 @@ def class_loader(module_label, classnames, module_prefix):
             ``ImportError``, it is re-raised
     """
 
-    if '.' not in module_label:
+    if "." not in module_label:
         # Importing from top-level modules is not supported, e.g.
         # get_class('shipping', 'Scale'). That should be easy to fix.
         # Overridable classes in a __init__.py might not be a good idea anyway.
-        raise ValueError(
-            "Importing from top-level modules is not supported")
-
-
+        raise ValueError("Importing from top-level modules is not supported")
 
     # returns e.g. 'backend.apps.showroom.views.Index' or 'showroom.views.Index'
     # Attempt to import the classes from the app module
-    app_module_label = '.'.join([module_prefix, module_label])
+    app_module_label = ".".join([module_prefix, module_label])
     app_module = _import_module(app_module_label, classnames)
 
     # Attempt to import the classes from the generic module
@@ -148,8 +152,12 @@ def _import_module(module_label, classnames):
         if len(frames) > 1:
             raise
 
+
 class ClassNotFoundError(Exception):
-    pass
+    """
+    Exception for Not Found Class
+    """
+
 
 def _pluck_classes(modules, classnames):
     """
@@ -166,7 +174,8 @@ def _pluck_classes(modules, classnames):
                 break
         if not klass:
             packages = [m.__name__ for m in modules if m is not None]
-            raise ClassNotFoundError("No class '%s' found in %s" % (
-                classname, ", ".join(packages)))
+            raise ClassNotFoundError(
+                "No class '%s' found in %s" % (classname, ", ".join(packages))
+            )
         klasses.append(klass)
     return klasses
