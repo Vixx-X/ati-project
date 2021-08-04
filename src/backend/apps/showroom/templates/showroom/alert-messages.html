@@ -1,0 +1,21 @@
+{% extends "showroom/base.html" %}
+{% from "components/alert-messages.html" import alert_messages %}
+{% block title %}{{ _('Alert-Messages') }}{% endblock title %}
+{% block body %}
+<div style="width: 13em;">
+{{alert_messages(
+    type="danger",
+    message="DANGER DANGER"
+)}}
+
+{{alert_messages(
+    type="warning",
+    message="WARNING warning"
+)}}
+
+{{alert_messages(
+    type="success",
+    message="SUCCESS"
+)}}
+</div>
+{% endblock body %}

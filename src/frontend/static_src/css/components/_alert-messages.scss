@@ -1,0 +1,27 @@
+@import "../bases/mixins";
+@import "../bases/variables";
+@import "../bases/globals";
+
+.cont-alert-messages{
+    margin: 1em 0;
+    text-align: center;
+    border-radius: 0.5em;
+    overflow: hidden;
+    padding: 0.5em;
+    &.danger{
+        background-color: lighten($error,12.5%);
+        border: 1px solid darken($white,12.5%);
+    }
+    &.warning{
+        background-color: lighten($warning,8.5%);
+        border: 1px solid darken($white,12.5%);
+    }
+    &.success{
+        background-color: lighten($success,12.5%);
+        border: 1px solid darken($white,12.5%);
+    }
+    & p{
+        font-size: 0.8em;
+    }
+
+}

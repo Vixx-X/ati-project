@@ -1,5 +1,5 @@
 {% from "components/user-icon.html" import user_icon %}
-{% macro chat(type="",menssage="",date_time="",comment="",img="",png="", webp="", alt="") -%}
+{% macro chat(type="",menssage="",date_time="",comment="",img="",png="", webp="", alt="",name="") -%}
 
 <div class="chat {{type}} {%if comment%} comment {% endif %}">
     {% if comment %}
@@ -12,9 +12,16 @@
             )}}
     {% endif %}
     <div class="cont-chat">
+        {% if comment %}
+            <div class="cont-chat-cont-name">
+                <h3>{{name}}</h3>
+            </div>
+        {% endif %}
         <p>{{menssage}}</p>
         <div class="cont-chat-description">
-            <button>Reply</button>
+            {% if comment %}
+                <button>Reply</button>
+            {% endif %}
             <p>Date Time</p>
         </div>
     </div>

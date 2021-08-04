@@ -267,3 +267,9 @@ class ListComments(BaseView):
   Showcase for profile1 view.
   """
   template_name = "showroom/list-comments.html"
+
+class alertMessages(BaseView):
+  """
+  Showcase for alert messages .
+  """
+  template_name = "showroom/alert-messages.html"

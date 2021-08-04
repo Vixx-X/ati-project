@@ -40,6 +40,7 @@ list_of_components = [
     ("boolean-button", "Boolean Button - Daniel Vieria"),
     ("drop-down-list", "Drop Down List - Eduardo Suarez"),
     ("footer-mobile", "Footer Mobile - Daniel Vieria"),
+    ("alert-messages", "Alert Mesagges - Eduardo Suarez"),
 ]
 
 bp.add_url_rule("/components/", view_func=views.Components.as_view("components"))
@@ -64,6 +65,7 @@ bp.add_url_rule(
 )
 bp.add_url_rule("/input-label/", view_func=views.InputLabel.as_view("input-label"))
 bp.add_url_rule("/radio-button/", view_func=views.RadioButton.as_view("radio-button"))
+bp.add_url_rule("/alert-messages/", view_func=views.alertMessages.as_view("alert-messages"))
 
 
 #########
