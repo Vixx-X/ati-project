@@ -38,9 +38,13 @@ aside{
         height: 7rem;
         background-color: lighten($primary, 10%);
         font-size: 1.2rem;
+        display: flex;
+        align-items: center;
         .cont-element-friend-list{
             margin: 0;
-            padding: 0.5rem 2rem;
+            @include desktop{
+                padding: 0.5rem 2rem;
+            }
             .element_friend_list_user{
                 color:$black;
             }
@@ -48,12 +52,15 @@ aside{
     }
 
     .footer-chat{
-        height: 7rem;
+        height: 8rem;
         background-color: lighten($primary, 10%);
-        position: absolute;
+        @include desktop{
+            position: absolute;
+        }
+        position: fixed;
         width: 100%;
-        bottom: 0;
         padding: 1rem;
+        bottom: 0;
         .send-message{
             display: flex;
             justify-content: space-between;
@@ -83,8 +90,9 @@ aside{
 
     .messages{
         padding: 4rem 2rem;
+        padding-bottom: 12rem;
         overflow-y: scroll;
-        height: calc(100vh - 23rem);
+        height: calc(100vh - 15rem);
         @include desktop{    
             height: calc(72rem - 14rem);
         }
@@ -100,5 +108,22 @@ aside{
             margin-right: 0;
             margin-left: auto;
         }
+    }
+
+    .link-icon{
+        margin: 0 1rem;
+        @include desktop{
+            display: none;
+        }
+    }
+}
+
+.header, .footer-mobile, .footer{
+    display: none;
+}
+
+.header, .footer{
+    @include desktop{
+        display: block;
     }
 }
