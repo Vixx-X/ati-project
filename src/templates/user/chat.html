@@ -31,6 +31,10 @@
     </aside>
     <main class="main-chat">
         <div class="header-chat">
+          <a class="link-icon" href='#'>
+            <img class="icon back" src="{{ url_for('static', filename='img/icons/back.svg') }}" alt="Back Symbol">
+          </a>
+          </button>
             {{element_friend_list(
                 user='Vittorio Addeso',
                 comunFriends='En linea',
@@ -115,6 +119,7 @@
                 alt=""
               )}}
         </div>
+
         <div class="footer-chat">
             <div class="send-message">
                 <input type="text" placeholder="Send Text Messages">
