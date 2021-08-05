@@ -13,11 +13,11 @@ BASE_DIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 # Define the database - we are working with
 # MongoDB for this example
 MONGODB_SETTINGS = {
-    'db': 'project',
-    'username':'admin',
-    'password':'1234',
-    'host':'localhost',
-    'port':27017,
+    "db": "project",
+    "username": "admin",
+    "password": "1234",
+    "host": "localhost",
+    "port": 27017,
 }
 
 # Flask-User configs
@@ -48,14 +48,26 @@ TEMPLATE_FOLDER = f"{BASE_DIR}/templates/"
 
 # Languages
 LANGUAGES = {
-    'en': 'english',
-    'es': 'español',
-    'pt': 'português',
+    "en": "english",
+    "es": "español",
+    "pt": "português",
 }
 BABEL_TRANSLATION_DIRECTORIES = f"{BASE_DIR}/translations/"
 
 # Template Auto Reload
 TEMPLATES_AUTO_RELOAD = True
 
+# Social Auth Config
+# https://python-social-auth.readthedocs.io/en/latest/configuration/settings.html
+SOCIAL_AUTH_USER_MODEL = "backend.apps.user.models.User"
+SOCIAL_AUTH_FIELDS_STORED_IN_SESSION = ["keep"]
+SOCIAL_AUTH_STORAGE = "social_flask_mongoengine.models.FlaskStorage"
+SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
 
+SOCIAL_AUTH_REVOKE_TOKENS_ON_DISCONNECT = True
 
+# Facebook Backend
+# https://python-social-auth.readthedocs.io/en/latest/backends/facebook.html#oauth2
+SOCIAL_AUTH_FACEBOOK_KEY = "328893792274101"
+SOCIAL_AUTH_FACEBOOK_SECRET = SECRET_KEY + "_fadebook"
+SOCIAL_AUTH_FACEBOOK_SCOPE = ["email"]
