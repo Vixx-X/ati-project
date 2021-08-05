@@ -1,13 +1,16 @@
-{% macro radioButton(id=None, name=None, text="Text-Radio", classLabel="black", classInput="black") -%}
+{% macro radioButton(id=None, name=None, text="Text-Radio", classLabel="black", classInput="black", checked=None) -%}
 <div class="radio-button d-flex jc-space_between">
     <label class="{{classLabel}}" for="{{id}}">{{text}}</label>
-    <input class="{{classInput}}" 
+    <input class="radio-button-input {{classInput}}" 
     {% if id -%}
     id="{{id}}" 
     {% endif %}
     {% if name-%}
     name="{{name}}" 
     {% endif %}
-    type="radio" value="{{text}}">
+    type="radio" value="{{text}}" 
+    {% if checked -%}
+    checked="{{checked}}"
+    {% endif %}>
 </div>
 {%- endmacro %}

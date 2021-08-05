@@ -12,13 +12,20 @@ body.darkmode {
     }
 
     .cont-create-publication, .configurations-view{
+        @include tablet{
+            background: darken($black, 5%);
+            box-shadow: 0px 2px 8px rgba(255, 255, 255, 0.25);
+        }
+    }
+
+    .container-list-comments{
         @include desktop{
             background: darken($black, 5%);
             box-shadow: 0px 2px 8px rgba(255, 255, 255, 0.25);
         }
     }
 
-    .cont-listaAmigos, .container-list-comments{
+    .cont-listaAmigos{
         background: $black;
         box-shadow: 0px 2px 8px rgba(255, 255, 255, 0.25);
     }
@@ -41,7 +48,9 @@ body.darkmode {
     }
 
     .button.create{
-        color: $black;
+        background-color: $black;
+        color: $light;
+        border: 1px solid $light;
     }
 
     .comments-user a{
@@ -98,21 +107,22 @@ body.darkmode {
                 color: $light;
             }
         }
+    }
 
-        .footer-chat{
-            background: darken($primary, 40%);
-            border: 1px inset $black;
-            .send-message{
-                background: lighten($black, 10%);
-                border: 1px solid $light;
-                img{
-                    filter: invert(80%) sepia(4%) saturate(28%) hue-rotate(183deg) brightness(114%) contrast(87%);
-                }
-                input{
-                    color: white;
-                    &::placeholder{
-                        color: $white;
-                    }
+
+    .footer-chat{
+        background: darken($primary, 40%);
+        border: 1px inset $black;
+        .send-message{
+            background: lighten($black, 10%);
+            border: 1px solid $light;
+            img{
+                filter: invert(80%) sepia(4%) saturate(28%) hue-rotate(183deg) brightness(114%) contrast(87%);
+            }
+            input{
+                color: white;
+                &::placeholder{
+                    color: $white;
                 }
             }
         }
@@ -207,9 +217,9 @@ body.darkmode {
 
     .header-group{
         background-color: #080808;
-        .navegation-mobile{
+        .navegation-mobile, .navegation-mobile-other{
             img{
-            filter: invert(80%) sepia(4%) saturate(28%) hue-rotate(183deg) brightness(114%) contrast(87%);
+                filter: invert(1);
             }
         }
     }
@@ -217,6 +227,38 @@ body.darkmode {
     textarea{
         background-color: transparent;
         color: $light;
+    }
+
+    .search.search-bg{
+        background-color: $black;
+        img{
+            filter: invert(1);
+        }
+    }
+    .container-search form input{
+        color: $light;
+    }
+
+    audio::-webkit-media-controls-enclosure, video::-webkit-media-controls-enclosure {
+        background-color: lighten($black, 15%);
+    }
+    audio::-webkit-media-controls-panel{
+        color: $white;
+    }
+    .icon{
+        filter: invert(1);
+    }
+
+    header{
+        .container-right .form-search input{
+            background: darken($light, 60%);
+        }
+    }
+    .container-aside-comments{
+        @include desktop{
+            border: 1px dashed darken($primary, 40%);
+            background-color: $black;
+        }
     }
 }
 
