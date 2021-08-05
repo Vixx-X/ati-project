@@ -62,7 +62,7 @@ class Buttons(BaseView):
     Showcase for button component.
     """
 
-    template_name = "showroom/buttons.html"
+    template_name = "showroom/components/buttons.html"
 
 
 class Header(BaseView):
@@ -70,7 +70,7 @@ class Header(BaseView):
     Showcase for header component.
     """
 
-    template_name = "showroom/header.html"
+    template_name = "showroom/components/header.html"
 
 
 class UserIcon(BaseView):
@@ -78,7 +78,7 @@ class UserIcon(BaseView):
     Showcase for user-icon component.
     """
 
-    template_name = "showroom/user-icon.html"
+    template_name = "showroom/components/user-icon.html"
 
 
 class Card(BaseView):
@@ -86,7 +86,7 @@ class Card(BaseView):
     Showcase for card component.
     """
 
-    template_name = "showroom/card.html"
+    template_name = "showroom/components/card.html"
 
 
 class Header2(BaseView):
@@ -94,14 +94,14 @@ class Header2(BaseView):
     Showcase for header2 component.
     """
 
-    template_name = "showroom/header2.html"
+    template_name = "showroom/components/header2.html"
 
 class Comments(BaseView):
     """
     Showcase for comments-users component.
     """
 
-    template_name = "showroom/comments-users.html"
+    template_name = "showroom/components/comments-users.html"
 
 
 class Footers(BaseView):
@@ -109,7 +109,7 @@ class Footers(BaseView):
     Showcase for footer component.
     """
 
-    template_name = "showroom/footer.html"
+    template_name = "showroom/components/footer.html"
 
 
 class Heading(BaseView):
@@ -117,7 +117,7 @@ class Heading(BaseView):
     Showcase for heading component.
     """
 
-    template_name = "showroom/heading.html"
+    template_name = "showroom/components/heading.html"
 
 
 class LongCards(BaseView):
@@ -125,14 +125,14 @@ class LongCards(BaseView):
     Showcase for long cards component.
     """
 
-    template_name = "showroom/long-cards.html"
+    template_name = "showroom/components/long-cards.html"
 
 class Notification(BaseView):
     """
     Showcase for notification component.
     """
 
-    template_name = "showroom/notification.html"
+    template_name = "showroom/components/notification.html"
 
 
 class SearchButton(BaseView):
@@ -140,7 +140,7 @@ class SearchButton(BaseView):
     Showcase for search component.
     """
 
-    template_name = "showroom/search-button.html"
+    template_name = "showroom/components/search-button.html"
 
 
 class Chat(BaseView):
@@ -148,19 +148,19 @@ class Chat(BaseView):
     Showcase for chat component.
     """
 
-    template_name = "showroom/chat.html"
+    template_name = "showroom/components/chat.html"
 
 class ListFriends(BaseView):
     """
     Showcase for chat component.
     """
 
-    template_name = "showroom/list-friends.html"
+    template_name = "showroom/components/list-friends.html"
 class HeaderPublication(BaseView):
     """
     Showcase for header publication component.
     """
-    template_name = "showroom/header-publication.html"
+    template_name = "showroom/components/header-publication.html"
 
 
 class Muro(BaseView):
@@ -168,102 +168,156 @@ class Muro(BaseView):
     Showcase for muro view.
     """
 
-    template_name = "showroom/muro.html"
+    template_name = "showroom/views/muro.html"
 
 class Home(BaseView):
     """
     Showcase for home view.
     """
 
-    template_name = "showroom/home.html"
+    template_name = "showroom/views/home.html"
 
 class LogIn(BaseView):
     """
     Showcase for login view.
     """
 
-    template_name = "showroom/login.html"
+    template_name = "showroom/views/login.html"
 
 class InputLabel(BaseView):
     """
     Showcase for inputLabel component.
     """
-    template_name = "showroom/input-label.html"
+    template_name = "showroom/components/input-label.html"
 
 class RadioButton(BaseView):
   """
   Showcase for RadioButton component.
   """
-  template_name = "showroom/radio-button.html"
+  template_name = "showroom/components/radio-button.html"
 
 class BooleanButton(BaseView):
   """
   Showcase for chat component.
   """
-  template_name = "showroom/boolean-button.html"
+  template_name = "showroom/components/boolean-button.html"
 
 class DropDownList(BaseView):
   """
   Showcase for chat component.
   """
-  template_name = "showroom/drop-down-list.html"
+  template_name = "showroom/components/drop-down-list.html"
   
 class ElementFriendList(BaseView):
   """
   Showcase for chat component.
   """
-  template_name = "showroom/element-friend-list.html"
+  template_name = "showroom/components/element-friend-list.html"
   
 class FooterMobile(BaseView):
   """
   Showcase for footer mobile component.
   """
-  template_name = "showroom/footer-mobile.html"
+  template_name = "showroom/components/footer-mobile.html"
 
 class Register(BaseView):
   """
   Showcase for register component.
   """
-  template_name = "showroom/register.html"
+  template_name = "showroom/views/register.html"
 
 class Notifications(BaseView):
   """
   Showcase for footer mobile component.
   """
-  template_name = "showroom/notifications.html"
+  template_name = "showroom/views/notifications.html"
   
 class ListChats(BaseView):
   """
   Showcase for chat list component.
   """
-  template_name = "showroom/list-chats.html"
+  template_name = "showroom/components/list-chats.html"
 
 class Configurations(BaseView):
   """
   Showcase for configuration view.
   """
-  template_name = "showroom/configurations.html"
+  template_name = "showroom/views/configurations.html"
 
-class Profile1(BaseView):
+class Profile(BaseView):
   """
-  Showcase for profile1 view.
-  """
-  template_name = "showroom/profile1.html"
-
-class CreatePublications(BaseView):
-  """
-  Showcase for profile1 view.
-  """
-  template_name = "showroom/CreatePublications.html"
+  Showcase for profile view.
+  """ 
+  template_name = "showroom/views/profile.html"
   
 class MobileNavMenu(BaseView):
   """
   Showcase for mobile nav menu component.
   """
-  template_name = "showroom/mobile-navmenu.html"
+  template_name = "showroom/components/mobile-navmenu.html"
 
 class ListComments(BaseView):
   """
   Showcase for profile1 view.
   """
-  template_name = "showroom/list-comments.html"
+  template_name = "showroom/components/list-comments.html"
+
+class ChatView(BaseView):
+  """
+  Showcase for chat view.
+  """
+  template_name = "showroom/views/chatView.html"
+
+class CreatePublication(BaseView):
+  """
+  Showcase for create publication view.
+  """
+  template_name = "showroom/views/create-publication.html"
+
+class ForgotPassword(BaseView):
+  """
+  Showcase for forgot password view.
+  """
+  template_name = "showroom/views/forgotpassword.html"
+
+class FriendList(BaseView):
+  """
+  Showcase for friend list view.
+  """
+  template_name = "showroom/views/friend-list.html"
+
+class LandingPage(BaseView):
+  """
+  Showcase for Landing view.
+  """
+  template_name = "showroom/views/landing-page.html"
+
+class ModifyPublication(BaseView):
+  """
+  Showcase for Landing view.
+  """
+  template_name = "showroom/views/modify-publication.html"
+
+class Post(BaseView):
+  """
+  Showcase for Post view.
+  """
+  template_name = "showroom/views/post.html"
+
+class ProfileDescription(BaseView):
+  """
+  Showcase for Profile Description view.
+  """
+  template_name = "showroom/views/profile-description.html"
+
+class ProfileEdit(BaseView):
+  """
+  Showcase for Profile Edit view.
+  """
+  template_name = "showroom/views/profile-edit.html"
+
+class SearchPage(BaseView):
+  """
+  Showcase for Profile Edit view.
+  """
+  template_name = "showroom/views/search-page.html"

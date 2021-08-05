@@ -12,10 +12,6 @@
 {% block title %} Configurations {% endblock title %}
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/configurations.css') }}" >{% endblock %}
 
-{% block onloadscripts %}
-<script src="{{url_for('static', filename='js/components.js')}}"> </script>
-{% endblock onloadscripts %}
-
 {% block body -%}
 {{ header(classname="bg-header") }}
   <section class="container configurations-view">
