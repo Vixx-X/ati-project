@@ -52,7 +52,6 @@ aside{
     }
 
     .footer-chat{
-        height: 8rem;
         background-color: lighten($primary, 10%);
         @include desktop{
             position: absolute;

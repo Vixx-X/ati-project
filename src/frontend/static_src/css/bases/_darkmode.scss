@@ -107,21 +107,22 @@ body.darkmode {
                 color: $light;
             }
         }
+    }
 
-        .footer-chat{
-            background: darken($primary, 40%);
-            border: 1px inset $black;
-            .send-message{
-                background: lighten($black, 10%);
-                border: 1px solid $light;
-                img{
-                    filter: invert(80%) sepia(4%) saturate(28%) hue-rotate(183deg) brightness(114%) contrast(87%);
-                }
-                input{
-                    color: white;
-                    &::placeholder{
-                        color: $white;
-                    }
+
+    .footer-chat{
+        background: darken($primary, 40%);
+        border: 1px inset $black;
+        .send-message{
+            background: lighten($black, 10%);
+            border: 1px solid $light;
+            img{
+                filter: invert(80%) sepia(4%) saturate(28%) hue-rotate(183deg) brightness(114%) contrast(87%);
+            }
+            input{
+                color: white;
+                &::placeholder{
+                    color: $white;
                 }
             }
         }
@@ -251,6 +252,12 @@ body.darkmode {
     header{
         .container-right .form-search input{
             background: darken($light, 60%);
+        }
+    }
+    .container-aside-comments{
+        @include desktop{
+            border: 1px dashed darken($primary, 40%);
+            background-color: $black;
         }
     }
 }
