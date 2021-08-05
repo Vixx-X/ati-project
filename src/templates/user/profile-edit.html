@@ -14,9 +14,6 @@
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" >
 <link rel="stylesheet" href="{{ url_for('static', filename='css/profile-edit.css') }}" >
 {% endblock %}
-{% block onloadscripts %}
-<script src="{{url_for('static', filename='js/components/mobile-navmenu.js')}}"> </script>
-{% endblock onloadscripts %}
 
 {% block title %} Edit {% endblock title %}
 
@@ -88,7 +85,6 @@
     <hr class="container">
 
     <div class="margin-top"></div>
-
     <div class="container cards-edit margin-bottom">
         {{longCard(
             title='Video Games',
