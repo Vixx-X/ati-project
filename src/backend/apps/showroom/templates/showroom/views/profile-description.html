@@ -1,0 +1,164 @@
+{% extends "showroom/base.html" %}
+
+{% from "components/user-icon.html" import user_icon %}
+{% from "components/header-publication.html" import header_publication %}
+{% from "components/footer-mobile.html" import footer_mobile %}
+{% from "components/buttons.html" import buttons %}
+{% from "components/header.html" import header %}
+{% from "components/footer.html" import footer %}
+{% from "components/mobile-navmenu.html" import mobile_navmenu %}
+{% from "components/long-cards.html" import longCard %}
+{% from "components/element-friend-list.html" import element_friend_list %}
+{% from "components/card.html" import card %}
+
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" >
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile3.css') }}" >
+{% endblock %}
+{% block onloadscripts %}
+<script src="{{url_for('static', filename='js/components/mobile-navmenu.js')}}"> </script>
+{% endblock onloadscripts %}
+
+{% block title %} Friends {% endblock title %}
+
+{% block body -%}
+
+    <div class="main-container-header">
+        <div class="header-group ">
+            <div class="section-header">
+            {{ header(classname="bg-header transparent") }}
+            <div class="container profile-icon">
+                {{ user_icon(
+                    img=url_for('static', filename='img/users/26956071.png'),
+                    alt="User2 Photo",
+                    type="shadow",
+                    url=url_for("user.profile", pk=1),
+                    png=url_for('static', filename='img/users/26956071.png'),
+                    webp=url_for('static', filename='img/users/26956071.webp')
+                ) }}
+            <p class="container-name fw-bold">Gabriela Ustariz</p>   
+            </div>
+            </div>
+
+            <div class="desktop-content">
+                <div class="container">
+                <nav class=" navegation-desktop">
+                    {% if is_myuser %}
+                        {{buttons(
+                            mensaje="Publications",
+                            type="primary last",
+                            font="fw-bold",
+                            letters="",
+                            function="parent.location='" + url_for('user.profile', pk=1) + "'")
+                        }}
+                    {% else %}
+                        {{buttons(
+                            mensaje="Be friends",
+                            type="primary tercero",
+                            font="fw-bold",
+                            letters="")
+                        }}  
+                        {{buttons(
+                            mensaje="Chat",
+                            type="primary last",
+                            font="fw-bold",
+                            letters="",
+                            function="parent.location='" + url_for('user.chat') + "'")
+                        }}
+                    {% endif %}
+                </nav>
+                </div>
+            </div>
+
+            <div class="mobile-content">
+                <div class="container margin-bottom">
+                  {% if is_myuser %}
+                  <nav class="navegation-mobile">
+                    <a href="{{url_for('user.friend', pk=1)}}">
+                      <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
+                    </a>
+                    <a href="{{url_for('user.edit', pk=1)}}">
+                      <img src="{{url_for('static', filename='img/icons/edit.svg')}}" alt="Edit Profile">
+                    </a>
+                  </nav>
+                  {% else %}
+                  <nav class="navegation-mobile-other">
+                    <a href="{{url_for('user.friend', pk=2)}}">
+                      <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
+                    </a>
+                    <div class="container-right">
+                      <a href="#">
+                        <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="Add Friends">
+                      </a>
+                      <a href="{{url_for('user.chat')}}">
+                        <img src="{{url_for('static', filename='img/icons/chat.svg')}}" alt="Chat icon link">
+                      </a>
+                    </div>
+                  </nav>
+                  {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        {{mobile_navmenu(details=True, 
+            functionPublication="parent.location='" + url_for('user.profile', pk=1) + "'", functionDetails="parent.location='" + url_for('user.description', pk=1) + "'")}}
+
+        <p class="container details">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. sunt in culpa qui officia deserunt mollit anim id est laborum.”</p>
+
+    </div>
+
+    <hr class="container">
+
+    <div class="margin-top"></div>
+
+    <div class="container cards-mobile">
+        {{longCard(
+            title='Video Games',
+            content=['Call of duty: Mobile', 'Beyond: Two Souls'],
+            type='secundary'
+        )}}
+        {{ longCard(
+          title='Books',
+          content=['Inferno'],
+          type='secundary'
+        )}}
+        {{ longCard(
+            title='Languages',
+            content=['Python3', 'Haskell'],
+            type='secundary'
+        )}}
+        {{ longCard(
+            title='Music',
+            content=['Pop', 'Indie'],
+            type='secundary'
+        )}}
+    </div>
+
+    <div class="container cards-desktop">
+        {{card(img, 
+            title='Books', 
+            content=['Call of duty: Mobile', 'Beyond: Two Souls'], 
+            png=url_for('static', filename='img/books.svg'), 
+            alt='Video Games Photo')}}
+        {{card(img, 
+            title='Music', 
+            content=['Call of duty: Mobile', 'Beyond: Two Souls'], 
+            png=url_for('static', filename='img/music.svg'), 
+            alt='Video Games Photo')}}
+        {{card(img, 
+            title='Video Games', 
+            content=['Call of duty: Mobile', 'Beyond: Two Souls'], 
+            png=url_for('static', filename='img/videogames.svg'), 
+            alt='Video Games Photo')}}
+        {{card(img, 
+            title='Languages', 
+            content=['Call of duty: Mobile', 'Beyond: Two Souls'], 
+            png=url_for('static', filename='img/laguages.svg'), 
+            alt='Video Games Photo')}}
+    </div>
+    
+
+
+{{footer()}}
+{{footer_mobile(class="black")}}
+
+{%- endblock body %}
