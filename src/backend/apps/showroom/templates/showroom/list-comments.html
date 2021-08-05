@@ -2,16 +2,15 @@
 {% from "components/chat.html" import chat %}
 {% block title %}{{ _('List-commnets') }}{% endblock title %}
 {% block body -%}
-<div class="cont-list-comments container">
+<div class="container-list-comments showroom">
     <div class="header-list-comments">
         <h2>Comments</h2>
         <hr>
     </div>
-    <div class="margin-section"></div>
     <div class="list-comments">
-        <div class="item right">
+        <div class="item left">
             {{chat(
-                type="reply",
+                type="response",
                 menssage="Comment One Comment One Comment One Comment One Comment One Comment One",
                 date_time="Date Time",
                 comment="1",
@@ -20,10 +19,9 @@
                 alt="Edu"
               )}}
         </div>
-        <div class="margin-section"></div>
-        <div class="item left">
+        <div class="item right">
             {{chat(
-                type="response",
+                type="reply",
                 menssage="@Reply to Comment One",
                 date_time="Date Time",
                 comment="1",
@@ -32,8 +30,7 @@
                 alt="Gabi"
             )}}
         </div>
-        <div class="margin-section"></div>
-        <div class="item right">
+        <div class="item left">
             {{chat(
                 type="response",
                 menssage="Comment Three",
@@ -44,11 +41,10 @@
                 alt="Creo que vitto"
             )}}
         </div>
-        <div class="margin-section"></div>
-        <div class="item left">
+        <div class="item right">
             {{chat(
                 type="reply",
-                menssage="Comment Four",
+                menssage="@Reply Comment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment Four",
                 date_time="Date Time",
                 comment="1",
                 png=url_for('static', filename='img/users/26272390.png'),

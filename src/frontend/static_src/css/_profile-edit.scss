@@ -1,0 +1,91 @@
+@import "bases/variables";
+@import "bases/mixins";
+
+.profile-icon{
+    @include desktop{
+        justify-content: flex-start;
+        p{
+            position: absolute;
+            bottom: -6.5rem;
+        }
+    
+        .container-name{
+            width: 74rem;
+            margin: 0 auto;
+        }
+    }
+}
+
+.text-area-container{
+	margin: 4rem auto;
+	position: relative;
+	textarea{
+		min-height: 10rem;
+	}
+	
+	#number{
+		position: absolute;
+		top: -3rem;
+		right: 1rem;
+	}
+}
+.details{
+	width: 100%;
+	word-wrap: break-word;
+	resize: none;
+	line-height: 1.5;
+	overflow-y: auto;
+	font-style: italic;
+	border: none;
+	color: lighten($black, 40%);
+	padding: 0.5rem 1rem;
+}
+
+.cards-edit{
+    display: grid;
+    gap: 3rem;
+    @include tablet{
+        @include grid(2, 3rem);
+    }
+}
+
+#changeheader{
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+	width: 4em;
+    height: 4em;
+	img{
+		width: 3rem;
+	}
+}
+
+#changeheader, #changeimgageprofile{
+    background: $light;
+    border-radius: 50%;
+    border: 1px solid $secundary;
+
+}
+
+#changeimgageprofile{
+	bottom: 1rem;
+	right: 1rem;
+	position: absolute;
+    width: 2em;
+    height: 2em;
+	img{
+		border-radius: 0%;
+		width: 0.9em;
+	}
+}
+
+.mobile-content{
+	& > div{
+		display: flex;
+		justify-content: flex-end;
+	}
+	button{
+		font-size: 1.5rem;
+		padding: 1rem 3rem;
+	}
+}

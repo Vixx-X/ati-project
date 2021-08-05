@@ -18,24 +18,15 @@ const baseExtensions = [".js", ".jsx", ".ts", ".tsx"];
 // Import extensions to look for
 const importExtensions = [...baseExtensions, ...[".mjs", ".json", ".node"]];
 
-const srcPath = "../src/frontend/static_src";
-const srcPaths = {
-  img: `${srcPath}/img/**/*`,
-  scss: `${srcPath}/css/**/*.scss`,
-  ts: `${srcPath}/js/**/*.ts`,
-};
-
-const dstPath = "../src/static";
-const dstPaths = {
-  img: `${dstPath}/img`,
-  scss: `${dstPath}/css`,
-  ts: `${dstPath}/js`,
-};
+const srcDir = "../src/frontend/static_src";
+const bundleDir = "../src/frontend/static_bundle/js";
+const bundlePath = `${bundleDir}/**/*.ts`;
+const dstPath = "../src/static/js";
 
 export default {
   input: [
     // Look for all typescript files in the bundle directory, courtesy of includePaths
-    srcPaths.ts,
+    bundlePath,
   ],
 
   // Specify here external modules which you don't want to include in your bundle (for instance: 'lodash', 'moment' etc.)
@@ -58,7 +49,7 @@ export default {
   plugins: [
     // Allows rollup to use multiple entry points, input glob pattern
     // and preserve asset/js tree structure in the static folder.
-    multiInput({ relative: srcPath }),
+    multiInput({ relative: bundleDir }),
 
     // Allows node_modules resolution
     nodeResolve({
@@ -74,7 +65,7 @@ export default {
 
     // Allow relative paths in your import directives
     includePaths({
-      paths: [srcPath],
+      paths: [srcDir],
       extensions: importExtensions,
     }),
 
@@ -104,3 +95,4 @@ export default {
     }),
   ],
 };
+

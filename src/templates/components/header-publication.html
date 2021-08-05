@@ -1,8 +1,8 @@
 {% from "components/user-icon.html" import user_icon %}
 
 {% macro header_publication(img, input, author, time, png="", webp="", url="") -%}
-<div class="d-flex jc-space_between header-publication">
-    <div class="d-flex">
+<div class="header-publication">
+    <div class="d-flex title-wrap">
         {{ user_icon(
             img=img,
             alt="User Photo",
@@ -11,20 +11,18 @@
             png=png,
             webp=webp
           ) }}
-        <div class="w-100">
+        <div>
             <h2>{{input}}</h2>
-            <div class="d-flex jc-space_between">
+            <div class="d-flex jc-space_between details">
                 <p>{{author}}</p>
                 <p>{{time}}</p>
             </div>
         </div>
     </div>
     <!-- TODO: change # for url to modify publication (parameter) -->
-    <a class="modify" href="#">
-        <img
-      src="{{ url_for('static', filename='img/icons/menu_3_puntos_horizontal.svg') }}"
-      alt="menu_3_puntos_horizontal"
-      class="w-2">
+    <a class="modify" href="{{url_for('posts.modifypublication')}}">
+        <img src="{{ url_for('static', filename='img/icons/menu_3_puntos_horizontal.svg') }}"
+        alt="menu_3_puntos_horizontal">
     </a>
 </div>
 {%- endmacro %}

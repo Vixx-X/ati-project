@@ -1,0 +1,187 @@
+# Translations template for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-08-02 22:19-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/posts/models.py:15
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/user/models.py:15
+msgid "public"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/posts/models.py:15
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/user/models.py:15
+msgid "private"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/posts/models.py:20
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/user/models.py:20
+msgid "light mode"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/posts/models.py:20
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/user/models.py:20
+msgid "dark mode"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/posts/models.py:43
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/user/models.py:43
+msgid "femenine"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/posts/models.py:43
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/user/models.py:43
+msgid "masculine"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/posts/models.py:43
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/user/models.py:43
+msgid "other"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/views.py:21
+msgid "Showroom Showcase"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/views.py:44
+msgid "Components Showcase"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/views.py:57
+msgid "Views Showcase"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/CreatePublications.html:9
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/templates/posts/create-publication.html:13
+msgid "CreatePublications"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/boolean-button.html:5
+msgid "Boolean Button"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/card.html:3
+msgid "Card"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/chat.html:3
+msgid "Chat"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/comments-users.html:5
+msgid "Comments-User"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/configurations.html:117
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/home.html:48
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/login.html:81
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/muro.html:286
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/notifications.html:182
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/register.html:91
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/templates/components/footer.html:4
+msgid "Copyright &copy; ITA - Computer School"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/drop-down-list.html:5
+msgid "Drop Down List"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/element-friend-list.html:5
+msgid "Element friend list"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/footer-mobile.html:5
+msgid "Footer Mobile"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/footer.html:3
+msgid "Buttons"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/header-publication.html:5
+msgid "Header Publication"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/header2.html:5
+msgid "Header Main"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/heading.html:3
+msgid "Heading"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/input-label.html:5
+msgid "Input Label"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/list-chats.html:5
+msgid "List Chats"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/list-comments.html:3
+msgid "List-commnets"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/list-friends.html:4
+msgid "List of Friends"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/long-cards.html:10
+msgid "Long Cards"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/mobile-navmenu.html:5
+msgid "Mobile Nav Menu"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/notification.html:5
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/notifications.html:78
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/notifications.html:90
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/notifications.html:101
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/notifications.html:112
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/notifications.html:123
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/notifications.html:134
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/notifications.html:145
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/notifications.html:156
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/notifications.html:167
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/templates/user/notifications.html:25
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/templates/user/notifications.html:37
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/templates/user/notifications.html:48
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/templates/user/notifications.html:59
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/templates/user/notifications.html:70
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/templates/user/notifications.html:81
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/templates/user/notifications.html:92
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/templates/user/notifications.html:103
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/templates/user/notifications.html:114
+msgid "Notification"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/radio-button.html:5
+msgid "Radio Button"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/search-button.html:3
+msgid "Bottom Search"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/user-icon.html:5
+msgid "User icon"
+msgstr ""
+
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/templates/posts/modify-publication.html:13
+msgid "Modify Publication"
+msgstr ""
+

@@ -11,44 +11,53 @@
 
 {% block title %} DEGVA {% endblock title %}
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/muro.css') }}" >{% endblock %}
+{% block onloadscripts %}
+<script src="{{url_for('static', filename='js/components/test.js')}}"> </script>
+{% endblock onloadscripts %}
 
 {% block body %}
 {{ header(classname="bg-header") }}
 <div class="header-main container">
     <div class="section-left">
         {{ user_icon(
-        img=url_for('static', filename='img/users/26956071.png'),
-        alt="User2 Photo",
-        type="shadow",
-        url=url_for("user.profile", pk=1),
-        png=url_for('static', filename='img/users/26956071.png'),
-        webp=url_for('static', filename='img/users/26956071.webp')
+            img=url_for('static', filename='img/users/26956071.png'),
+            alt="User2 Photo",
+            type="shadow",
+            url=url_for("user.profile", pk=1),
+            png=url_for('static', filename='img/users/26956071.png'),
+            webp=url_for('static', filename='img/users/26956071.webp')
         ) }}
-        <a href="{{url_for('app.createpublication')}}">
-            <button class="button create fw-normal">
-                What do you think?...
-            </button>
-        </a>
+        {{buttons(
+            mensaje="What do you think?...",
+            type="create",
+            function="parent.location='" + url_for('posts.createpublication') + "'",
+            font = "fw-normal",
+            letters="")
+        }}
     </div>
-    <button class="button primary with-icon fw-normal">
-        <img class="icon" src="{{ url_for("static", filename="img/icons/chat.svg") }}" alt="Messages Icon">
-        Messages
-    </button>
+    {{buttons(
+        mensaje="Messages",
+        type="primary with-icon",
+        function="parent.location='" + url_for('user.chat') + "'",
+        icon=url_for("static", filename="img/icons/chat.svg"),
+        alticon="Messages Icon",
+        font = "fw-normal",
+        letters="")
+    }}
 </div>
-<div class="container main-container margin-section">  
+<div class="container main-container margin-section full-mobile">  
     <aside>
-      <div class="cont-listaAmigos p-2">
         {{list_friends(
         img=url_for('static', filename='img/users/26838989.png'),
-        name="Vittorio",
+        name="Vittorio Adesso",
         alt="User1 Photo",
         url=url_for("user.profile", pk=2),
         type="connect",
         comunFriends="32",
         png=url_for('static', filename='img/users/26838989.png'),
-        webp=url_for('static', filename='img/users/26838989.webp')
+        webp=url_for('static', filename='img/users/26838989.webp'),
+        globalbutton="True"
         )}}
-    </div>
     </aside>
     <main>
         <div class="publication">    
@@ -67,7 +76,8 @@
                 img=url_for("static", filename="img/media1.png"),
                 png=url_for("static", filename="img/media1.png"),
                 webp=url_for("static", filename="img/media1.webp"),
-                alt="Photo Publication"
+                alt="Photo Publication",
+                url=url_for("posts.post", id=1)
             )}}
             <div class="comments-user">
                 <div class="comments-group">
@@ -97,7 +107,7 @@
                 ) }}
 
                 </div>
-                <a href="#">Ver comentarios</a>
+                <a href="{{url_for('posts.post', id=1)}}">Ver comentarios</a>
             </div>
         </div>
         <div class="publication margin-section">    
@@ -114,7 +124,8 @@
                 type="text",
                 text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptates quisquam unde excepturi nisi nulla esse reprehenderit alias provident maiores at iure vel dolorum. Aut accusantium commodi ratione cumque repudiandae.
 
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum accusamus consectetur dolorem doloremque quasi incidunt, aspernatur culpa quae temporibus sint accusantium nisi delectus ut est perferendis eos dicta commodi dolor!"
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum accusamus consectetur dolorem doloremque quasi incidunt, aspernatur culpa quae temporibus sint accusantium nisi delectus ut est perferendis eos dicta commodi dolor!",
+                url=url_for("posts.post", id=1)
             )}}
             <div class="comments-user">
                 <div class="comments-group">
@@ -144,7 +155,7 @@
                 ) }}
 
                 </div>
-                <a href="#">Ver comentarios</a>
+                <a href="{{url_for('posts.post', id=1)}}">Ver comentarios</a>
             </div>
         </div>
         <div class="publication margin-section">    
@@ -161,7 +172,8 @@
                 img=url_for("static", filename="img/media1.png"),
                 png=url_for("static", filename="img/media1.png"),
                 webp= url_for("static", filename="img/media1.webp"),
-                alt="Photo publication"
+                alt="Photo publication",
+                url=url_for("posts.post", id=1)
             )}}
             <div class="comments-user">
                 <div class="comments-group">
@@ -191,7 +203,7 @@
                 ) }}
 
                 </div>
-                <a href="#">Ver comentarios</a>
+                <a href="{{url_for('posts.post', id=1)}}">Ver comentarios</a>
             </div>
         </div>
 
@@ -208,7 +220,8 @@
             )}}
             {{media(
                 type="video",
-                src=url_for('static', filename='video/QuickTime Sample Video Warning Video is 5 Seconds Long_v144P.mp4')
+                src=url_for('static', filename='video/QuickTime Sample Video Warning Video is 5 Seconds Long_v144P.mp4'),
+                url=url_for("posts.post", id=1)
             )}}
             <div class="comments-user">
                 <div class="comments-group">
@@ -238,7 +251,7 @@
                 ) }}
 
                 </div>
-                <a href="#">Ver comentarios</a>
+                <a href="{{url_for('posts.post', id=1)}}">Ver comentarios</a>
             </div>
         </div>
 
@@ -253,7 +266,8 @@
             )}}
             {{media(
                 type="audio",
-                src=url_for('static', filename='video/QuickTime Sample Video Warning Video is 5 Seconds Long_v144P.mp4')
+                src=url_for('static', filename='video/QuickTime Sample Video Warning Video is 5 Seconds Long_v144P.mp4'),
+                url=url_for("posts.post", id=1)
             )}}
             <div class="comments-user">
                 <div class="comments-group">
@@ -283,7 +297,7 @@
                 ) }}
 
                 </div>
-                <a href="#">Ver comentarios</a>
+                <a href="{{url_for('posts.post', id=1)}}">Ver comentarios</a>
             </div>
         </div>
 
@@ -293,4 +307,10 @@
 {{footer()}}
 {{footer_mobile(class="black")}}
 
+<script>
+    function holaMundo(){
+      console.log(HolaMundo);
+      window.location.href = "http://www.w3schools.com";
+    }
+</script>
 {% endblock body %}

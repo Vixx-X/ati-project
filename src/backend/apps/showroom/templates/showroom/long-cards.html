@@ -2,8 +2,14 @@
 
 {% from "components/long-cards.html" import longCard %}
 
+{% block onloadscripts %}
+<script src="{{url_for('static', filename='js/components/description-input.js')}}"> </script>
+
+{% endblock onloadscripts %}
+
 {% block title %}{{ _('Long Cards') }}{% endblock title %}
 {% block body %}
+
 <div class="content-showroom-long-card">
 
     <!-- Variant1: Primary -->
@@ -24,11 +30,22 @@
 
     <div class="margin-section"></div>
 
+    {{longCard(
+        title='Text Title',
+        content=['Text Content'],
+        type='secundary',
+        edit=True
+    )}}
+
+    <div class="margin-section"></div>
+    
+
     <!-- Variant3: Primary, Long -->
     {{longCard(
         title='Text Title',
         content=['Text Content', 'Text Content'],
-        type='primary long'
+        type='primary',
+        edit=True
     )}}
 
 </div>

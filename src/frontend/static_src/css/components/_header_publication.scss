@@ -15,13 +15,23 @@
     .user {
         margin-right: 0.3em;
     }
-    .w-100 {
-        width: 100%;
-    }
     .modify{
-        position: absolute;
-        top: 0;
-        right: 0;
+        img{        
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4rem;
+        }
+    }
+    .title-wrap{
+        max-width: 90%;
+    }
+
+    .details{
+        @include desktop{
+            font-size: 1.2rem;
+        }
+        
     }
 }
 
