@@ -5,6 +5,7 @@ Models for User module
 import mongoengine as db
 from flask_user import UserMixin
 from flask_babel import gettext as _
+from mongoengine.fields import StringField, DateTimeField, BooleanField
 
 from config.dev import LANGUAGES # for i18n
 
@@ -50,3 +51,15 @@ class User(db.Document, UserMixin):
     # Relationships
     friends = db.SortedListField(db.ReferenceField("self", reverse_delete_url=db.CASCADE), default=[])
 
+class Post(db.Document):
+    """
+    Model for users' posts
+    """
+    autor = # hacer la referencia a user model
+    title = StringField()
+    description = StringField()
+    tags = StringField()
+    time_create = DateTimeField()
+    time_edited = DateTimeField()
+    edited = BooleanField()
+    public = BooleanField()
