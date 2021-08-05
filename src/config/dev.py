@@ -13,11 +13,11 @@ BASE_DIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 # Define the database - we are working with
 # MongoDB for this example
 MONGODB_SETTINGS = {
-    'db': 'project',
-    'username':'admin',
-    'password':'1234',
-    'host':'localhost',
-    'port':27017,
+    "db": "project",
+    "username": "admin",
+    "password": "1234",
+    "host": "localhost",
+    "port": 27017,
 }
 
 # Flask-User configs
@@ -48,14 +48,11 @@ TEMPLATE_FOLDER = f"{BASE_DIR}/templates/"
 
 # Languages
 LANGUAGES = {
-    'en': 'english',
-    'es': 'español',
-    'pt': 'português',
+    "en": "english",
+    "es": "español",
+    "pt": "português",
 }
 BABEL_TRANSLATION_DIRECTORIES = f"{BASE_DIR}/translations/"
 
 # Template Auto Reload
 TEMPLATES_AUTO_RELOAD = True
-
-
-

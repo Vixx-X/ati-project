@@ -7,13 +7,13 @@ from flask_login.login_manager import LoginManager
 from flask_mongoengine import MongoEngine
 from flask_babel import Babel
 from flask_user.user_manager import UserManager
-from backend.apps.user.models import User
 from flask_wtf.csrf import CSRFProtect
 
 db = MongoEngine()
 babel = Babel()
 login = LoginManager()
 csrf = CSRFProtect()
+
 
 def init_app(config_file=None):
     """Initialize the core application."""
@@ -33,11 +33,24 @@ def init_app(config_file=None):
         app.template_folder = template_folder
 
     # Initialize Plugins
-    db.init_app(app)
-    babel.init_app(app)
-    login.init_app(app)
-    csrf.init_app(app)
-    user_manager = UserManager(app, db, User) # pylint: disable=W0612
+    db.init_app(app) # db
+
+    try:
+        mongo_client = db.get_connection()
+        mongo_client.admin.command('ismaster')
+    except Exception:
+        host = app.config["MONGODB_SETTINGS"]["host"]
+        port = app.config["MONGODB_SETTINGS"]["port"]
+        raise Exception(f'Could not connect to MongoDB, Are you sure is running on {host}:{port}?')
+
+
+    babel.init_app(app) # i18n
+    login.init_app(app) # login
+    csrf.init_app(app) # csrf tokens
+
+    from backend.apps.user.models import User
+
+    user_manager = UserManager(app, db, User)  # pylint: disable=W0612
 
     with app.app_context():
         # Include our Routes
@@ -58,8 +71,8 @@ def init_app(config_file=None):
 
         @babel.localeselector
         def get_locale():
-            if request.args.get('lang'):
-                session['lang'] = request.args.get('lang')
-            return session.get('lang', 'en')
+            if request.args.get("lang"):
+                session["lang"] = request.args.get("lang")
+            return session.get("lang", "en")
 
         return app
