@@ -1,3 +1,4 @@
+console.log("Hola mundo desde maobile")
 function showDetails() {
     document.getElementById("details").setAttribute("class", "active-content");
     document.getElementById("tab-details").setAttribute("class", "active-tab");
