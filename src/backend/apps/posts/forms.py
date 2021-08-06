@@ -36,5 +36,4 @@ class PostForm(FlaskForm):
     public = BooleanField(_("Public"))
 
     def __init__(self, user, **kwargs):
-        breakpoint()
         super().__init__(**kwargs)

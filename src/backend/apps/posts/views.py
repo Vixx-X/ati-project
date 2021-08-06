@@ -42,7 +42,7 @@ class CreateUpdatePost(FormView):
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
-        user = User.objects.get(id=current_user.id)
+        user = None # User.objects.get(id=current_user.id)
         kwargs["user"] = user
         return kwargs
 
@@ -50,6 +50,9 @@ class CreateUpdatePost(FormView):
         post = self.object or Post()
 
         post.title = form.title
+        post.description = form.description
+        post.tags = form.tags
+        post.public = form.public
 
         post.save()
         return redirect(url_for("post.post-detail", id=post._id))
