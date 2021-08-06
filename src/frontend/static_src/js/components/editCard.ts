@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', deleteDetails);
 const more = document.querySelectorAll('.morecontent');
-
 more.forEach(input => {
     input.addEventListener('click', (e) => {
         const newInput = document.querySelector('.input-description');
