@@ -1,6 +1,6 @@
 {% from "components/user-icon.html" import user_icon %}
 {% from "components/buttons.html" import buttons %}
-{% macro element_friend_list(user="User1",comunFriends="Comun friends", button="", type="basic",trasparent="", url="", png="", webp="", img="", txtbutton="Friends") %}
+{% macro element_friend_list(user="User1",comunFriends="Comun friends", button="", type="basic",trasparent="", url="", png="", webp="", img="", txtbutton="Friends", buttonfunction="") %}
 
 <div class="cont-element-friend-list {% if trasparent %} trasparent {% endif %}">
     {{ user_icon(
@@ -15,16 +15,17 @@
         <p class="element_friend_list_user">{{user}}</p>
         <p class="element_friend_list_commun_friends">{{comunFriends}}</p>
     </div>
-    <div class="cont-element-friend-button">
-        {% if button %}
+    {% if button %}
+        <div class="cont-element-friend-button">
             {{buttons(
                 mensaje=txtbutton,
+                buttonfunction=buttonfunction,
                 type="primary",
                 font="fw-bold",
                 letters="text-uppercase")
-        }}
+            }}
+        </div>
         {% endif %}
-    </div>
 </div>
 
 
