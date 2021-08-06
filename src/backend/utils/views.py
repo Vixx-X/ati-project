@@ -1,5 +1,6 @@
 from flask import render_template, request, redirect
 from flask.views import View
+from backend import db
 
 # from flask_babel import gettext as _ # for i18n
 
@@ -33,7 +34,7 @@ class TemplateView(View, TemplateMixin):
     Mixin View to shortcut basic functionalities.
     """
 
-    methods = ['GET', 'POST']
+    methods = ['GET']
 
     def dispatch_request(self, *args, **kwargs):  # pylint: disable=R0201
         return self.render_template(self.get_context_data())
@@ -120,9 +121,59 @@ class FormView(View, FormMixin, TemplateMixin):
         self.request = request
         self.args = request.args
         self.method = request.method
-        if request.method == "GET":
+        if self.method == "GET":
             return self.get(*args, **kwargs)
         return self.post(*args, **kwargs)
 
 
+class UpdateView(View, FormMixin, TemplateMixin):
+    """
+    Mixin View to shortcut basic functionalities of a view with a single form.
+    """
+
+    methods = ['GET', 'POST']
+    pk_or_slug_url = "id"
+    model_pk = "_id"
+    model = None
+
+    def get_form_kwargs(self):
+        """
+        Provide Initial data to the form
+        """
+        kwargs = super().get_form_kwargs()
+        if self.object:
+            kwargs["obj"] = self.object
+        return kwargs
+
+    def get_model(self, *args, **kwargs):
+        """
+        Return the model class to use
+        """
+        if not self.model:
+            raise NotImplementedError("Model not configured.")
+        return self.model
+
+
+    def get_object(self, *args, **kwargs):
+        """
+        Return object give the model and lookup attributes
+        """
+        key = kwargs.get(self.pk_or_slug_url)
+        if key is None:
+            return None
+        try:
+            return self.get_model(*args, **kwargs).get(**{self.model_pk:key})
+        except db.MultipleObjectsReturned:
+            raise db.MultipleObjectsReturned(f"The lookup (self.model_pk) argument is not unique")
+        except db.DoesNotExist:
+            return None
+
+    def dispatch_request(self, *args, **kwargs):
+        self.request = request
+        self.args = request.args
+        self.method = request.method
+        self.object = self.get_object(*args, **kwargs)
+        if self.method == "GET":
+            return self.get(*args, **kwargs)
+        return self.post(*args, **kwargs)
 

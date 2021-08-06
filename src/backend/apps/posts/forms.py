@@ -8,7 +8,7 @@ from wtforms.fields.core import BooleanField
 from backend.loading import get_class
 from flask_babel import lazy_gettext as _
 
-Post = get_class("posts.models", "Posts")
+Post = get_class("posts.models", "Post")
 
 
 class PostForm(FlaskForm):
