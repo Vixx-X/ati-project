@@ -62,11 +62,11 @@
             placeholderText="Write Content"
         )}}
     </div>
-    <div class="cont-create-publication-body-input-label">
+    <div class="cont-create-publication-body-input-label" id="preview">
         <div class="create-publication-body-input-label">
             <form action="POST">
                 <p>+</p>
-                <input type="file" class="create-publication-new-publication-input" value='+'>
+                <input type="file" id="file" class="create-publication-new-publication-input" onchange="handleFiles(event)">
             </form>
         </div>
         
