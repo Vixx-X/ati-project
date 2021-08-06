@@ -19,8 +19,22 @@ aside{
         display: block;
     }
     .cont-listaAmigos{
+        padding: 2rem 0;
         height: 72rem;
         overflow-y: auto;
+        .cont-element-friend-list{
+            padding: 0.5rem 2rem;
+            border: 3px solid transparent;
+            &:hover{
+                cursor: pointer;
+            }
+            &.pressed{
+                background: darken($light, 10%);
+                border-radius: 0;
+                border: 3px inset $light;
+            }
+        }
+        
     }
 }
 
@@ -29,13 +43,18 @@ aside{
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
     position: fixed;
     @include desktop{
+        height: 72rem;
         position: relative;
     }
     
     .header-chat{
-        height: 7rem;
+        flex-basis: auto;
+        width: 100%;
         background-color: lighten($primary, 10%);
         font-size: 1.2rem;
         display: flex;
@@ -52,9 +71,10 @@ aside{
     }
 
     .footer-chat{
+        flex-basis: auto;
         background-color: lighten($primary, 10%);
         @include desktop{
-            position: absolute;
+            position: static;
         }
         position: fixed;
         width: 100%;
@@ -88,12 +108,12 @@ aside{
     }
 
     .messages{
+        flex: 1;
         padding: 4rem 2rem;
-        padding-bottom: 12rem;
+        padding-bottom: 18rem;
         overflow-y: scroll;
-        height: calc(100vh - 15rem);
-        @include desktop{    
-            height: calc(72rem - 14rem);
+        @include desktop{
+            padding-bottom: 4rem;
         }
         .chat{
             margin: 2rem 0;

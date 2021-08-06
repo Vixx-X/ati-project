@@ -17,17 +17,24 @@
 
 <div class="main-container-chat container full-mobile margin-section full-mobile">
     <aside>
-        {{list_friends(
-            img=url_for('static', filename='img/users/26838989.png'),
-            name="User 1",
-            alt="User1 Photo",
-            type="connect",
-            comunFriends="Comun Friends",
-            png=url_for('static', filename='img/users/26838989.png'),
-            webp=url_for('static', filename='img/users/26838989.webp'),
-            titlelist="Chats",
-            number=15
-        )}}
+      <div class="cont-listaAmigos">
+        <div class="center">
+          <h2>Chats</h2>
+          <hr>
+        </div>
+        {% set number_friends = 15 %}
+        {% for i in range(number_friends) %}
+            {{element_friend_list(
+              user='Usuario ' ~ loop.index,
+              comunFriends='',
+              type='connect',
+              trasparent=true,
+              png=url_for('static', filename='img/users/26838989.png'),
+              webp=url_for('static', filename='img/users/26838989.webp'),
+              img=url_for('static', filename='img/users/26838989.png'),
+          )}}
+        {% endfor %}
+      </div>
     </aside>
     <main class="main-chat">
         <div class="header-chat">
