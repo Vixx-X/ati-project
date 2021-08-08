@@ -14,14 +14,19 @@
 
 aside{
     font-size: 12px;
-    display: none;
-    @include desktop{
-        display: block;
-    }
+    height: 100vh;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    overflow-y: auto;
     .cont-listaAmigos{
         padding: 2rem 0;
-        height: 72rem;
         overflow-y: auto;
+        @include desktop{
+            display: block;
+            position: static;
+            height: 72rem;
+        }
         .cont-element-friend-list{
             padding: 0.5rem 2rem;
             border: 3px solid transparent;
@@ -146,3 +151,8 @@ aside{
         display: block;
     }
 }
+//   .closed .sidebar-left-nav {
+//     -webkit-transform: translate3d(0px, 0px, 0px);
+//     transform: translate3d(0px, 0px, 0px);
+//     visibility: visible;
+//   }
