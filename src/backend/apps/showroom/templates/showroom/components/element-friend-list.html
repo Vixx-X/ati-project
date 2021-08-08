@@ -9,40 +9,45 @@
     <div class="margin-section"></div>
 
     {{element_friend_list(
-        user="Edu",
-        comunFriends="40mil",
-        button="1",
-        connect="1",
-        trasparent="1", 
-        url=url_for('static', filename='img/users/25641651.png'), 
-        png=url_for('static', filename='img/users/25641651.png'), 
-        webp=url_for('static', filename='img/users/25641651.webp')
-    )}}
+        user="Vittorio",
+        comunFriends="35", 
+        trasparent=False, 
+        url=url_for("user.profile", pk=2), 
+        png=url_for('static', filename='img/users/26838989.png'),
+        webp=url_for('static', filename='img/users/26838989.webp'),
+        img=url_for('static', filename='img/users/26838989.png'),
+        txtbutton="Delete")
+    }}
 
     <div class="margin-section"></div>
 
     {{element_friend_list(
-        user="Vitto",
-        comunFriends="40mil",
-        button="",
-        connect="",
-        trasparent="1", 
-        url=url_for('static', filename='img/users/26838989.png'), 
-        png=url_for('static', filename='img/users/26838989.png'), 
-        webp=url_for('static', filename='img/users/26838989.webp')
-    )}}
+        user="Vittorio",
+        comunFriends="35", 
+        button=True,
+        trasparent=False, 
+        type='connect',
+        buttonfunction='delete',
+        url=url_for("user.profile", pk=2), 
+        png=url_for('static', filename='img/users/26838989.png'),
+        webp=url_for('static', filename='img/users/26838989.webp'),
+        img=url_for('static', filename='img/users/26838989.png'),
+        txtbutton="Delete")
+    }}
 
     <div class="margin-section"></div>
 
     {{element_friend_list(
-        user="Vitto",
-        comunFriends="40mil",
-        button="1",
-        connect="1",
-        trasparent="", 
-        url=url_for('static', filename='img/users/25641651.png'), 
-        png=url_for('static', filename='img/users/25641651.png'), 
-        webp=url_for('static', filename='img/users/25641651.webp')
-    )}}
+        user="Vittorio",
+        comunFriends="35", 
+        button=True,
+        trasparent=True, 
+        buttonfunction='addfriend',
+        url=url_for("user.profile", pk=2), 
+        png=url_for('static', filename='img/users/26838989.png'),
+        webp=url_for('static', filename='img/users/26838989.webp'),
+        img=url_for('static', filename='img/users/26838989.png'),
+        txtbutton="Be friend")
+    }}
 </div>
 {% endblock body %}

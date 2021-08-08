@@ -67,35 +67,6 @@
                 </nav>
                 </div>
             </div>
-
-            <!-- <div class="mobile-content">
-                <div class="container margin-section">
-                {% if is_myuser %}
-                <nav class="navegation-mobile">
-                    <a href="#">
-                    <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
-                    </a>
-                    <a href="#">
-                    <img src="{{url_for('static', filename='img/icons/edit.svg')}}" alt="Edit Profile">
-                    </a>
-                </nav>
-                {% else %}
-                <nav class="navegation-mobile-other">
-                    <a href="#">
-                    <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
-                    </a>
-                    <div class="container-right">
-                    <a href="#">
-                        <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
-                    </a>
-                    <a href="#">
-                        <img src="{{url_for('static', filename='img/icons/chat.svg')}}" alt="Edit Profile">
-                    </a>
-                    </div>
-                </nav>
-                {% endif %}
-                </div>
-            </div> -->
         </div>
         
             <p class="container details margin-section">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. sunt in culpa qui officia deserunt mollit anim id est laborum.”</p>
@@ -133,7 +104,8 @@
                     user="Vittorio",
                     comunFriends="35", 
                     button=True,
-                    trasparent=False, 
+                    trasparent=False,
+                    buttonfunction='delete',
                     url=url_for("user.profile", pk=2), 
                     png=url_for('static', filename='img/users/26838989.png'),
                     webp=url_for('static', filename='img/users/26838989.webp'),
@@ -146,6 +118,7 @@
                     comunFriends="35", 
                     button=True,
                     trasparent=False, 
+                    buttonfunction='addfriend',
                     url=url_for("user.profile", pk=2), 
                     png=url_for('static', filename='img/users/26838989.png'),
                     webp=url_for('static', filename='img/users/26838989.webp'),
