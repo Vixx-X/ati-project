@@ -269,4 +269,12 @@ body.darkmode {
             background-color: $black;
         }
     }
+    .closeList{
+        color: $light;
+    }
+    .openList{
+        img{
+            filter: none;
+        }
+    }
 }

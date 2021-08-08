@@ -17,14 +17,17 @@
 
 <div class="main-container-chat container full-mobile margin-section full-mobile">
     <aside id="leftMenu">
-      <div class="cont-listaAmigos">
-        <button onclick="closeRightMenu()" class="w3-bar-item w3-button w3-large">Close &times;</button>
+      <div class="cont-listaAmigos">  
         <div class="center">
-          <h2>Chats</h2>  
+          <div class="section-top-chats">
+            <h2>Chats</h2>  
+            <button class="closeList">&times;</button>
+          </div>
           <hr>
         </div>
         {% set number_friends = 15 %}
-        {% for i in range(number_friends) %}
+        <div class="listChats">
+          {% for i in range(number_friends) %}
             {{element_friend_list(
               user='Usuario ' ~ loop.index,
               comunFriends='',
@@ -33,13 +36,14 @@
               png=url_for('static', filename='img/users/26838989.png'),
               webp=url_for('static', filename='img/users/26838989.webp'),
               img=url_for('static', filename='img/users/26838989.png'),
-          )}}
-        {% endfor %}
+            )}}
+          {% endfor %}
+        </div>
       </div>
     </aside>
     <main class="main-chat">
         <div class="header-chat">
-          <a class="link-icon" href='#'>
+          <a class="link-icon" href="{{url_for('app.home')}}"">
             <img class="icon back" src="{{ url_for('static', filename='img/icons/back.svg') }}" alt="Back Symbol">
           </a>
             {{element_friend_list(
@@ -51,7 +55,9 @@
                 webp=url_for('static', filename='img/users/26838989.webp'),
                 img=url_for('static', filename='img/users/26838989.png'),
             )}}
-            <button class="openList">&#9776;</button>
+            <button class="openList">
+              <img loading="lazy" src="{{ url_for("static", filename="img/icons/chat.svg") }}" alt="Chat">
+            </button>
         </div>
         <div class="messages">
             {{chat(

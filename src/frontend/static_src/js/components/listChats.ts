@@ -1,7 +1,7 @@
 const openList = document.querySelector('.openList');
 openList.addEventListener('click', openLeftMenu);
 
-const closeList = document.querySelector('#leftMenu .w3-button');
+const closeList = document.querySelector('.closeList');
 openList.addEventListener('click', openLeftMenu);
 closeList.addEventListener('click', closeLeftMenu);
 

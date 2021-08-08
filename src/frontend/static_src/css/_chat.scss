@@ -17,16 +17,22 @@ aside{
     height: 100vh;
     position: fixed;
     z-index: 1;
-    width: 100%;
-    overflow-y: auto;
+    animation: mymove 0.5s ease;
+    width: 80%;
+    @include desktop{
+        display: block;
+        position: static;
+        height: 72rem;
+        animation: none;
+        width: 100%;
+    }
     .cont-listaAmigos{
-        padding: 2rem 0;
-        overflow-y: auto;
+        padding:0 0 8rem 0;
+
         @include desktop{
-            display: block;
-            position: static;
-            height: 72rem;
+            padding: 2rem 0;
         }
+        height: 100%;
         .cont-element-friend-list{
             padding: 0.5rem 2rem;
             border: 3px solid transparent;
@@ -39,7 +45,55 @@ aside{
                 border: 3px inset $light;
             }
         }
-        
+        .listChats{
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        .section-top-chats{
+            display: flex;
+            align-items: center;
+            .closeList{
+                padding: 0 1rem;
+                font-size: 4rem;
+                display: flex;
+                background: transparent;
+                margin-top: 0;
+                @include desktop{
+                    display:none;
+                }
+            }    
+        }
+    }
+}
+
+.header-chat{
+    flex-basis: auto;
+    width: 100%;
+    background-color: lighten($primary, 10%);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    .cont-element-friend-list{
+        flex: 1;
+        margin: 0;
+        background: transparent;
+        @include desktop{
+            padding: 0.5rem 2rem;
+        }
+        .element_friend_list_user{
+            color:$black;
+        }
+    }
+}
+
+.openList{
+    margin-right: 1rem;
+    background: transparent;
+    @include desktop{
+        display: none;
+    }
+    img{
+        filter: invert(80%);
     }
 }
 
@@ -55,24 +109,6 @@ aside{
     @include desktop{
         height: 72rem;
         position: relative;
-    }
-    
-    .header-chat{
-        flex-basis: auto;
-        width: 100%;
-        background-color: lighten($primary, 10%);
-        font-size: 1.2rem;
-        display: flex;
-        align-items: center;
-        .cont-element-friend-list{
-            margin: 0;
-            @include desktop{
-                padding: 0.5rem 2rem;
-            }
-            .element_friend_list_user{
-                color:$black;
-            }
-        }
     }
 
     .footer-chat{
@@ -151,8 +187,8 @@ aside{
         display: block;
     }
 }
-//   .closed .sidebar-left-nav {
-//     -webkit-transform: translate3d(0px, 0px, 0px);
-//     transform: translate3d(0px, 0px, 0px);
-//     visibility: visible;
-//   }
+
+@keyframes mymove {
+    from {width: 0px;}
+    to {width: 80%;}
+}
