@@ -1,5 +1,3 @@
-console.log("Hola mundo nenes desde create publication");
-
 const handleFiles = function(event){
     let reader = new FileReader();
     let file = event.target.files[0]
