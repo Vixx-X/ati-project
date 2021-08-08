@@ -28,7 +28,7 @@ list_of_components = [
     ("chat", ["Chat", GU]),
     ("comments-users", ["Comments of Users", VA]),
     ("drop-down-list", ["Drop Down List", ED]),
-    # ("element-friend-list", ["User Element of list", ED]),
+    ("element-friend-list", ["User Element of list", ED]),
     ("footer-mobile", ["Footer Mobile", DV]),
     ("footer", ["Footer", ED]),
     ("header_publication",  ["Header Publication", DV]),
