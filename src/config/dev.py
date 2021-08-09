@@ -18,26 +18,27 @@ MONGODB_SETTINGS = {
     "password": "1234",
     "host": "localhost",
     "port": 27017,
+    "authentication_source": "admin",
 }
 
 # Flask User settings
 # https://github.com/lingthio/Flask-User/blob/master/flask_user/user_manager__settings.py
-USER_APP_NAME = "ATI Social"    # Shown in and email templates
-USER_REQUIRE_RETYPE_PASSWORD = True    # Retype pass on register
+USER_APP_NAME = "DEGVA"          # Shown in and email templates
+USER_REQUIRE_RETYPE_PASSWORD = True   # Retype pass on register
 
 # - E-mail settings
 USER_ENABLE_USERNAME = True   # Enable username authentication
 USER_ENABLE_EMAIL = True      # Enable email authentication
 USER_EMAIL_SENDER_EMAIL = "noreply@ati.vittorioadesso.com"
-USER_EMAIL_SENDER_NAME = "ATI"
+USER_EMAIL_SENDER_NAME = "DEGVA"
 
 # - Override templates
 USER_LOGIN_TEMPLATE = "user/login.html"
 USER_FORGOT_PASSWORD_TEMPLATE = "user/forgot-password.html"
 USER_REGISTER_TEMPLATE = "user/register.html"
 
-USER_AFTER_LOGIN_ENDPOINT = "home"
-USER_AFTER_LOGOUT_ENDPOINT = "welcome"
+USER_AFTER_LOGIN_ENDPOINT = "app.home"
+USER_AFTER_LOGOUT_ENDPOINT = "app.welcome"
 USER_AFTER_REGISTER_ENDPOINT = "user.edit"
 USER_AFTER_FORGOT_PASSWORD_ENDPOINT = "user.check_email"
 
