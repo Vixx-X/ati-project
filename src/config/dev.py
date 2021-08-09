@@ -33,9 +33,9 @@ USER_EMAIL_SENDER_EMAIL = "noreply@ati.vittorioadesso.com"
 USER_EMAIL_SENDER_NAME = "DEGVA"
 
 # - Override templates
-USER_LOGIN_TEMPLATE = "user/login.html"
-USER_FORGOT_PASSWORD_TEMPLATE = "user/forgot-password.html"
-USER_REGISTER_TEMPLATE = "user/register.html"
+USER_LOGIN_TEMPLATE = "user/auth/login.html"
+USER_FORGOT_PASSWORD_TEMPLATE = "user/auth/forgot-password.html"
+USER_REGISTER_TEMPLATE = "user/auth/register.html"
 
 USER_AFTER_LOGIN_ENDPOINT = "app.home"
 USER_AFTER_LOGOUT_ENDPOINT = "app.welcome"

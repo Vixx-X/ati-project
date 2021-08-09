@@ -25,7 +25,7 @@
                 <p class="text-logo">Stay 127.0.0.1 use 255.255.255.0</p>
             </div>
             <form method="POST" id="logIn" class="form-login">
-                {{ form.csrf_token }}
+                {{ login_form.csrf_token }}
 
                 <div class="heading black">
                     <h3 class="fw-normal">
@@ -34,28 +34,26 @@
                     <hr>
                 </div>
 
+                {{ form.errors.username[0] }}
+
                 {{ input(
-                     input=form.username(
-                         class="white w-100",
-                         placeholder="Your username",
-                     ),
-                     label=form.username.label(class="d-flex fw-bold black"+(
-                        " required" if form.username.flags.required else ""
-                     )),
-                     errors=form.username.errors,
+                     field=login_form.username,
+                     fieldClass="white w-100",
+                     placeholder=_("Your username"),
+                     labelClass="d-flex fw-bold black",
+                     errors=False,
                 )}}
+
                 {{ input(
-                     input=form.password(
-                         class="white w-100",
-                         placeholder="Your password",
-                     ),
-                     label=form.password.label(class="d-flex fw-bold black"+(
-                        " required" if form.password.flags.required else ""
-                     )),
-                     errors=form.password.errors,
+                     field=login_form.password,
+                     fieldClass="white w-100",
+                     placeholder=_("Your password"),
+                     labelClass="d-flex fw-bold black",
+                     errors=False,
                 )}}
-                <a href="{{url_for('app.register')}}" id="linkaccount">
-                    <p class="text-uppercase fw-bold">Don't have account?</p>
+
+                <a href="{{url_for('user.register')}}" id="linkaccount">
+                    <p class="text-uppercase fw-bold">{{ _("Don't have account?") }}</p>
                 </a>
                 <div class="container-button">
                     {{buttons(
@@ -79,8 +77,8 @@
                         letters="text-uppercase")
                     }}
                 </div>
-                <a href="{{url_for('app.forgotpassword')}}" id="linkpassword" class="margin-section">
-                    <p class="text-uppercase fw-bold">Forgot your Password?</p>
+                <a href="{{url_for('user.forgot_password')}}" id="linkpassword" class="margin-section">
+                    <p class="text-uppercase fw-bold">{{ _("Forgot your Password?") }}</p>
                 </a>
             </form>
         </div>
