@@ -2,43 +2,57 @@
 Views for the posts module.
 """
 
-from backend.utils.views import BaseView
+from flask import redirect
+from flask.helpers import url_for
+
+from backend.apps.posts.forms import PostForm
+from backend.utils.views import TemplateView, UpdateView
+from flask_login import current_user
+from backend.loading import get_class
 
 # from flask_babel import gettext as _ # for i18n
 
+# import models
+Post = get_class("posts.models", "Post")
+User = get_class("user.models", "User")
 
-class Post(BaseView):
+
+class PostView(TemplateView):
     """
     Post View to see the detail of a post and its comments.
     """
 
     template_name = "posts/post.html"
 
-    def __init__(self) -> None:
-        return
 
-
-class Comment(BaseView):
+class CommentView(TemplateView):
     """
     Comment View to watch a comment in detail.
     """
 
     template_name = "user/comment.html"
 
-    def __init__(self) -> None:
-        return
 
-class CreatePublication(BaseView):
+class CreateUpdatePostView(UpdateView):
     """
-    Create Publication View.
+    Create/Update View to the Post model.
     """
 
-    template_name = "posts/create-publication.html"
+    template_name = "posts/post-update.html"
+    form_class = PostForm
+    model = Post
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        user = User.objects.get(id=current_user.id)
+        kwargs["user"] = user
+        return kwargs
 
-class ModifyPublication(BaseView):
-    """
-    Modify Publication View.
-    """
+    def form_valid(self, form, *args, **kwargs):
+        post = self.object or Post()
 
-    template_name = "posts/modify-publication.html"
+        post.title = form.title
+
+        post.save()
+        return redirect(url_for("post.post-detail", id=post._id))
+

@@ -8,6 +8,7 @@
     @include desktop{
         margin: 4rem auto !important;
         grid-template-columns: 1fr 3fr;
+        height: 72rem;
     }
 }
 
@@ -16,6 +17,10 @@ aside{
     display: none;
     @include desktop{
         display: block;
+    }
+    .cont-listaAmigos{
+        height: 72rem;
+        overflow-y: auto;
     }
 }
 
@@ -27,7 +32,6 @@ aside{
     position: fixed;
     @include desktop{
         position: relative;
-        height: 74vh;
     }
     
     .header-chat{
@@ -42,6 +46,7 @@ aside{
             }
         }
     }
+
     .footer-chat{
         height: 7rem;
         background-color: lighten($primary, 10%);
@@ -63,6 +68,16 @@ aside{
                 border: none;
                 background: transparent;
             }
+            input::placeholder{
+                font-style: italic;
+            }
+            button{
+                border: none;
+                background: transparent;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
         }
     }
 
@@ -71,7 +86,7 @@ aside{
         overflow-y: scroll;
         height: calc(100vh - 23rem);
         @include desktop{    
-            height: calc(74vh - 14rem);
+            height: calc(72rem - 14rem);
         }
         .chat{
             margin: 2rem 0;

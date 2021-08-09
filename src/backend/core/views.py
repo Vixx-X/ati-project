@@ -3,33 +3,25 @@ Views for the core app.
 """
 
 from flask_login.utils import login_user
-from backend.forms import LoginForm
-from backend.utils.views import BaseView
+from backend.core.forms import LoginForm
+from backend.utils.views import TemplateView
 from flask import render_template, request, url_for, redirect, abort
-from flask_user import current_user
-from urllib.parse import urlparse, urljoin
+from flask_login import current_user, login_required
 
 # from flask_babel import gettext as _ # for i18n
 
 
-def is_safe_url(target):
-    """
-    Check if a url is safe to redirect to
-    """
-    ref_url = urlparse(request.host_url)
-    test_url = urlparse(urljoin(request.host_url, target))
-    return test_url.scheme in ("http", "https") and ref_url.netloc == test_url.netloc
 
-
-class Home(BaseView):
+class Home(TemplateView):
     """
     Home of the application.
     """
 
+    decorators = [login_required]
     template_name = "home.html"
 
 
-class LandingPage(BaseView):
+class LandingPage(TemplateView):
     """
     Landing page for unauthtenticated clients.
     """
@@ -61,7 +53,7 @@ def Login():
     return render_template("login.html", form=form)
 
 
-class Register(BaseView):
+class Register(TemplateView):
     """
     Register View.
     """
@@ -69,7 +61,7 @@ class Register(BaseView):
     template_name = "register.html"
 
 
-class ForgotPassword(BaseView):
+class ForgotPassword(TemplateView):
     """
     ForgotPassword View.
     """

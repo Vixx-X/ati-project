@@ -2,12 +2,15 @@
 Views for the user module.
 """
 
-from backend.utils.views import BaseView
+from backend.utils.views import TemplateView
+from backend.loading import get_classes
+from flask_user import current_user
 
 # from flask_babel import gettext as _ # for i18n
 
+[LoginForm, Register] = get_classes("user.forms", ["LoginForm", "RegisterForm"])
 
-class Config(BaseView):
+class Config(TemplateView):
     """
     Config View to edit user configuration and personalization.
     """
@@ -15,7 +18,7 @@ class Config(BaseView):
     template_name = "user/configurations.html"
 
 
-class Notification(BaseView):
+class Notification(TemplateView):
     """
     Notification View to alert or notify user of interactions or events.
     """
@@ -23,7 +26,7 @@ class Notification(BaseView):
     template_name = "user/notifications.html"
 
 
-class Friend(BaseView):
+class Friend(TemplateView):
     """
     Friend View list of a User.
     """
@@ -37,7 +40,7 @@ class Friend(BaseView):
         return ctx
 
 
-class Profile(BaseView):
+class Profile(TemplateView):
     """
     Profile View
     """
@@ -51,7 +54,7 @@ class Profile(BaseView):
         return ctx
 
 
-class EditProfile(BaseView):
+class EditProfile(TemplateView):
     """
     Edit Profile View
     """
@@ -65,7 +68,7 @@ class EditProfile(BaseView):
         return ctx
 
 
-class Search(BaseView):
+class Search(TemplateView):
     """
     Search View
     """
@@ -73,7 +76,7 @@ class Search(BaseView):
     template_name = "user/search-page.html"
 
 
-class Description(BaseView):
+class Description(TemplateView):
     """
     Edit Profile View
     """
@@ -87,7 +90,7 @@ class Description(BaseView):
         return ctx
 
 
-class Chat(BaseView):
+class Chat(TemplateView):
     """
     Chat View
     """

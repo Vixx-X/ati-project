@@ -5,6 +5,7 @@ Models for User module
 from backend import db
 from flask_user import UserMixin
 from flask_babel import gettext as _
+from social_flask_mongoengine.models import FlaskStorage
 
 from config.dev import LANGUAGES  # for i18n
 
@@ -24,6 +25,10 @@ class Config(db.Document):
 
     lang = db.StringField(max_length=3, choices=((a, b) for a, b in LANGUAGES.items()))
 
+    @property
+    def prefer_private(self):
+        return self.privacy == "PRIVATE"
+
 
 class User(db.Document, UserMixin):
     """
@@ -33,12 +38,13 @@ class User(db.Document, UserMixin):
     active = db.BooleanField(default=True)
 
     # User authentication information
+    username = db.StringField(max_length=128)
     email = db.EmailField(required=True, unique=True)
-    password = db.StringField(required=True)
+    password = db.StringField(max_length=255, required=True)
 
     # User information
-    first_name = db.StringField(default="")
-    last_name = db.StringField(default="")
+    first_name = db.StringField(max_length=128, default="")
+    last_name = db.StringField(max_length=128, default="")
     ci = db.IntField()
 
     birth_date = db.DateTimeField()
@@ -51,9 +57,22 @@ class User(db.Document, UserMixin):
 
     # Relationships
     friends = db.SortedListField(
-        db.ReferenceField("self", reverse_delete_url=db.CASCADE), default=[]
+        db.ReferenceField("self", reverse_delete_url=db.CASCADE),
+        default=[],
     )
 
     meta = {
         "collection": "users",
     }
+
+    @property
+    def social_auth(self):
+        return FlaskStorage.user.objects(user=self)
+
+    @property
+    def is_active(self):
+        return self.active
+
+    @staticmethod
+    def get_deleted_user():
+        return User(first_name="[DELETED]")

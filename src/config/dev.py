@@ -20,9 +20,27 @@ MONGODB_SETTINGS = {
     "port": 27017,
 }
 
-# Flask-User configs
-# https://flask-user.readthedocs.io/en/latest/configuring_settings.html
-USER_EMAIL_SENDER_EMAIL = "noreply@vittorioadesso.com"
+# Flask User settings
+# https://github.com/lingthio/Flask-User/blob/master/flask_user/user_manager__settings.py
+USER_APP_NAME = "ATI Social"    # Shown in and email templates
+USER_REQUIRE_RETYPE_PASSWORD = True    # Retype pass on register
+
+# - E-mail settings
+USER_ENABLE_USERNAME = True   # Enable username authentication
+USER_ENABLE_EMAIL = True      # Enable email authentication
+USER_EMAIL_SENDER_EMAIL = "noreply@ati.vittorioadesso.com"
+USER_EMAIL_SENDER_NAME = "ATI"
+
+# - Override templates
+USER_LOGIN_TEMPLATE = "user/login.html"
+USER_FORGOT_PASSWORD_TEMPLATE = "user/forgot-password.html"
+USER_REGISTER_TEMPLATE = "user/register.html"
+
+USER_AFTER_LOGIN_ENDPOINT = "home"
+USER_AFTER_LOGOUT_ENDPOINT = "welcome"
+USER_AFTER_REGISTER_ENDPOINT = "user.edit"
+USER_AFTER_FORGOT_PASSWORD_ENDPOINT = "user.check_email"
+
 
 # Application threads. A common general assumption is
 # using 2 per available processor cores - to handle

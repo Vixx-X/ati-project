@@ -19,6 +19,10 @@
 .text-area-container{
 	margin: 4rem auto;
 	position: relative;
+	textarea{
+		min-height: 10rem;
+	}
+	
 	#number{
 		position: absolute;
 		top: -3rem;

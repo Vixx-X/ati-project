@@ -3,6 +3,7 @@ Views for the media module.
 """
 
 from flask.views import MethodView
+
 # from flask_babel import gettext as _ # for i18n
 
 
@@ -31,4 +32,3 @@ class Audio(MethodView):
 
     def get(self):
         return ""
-
