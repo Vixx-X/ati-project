@@ -4,10 +4,10 @@ Models for User module
 
 from backend import db
 from flask_user import UserMixin
-from flask_babel import gettext as _
 from social_flask_mongoengine.models import FlaskStorage
 
-from config.dev import LANGUAGES  # for i18n
+from config import LANGUAGES  # for i18n
+from flask_babel import gettext as _
 
 
 class Config(db.Document):

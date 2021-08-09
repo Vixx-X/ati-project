@@ -1,6 +1,9 @@
 # Dependencies for some packages
 wheel
 
+# Read .env
+read-env==1.1.0
+
 # Login and User Manager
 Flask-User==1.0.2.2
 social-auth-app-flask-mongoengine==1.0.0

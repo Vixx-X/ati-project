@@ -16,15 +16,12 @@ user_manager = UserManager()
 csrf = CSRFProtect()
 
 
-def init_app(config_file=None):
+def init_app(config_file="config"):
     """Initialize the core application."""
 
     app = Flask(__name__, instance_relative_config=False)
 
     # Reading configs
-    if not config_file:
-        config_file = "config.dev"
-
     app.config.from_object(f"{config_file}")
 
     # Default for static
@@ -42,6 +39,7 @@ def init_app(config_file=None):
     db.init_app(app) # db
 
     try:
+        # test connection
         mongo_client = db.get_connection()
         mongo_client.admin.command('ismaster')
     except Exception:

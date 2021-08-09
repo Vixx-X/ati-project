@@ -34,7 +34,9 @@
                     <hr>
                 </div>
 
-                {{ form.errors.username[0] }}
+                {% if login_form.errors -%}
+                {{ login_form.errors.username[0] }}
+                {%- endif %}
 
                 {{ input(
                      field=login_form.username,
