@@ -16,25 +16,36 @@
 {{ header(classname="bg-header") }}
 
 <div class="main-container-chat container full-mobile margin-section full-mobile">
-    <aside>
-        {{list_friends(
-            img=url_for('static', filename='img/users/26838989.png'),
-            name="User 1",
-            alt="User1 Photo",
-            type="connect",
-            comunFriends="Comun Friends",
-            png=url_for('static', filename='img/users/26838989.png'),
-            webp=url_for('static', filename='img/users/26838989.webp'),
-            titlelist="Chats",
-            number=15
-        )}}
+    <aside id="leftMenu">
+      <div class="cont-listaAmigos">  
+        <div class="center">
+          <div class="section-top-chats">
+            <h2>Chats</h2>  
+            <button class="closeList">&times;</button>
+          </div>
+          <hr>
+        </div>
+        {% set number_friends = 15 %}
+        <div class="listChats">
+          {% for i in range(number_friends) %}
+            {{element_friend_list(
+              user='Usuario ' ~ loop.index,
+              comunFriends='',
+              type='connect',
+              trasparent=true,
+              png=url_for('static', filename='img/users/26838989.png'),
+              webp=url_for('static', filename='img/users/26838989.webp'),
+              img=url_for('static', filename='img/users/26838989.png'),
+            )}}
+          {% endfor %}
+        </div>
+      </div>
     </aside>
     <main class="main-chat">
         <div class="header-chat">
-          <a class="link-icon" href='#'>
+          <a class="link-icon" href="{{url_for('app.home')}}"">
             <img class="icon back" src="{{ url_for('static', filename='img/icons/back.svg') }}" alt="Back Symbol">
           </a>
-          </button>
             {{element_friend_list(
                 user='Vittorio Addeso',
                 comunFriends='En linea',
@@ -44,6 +55,9 @@
                 webp=url_for('static', filename='img/users/26838989.webp'),
                 img=url_for('static', filename='img/users/26838989.png'),
             )}}
+            <button class="openList">
+              <img loading="lazy" src="{{ url_for("static", filename="img/icons/chat.svg") }}" alt="Chat">
+            </button>
         </div>
         <div class="messages">
             {{chat(
