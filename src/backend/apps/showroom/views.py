@@ -198,8 +198,6 @@ class InputLabel(TemplateView):
     """
     Showcase for inputLabel component.
     """
-<<<<<<< HEAD
-
     template_name = "showroom/input-label.html"
 
 
@@ -304,8 +302,6 @@ class ListComments(TemplateView):
     Showcase for profile1 view.
     """
 
-    template_name = "showroom/list-comments.html"
-=======
     template_name = "showroom/components/input-label.html"
 
 class RadioButton(BaseView):
