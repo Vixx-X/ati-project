@@ -198,245 +198,136 @@ class InputLabel(TemplateView):
     """
     Showcase for inputLabel component.
     """
-<<<<<<< HEAD
-
-    template_name = "showroom/input-label.html"
-
-
-class RadioButton(TemplateView):
-    """
-    Showcase for RadioButton component.
-    """
-
-    template_name = "showroom/radio-button.html"
-
-
-class BooleanButton(TemplateView):
-    """
-    Showcase for chat component.
-    """
-
-    template_name = "showroom/boolean-button.html"
-
-
-class DropDownList(TemplateView):
-    """
-    Showcase for chat component.
-    """
-
-    template_name = "showroom/drop-down-list.html"
-
-
-class ElementFriendList(TemplateView):
-    """
-    Showcase for chat component.
-    """
-
-    template_name = "showroom/element-friend-list.html"
-
-
-class FooterMobile(TemplateView):
-    """
-    Showcase for footer mobile component.
-    """
-
-    template_name = "showroom/footer-mobile.html"
-
-
-class Register(TemplateView):
-    """
-    Showcase for register component.
-    """
-
-    template_name = "showroom/register.html"
-
-
-class Notifications(TemplateView):
-    """
-    Showcase for footer mobile component.
-    """
-
-    template_name = "showroom/notifications.html"
-
-
-class ListChats(TemplateView):
-    """
-    Showcase for chat list component.
-    """
-
-    template_name = "showroom/list-chats.html"
-
-
-class Configurations(TemplateView):
-    """
-    Showcase for configuration view.
-    """
-
-    template_name = "showroom/configurations.html"
-
-
-class Profile1(TemplateView):
-    """
-    Showcase for profile1 view.
-    """
-
-    template_name = "showroom/profile1.html"
-
-
-class CreatePublications(TemplateView):
-    """
-    Showcase for profile1 view.
-    """
-
-    template_name = "showroom/CreatePublications.html"
-
-
-class MobileNavMenu(TemplateView):
-    """
-    Showcase for mobile nav menu component.
-    """
-
-    template_name = "showroom/mobile-navmenu.html"
-
-
-class ListComments(TemplateView):
-    """
-    Showcase for profile1 view.
-    """
-
-    template_name = "showroom/list-comments.html"
-=======
     template_name = "showroom/components/input-label.html"
 
-class RadioButton(BaseView):
+class RadioButton(TemplateView):
   """
   Showcase for RadioButton component.
   """
   template_name = "showroom/components/radio-button.html"
 
-class BooleanButton(BaseView):
+class BooleanButton(TemplateView):
   """
   Showcase for chat component.
   """
   template_name = "showroom/components/boolean-button.html"
 
-class DropDownList(BaseView):
+class DropDownList(TemplateView):
   """
   Showcase for chat component.
   """
   template_name = "showroom/components/drop-down-list.html"
   
-class ElementFriendList(BaseView):
+class ElementFriendList(TemplateView):
   """
   Showcase for chat component.
   """
   template_name = "showroom/components/element-friend-list.html"
   
-class FooterMobile(BaseView):
+class FooterMobile(TemplateView):
   """
   Showcase for footer mobile component.
   """
   template_name = "showroom/components/footer-mobile.html"
 
-class Register(BaseView):
+class Register(TemplateView):
   """
   Showcase for register component.
   """
   template_name = "showroom/views/register.html"
 
-class Notifications(BaseView):
+class Notifications(TemplateView):
   """
   Showcase for footer mobile component.
   """
   template_name = "showroom/views/notifications.html"
   
-class ListChats(BaseView):
+class ListChats(TemplateView):
   """
   Showcase for chat list component.
   """
   template_name = "showroom/components/list-chats.html"
 
-class Configurations(BaseView):
+class Configurations(TemplateView):
   """
   Showcase for configuration view.
   """
   template_name = "showroom/views/configurations.html"
 
-class Profile(BaseView):
+class Profile(TemplateView):
   """
   Showcase for profile view.
   """ 
   template_name = "showroom/views/profile.html"
   
-class MobileNavMenu(BaseView):
+class MobileNavMenu(TemplateView):
   """
   Showcase for mobile nav menu component.
   """
   template_name = "showroom/components/mobile-navmenu.html"
 
-class ListComments(BaseView):
+class ListComments(TemplateView):
   """
   Showcase for profile1 view.
   """
   template_name = "showroom/components/list-comments.html"
 
-class ChatView(BaseView):
+class ChatView(TemplateView):
   """
   Showcase for chat view.
   """
   template_name = "showroom/views/chatView.html"
 
-class CreatePublication(BaseView):
+class CreatePublication(TemplateView):
   """
   Showcase for create publication view.
   """
   template_name = "showroom/views/create-publication.html"
 
-class ForgotPassword(BaseView):
+class ForgotPassword(TemplateView):
   """
   Showcase for forgot password view.
   """
   template_name = "showroom/views/forgotpassword.html"
 
-class FriendList(BaseView):
+class FriendList(TemplateView):
   """
   Showcase for friend list view.
   """
   template_name = "showroom/views/friend-list.html"
 
-class LandingPage(BaseView):
+class LandingPage(TemplateView):
   """
   Showcase for Landing view.
   """
   template_name = "showroom/views/landing-page.html"
 
-class ModifyPublication(BaseView):
+class ModifyPublication(TemplateView):
   """
   Showcase for Landing view.
   """
   template_name = "showroom/views/modify-publication.html"
 
-class Post(BaseView):
+class Post(TemplateView):
   """
   Showcase for Post view.
   """
   template_name = "showroom/views/post.html"
 
-class ProfileDescription(BaseView):
+class ProfileDescription(TemplateView):
   """
   Showcase for Profile Description view.
   """
   template_name = "showroom/views/profile-description.html"
 
-class ProfileEdit(BaseView):
+class ProfileEdit(TemplateView):
   """
   Showcase for Profile Edit view.
   """
   template_name = "showroom/views/profile-edit.html"
 
-class SearchPage(BaseView):
+class SearchPage(TemplateView):
   """
   Showcase for Profile Edit view.
   """
   template_name = "showroom/views/search-page.html"
->>>>>>> origin/develop
