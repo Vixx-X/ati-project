@@ -1,5 +1,3 @@
-console.log("Hola desde search")
-
 let divPapaSearch = document.getElementsByClassName("search-main-container")[0]
 let inputSearch = divPapaSearch.getElementsByTagName("input")[0]
 let output = document.getElementsByClassName("container-friends")[0]
