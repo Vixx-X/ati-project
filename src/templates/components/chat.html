@@ -17,7 +17,9 @@
         {% endif %}
         <p>{{menssage}}</p>
         <div class="cont-chat-description">
+            {% if comment %}
             <button class="reply-button" data="{{name}}">Reply</button>
+            {% endif %}
             <p>Date Time</p>
         </div>
     </div>
