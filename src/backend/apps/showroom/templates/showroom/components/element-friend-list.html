@@ -1,0 +1,53 @@
+{% extends "showroom/base.html" %}
+
+{% from "components/element-friend-list.html" import element_friend_list %}
+
+{% block title %}{{ _('Element friend list') }}{% endblock title %}
+
+{% block body %}
+<div class="container-showroom-list-friends">
+    <div class="margin-section"></div>
+
+    {{element_friend_list(
+        user="Vittorio",
+        comunFriends="35", 
+        trasparent=False, 
+        url=url_for("user.profile", pk=2), 
+        png=url_for('static', filename='img/users/26838989.png'),
+        webp=url_for('static', filename='img/users/26838989.webp'),
+        img=url_for('static', filename='img/users/26838989.png'),
+        txtbutton="Delete")
+    }}
+
+    <div class="margin-section"></div>
+
+    {{element_friend_list(
+        user="Vittorio",
+        comunFriends="35", 
+        button=True,
+        trasparent=False, 
+        type='connect',
+        buttonfunction='delete',
+        url=url_for("user.profile", pk=2), 
+        png=url_for('static', filename='img/users/26838989.png'),
+        webp=url_for('static', filename='img/users/26838989.webp'),
+        img=url_for('static', filename='img/users/26838989.png'),
+        txtbutton="Delete")
+    }}
+
+    <div class="margin-section"></div>
+
+    {{element_friend_list(
+        user="Vittorio",
+        comunFriends="35", 
+        button=True,
+        trasparent=True, 
+        buttonfunction='addfriend',
+        url=url_for("user.profile", pk=2), 
+        png=url_for('static', filename='img/users/26838989.png'),
+        webp=url_for('static', filename='img/users/26838989.webp'),
+        img=url_for('static', filename='img/users/26838989.png'),
+        txtbutton="Be friend")
+    }}
+</div>
+{% endblock body %}
