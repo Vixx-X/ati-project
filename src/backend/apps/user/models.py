@@ -39,8 +39,8 @@ class User(db.Document, UserMixin):
 
     # User authentication information
     username = db.StringField(max_length=128)
-    email = db.EmailField(required=True, unique=True)
-    password = db.StringField(max_length=255, required=True)
+    email = db.EmailField(unique=True)
+    password = db.StringField(max_length=255)
 
     # User information
     first_name = db.StringField(max_length=128, default="")
