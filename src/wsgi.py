@@ -4,11 +4,15 @@ Starting script for the flask app
 # Run a test server.
 
 from backend import init_app
+from dotenv import load_dotenv
+import os
+
+ENV_DIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__))) + "/env/"
+load_dotenv(ENV_DIR + ".env")
 
 app = init_app()
 
 if __name__ == "__main__":
-    import config
     from sys import argv
 
     host, port = "0.0.0.0", 8080
@@ -18,4 +22,6 @@ if __name__ == "__main__":
     if len(argv) > 1:
         host = argv[1]
 
-    app.run(host=host, port=port, debug=config.DEBUG)
+    DEBUG = os.getenv("DEBUG", "False").lower() in ["1", "t", "true"]
+
+    app.run(host=host, port=port, debug=DEBUG)

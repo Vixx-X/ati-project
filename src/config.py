@@ -10,11 +10,6 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 # Statement for enabling the development environment
 DEBUG = os.getenv("DEBUG", "False").lower() in ["1", "t", "true"]
 
-if DEBUG:
-    from read_env import read_env
-
-    read_env(f"{BASE_DIR}/../env")
-
 # MongoEngine Settings
 # http://docs.mongoengine.org/projects/flask-mongoengine/en/latest/
 MONGODB_SETTINGS = {
@@ -29,10 +24,10 @@ MONGODB_SETTINGS = {
 # Flask Mail settings
 # https://flask-mail.readthedocs.io/en/latest/
 MAIL_SERVER = os.getenv("MAIL_SERVER")
-MAIL_PORT = os.getenv("MAIL_PORT")
+MAIL_PORT = os.getenv("MAIL_PORT", 587)
 MAIL_USE_TLS = not DEBUG
-MAIL_DEFAULT_SENDER = os.getenv("MAIL_SENDER")
-MAIL_USERNAME = os.getenv("MAIL_USERNAME")
+MAIL_DEFAULT_SENDER = os.getenv("MAIL_USERNAME")
+MAIL_USERNAME = MAIL_DEFAULT_SENDER
 MAIL_PASSWORD = os.getenv("MAIL_PASSWORD")
 
 # Flask User settings
@@ -61,7 +56,7 @@ USER_AFTER_FORGOT_PASSWORD_ENDPOINT = "user.check_email"
 THREADS_PER_PAGE = 2
 
 # Secret key for signing cookies
-SECRET_KEY = "secret"
+SECRET_KEY = os.getenv("SECRET_KEY", "secret")
 
 # Enable protection agains *Cross-site Request Forgery (CSRF)*
 CSRF_ENABLED = True
@@ -93,9 +88,15 @@ SOCIAL_AUTH_USER_MODEL = "backend.apps.user.models.User"
 SOCIAL_AUTH_FIELDS_STORED_IN_SESSION = ["keep"]
 SOCIAL_AUTH_STORAGE = "social_flask_mongoengine.models.FlaskStorage"
 SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/"
 
 SOCIAL_AUTH_SANITIZE_REDIRECTS = True  # sanitize possible open redirects
 SOCIAL_AUTH_REVOKE_TOKENS_ON_DISCONNECT = True
+
+SOCIAL_AUTH_AUTHENTICATION_BACKENDS = (
+    "social_core.backends.facebook.FacebookOAuth2",
+    # 'social_core.backends.twitter.TwitterOAuth',
+)
 
 # Facebook Backend
 # https://python-social-auth.readthedocs.io/en/latest/backends/facebook.html#oauth2

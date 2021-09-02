@@ -30,7 +30,7 @@ def init_app(app):
 
     @app.before_request
     def global_user():
-        g.user = current_user
+        g.user = current_user._get_current_object()
 
 
     # Make current user available on templates
@@ -40,8 +40,6 @@ def init_app(app):
             return {"user": g.user}
         except AttributeError:
             return {"user": None}
-
-
 
 
     @babel.localeselector
