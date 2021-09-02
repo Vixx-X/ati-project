@@ -44,7 +44,7 @@ USER_FORGOT_PASSWORD_TEMPLATE = "user/auth/forgot-password.html"
 USER_REGISTER_TEMPLATE = "user/auth/register.html"
 
 USER_AFTER_LOGIN_ENDPOINT = "app.home"
-USER_AFTER_LOGOUT_ENDPOINT = "app.welcome"
+USER_AFTER_LOGOUT_ENDPOINT = "app.landing"
 USER_AFTER_REGISTER_ENDPOINT = "user.edit"
 USER_AFTER_FORGOT_PASSWORD_ENDPOINT = "user.check_email"
 
