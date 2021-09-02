@@ -9,6 +9,7 @@ from flask_wtf.csrf import CSRFProtect
 from social_flask_mongoengine.models import init_social
 from backend.blueprints import register_blueprint
 from backend.apps.user.user_manager import UserManager
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 db = MongoEngine()
 babel = Babel()
@@ -20,6 +21,7 @@ def init_app(config_file="config"):
     """Initialize the core application."""
 
     app = Flask(__name__, instance_relative_config=False)
+    app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1)
 
     # Reading configs
     app.config.from_object(f"{config_file}")
