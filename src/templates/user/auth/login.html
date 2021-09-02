@@ -79,8 +79,11 @@
                         letters="text-uppercase")
                     }}
                 </div>
-                <a href="{{url_for('social.auth', backend="facebook")}}" id="faceb">
+                <a href="{{url_for('social.auth', backend="facebook")}}" id="facebook">
                     <p class="text-uppercase fw-bold">Facebook</p>
+                </a>
+                <a href="{{url_for('social.auth', backend="twitter")}}" id="twitter">
+                    <p class="text-uppercase fw-bold">Twitter</p>
                 </a>
                 <a href="{{url_for('user.forgot_password')}}" id="linkpassword" class="margin-section">
                     <p class="text-uppercase fw-bold">{{ _("Forgot your Password?") }}</p>

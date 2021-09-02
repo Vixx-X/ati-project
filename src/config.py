@@ -95,7 +95,7 @@ SOCIAL_AUTH_REVOKE_TOKENS_ON_DISCONNECT = True
 
 SOCIAL_AUTH_AUTHENTICATION_BACKENDS = (
     "social_core.backends.facebook.FacebookOAuth2",
-    # 'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.twitter.TwitterOAuth',
 )
 
 # Facebook Backend
@@ -103,3 +103,8 @@ SOCIAL_AUTH_AUTHENTICATION_BACKENDS = (
 SOCIAL_AUTH_FACEBOOK_KEY = os.getenv("FACEBOOK_APP_KEY")
 SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv("FACEBOOK_APP_SECRET")
 SOCIAL_AUTH_FACEBOOK_SCOPE = ["email"]
+
+# Twitter Backend
+# https://python-social-auth.readthedocs.io/en/latest/backends/twitter.html
+SOCIAL_AUTH_TWITTER_KEY = os.getenv("TWITTER_APP_KEY")
+SOCIAL_AUTH_TWITTER_SECRET = os.getenv("TWITTER_APP_SECRET")
