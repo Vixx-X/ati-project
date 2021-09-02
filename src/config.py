@@ -101,5 +101,5 @@ SOCIAL_AUTH_AUTHENTICATION_BACKENDS = (
 # Facebook Backend
 # https://python-social-auth.readthedocs.io/en/latest/backends/facebook.html#oauth2
 SOCIAL_AUTH_FACEBOOK_KEY = os.getenv("FACEBOOK_APP_KEY")
-SOCIAL_AUTH_FACEBOOK_SECRET = SECRET_KEY + "_facebook"
+SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv("FACEBOOK_APP_SECRET")
 SOCIAL_AUTH_FACEBOOK_SCOPE = ["email"]
