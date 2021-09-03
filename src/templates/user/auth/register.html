@@ -5,9 +5,8 @@
 {% from "components/buttons.html" import buttons %}
 {% from "components/footer.html" import footer %}
 
-
-{% block title %} LogIn {% endblock title %}
-{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}" >{% endblock %}
+{% block title %} Sign Up {% endblock title %}
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}" >{% endblock %}
 
 {% block body %}
 <div class="container-center">
@@ -24,42 +23,50 @@
                 </a>
                 <p class="text-logo">Stay 127.0.0.1 use 255.255.255.0</p>
             </div>
-            <form method="POST" id="logIn" class="form-login">
-                {{ form.csrf_token }}
+            <form method="POST" id="register" class="form-login">
+                {{ register_form.csrf_token }}
 
                 <div class="heading black">
                     <h3 class="fw-normal">
-                        LogIn
+                        Sign Up
                     </h3>
                     <hr>
                 </div>
 
                 {{ input(
-                     input=form.username(
-                         class="white w-100",
-                         placeholder="Your username",
-                     ),
-                     label=form.username.label(class="d-flex fw-bold black"+(
-                        " required" if form.username.flags.required else ""
-                     )),
-                     errors=form.username.errors,
+                     field=register_form.username,
+                     fieldClass="white w-100",
+                     placeholder=_("Your username"),
+                     labelClass="d-flex fw-bold black",
                 )}}
+
                 {{ input(
-                     input=form.password(
-                         class="white w-100",
-                         placeholder="Your password",
-                     ),
-                     label=form.password.label(class="d-flex fw-bold black"+(
-                        " required" if form.password.flags.required else ""
-                     )),
-                     errors=form.password.errors,
+                     field=register_form.email,
+                     fieldClass="white w-100",
+                     placeholder=_("Your email"),
+                     labelClass="d-flex fw-bold black",
                 )}}
-                <a href="{{url_for('app.register')}}" id="linkaccount">
-                    <p class="text-uppercase fw-bold">Don't have account?</p>
+
+                {{ input(
+                     field=register_form.password,
+                     fieldClass="white w-100",
+                     placeholder=_("Your password"),
+                     labelClass="d-flex fw-bold black",
+                )}}
+
+                {{ input(
+                     field=register_form.retype_password,
+                     fieldClass="white w-100",
+                     placeholder=_("Retype your password"),
+                     labelClass="d-flex fw-bold black",
+                )}}
+
+                <a href="{{url_for('user.login')}}" id="linkaccount">
+                    <p class="text-uppercase fw-bold">Alredy have an account?</p>
                 </a>
                 <div class="container-button">
                     {{buttons(
-                        mensaje="Sign In",
+                        mensaje="Sign Up",
                         type="primary",
                         font="fw-bold",
                         letters="text-uppercase",
@@ -79,9 +86,6 @@
                         letters="text-uppercase")
                     }}
                 </div>
-                <a href="{{url_for('app.forgotpassword')}}" id="linkpassword" class="margin-section">
-                    <p class="text-uppercase fw-bold">Forgot your Password?</p>
-                </a>
             </form>
         </div>
     </div>

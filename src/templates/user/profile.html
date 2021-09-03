@@ -149,7 +149,7 @@
             png=url_for("static", filename="img/media1.png"),
             webp=url_for("static", filename="img/media1.webp"),
             alt="Photo Publication",
-            url=url_for("posts.post", id=1)
+            url=url_for("posts.post-detail", id=1)
         )}}
         <div class="comments-user">
             <div class="comments-group">
@@ -179,7 +179,7 @@
             ) }}
 
             </div>
-            <a href="{{url_for('posts.post', id=1)}}">Ver comentarios</a>
+            <a href="{{url_for('posts.post-detail', id=1)}}">Ver comentarios</a>
         </div>
       </div>
       <aside>

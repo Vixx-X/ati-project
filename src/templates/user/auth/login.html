@@ -1,0 +1,98 @@
+{% extends "showroom/base.html" %}
+
+{% from "components/input-label.html" import inputLabel %}
+{% from "components/input.html" import input %}
+{% from "components/buttons.html" import buttons %}
+{% from "components/footer.html" import footer %}
+
+
+{% block title %} LogIn {% endblock title %}
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}" >{% endblock %}
+
+{% block body %}
+<div class="container-center">
+    <div class="background-dark-transparent">
+        <div class="container content-distribution">
+            <div class="container-left">
+                <a href="{{url_for('app.landing')}}">
+                    <div class="main-logotype">
+                        <img
+                        src="{{ url_for('static', filename='img/logo.svg') }}"
+                        alt="DEGVA logotype" />
+                        <h1>DEGVA</h1>
+                    </div>
+                </a>
+                <p class="text-logo">Stay 127.0.0.1 use 255.255.255.0</p>
+            </div>
+            <form method="POST" id="logIn" class="form-login">
+                {{ login_form.csrf_token }}
+
+                <div class="heading black">
+                    <h3 class="fw-normal">
+                        LogIn
+                    </h3>
+                    <hr>
+                </div>
+
+                {% if login_form.errors -%}
+                {{ login_form.errors.username[0] }}
+                {%- endif %}
+
+                {{ input(
+                     field=login_form.username,
+                     fieldClass="white w-100",
+                     placeholder=_("Your username"),
+                     labelClass="d-flex fw-bold black",
+                     errors=False,
+                )}}
+
+                {{ input(
+                     field=login_form.password,
+                     fieldClass="white w-100",
+                     placeholder=_("Your password"),
+                     labelClass="d-flex fw-bold black",
+                     errors=False,
+                )}}
+
+                <a href="{{url_for('user.register')}}" id="linkaccount">
+                    <p class="text-uppercase fw-bold">{{ _("Don't have account?") }}</p>
+                </a>
+                <div class="container-button">
+                    {{buttons(
+                        mensaje="Sign In",
+                        type="primary",
+                        font="fw-bold",
+                        letters="text-uppercase",
+                    )}}
+                </div>
+                <div class="container-api">
+                    {{buttons(
+                        mensaje="Twitter",
+                        type="secundary",
+                        font="fw-bold",
+                        letters="text-uppercase")
+                    }}
+                    {{buttons(
+                        mensaje="Facebook",
+                        type="secundary",
+                        font="fw-bold",
+                        letters="text-uppercase")
+                    }}
+                </div>
+                <a href="{{url_for('social.auth', backend="facebook")}}" id="facebook">
+                    <p class="text-uppercase fw-bold">Facebook</p>
+                </a>
+                <a href="{{url_for('social.auth', backend="twitter")}}" id="twitter">
+                    <p class="text-uppercase fw-bold">Twitter</p>
+                </a>
+                <a href="{{url_for('user.forgot_password')}}" id="linkpassword" class="margin-section">
+                    <p class="text-uppercase fw-bold">{{ _("Forgot your Password?") }}</p>
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{footer()}}
+
+{% endblock body %}

@@ -3,8 +3,9 @@ Views for the showroom module.
 """
 
 from flask.helpers import url_for
-from backend.utils.views import BaseView
-from flask_babel import lazy_gettext as _ # for i18n
+from backend.utils.views import TemplateView
+from flask_babel import lazy_gettext as _  # for i18n
+
 
 def get_tag(tag):
     """
@@ -13,10 +14,11 @@ def get_tag(tag):
 
     if isinstance(tag, list):
         label, owner = tag
-        return (_(label) + ' - %s') % owner
+        return (_(label) + " - %s") % owner
     return _(tag)
 
-class Index(BaseView):
+
+class Index(TemplateView):
     """
     Index View to showcase all rooms.
     """
@@ -30,6 +32,7 @@ class Index(BaseView):
         Place the list_of_rooms in the context
         """
         from . import urls
+
         list_of_rooms = getattr(urls, self.list_of_rooms)
 
         urls_list = {
@@ -47,7 +50,6 @@ class Components(Index):
     list_of_rooms = "list_of_components"
 
 
-
 class Views(Index):
     """
     Index View to showcase all views.
@@ -57,7 +59,7 @@ class Views(Index):
     list_of_rooms = "list_of_views"
 
 
-class Buttons(BaseView):
+class Buttons(TemplateView):
     """
     Showcase for button component.
     """
@@ -65,7 +67,7 @@ class Buttons(BaseView):
     template_name = "showroom/components/buttons.html"
 
 
-class Header(BaseView):
+class Header(TemplateView):
     """
     Showcase for header component.
     """
@@ -73,7 +75,7 @@ class Header(BaseView):
     template_name = "showroom/components/header.html"
 
 
-class UserIcon(BaseView):
+class UserIcon(TemplateView):
     """
     Showcase for user-icon component.
     """
@@ -81,7 +83,7 @@ class UserIcon(BaseView):
     template_name = "showroom/components/user-icon.html"
 
 
-class Card(BaseView):
+class Card(TemplateView):
     """
     Showcase for card component.
     """
@@ -89,14 +91,15 @@ class Card(BaseView):
     template_name = "showroom/components/card.html"
 
 
-class Header2(BaseView):
+class Header2(TemplateView):
     """
     Showcase for header2 component.
     """
 
     template_name = "showroom/components/header2.html"
 
-class Comments(BaseView):
+
+class Comments(TemplateView):
     """
     Showcase for comments-users component.
     """
@@ -104,7 +107,7 @@ class Comments(BaseView):
     template_name = "showroom/components/comments-users.html"
 
 
-class Footers(BaseView):
+class Footers(TemplateView):
     """
     Showcase for footer component.
     """
@@ -112,7 +115,7 @@ class Footers(BaseView):
     template_name = "showroom/components/footer.html"
 
 
-class Heading(BaseView):
+class Heading(TemplateView):
     """
     Showcase for heading component.
     """
@@ -120,14 +123,15 @@ class Heading(BaseView):
     template_name = "showroom/components/heading.html"
 
 
-class LongCards(BaseView):
+class LongCards(TemplateView):
     """
     Showcase for long cards component.
     """
 
     template_name = "showroom/components/long-cards.html"
 
-class Notification(BaseView):
+
+class Notification(TemplateView):
     """
     Showcase for notification component.
     """
@@ -135,7 +139,7 @@ class Notification(BaseView):
     template_name = "showroom/components/notification.html"
 
 
-class SearchButton(BaseView):
+class SearchButton(TemplateView):
     """
     Showcase for search component.
     """
@@ -143,180 +147,186 @@ class SearchButton(BaseView):
     template_name = "showroom/components/search-button.html"
 
 
-class Chat(BaseView):
+class Chat(TemplateView):
     """
     Showcase for chat component.
     """
 
     template_name = "showroom/components/chat.html"
 
-class ListFriends(BaseView):
+
+class ListFriends(TemplateView):
     """
     Showcase for chat component.
     """
 
     template_name = "showroom/components/list-friends.html"
-class HeaderPublication(BaseView):
+
+
+class HeaderPublication(TemplateView):
     """
     Showcase for header publication component.
     """
     template_name = "showroom/components/header-publication.html"
 
 
-class Muro(BaseView):
+class Muro(TemplateView):
     """
     Showcase for muro view.
     """
 
     template_name = "showroom/views/muro.html"
 
-class Home(BaseView):
+
+class Home(TemplateView):
     """
     Showcase for home view.
     """
 
     template_name = "showroom/views/home.html"
 
-class LogIn(BaseView):
+
+class LogIn(TemplateView):
     """
     Showcase for login view.
     """
 
     template_name = "showroom/views/login.html"
 
-class InputLabel(BaseView):
+
+class InputLabel(TemplateView):
     """
     Showcase for inputLabel component.
     """
     template_name = "showroom/components/input-label.html"
 
-class RadioButton(BaseView):
+class RadioButton(TemplateView):
   """
   Showcase for RadioButton component.
   """
   template_name = "showroom/components/radio-button.html"
 
-class BooleanButton(BaseView):
+class BooleanButton(TemplateView):
   """
   Showcase for chat component.
   """
   template_name = "showroom/components/boolean-button.html"
 
-class DropDownList(BaseView):
+class DropDownList(TemplateView):
   """
   Showcase for chat component.
   """
   template_name = "showroom/components/drop-down-list.html"
   
-class ElementFriendList(BaseView):
+class ElementFriendList(TemplateView):
   """
   Showcase for chat component.
   """
   template_name = "showroom/components/element-friend-list.html"
   
-class FooterMobile(BaseView):
+class FooterMobile(TemplateView):
   """
   Showcase for footer mobile component.
   """
   template_name = "showroom/components/footer-mobile.html"
 
-class Register(BaseView):
+class Register(TemplateView):
   """
   Showcase for register component.
   """
   template_name = "showroom/views/register.html"
 
-class Notifications(BaseView):
+class Notifications(TemplateView):
   """
   Showcase for footer mobile component.
   """
   template_name = "showroom/views/notifications.html"
   
-class ListChats(BaseView):
+class ListChats(TemplateView):
   """
   Showcase for chat list component.
   """
   template_name = "showroom/components/list-chats.html"
 
-class Configurations(BaseView):
+class Configurations(TemplateView):
   """
   Showcase for configuration view.
   """
   template_name = "showroom/views/configurations.html"
 
-class Profile(BaseView):
+class Profile(TemplateView):
   """
   Showcase for profile view.
   """ 
   template_name = "showroom/views/profile.html"
   
-class MobileNavMenu(BaseView):
+class MobileNavMenu(TemplateView):
   """
   Showcase for mobile nav menu component.
   """
   template_name = "showroom/components/mobile-navmenu.html"
 
-class ListComments(BaseView):
+class ListComments(TemplateView):
   """
   Showcase for profile1 view.
   """
   template_name = "showroom/components/list-comments.html"
 
-class ChatView(BaseView):
+class ChatView(TemplateView):
   """
   Showcase for chat view.
   """
   template_name = "showroom/views/chatView.html"
 
-class CreatePublication(BaseView):
+class CreatePublication(TemplateView):
   """
   Showcase for create publication view.
   """
   template_name = "showroom/views/create-publication.html"
 
-class ForgotPassword(BaseView):
+class ForgotPassword(TemplateView):
   """
   Showcase for forgot password view.
   """
   template_name = "showroom/views/forgotpassword.html"
 
-class FriendList(BaseView):
+class FriendList(TemplateView):
   """
   Showcase for friend list view.
   """
   template_name = "showroom/views/friend-list.html"
 
-class LandingPage(BaseView):
+class LandingPage(TemplateView):
   """
   Showcase for Landing view.
   """
   template_name = "showroom/views/landing-page.html"
 
-class ModifyPublication(BaseView):
+class ModifyPublication(TemplateView):
   """
   Showcase for Landing view.
   """
   template_name = "showroom/views/modify-publication.html"
 
-class Post(BaseView):
+class Post(TemplateView):
   """
   Showcase for Post view.
   """
   template_name = "showroom/views/post.html"
 
-class ProfileDescription(BaseView):
+class ProfileDescription(TemplateView):
   """
   Showcase for Profile Description view.
   """
   template_name = "showroom/views/profile-description.html"
 
-class ProfileEdit(BaseView):
+class ProfileEdit(TemplateView):
   """
   Showcase for Profile Edit view.
   """
   template_name = "showroom/views/profile-edit.html"
 
-class SearchPage(BaseView):
+class SearchPage(TemplateView):
   """
   Showcase for Profile Edit view.
   """

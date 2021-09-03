@@ -2,51 +2,53 @@
 Models for User module
 """
 
-import mongoengine as db
-from flask_user import UserMixin
-from flask_babel import gettext as _
+from backend import db
 
-from config.dev import LANGUAGES # for i18n
+# from flask_babel import lazy_gettext as _
+from datetime import datetime
 
-class Config(db.Document):
+from backend.loading import get_class
+
+User = get_class("user.models", "User")
+
+
+class Post(db.Document):
     """
-    Config and personalization for a user
-    """
-    PRIVACY_OPTIONS = (('PUBLIC',_('public')), ('PRIVATE',_('private')))
-    privacy = db.StringField(max_length=10, choices=PRIVACY_OPTIONS)
-
-    notify = db.BooleanField(default=True)
-
-    THEME_OPTIONS = (('LIGHT',_('light mode')), ('DARK',_('dark mode')))
-    theme = db.StringField(max_length=10, choices=THEME_OPTIONS)
-
-    lang = db.StringField(max_length=3, choices=((a,b) for a, b in LANGUAGES.items()))
-
-
-class User(db.Document, UserMixin):
-    """
-    User model for common user attributes and methods
+    Model for users` posts
     """
 
-    active = db.BooleanField(default=True)
+    author = db.ReferenceField(
+        User, reverse_delete_rule=db.NULLIFY
+    )  # hacer la referencia a user model
 
-    # User authentication information
-    email = db.EmailField(required=True, unique=True)
-    password = db.StringField(required=True)
+    # content
+    title = db.StringField(max_length=255)
+    description = db.StringField(max_length=65536)
+    tags = db.ListField(
+        db.StringField(max_length=255),
+        default=[],
+    )
 
-    # User information
-    first_name = db.StringField(default='')
-    last_name = db.StringField(default='')
-    ci = db.IntField()
+    # metadata
+    public = db.BooleanField(default=True)
 
-    birth_date = db.DateTimeField()
-    GENDERS = (('F',_('femenine')), ('M',_('masculine')), ('O',_('other')))
-    gender = db.StringField(max_length=1, choices=GENDERS)
+    time_created = db.DateTimeField()
+    time_edited = db.DateTimeField()
+    edited = db.BooleanField(default=False)
 
-    # Tokens
-    twitter = db.StringField(default='')
-    facebook = db.StringField(default='')
+    meta = {
+        "collection": "posts",
+    }
 
-    # Relationships
-    friends = db.SortedListField(db.ReferenceField("self", reverse_delete_url=db.CASCADE), default=[])
+    def get_author(self):
+        if self.author:
+            return self.author
+        return User.get_deleted_user()
 
+    def save(self, *args, **kwargs):
+        if not self.time_created:
+            self.time_created = datetime.now()
+        else:
+            self.time_edited = datetime.now()
+            self.edited = True
+        return super().save(*args, **kwargs)
