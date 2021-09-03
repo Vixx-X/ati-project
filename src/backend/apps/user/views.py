@@ -3,12 +3,8 @@ Views for the user module.
 """
 
 from backend.utils.views import TemplateView
-from backend.loading import get_classes
-from flask_user import current_user
 
 # from flask_babel import gettext as _ # for i18n
-
-[LoginForm, Register] = get_classes("user.forms", ["LoginForm", "RegisterForm"])
 
 class Config(TemplateView):
     """

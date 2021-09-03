@@ -18,14 +18,12 @@ def init_app(app):
     set_urls(app, bp)
     app.register_blueprint(bp)
 
-    from backend.apps.user.models import User
-
     @app.errorhandler(404)
     def not_found(error):
         """
         Return 404 template if not found
         """
-        return render_template("404.html"), 404
+        return render_template("404.html", error=error), 404
 
 
     @app.before_request

@@ -23,7 +23,7 @@
                 </a>
                 <p class="text-logo">Stay 127.0.0.1 use 255.255.255.0</p>
             </div>
-            <form method="POST" id="logIn" class="form-login">
+            <form method="POST" id="register" class="form-login">
                 {{ register_form.csrf_token }}
 
                 <div class="heading black">
@@ -34,58 +34,43 @@
                 </div>
 
                 {{ input(
-                     input=register_form.username(
-                         class="white w-100",
-                         placeholder=_("Your username"),
-                     ),
-                     label=register_form.username.label(
-                         class="d-flex fw-bold black" + (
-                         " required" if register_form.username.flags.required else ""
-                     )),
-                     errors=register_form.username.errors,
+                     field=register_form.username,
+                     fieldClass="white w-100",
+                     placeholder=_("Your username"),
+                     labelClass="d-flex fw-bold black",
                 )}}
 
+                {{ input(
+                     field=register_form.email,
+                     fieldClass="white w-100",
+                     placeholder=_("Your email"),
+                     labelClass="d-flex fw-bold black",
+                )}}
 
-                {{inputLabel(
-                    type='text',
-                    classInput='white w-100',
-                    classLabel='black',
-                    textLabel='Username',
-                    placeholderText='Your username'
+                {{ input(
+                     field=register_form.password,
+                     fieldClass="white w-100",
+                     placeholder=_("Your password"),
+                     labelClass="d-flex fw-bold black",
                 )}}
-                {{inputLabel(
-                    type='email',
-                    classInput='white w-100',
-                    classLabel='black',
-                    textLabel='E-mail',
-                    placeholderText='Your email'
+
+                {{ input(
+                     field=register_form.retype_password,
+                     fieldClass="white w-100",
+                     placeholder=_("Retype your password"),
+                     labelClass="d-flex fw-bold black",
                 )}}
-                {{inputLabel(
-                    type='password',
-                    classInput='white w-100',
-                    classLabel='black',
-                    textLabel='Password',
-                    placeholderText='Your password'
-                )}}
-                {{inputLabel(
-                    type='password',
-                    classInput='white w-100',
-                    classLabel='black',
-                    textLabel='Confirm Password',
-                    placeholderText='Confirm your password'
-                )}}
-                <a href="{{url_for('app.login')}}" id="linkaccount">
+
+                <a href="{{url_for('user.login')}}" id="linkaccount">
                     <p class="text-uppercase fw-bold">Alredy have an account?</p>
                 </a>
                 <div class="container-button">
-                    <a href="{{url_for('app.home')}}">
-                        {{buttons(
-                            mensaje="Sign In",
-                            type="primary",
-                            font="fw-bold",
-                            letters="text-uppercase")
-                        }}
-                    </a>
+                    {{buttons(
+                        mensaje="Sign Up",
+                        type="primary",
+                        font="fw-bold",
+                        letters="text-uppercase",
+                    )}}
                 </div>
                 <div class="container-api">
                     {{buttons(

@@ -40,6 +40,7 @@ class User(db.Document, UserMixin):
     # User authentication information
     username = db.StringField(max_length=128)
     email = db.EmailField(unique=True)
+    email_confirmed_at = db.DateTimeField()
     password = db.StringField(max_length=255)
 
     # User information
@@ -50,10 +51,6 @@ class User(db.Document, UserMixin):
     birth_date = db.DateTimeField()
     GENDERS = (("F", _("femenine")), ("M", _("masculine")), ("O", _("other")))
     gender = db.StringField(max_length=1, choices=GENDERS)
-
-    # Tokens
-    twitter = db.StringField(default="")
-    facebook = db.StringField(default="")
 
     # Relationships
     friends = db.SortedListField(

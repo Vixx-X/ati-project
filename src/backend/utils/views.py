@@ -1,6 +1,7 @@
 from flask import render_template, request, redirect
 from flask.views import View
 import mongoengine as db
+from flask.globals import g
 
 # from flask_babel import gettext as _ # for i18n
 
@@ -121,6 +122,7 @@ class FormView(View, FormMixin, TemplateMixin):
         self.request = request
         self.args = request.args
         self.method = request.method
+        self.user = g.user
         if self.method == "GET":
             return self.get(*args, **kwargs)
         return self.post(*args, **kwargs)
@@ -153,7 +155,6 @@ class UpdateView(View, FormMixin, TemplateMixin):
             raise NotImplementedError("Model not configured.")
         return self.model
 
-
     def get_object(self, *args, **kwargs):
         """
         Return object give the model and lookup attributes
@@ -173,6 +174,7 @@ class UpdateView(View, FormMixin, TemplateMixin):
         self.args = request.args
         self.method = request.method
         self.object = self.get_object(*args, **kwargs)
+        self.user = g.user
         if self.method == "GET":
             return self.get(*args, **kwargs)
         return self.post(*args, **kwargs)

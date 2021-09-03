@@ -7,7 +7,6 @@ from flask.helpers import url_for
 
 from backend.apps.posts.forms import PostForm
 from backend.utils.views import TemplateView, UpdateView
-from flask_login import current_user
 from backend.loading import get_class
 
 # from flask_babel import gettext as _ # for i18n
@@ -44,8 +43,7 @@ class CreateUpdatePostView(UpdateView):
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
-        user = User.objects.get(id=current_user.id)
-        kwargs["user"] = user
+        kwargs["user"] = self.user
         return kwargs
 
     def form_valid(self, form, *args, **kwargs):
