@@ -2,6 +2,7 @@
 Models for User module
 """
 
+from flask import current_app
 from backend import db
 from flask_user import UserMixin
 from social_flask_mongoengine.models import FlaskStorage
@@ -77,3 +78,32 @@ class User(db.Document, UserMixin):
     @staticmethod
     def get_deleted_user():
         return User(first_name="[DELETED]")
+
+    @staticmethod
+    def get_user_by_token(cls, token, expiration_in_seconds=None):
+        # FIXING valid token on deleted user
+        #
+        # This function works in tandem with UserMixin.get_id()
+        # Token signatures and timestamps are verified.
+        # user_id and password_ends_with are decrypted.
+
+        # Verifies a token and decrypts a User ID and parts of a User password hash
+        user_manager = current_app.user_manager
+        data_items = user_manager.verify_token(token, expiration_in_seconds)
+
+        # Verify password_ends_with
+        token_is_valid = False
+        if data_items:
+
+            # Load user by User ID
+            user_id = data_items[0]
+            password_ends_with = data_items[1]
+            user = user_manager.db_manager.get_user_by_id(user_id)
+            if not user: # <--- HERE
+                return None
+            user_password = '' if user_manager.USER_ENABLE_AUTH0 else user.password[-8:]
+
+            # Make sure that last 8 characters of user password matches
+            token_is_valid = user and user_password==password_ends_with
+
+        return user if token_is_valid else None
