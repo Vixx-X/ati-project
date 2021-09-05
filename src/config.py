@@ -87,7 +87,6 @@ BABEL_TRANSLATION_DIRECTORIES = f"{BASE_DIR}/translations/"
 SOCIAL_AUTH_USER_MODEL = "backend.apps.user.models.User"
 SOCIAL_AUTH_FIELDS_STORED_IN_SESSION = ["keep"]
 SOCIAL_AUTH_STORAGE = "social_flask_mongoengine.models.FlaskStorage"
-SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/"
 
 SOCIAL_AUTH_SANITIZE_REDIRECTS = True  # sanitize possible open redirects

@@ -53,10 +53,6 @@ class User(db.Document, UserMixin):
     GENDERS = (("F", _("femenine")), ("M", _("masculine")), ("O", _("other")))
     gender = db.StringField(max_length=1, choices=GENDERS)
 
-    # Tokens
-    twitter = db.StringField(default='')
-    facebook = db.StringField(default='')
-
     # Relationships
     friends = db.SortedListField(
         db.ReferenceField("self", reverse_delete_url=db.CASCADE),
