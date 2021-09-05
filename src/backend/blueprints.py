@@ -20,7 +20,7 @@ def customize_social_auth():
         ret = base_do_login(backend=backend, user=user, social_user=social_user)
         # Set email_confirmed_at if not already set, is assuming that a
         # user only have one email, that is, the User is the UserMailClass
-        if user.email_confirmed_at:
+        if ret and not user.email_confirmed_at:
             user.email_confirmed_at=datetime.utcnow()
             user.save()
 
