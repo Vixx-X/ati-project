@@ -10,6 +10,12 @@ from social_flask_mongoengine.models import FlaskStorage
 from config import LANGUAGES  # for i18n
 from flask_babel import gettext as _
 
+def clean_username(value):
+    """
+    Cleaning username, could be expanded to deal with inappropriate
+    words and stuff
+    """
+    return value.replace("@","")
 
 class Config(db.Document):
     """
