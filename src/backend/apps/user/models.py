@@ -79,7 +79,7 @@ class User(db.Document, UserMixin):
     def get_deleted_user():
         return User(first_name="[DELETED]")
 
-    @staticmethod
+    @classmethod
     def get_user_by_token(cls, token, expiration_in_seconds=None):
         # FIXING valid token on deleted user
         #
