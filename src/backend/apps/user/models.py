@@ -10,13 +10,20 @@ from social_flask_mongoengine.models import FlaskStorage
 from backend import db
 from config import LANGUAGES  # for i18n
 
+import re
+
+NO_ASCII_REGEX = re.compile(r"[^\x00-\x7F]+")
+NO_SPECIAL_REGEX = re.compile(r"[^\w._-]+", re.UNICODE)
+
 
 def clean_username(value):
     """
     Cleaning username, could be expanded to deal with inappropriate
     words and stuff
     """
-    return value.replace("@", "")
+    value = NO_ASCII_REGEX.sub("", value)
+    value = NO_SPECIAL_REGEX.sub("", value)
+    return value
 
 
 class Config(db.Document):
