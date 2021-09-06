@@ -2,10 +2,12 @@
 Views for the core app.
 """
 
-from backend.utils.views import TemplateView
 from flask_user import login_required
 
+from backend.utils.views import TemplateView
+
 # from flask_babel import gettext as _ # for i18n
+
 
 class Home(TemplateView):
     """
@@ -22,4 +24,3 @@ class LandingPage(TemplateView):
     """
 
     template_name = "landing-page.html"
-

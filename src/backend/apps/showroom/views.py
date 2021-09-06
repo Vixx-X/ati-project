@@ -3,8 +3,9 @@ Views for the showroom module.
 """
 
 from flask.helpers import url_for
-from backend.utils.views import TemplateView
 from flask_babel import lazy_gettext as _  # for i18n
+
+from backend.utils.views import TemplateView
 
 
 def get_tag(tag):
@@ -27,7 +28,7 @@ class Index(TemplateView):
     title = _("Showroom Showcase")
     list_of_rooms = "list_of_rooms"
 
-    def get_context_data(self):
+    def get_context_data(self, **kwargs):
         """
         Place the list_of_rooms in the context
         """
@@ -38,7 +39,7 @@ class Index(TemplateView):
         urls_list = {
             get_tag(tag): url_for(f"showroom.{name}") for name, tag in list_of_rooms
         }
-        return {"list": urls_list, "title": self.title}
+        return {**kwargs, "list": urls_list, "title": self.title}
 
 
 class Components(Index):
@@ -167,6 +168,7 @@ class HeaderPublication(TemplateView):
     """
     Showcase for header publication component.
     """
+
     template_name = "showroom/components/header-publication.html"
 
 
@@ -198,136 +200,181 @@ class InputLabel(TemplateView):
     """
     Showcase for inputLabel component.
     """
+
     template_name = "showroom/components/input-label.html"
 
+
 class RadioButton(TemplateView):
-  """
-  Showcase for RadioButton component.
-  """
-  template_name = "showroom/components/radio-button.html"
+    """
+    Showcase for RadioButton component.
+    """
+
+    template_name = "showroom/components/radio-button.html"
+
 
 class BooleanButton(TemplateView):
-  """
-  Showcase for chat component.
-  """
-  template_name = "showroom/components/boolean-button.html"
+    """
+    Showcase for chat component.
+    """
+
+    template_name = "showroom/components/boolean-button.html"
+
 
 class DropDownList(TemplateView):
-  """
-  Showcase for chat component.
-  """
-  template_name = "showroom/components/drop-down-list.html"
-  
+    """
+    Showcase for chat component.
+    """
+
+    template_name = "showroom/components/drop-down-list.html"
+
+
 class ElementFriendList(TemplateView):
-  """
-  Showcase for chat component.
-  """
-  template_name = "showroom/components/element-friend-list.html"
-  
+    """
+    Showcase for chat component.
+    """
+
+    template_name = "showroom/components/element-friend-list.html"
+
+
 class FooterMobile(TemplateView):
-  """
-  Showcase for footer mobile component.
-  """
-  template_name = "showroom/components/footer-mobile.html"
+    """
+    Showcase for footer mobile component.
+    """
+
+    template_name = "showroom/components/footer-mobile.html"
+
 
 class Register(TemplateView):
-  """
-  Showcase for register component.
-  """
-  template_name = "showroom/views/register.html"
+    """
+    Showcase for register component.
+    """
+
+    template_name = "showroom/views/register.html"
+
 
 class Notifications(TemplateView):
-  """
-  Showcase for footer mobile component.
-  """
-  template_name = "showroom/views/notifications.html"
-  
+    """
+    Showcase for footer mobile component.
+    """
+
+    template_name = "showroom/views/notifications.html"
+
+
 class ListChats(TemplateView):
-  """
-  Showcase for chat list component.
-  """
-  template_name = "showroom/components/list-chats.html"
+    """
+    Showcase for chat list component.
+    """
+
+    template_name = "showroom/components/list-chats.html"
+
 
 class Configurations(TemplateView):
-  """
-  Showcase for configuration view.
-  """
-  template_name = "showroom/views/configurations.html"
+    """
+    Showcase for configuration view.
+    """
+
+    template_name = "showroom/views/configurations.html"
+
 
 class Profile(TemplateView):
-  """
-  Showcase for profile view.
-  """ 
-  template_name = "showroom/views/profile.html"
-  
+    """
+    Showcase for profile view.
+    """
+
+    template_name = "showroom/views/profile.html"
+
+
 class MobileNavMenu(TemplateView):
-  """
-  Showcase for mobile nav menu component.
-  """
-  template_name = "showroom/components/mobile-navmenu.html"
+    """
+    Showcase for mobile nav menu component.
+    """
+
+    template_name = "showroom/components/mobile-navmenu.html"
+
 
 class ListComments(TemplateView):
-  """
-  Showcase for profile1 view.
-  """
-  template_name = "showroom/components/list-comments.html"
+    """
+    Showcase for profile1 view.
+    """
+
+    template_name = "showroom/components/list-comments.html"
+
 
 class ChatView(TemplateView):
-  """
-  Showcase for chat view.
-  """
-  template_name = "showroom/views/chatView.html"
+    """
+    Showcase for chat view.
+    """
+
+    template_name = "showroom/views/chatView.html"
+
 
 class CreatePublication(TemplateView):
-  """
-  Showcase for create publication view.
-  """
-  template_name = "showroom/views/create-publication.html"
+    """
+    Showcase for create publication view.
+    """
+
+    template_name = "showroom/views/create-publication.html"
+
 
 class ForgotPassword(TemplateView):
-  """
-  Showcase for forgot password view.
-  """
-  template_name = "showroom/views/forgotpassword.html"
+    """
+    Showcase for forgot password view.
+    """
+
+    template_name = "showroom/views/forgotpassword.html"
+
 
 class FriendList(TemplateView):
-  """
-  Showcase for friend list view.
-  """
-  template_name = "showroom/views/friend-list.html"
+    """
+    Showcase for friend list view.
+    """
+
+    template_name = "showroom/views/friend-list.html"
+
 
 class LandingPage(TemplateView):
-  """
-  Showcase for Landing view.
-  """
-  template_name = "showroom/views/landing-page.html"
+    """
+    Showcase for Landing view.
+    """
+
+    template_name = "showroom/views/landing-page.html"
+
 
 class ModifyPublication(TemplateView):
-  """
-  Showcase for Landing view.
-  """
-  template_name = "showroom/views/modify-publication.html"
+    """
+    Showcase for Landing view.
+    """
+
+    template_name = "showroom/views/modify-publication.html"
+
 
 class Post(TemplateView):
-  """
-  Showcase for Post view.
-  """
-  template_name = "showroom/views/post.html"
+    """
+    Showcase for Post view.
+    """
+
+    template_name = "showroom/views/post.html"
+
 
 class ProfileDescription(TemplateView):
-  """
-  Showcase for Profile Description view.
-  """
-  template_name = "showroom/views/profile-description.html"
+    """
+    Showcase for Profile Description view.
+    """
+
+    template_name = "showroom/views/profile-description.html"
+
 
 class ProfileEdit(TemplateView):
-  """
-  Showcase for Profile Edit view.
-  """
-  template_name = "showroom/views/profile-edit.html"
+    """
+    Showcase for Profile Edit view.
+    """
+
+    template_name = "showroom/views/profile-edit.html"
+
 
 class SearchPage(TemplateView):
-  """
-  Showcase for Profile Edit view.
-  """
-  template_name = "showroom/views/search-page.html"
+    """
+    Showcase for Profile Edit view.
+    """
+
+    template_name = "showroom/views/search-page.html"

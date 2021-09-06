@@ -3,19 +3,21 @@ Models for User module
 """
 
 from flask import current_app
-from backend import db
+from flask_babel import gettext as _
 from flask_user import UserMixin
 from social_flask_mongoengine.models import FlaskStorage
 
+from backend import db
 from config import LANGUAGES  # for i18n
-from flask_babel import gettext as _
+
 
 def clean_username(value):
     """
     Cleaning username, could be expanded to deal with inappropriate
     words and stuff
     """
-    return value.replace("@","")
+    return value.replace("@", "")
+
 
 class Config(db.Document):
     """
@@ -34,6 +36,9 @@ class Config(db.Document):
 
     @property
     def prefer_private(self):
+        """
+        Get privacy preference of user
+        """
         return self.privacy == "PRIVATE"
 
 
@@ -71,15 +76,24 @@ class User(db.Document, UserMixin):
 
     @property
     def social_auth(self):
+        """
+        Entrypoint to social_auth from my custom user
+        """
         return FlaskStorage.user.objects(user=self)
 
     @property
     def is_active(self):
+        """
+        Return if user is active
+        """
         return self.active
 
-    @staticmethod
-    def get_deleted_user():
-        return User(first_name="[DELETED]")
+    @classmethod
+    def get_deleted_user(cls):
+        """
+        Return a deleted username for templates
+        """
+        return User(username="[DELETED]")
 
     @classmethod
     def get_user_by_token(cls, token, expiration_in_seconds=None):
@@ -101,11 +115,11 @@ class User(db.Document, UserMixin):
             user_id = data_items[0]
             password_ends_with = data_items[1]
             user = user_manager.db_manager.get_user_by_id(user_id)
-            if not user: # <--- HERE
-                return None
-            user_password = '' if user_manager.USER_ENABLE_AUTH0 else user.password[-8:]
+            user_password = (
+                "" if not user or user_manager.USER_ENABLE_AUTH0 else user.password[-8:]
+            )  # <-- HERE
 
             # Make sure that last 8 characters of user password matches
-            token_is_valid = user and user_password==password_ends_with
+            token_is_valid = user and user_password == password_ends_with
 
         return user if token_is_valid else None

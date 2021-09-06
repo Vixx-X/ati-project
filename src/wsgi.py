@@ -3,9 +3,11 @@ Starting script for the flask app
 """
 # Run a test server.
 
-from backend import init_app
-from dotenv import load_dotenv
 import os
+
+from dotenv import load_dotenv
+
+from backend import init_app
 
 ENV_DIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__))) + "/env/"
 load_dotenv(ENV_DIR + ".env")

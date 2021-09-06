@@ -6,8 +6,8 @@ from flask import redirect
 from flask.helpers import url_for
 
 from backend.apps.posts.forms import PostForm
-from backend.utils.views import TemplateView, UpdateView
 from backend.loading import get_class
+from backend.utils.views import TemplateView, UpdateView
 
 # from flask_babel import gettext as _ # for i18n
 
@@ -53,4 +53,3 @@ class CreateUpdatePostView(UpdateView):
 
         post.save()
         return redirect(url_for("post.post-detail", id=post._id))
-

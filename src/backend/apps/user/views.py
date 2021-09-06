@@ -6,6 +6,7 @@ from backend.utils.views import TemplateView
 
 # from flask_babel import gettext as _ # for i18n
 
+
 class Config(TemplateView):
     """
     Config View to edit user configuration and personalization.

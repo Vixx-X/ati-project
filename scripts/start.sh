@@ -37,7 +37,7 @@ function help {
 	echo "build          - build and minify both css and js files"
 	echo "autodocs       - build automatic documentation"
 	echo ""
-	echo "black          - run formatter (black)"
+	echo "format         - run formatter (black)"
 	echo "runtests       - run pylint and pytest tests"
 	echo "dos2unix       - run dos2unix recursively from root dir"
 	echo ""

@@ -53,11 +53,13 @@ ignore = [
 # cyclic-import - doesn't test if both import on load
 # duplicate-code - unavoidable
 # format - handled by black
-# locally-disabled - it spams too much
-# too-many-* - are not enforced for the sake of readability
-# too-few-* - same as too-many-*
 # import-outside-toplevel - until we have dynamic import we cannot avoided
 # inconsistent-return-statements - doesn't handle raise
+# locally-disabled - it spams too much
+# no-member - because MongoEngine is too spammy
+# protected-access - we don't care
+# too-many-* - are not enforced for the sake of readability
+# too-few-* - same as too-many-*
 # too-many-ancestors - it's too strict.
 # unused-argument - generic callbacks and setup methods create a lot of warnings
 # wrong-import-order - isort guards this
@@ -74,7 +76,9 @@ disable = [
     "inconsistent-return-statements",
     "invalid-name",
     "locally-disabled",
+    "no-member",
     "not-context-manager",
+    "protected-access",
     "too-few-public-methods",
     "too-many-ancestors",
     "too-many-arguments",

@@ -4,7 +4,6 @@ Urls for showroom module/blueprint
 
 from . import bp, views
 
-
 VA = "Vittorio Adesso"
 GU = "Gabriela Ustariz"
 ED = "Eduardo Suarez"
@@ -31,7 +30,7 @@ list_of_components = [
     ("element-friend-list", ["User Element of list", ED]),
     ("footer-mobile", ["Footer Mobile", DV]),
     ("footer", ["Footer", ED]),
-    ("header_publication",  ["Header Publication", DV]),
+    ("header_publication", ["Header Publication", DV]),
     ("header", ["Header", GU]),
     ("header2", ["Home Header", GU]),
     ("heading", ["Heading", DV]),
@@ -126,12 +125,23 @@ bp.add_url_rule(
     "/configurations/", view_func=views.Configurations.as_view("configurations")
 )
 bp.add_url_rule("/profile/", view_func=views.Profile.as_view("profile"))
-bp.add_url_rule("/createpublication/", view_func=views.CreatePublication.as_view("createpublication"))
-bp.add_url_rule("/forgotpassword/", view_func=views.ForgotPassword.as_view("forgotpassword"))
+bp.add_url_rule(
+    "/createpublication/",
+    view_func=views.CreatePublication.as_view("createpublication"),
+)
+bp.add_url_rule(
+    "/forgotpassword/", view_func=views.ForgotPassword.as_view("forgotpassword")
+)
 bp.add_url_rule("/friendlist/", view_func=views.FriendList.as_view("friendlist"))
 bp.add_url_rule("/landingpage/", view_func=views.LandingPage.as_view("landingpage"))
-bp.add_url_rule("/modifypublication/", view_func=views.ModifyPublication.as_view("modifypublication"))
+bp.add_url_rule(
+    "/modifypublication/",
+    view_func=views.ModifyPublication.as_view("modifypublication"),
+)
 bp.add_url_rule("/post/", view_func=views.Post.as_view("post"))
-bp.add_url_rule("/profiledescription/", view_func=views.ProfileDescription.as_view("profiledescription"))
+bp.add_url_rule(
+    "/profiledescription/",
+    view_func=views.ProfileDescription.as_view("profiledescription"),
+)
 bp.add_url_rule("/profileedit/", view_func=views.ProfileEdit.as_view("profileedit"))
 bp.add_url_rule("/searchpage/", view_func=views.SearchPage.as_view("searchpage"))

@@ -2,11 +2,10 @@
 Models for User module
 """
 
-from backend import db
-
 # from flask_babel import lazy_gettext as _
 from datetime import datetime
 
+from backend import db
 from backend.loading import get_class
 
 User = get_class("user.models", "User")
@@ -41,11 +40,17 @@ class Post(db.Document):
     }
 
     def get_author(self):
+        """
+        Get Author of post
+        """
         if self.author:
             return self.author
         return User.get_deleted_user()
 
     def save(self, *args, **kwargs):
+        """
+        Override return method to update created or updated time
+        """
         if not self.time_created:
             self.time_created = datetime.now()
         else:
