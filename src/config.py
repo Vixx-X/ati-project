@@ -85,7 +85,7 @@ BABEL_TRANSLATION_DIRECTORIES = f"{BASE_DIR}/translations/"
 # Social Auth Config
 # https://python-social-auth.readthedocs.io/en/latest/configuration/settings.html
 SOCIAL_AUTH_USER_MODEL = "backend.apps.user.models.User"
-SOCIAL_AUTH_CLEAN_USERNAME_FUNCTION = "backend.apps.user.clean_username"
+SOCIAL_AUTH_CLEAN_USERNAME_FUNCTION = "backend.apps.user.models.clean_username"
 SOCIAL_AUTH_FIELDS_STORED_IN_SESSION = ["keep"]
 SOCIAL_AUTH_STORAGE = "social_flask_mongoengine.models.FlaskStorage"
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/"
