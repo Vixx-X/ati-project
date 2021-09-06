@@ -85,9 +85,9 @@ BABEL_TRANSLATION_DIRECTORIES = f"{BASE_DIR}/translations/"
 # Social Auth Config
 # https://python-social-auth.readthedocs.io/en/latest/configuration/settings.html
 SOCIAL_AUTH_USER_MODEL = "backend.apps.user.models.User"
+SOCIAL_AUTH_CLEAN_USERNAME_FUNCTION = "backend.apps.user.models.clean_username"
 SOCIAL_AUTH_FIELDS_STORED_IN_SESSION = ["keep"]
 SOCIAL_AUTH_STORAGE = "social_flask_mongoengine.models.FlaskStorage"
-SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/"
 
 SOCIAL_AUTH_SANITIZE_REDIRECTS = True  # sanitize possible open redirects
@@ -95,7 +95,20 @@ SOCIAL_AUTH_REVOKE_TOKENS_ON_DISCONNECT = True
 
 SOCIAL_AUTH_AUTHENTICATION_BACKENDS = (
     "social_core.backends.facebook.FacebookOAuth2",
-    'social_core.backends.twitter.TwitterOAuth',
+    "social_core.backends.twitter.TwitterOAuth",
+)
+
+SOCIAL_AUTH_PIPELINE = (
+    "social_core.pipeline.social_auth.social_details",
+    "social_core.pipeline.social_auth.social_uid",
+    "social_core.pipeline.social_auth.auth_allowed",
+    "social_core.pipeline.social_auth.social_user",
+    "social_core.pipeline.user.get_username",
+    "social_core.pipeline.social_auth.associate_by_email",  # <--- enable this one
+    "social_core.pipeline.user.create_user",
+    "social_core.pipeline.social_auth.associate_user",
+    "social_core.pipeline.social_auth.load_extra_data",
+    "social_core.pipeline.user.user_details",
 )
 
 # Facebook Backend
@@ -103,6 +116,9 @@ SOCIAL_AUTH_AUTHENTICATION_BACKENDS = (
 SOCIAL_AUTH_FACEBOOK_KEY = os.getenv("FACEBOOK_APP_KEY")
 SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv("FACEBOOK_APP_SECRET")
 SOCIAL_AUTH_FACEBOOK_SCOPE = ["email"]
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+    "fields": "id,name,email",
+}
 
 # Twitter Backend
 # https://python-social-auth.readthedocs.io/en/latest/backends/twitter.html

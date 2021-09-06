@@ -1,0 +1,17 @@
+{% macro oauth_button(provider, id=None, class="button secundary fw-bold text-uppercase", label=None) %}
+<a
+{% if id -%}
+id = "{{ id }}"
+{%- endif %}
+class="{{ class }}"
+href="{{ url_for('social.auth', backend=provider) }}"
+>
+    {% if False -%}
+    <img class="icon" src="" alt="">
+    {%- endif %}
+    <p>
+    {% if label -%}{{ label|safe }}{%- else -%}{{ provider }}{%- endif %}
+    </p>
+</a>
+{% endmacro %}
+

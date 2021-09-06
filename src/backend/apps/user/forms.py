@@ -2,11 +2,12 @@
 Forms for user app
 """
 
+from flask_babel import lazy_gettext as _  # for i18n
 from flask_wtf import FlaskForm
-from wtforms import StringField, validators, PasswordField
-from flask_babel import lazy_gettext as _ # for i18n
+from wtforms import PasswordField, StringField, validators
 
 # Forms
+
 
 class LoginForm(FlaskForm):
     """

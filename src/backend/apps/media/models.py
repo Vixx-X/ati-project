@@ -2,11 +2,12 @@
 Models for Media module
 """
 
+from abc import ABC
+
 import mongoengine as db
 
 # from flask_babel import gettext as _
 from mongoengine.fields import StringField
-from abc import ABC
 
 
 class Media(ABC, db.Document):
