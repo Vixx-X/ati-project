@@ -35,5 +35,15 @@ class UserManager(BaseUserManager):
 
     def customize(self, app):
         """
-        Configuring customize forms
+        Configuring custom forms
         """
+        from . import forms
+
+        self.ChangePasswordFormClass = forms.ChangePasswordForm
+        self.ChangeUsernameFormClass = forms.ChangeUsernameForm
+        self.EditUserProfileFormClass = forms.ProfileForm
+        self.ForgotPasswordFormClass = forms.ForgotPasswordForm
+        self.LoginFormClass = forms.LoginForm
+        self.RegisterFormClass = forms.RegisterForm
+        self.ResendEmailConfirmationFormClass = forms.ResendEmailConfirmationForm
+        self.ResetPasswordFormClass = forms.ResetPasswordForm

@@ -1,9 +1,12 @@
 """
 Urls for media module/blueprint
 """
+from flask import send_from_directory
 
-from . import bp, views
+from backend.apps.media.utils import get_media_root_path
+from . import bp
 
-bp.add_url_rule("/image/", view_func=views.Image.as_view("image"))
-bp.add_url_rule("/video/", view_func=views.Video.as_view("video"))
-bp.add_url_rule("/audio/", view_func=views.Audio.as_view("audio"))
+
+@bp.route("/<path:path>")
+def file(path):
+    return send_from_directory(get_media_root_path(), path)
