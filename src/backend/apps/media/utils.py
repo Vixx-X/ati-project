@@ -57,13 +57,14 @@ def get_media_class(file):
     raise UnknownMedia(f"{filename} is not a valid media")
 
 
-def save_media(file):
+def save_media(file, dry_run=False, **kwargs):
     """
     Save any kind of media depending of MIME
     """
     mediaClass = get_media_class(file)
     media = mediaClass(file=file, filename=secure_filename(file.filename))
-    media.save()
+    if not dry_run:
+        media.save(**kwargs)
     return media
 
 
@@ -79,13 +80,13 @@ def save_media_from_form(field_name):
     return None
 
 
-def create_or_replace(instance, file):
+def create_or_replace(instance, file, dry_run=False, **kwargs):
     """
     Create or replace any kind of media depending of MIME
     """
     if instance:
         instance.delete()
-    return save_media(file)
+    return save_media(file, dry_run=dry_run, **kwargs)
 
 
 def create_or_replace_from_form(instance, field_name):

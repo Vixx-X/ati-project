@@ -1,0 +1,14 @@
+{
+  "nombre": "Vittorio Adesso",
+  "descripcion": "Soy estudiante de computación en la UCV, preparador del curso de Algoritmo y Estructura de Datos, actualmente contribuyendo al proyecto de GDQTech.com, desarrollandome en las areas de la seguridad informática e Inteligencia Artificial.",
+  "color": "Amarillo azulado",
+  "libro": "I̶̜̬̳͗ ̷̡̹̦̖̑̎d̵̡̯̝̰́̿̕ȍ̴͕̼̮̀̕ ̶̫̊͘͠n̷̠̝̩͌͂̕͠ȯ̵̞͚̊t̵̩͂̽͂͒ ̸̖̄̆̄͝r̵̛̩ĕ̷̮̀͑ä̸̡̯́͛͝d̴̪̫͗̑",
+  "musica": "Chillstep Lo-Fi",
+  "video_juego": ["Call of Duty", "Minecraft"],
+  "lenguajes": ["C", "C++", "Python", "Go", "JavaScript", "Haskell"],
+  "email": "owner@vittorioadesso.com",
+  "ci": "26838989",
+  "genero": "masculino",
+  "fecha_nacimiento": "08/10/1999",
+  "imagen": "26838989.jpg"
+}
