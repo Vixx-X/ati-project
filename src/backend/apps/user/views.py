@@ -7,6 +7,14 @@ from backend.utils.views import TemplateView
 # from flask_babel import gettext as _ # for i18n
 
 
+class CheckEmailView(TemplateView):
+    """
+    CheckEmail view that notify user to check its email
+    """
+
+    template_name = "user/auth/check_email.html"
+
+
 class Config(TemplateView):
     """
     Config View to edit user configuration and personalization.

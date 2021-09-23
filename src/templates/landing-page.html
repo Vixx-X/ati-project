@@ -19,11 +19,9 @@
                     </div>
                 </a>
                 <p class="text-logo">Stay 127.0.0.1 use 255.255.255.0</p>
-                <a href="{{url_for('app.register')}}" id="linkaccount">
-                    <p class="text-uppercase fw-bold">Don't have account?</p>
-                </a>
+
                 <div class="container-button">
-                    <a href="{{url_for('app.login')}}">
+                    <a href="{{url_for('user.login')}}">
                         {{buttons(
                             mensaje="LogIn",
                             type="primary",
@@ -31,7 +29,7 @@
                             letters="text-uppercase")
                         }}
                     </a>
-                    <a href="{{url_for('app.register')}}">
+                    <a href="{{url_for('user.register')}}">
                         {{buttons(
                             mensaje="Sign Up",
                             type="primary",
@@ -41,13 +39,10 @@
                     </a>
                 </div>
 
-                <a href="{{url_for('app.forgotpassword')}}" id="linkpassword">
-                    <p class="text-uppercase fw-bold">Forgot your Password?</p>
-                </a>
             </div>
         </div>
     </div>
 
 {{footer()}}
-    
+
 {% endblock body %}

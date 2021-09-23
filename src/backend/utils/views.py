@@ -1,8 +1,10 @@
-from flask import render_template, request, redirect
+import mongoengine as db
+from flask import redirect, render_template, request
+from flask.globals import g
 from flask.views import View
-from backend import db
 
 # from flask_babel import gettext as _ # for i18n
+
 
 class TemplateMixin:
 
@@ -34,7 +36,7 @@ class TemplateView(View, TemplateMixin):
     Mixin View to shortcut basic functionalities.
     """
 
-    methods = ['GET']
+    methods = ["GET"]
 
     def dispatch_request(self, *args, **kwargs):  # pylint: disable=R0201
         return self.render_template(self.get_context_data())
@@ -65,7 +67,7 @@ class FormMixin(TemplateMixin):
         """
         return self.get_form_class()(**self.get_form_kwargs())
 
-    def form_invalid(self, form, *args, **kwargs):   # pylint: disable=R0201
+    def form_invalid(self, form, *args, **kwargs):  # pylint: disable=R0201
         """
         If the form is invalid, render the invalid form.
         """
@@ -109,18 +111,18 @@ class FormMixin(TemplateMixin):
         return self.form_invalid(form, *args, **kwargs)
 
 
-
 class FormView(View, FormMixin, TemplateMixin):
     """
     Mixin View to shortcut basic functionalities of a view with a single form.
     """
 
-    methods = ['GET', 'POST']
+    methods = ["GET", "POST"]
 
     def dispatch_request(self, *args, **kwargs):
         self.request = request
         self.args = request.args
         self.method = request.method
+        self.user = g.user
         if self.method == "GET":
             return self.get(*args, **kwargs)
         return self.post(*args, **kwargs)
@@ -131,7 +133,7 @@ class UpdateView(View, FormMixin, TemplateMixin):
     Mixin View to shortcut basic functionalities of a view with a single form.
     """
 
-    methods = ['GET', 'POST']
+    methods = ["GET", "POST"]
     pk_or_slug_url = "id"
     model_pk = "_id"
     model = None
@@ -153,7 +155,6 @@ class UpdateView(View, FormMixin, TemplateMixin):
             raise NotImplementedError("Model not configured.")
         return self.model
 
-
     def get_object(self, *args, **kwargs):
         """
         Return object give the model and lookup attributes
@@ -162,9 +163,11 @@ class UpdateView(View, FormMixin, TemplateMixin):
         if key is None:
             return None
         try:
-            return self.get_model(*args, **kwargs).get(**{self.model_pk:key})
+            return self.get_model(*args, **kwargs).get(**{self.model_pk: key})
         except db.MultipleObjectsReturned:
-            raise db.MultipleObjectsReturned(f"The lookup (self.model_pk) argument is not unique")
+            raise db.MultipleObjectsReturned(
+                f"The lookup (self.model_pk) argument is not unique"
+            )
         except db.DoesNotExist:
             return None
 
@@ -173,7 +176,7 @@ class UpdateView(View, FormMixin, TemplateMixin):
         self.args = request.args
         self.method = request.method
         self.object = self.get_object(*args, **kwargs)
+        self.user = g.user
         if self.method == "GET":
             return self.get(*args, **kwargs)
         return self.post(*args, **kwargs)
-

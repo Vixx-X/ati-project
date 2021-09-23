@@ -1,0 +1,129 @@
+{% extends "showroom/base.html" %}
+
+{% from "components/user-icon.html" import user_icon %}
+{% from "components/header-publication.html" import header_publication %}
+{% from "components/footer-mobile.html" import footer_mobile %}
+{% from "components/header.html" import header %}
+{% from "components/footer.html" import footer %}
+
+{% block title %} Notifications {% endblock title %}
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/notifications.css') }}" >{% endblock %}
+
+{% block body -%}
+{{ header(classname="bg-header") }}
+  <section class="container notifications-view">
+    <div class="heading black">
+        <h3 class="fw-normal">
+            Notifications
+        </h3>
+        <hr>
+    </div>
+    <div class="container-notications">
+        <div class="w-18 notification white">
+            <div class="d-flex">
+            <img src="{{ url_for('static', filename='img/icons/delete.svg') }}" alt="delete">
+            <h3>{{ _('Notification') }}</h3>
+            <img src="{{ url_for('static', filename='img/icons/image.svg') }}" alt="image">
+            </div>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+        </div>
+        <div class="w-18 notification primary
+        <div class="w-18 notification white">
+            <div class="d-flex">
+            <img src="{{ url_for('static', filename='img/icons/delete.svg') }}" alt="delete">
+            <h3>{{ _('Notification') }}</h3>
+            <img src="{{ url_for('static', filename='img/icons/image.svg') }}" alt="image">
+            </div>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+        </div>
+        <div class="w-18 notification white">
+            <div class="d-flex">
+            <img src="{{ url_for('static', filename='img/icons/delete.svg') }}" alt="delete">
+            <h3>{{ _('Notification') }}</h3>
+            <img src="{{ url_for('static', filename='img/icons/image.svg') }}" alt="image">
+            </div>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+        </div>
+        <div class="w-18 notification primary">
+            <div class="d-flex">
+            <img src="{{ url_for('static', filename='img/icons/delete.svg') }}" alt="delete">
+            <h3>{{ _('Notification') }}</h3>
+            <img src="{{ url_for('static', filename='img/icons/image.svg') }}" alt="image">
+            </div>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+        </div>
+        <div class="w-18 notification white">
+            <div class="d-flex">
+            <img src="{{ url_for('static', filename='img/icons/delete.svg') }}" alt="delete">
+            <h3>{{ _('Notification') }}</h3>
+            <img src="{{ url_for('static', filename='img/icons/image.svg') }}" alt="image">
+            </div>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+        </div>
+        <div class="w-18 notification primary">
+            <div class="d-flex">
+            <img src="{{ url_for('static', filename='img/icons/delete.svg') }}" alt="delete">
+            <h3>{{ _('Notification') }}</h3>
+            <img src="{{ url_for('static', filename='img/icons/image.svg') }}" alt="image">
+            </div>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+        </div>
+        <div class="w-18 notification white">
+            <div class="d-flex">
+            <img src="{{ url_for('static', filename='img/icons/delete.svg') }}" alt="delete">
+            <h3>{{ _('Notification') }}</h3>
+            <img src="{{ url_for('static', filename='img/icons/image.svg') }}" alt="image">
+            </div>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+        </div>
+        <div class="w-18 notification primary">
+            <div class="d-flex">
+            <img src="{{ url_for('static', filename='img/icons/delete.svg') }}" alt="delete">
+            <h3>{{ _('Notification') }}</h3>
+            <img src="{{ url_for('static', filename='img/icons/image.svg') }}" alt="image">
+            </div>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+        </div>
+        <div class="w-18 notification white">
+            <div class="d-flex">
+            <img src="{{ url_for('static', filename='img/icons/delete.svg') }}" alt="delete">
+            <h3>{{ _('Notification') }}</h3>
+            <img src="{{ url_for('static', filename='img/icons/image.svg') }}" alt="image">
+            </div>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+        </div>
+    </div>
+  </section>
+
+
+{{footer()}}
+{{footer_mobile(class="black")}}
+
+{% endblock body %}

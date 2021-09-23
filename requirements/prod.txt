@@ -1,14 +1,18 @@
 # Dependencies for some packages
 wheel
 
+# Read .env
+python-dotenv==0.19.0
+
+# Login and User Manager
+Flask-User==1.0.2.2
+social-auth-app-flask-mongoengine==1.0.0
+
 # web framework
 Flask==2.0.1
 
 # Db connection
 flask-mongoengine==1.0.0
-
-# Manage user
-Flask-User==1.0.2.2
 
 # Generate thumbnails
 Flask-thumbnails==1.1.0

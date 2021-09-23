@@ -1,0 +1,29 @@
+{% extends "showroom/base.html" %}
+
+{% from "components/buttons.html" import buttons %}
+{% from "components/footer.html" import footer %}
+
+{% block title %} {{ _("Page Not Found") }} {% endblock title %}
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" >{% endblock %}
+
+{% block body %}
+    <div class="container-center">
+        <div class="background-dark-transparent">
+            <div class="container content-distribution">
+                <a href="{{url_for('app.home')}}">
+                    <div class="main-logotype">
+                        <img
+                        src="{{ url_for('static', filename='img/logo.svg') }}"
+                        alt="DEGVA logotype" />
+                        <h1>DEGVA</h1>
+                    </div>
+                </a>
+                <h1>404</h1>
+                <p class="text-logo">{{ _("Page Not Found.") }}</p>
+            </div>
+        </div>
+    </div>
+
+{{footer()}}
+
+{% endblock body %}

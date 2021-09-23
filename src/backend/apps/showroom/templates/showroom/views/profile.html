@@ -1,0 +1,219 @@
+{% extends "showroom/base.html" %}
+
+{% from "components/user-icon.html" import user_icon %}
+{% from "components/header-publication.html" import header_publication %}
+{% from "components/footer-mobile.html" import footer_mobile %}
+{% from "components/buttons.html" import buttons %}
+{% from "components/header.html" import header %}
+{% from "components/footer.html" import footer %}
+{% from "components/mobile-navmenu.html" import mobile_navmenu %}
+{% from "components/long-cards.html" import longCard %}
+{% from "components/media.html" import media %}
+
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" >{% endblock %}
+{% block onloadscripts %}
+<script src="{{url_for('static', filename='js/components/mobile-navmenu.js')}}"> </script>
+{% endblock onloadscripts %}
+
+{% block title %} Profile {% endblock title %}
+
+{% block body -%}
+
+  <div class="header-group ">
+    <div class="section-header">
+      {{ header(classname="bg-header transparent") }}
+      <div class="profile-icon">
+        {{ user_icon(
+            img=url_for('static', filename='img/users/26956071.png'),
+            alt="User2 Photo",
+            type="shadow",
+            url=url_for("user.profile", pk=1),
+            png=url_for('static', filename='img/users/26956071.png'),
+            webp=url_for('static', filename='img/users/26956071.webp')
+        ) }}   
+      <p class="fw-bold">Gabriela Ustariz</p>   
+      </div>
+    </div>
+
+    <div class="desktop-content">
+      <nav class="container navegation-desktop">
+          {% if is_myuser %}
+          {{buttons(
+              mensaje="See description",
+              type="primary",
+              font="fw-bold",
+              letters="",
+              function="parent.location='" + url_for('user.description', pk=2) + "'")
+          }}
+          {{buttons(
+              mensaje="Friends",
+              type="primary",
+              font="fw-bold",
+              letters="",
+              function="parent.location='" + url_for('user.friend', pk=1) + "'")
+          }}
+            {{buttons(
+                mensaje="Edit profile",
+                type="primary tercero",
+                font="fw-bold",
+                letters="",
+                function="parent.location='" + url_for("user.edit", pk=1) + "'")
+            }}  
+            {{buttons(
+                mensaje="Publications",
+                type="primary last",
+                font="fw-bold",
+                letters="",
+                function="parent.location='" + url_for("user.profile", pk=1) + "'")
+            }}
+          {% else %}
+            {{buttons(
+              mensaje="See description",
+              type="primary",
+              font="fw-bold",
+              letters="",
+              function="parent.location='" + url_for('user.description', pk=2) + "'")
+            }}
+            {{buttons(
+              mensaje="Friends",
+              type="primary",
+              font="fw-bold",
+              letters="",
+              function="parent.location='" + url_for('user.friend', pk=2) + "'")
+            }}
+            {{buttons(
+                mensaje="Be friends",
+                type="primary tercero",
+                font="fw-bold",
+                letters="")
+            }}  
+            {{buttons(
+                mensaje="Chat",
+                type="primary last",
+                font="fw-bold",
+                letters="",
+                function="parent.location='" + url_for('user.chat') + "'")
+            }}
+          {% endif %}
+      </nav>
+    </div>
+
+    <div class="mobile-content">
+      <div class="container margin-bottom">
+        {% if is_myuser %}
+        <nav class="navegation-mobile">
+          <a href="{{url_for('user.friend', pk=1)}}">
+            <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
+          </a>
+          <a href="{{url_for('user.edit', pk=1)}}">
+            <img src="{{url_for('static', filename='img/icons/edit.svg')}}" alt="Edit Profile">
+          </a>
+        </nav>
+        {% else %}
+        <nav class="navegation-mobile-other">
+          <a href="{{url_for('user.friend', pk=2)}}">
+            <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
+          </a>
+          <div class="container-right">
+            <a href="#">
+              <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="Add Friends">
+            </a>
+            <a href="{{url_for('user.chat')}}">
+              <img src="{{url_for('static', filename='img/icons/chat.svg')}}" alt="Chat icon link">
+            </a>
+          </div>
+        </nav>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  {{mobile_navmenu(publication=True, 
+    functionPublication="parent.location='" + url_for('user.profile', pk=1) + "'", functionDetails="parent.location='" + url_for('user.description', pk=1) + "'")}}
+
+    <div class="container full-mobile main-container">
+      <div class="publication">    
+        {{ header_publication(
+            img=url_for('static', filename='img/users/26272390.png'),
+            input="UCV, la casa que vence las sombras",
+            author="Daniel Vieira",
+            url=url_for("user.profile", pk=4),
+            time="Today",
+            png=url_for('static', filename='img/users/26272390.png'),
+            webp=url_for('static', filename='img/users/26272390.webp')
+        )}}
+
+        {{ media(
+            type="img",
+            img=url_for("static", filename="img/media1.png"),
+            png=url_for("static", filename="img/media1.png"),
+            webp=url_for("static", filename="img/media1.webp"),
+            alt="Photo Publication",
+            url=url_for("posts.post", id=1)
+        )}}
+        <div class="comments-user">
+            <div class="comments-group">
+
+            {{ user_icon(
+                img=url_for('static', filename='img/users/25641651.png'),
+                alt="User1 Photo",
+                type="basic one",
+                png=url_for('static', filename='img/users/25641651.png'),
+                webp=url_for('static', filename='img/users/25641651.webp')
+            ) }}
+
+            {{ user_icon(
+                img=url_for('static', filename='img/users/26838989.png'),
+                alt="User2 Photo",
+                type="basic two",
+                png=url_for('static', filename='img/users/26838989.png'),
+                webp=url_for('static', filename='img/users/26838989.webp')
+            ) }}
+
+            {{ user_icon(
+                img=url_for('static', filename='img/users/26956071.png'),
+                alt="User3 Photo",
+                type="basic three",
+                png=url_for('static', filename='img/users/26956071.png'),
+                webp=url_for('static', filename='img/users/26956071.webp')
+            ) }}
+
+            </div>
+            <a href="{{url_for('posts.post', id=1)}}">Ver comentarios</a>
+        </div>
+      </div>
+      <aside>
+        {{longCard(
+          title='Video Games',
+          content=['Call of duty: Mobile', 'Beyond: Two Souls'],
+          type='secundary'
+        )}}
+        <div class="margin-section"></div>
+          {{ longCard(
+            title='Books',
+            content=['Inferno'],
+            type='secundary'
+          ) }}
+        <div class="margin-section"></div>
+          {{ longCard(
+            title='Languages',
+            content=['Python3', 'Haskell'],
+            type='secundary'
+          ) }}
+          {% if is_myuser %}
+          <a href="{{url_for('user.description', pk=1)}}" class="container-details">
+          {% else %}
+          <a href="{{url_for('user.description', pk=2)}}" class="container-details">
+          {% endif %}
+            <img src="{{ url_for('static', filename='img/icons/menu_3_puntos_horizontal.svg') }}" alt="Details">
+            <p>
+              View Description of User
+            </p>
+          </a>
+      </aside>
+    </div>
+
+{{footer()}}
+{{footer_mobile(class="black")}}
+
+{%- endblock body %}

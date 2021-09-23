@@ -14,13 +14,86 @@
 
 aside{
     font-size: 12px;
-    display: none;
+    height: 100vh;
+    position: fixed;
+    z-index: 1;
+    animation: mymove 0.5s ease;
+    width: 80%;
     @include desktop{
         display: block;
+        position: static;
+        height: 72rem;
+        animation: none;
+        width: 100%;
     }
     .cont-listaAmigos{
-        height: 72rem;
-        overflow-y: auto;
+        padding:0 0 8rem 0;
+
+        @include desktop{
+            padding: 2rem 0;
+        }
+        height: 100%;
+        .cont-element-friend-list{
+            padding: 0.5rem 2rem;
+            border: 3px solid transparent;
+            &:hover{
+                cursor: pointer;
+            }
+            &.pressed{
+                background: darken($light, 10%);
+                border-radius: 0;
+                border: 3px inset $light;
+            }
+        }
+        .listChats{
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        .section-top-chats{
+            display: flex;
+            align-items: center;
+            .closeList{
+                padding: 0 1rem;
+                font-size: 4rem;
+                display: flex;
+                background: transparent;
+                margin-top: 0;
+                @include desktop{
+                    display:none;
+                }
+            }    
+        }
+    }
+}
+
+.header-chat{
+    flex-basis: auto;
+    width: 100%;
+    background-color: lighten($primary, 10%);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    .cont-element-friend-list{
+        flex: 1;
+        margin: 0;
+        background: transparent;
+        @include desktop{
+            padding: 0.5rem 2rem;
+        }
+        .element_friend_list_user{
+            color:$black;
+        }
+    }
+}
+
+.openList{
+    margin-right: 1rem;
+    background: transparent;
+    @include desktop{
+        display: none;
+    }
+    img{
+        filter: invert(80%);
     }
 }
 
@@ -29,31 +102,25 @@ aside{
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
     position: fixed;
     @include desktop{
+        height: 72rem;
         position: relative;
-    }
-    
-    .header-chat{
-        height: 7rem;
-        background-color: lighten($primary, 10%);
-        font-size: 1.2rem;
-        .cont-element-friend-list{
-            margin: 0;
-            padding: 0.5rem 2rem;
-            .element_friend_list_user{
-                color:$black;
-            }
-        }
     }
 
     .footer-chat{
-        height: 7rem;
+        flex-basis: auto;
         background-color: lighten($primary, 10%);
-        position: absolute;
+        @include desktop{
+            position: static;
+        }
+        position: fixed;
         width: 100%;
-        bottom: 0;
         padding: 1rem;
+        bottom: 0;
         .send-message{
             display: flex;
             justify-content: space-between;
@@ -82,11 +149,12 @@ aside{
     }
 
     .messages{
+        flex: 1;
         padding: 4rem 2rem;
+        padding-bottom: 18rem;
         overflow-y: scroll;
-        height: calc(100vh - 23rem);
-        @include desktop{    
-            height: calc(72rem - 14rem);
+        @include desktop{
+            padding-bottom: 4rem;
         }
         .chat{
             margin: 2rem 0;
@@ -101,4 +169,26 @@ aside{
             margin-left: auto;
         }
     }
+
+    .link-icon{
+        margin: 0 1rem;
+        @include desktop{
+            display: none;
+        }
+    }
+}
+
+.header, .footer-mobile, .footer{
+    display: none;
+}
+
+.header, .footer{
+    @include desktop{
+        display: block;
+    }
+}
+
+@keyframes mymove {
+    from {width: 0px;}
+    to {width: 80%;}
 }

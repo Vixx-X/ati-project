@@ -2,11 +2,30 @@
 Models for User module
 """
 
-from backend import db
-from flask_user import UserMixin
+from flask import current_app
 from flask_babel import gettext as _
+from flask_user import UserMixin
+from social_flask_mongoengine.models import FlaskStorage
 
-from config.dev import LANGUAGES  # for i18n
+from backend import db
+from config import LANGUAGES  # for i18n
+
+from backend.apps.media.models import Image
+
+import re
+
+NO_ASCII_REGEX = re.compile(r"[^\x00-\x7F]+")
+NO_SPECIAL_REGEX = re.compile(r"[^\w._-]+", re.UNICODE)
+
+
+def clean_username(value):
+    """
+    Cleaning username, could be expanded to deal with inappropriate
+    words and stuff
+    """
+    value = NO_ASCII_REGEX.sub("", value)
+    value = NO_SPECIAL_REGEX.sub("", value)
+    return value
 
 
 class Config(db.Document):
@@ -26,6 +45,9 @@ class Config(db.Document):
 
     @property
     def prefer_private(self):
+        """
+        Get privacy preference of user
+        """
         return self.privacy == "PRIVATE"
 
 
@@ -37,21 +59,29 @@ class User(db.Document, UserMixin):
     active = db.BooleanField(default=True)
 
     # User authentication information
-    email = db.EmailField(required=True, unique=True)
-    password = db.StringField(required=True)
+    username = db.StringField(max_length=128)
+    email = db.EmailField(unique=True)
+    email_confirmed_at = db.DateTimeField()
+    password = db.StringField(max_length=255)
 
     # User information
-    first_name = db.StringField(default="")
-    last_name = db.StringField(default="")
+    first_name = db.StringField(max_length=128, default="")
+    last_name = db.StringField(max_length=128, default="")
     ci = db.IntField()
 
-    birth_date = db.DateTimeField()
-    GENDERS = (("F", _("femenine")), ("M", _("masculine")), ("O", _("other")))
-    gender = db.StringField(max_length=1, choices=GENDERS)
+    # User media
+    profile_photo = db.ReferenceField(Image)
+    banner_photo = db.ReferenceField(Image)
 
-    # Tokens
-    twitter = db.StringField(default="")
-    facebook = db.StringField(default="")
+    # User extra info
+    description = db.StringField(max_length=255, default="")
+    birth_date = db.DateTimeField()
+    GENDERS = [
+        ("F", _("femenine")),
+        ("M", _("masculine")),
+        ("O", _("other")),
+    ]
+    gender = db.StringField(max_length=1, choices=GENDERS)
 
     # Relationships
     friends = db.SortedListField(
@@ -63,6 +93,52 @@ class User(db.Document, UserMixin):
         "collection": "users",
     }
 
-    @staticmethod
-    def get_deleted_user():
-        return User(first_name="[DELETED]")
+    @property
+    def social_auth(self):
+        """
+        Entrypoint to social_auth from my custom user
+        """
+        return FlaskStorage.user.objects(user=self)
+
+    @property
+    def is_active(self):
+        """
+        Return if user is active
+        """
+        return self.active
+
+    @classmethod
+    def get_deleted_user(cls):
+        """
+        Return a deleted username for templates
+        """
+        return User(username="[DELETED]")
+
+    @classmethod
+    def get_user_by_token(cls, token, expiration_in_seconds=None):
+        # FIXING valid token on deleted user
+        #
+        # This function works in tandem with UserMixin.get_id()
+        # Token signatures and timestamps are verified.
+        # user_id and password_ends_with are decrypted.
+
+        # Verifies a token and decrypts a User ID and parts of a User password hash
+        user_manager = current_app.user_manager
+        data_items = user_manager.verify_token(token, expiration_in_seconds)
+
+        # Verify password_ends_with
+        token_is_valid = False
+        if data_items:
+
+            # Load user by User ID
+            user_id = data_items[0]
+            password_ends_with = data_items[1]
+            user = user_manager.db_manager.get_user_by_id(user_id)
+            user_password = (
+                "" if not user or user_manager.USER_ENABLE_AUTH0 else user.password[-8:]
+            )  # <-- HERE
+
+            # Make sure that last 8 characters of user password matches
+            token_is_valid = user and user_password == password_ends_with
+
+        return user if token_is_valid else None

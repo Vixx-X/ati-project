@@ -1,0 +1,78 @@
+{% extends "showroom/base.html" %}
+
+{% from "components/user-icon.html" import user_icon %}
+{% from "components/buttons.html" import buttons %}
+{% from "components/header.html" import header %}
+{% from "components/footer.html" import footer%}
+{% from "components/input-label.html" import inputLabel %}
+{% from "components/footer-mobile.html" import footer_mobile %}
+{% from "components/boolean-button.html" import boolean_button %}
+
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/publicationpage.css') }}" >{% endblock %}
+
+{% block title %}{{ _('CreatePublications') }}{% endblock title %}
+{% block body %}
+
+{{ header(classname="bg-header") }}
+<div class="cont-create-publication container margin-section">
+    {{ user_icon(
+    img=url_for('static', filename='img/users/26956071.png'),
+    alt="User2 Photo",
+    type="basic",
+    url=url_for("user.profile", pk=1),
+    png=url_for('static', filename='img/users/26956071.png'),
+    webp=url_for('static', filename='img/users/26956071.webp')
+    ) }}
+    <div class="heading black">
+        <h3 class="fw-normal">
+            Create Publications
+        </h3>
+    </div>
+    <hr class="linea">
+    <div class="public-button">
+        {{buttons(
+            mensaje="PUBLIC",
+            type="primary",
+            font="fw-bold",
+            letters="text-uppercase"
+        )}}
+    </div>
+    <div class="cont-create-publication-body-boolean-button">
+        {{boolean_button(
+            id="booleanButton",
+            text="Public",
+            class="black"
+        )}}
+    </div>
+    <div class="input-label-title">
+        {{inputLabel(
+            type='text',
+            classInput='white w-100',
+            classLabel='black',
+            textLabel="Tittle",
+            placeholderText="Write Title"
+        )}}
+    </div>
+    <div class="input-label-content">
+        {{inputLabel(
+            type='textarea',
+            classInput='white w-100',
+            classLabel='black',
+            textLabel="Content",
+            placeholderText="Write Content"
+        )}}
+    </div>
+    <div class="cont-create-publication-body-input-label">
+        <div class="create-publication-body-input-label">
+            <form action="POST">
+                <p>+</p>
+                <input type="file" class="create-publication-new-publication-input" value='+'>
+            </form>
+        </div>
+        
+    </div>
+</div>
+{{footer_mobile(class="black")}}
+{{ footer() }}
+
+{% endblock body %}

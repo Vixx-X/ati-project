@@ -39,22 +39,23 @@
         <hr>
     </div>
     <p>Temas</p>
-    <div class="container-personalization">
+    <form name="myForm" class="container-personalization">
         {{radioButton(
-            id='Test',
-            name='Gray-radio-button',
+            id='Day',
+            name='personalization',
             text='Modo diurno',
             classLabel='black',
-            classInput='black'
+            classInput='black',
+            checked="checked"
         )}}
         {{radioButton(
-            id='Test',
-            name='Gray-radio-button',
+            id='Night',
+            name='personalization',
             text='Modo nocturno',
             classLabel='black',
             classInput='black'
         )}}
-    </div>
+    </form>
   </section>
 
 {{footer()}}

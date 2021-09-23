@@ -1,23 +1,33 @@
 {% macro longCard(title="Title", content=[""], type="primary", edit=None) -%}
-<!-- content parameter must be an array -->
+
+<template class="input-description">
+    <div class="input-content">
+        <input type="text">
+        <button type="button">
+            <img class="delete-content" loading="lazy" src="{{ url_for("static", filename="img/icons/delete.svg") }}" alt="Delete detail">
+        </button>
+    </div>
+</template>
 
 <div>
-    <div class="long-card {{type}}">
+    <div class="long-card {{type}}" >
         <h4>{{title}}</h4>
+        <div class="content-inputs">
         {% for cont in content %}
             {% if edit %}
-            <div class="input-content">
-                <input type="text" value="{{cont}}">
-                <button type="button">
-                    <img id='element{{loop.index}}' class="delete-content" loading="lazy" src="{{ url_for("static", filename="img/icons/delete.svg") }}" alt="Delete detail">
-                </button>
-            </div>
+                <div class="input-content">
+                    <input type="text" value="{{cont}}">
+                    <button type="button">
+                        <img id='element{{loop.index}}' class="delete-content" loading="lazy" src="{{ url_for("static", filename="img/icons/delete.svg") }}" alt="Delete detail">
+                    </button>
+                </div>
             {% else %}
                 <p>{{cont}}</p>
             {% endif %}
         {% endfor %}
+        </div>
         {% if edit %}
-            <button class="more-content">
+            <button class="morecontent">
                 <img loading="lazy" src="{{ url_for("static", filename="img/icons/plus-sign.svg") }}" alt="Add publication">
             </button>
         {% endif %}

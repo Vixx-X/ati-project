@@ -28,9 +28,9 @@ body {
 }
 
 .container-search form input {
+  font-size: 1.8rem;
   font-style: italic;
   border: hidden;
-  background-color: $light;
+  background: transparent;
   width: 90%;
-  font-size: 1.5em;
 }

@@ -1,0 +1,32 @@
+{% extends "showroom/base.html" %}
+
+{% from "components/buttons.html" import buttons %}
+{% from "components/footer.html" import footer %}
+
+{% block title %} Home {% endblock title %}
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" >{% endblock %}
+
+{% block body %}
+    <div class="container-center">
+        <div class="background-dark-transparent">
+            <div class="container content-distribution">
+                <a href="{{url_for('app.home')}}">
+                    <div class="main-logotype">
+                        <img
+                        src="{{ url_for('static', filename='img/logo.svg') }}"
+                        alt="DEGVA logotype" />
+                        <h1>DEGVA</h1>
+                    </div>
+                </a>
+                <h1>{{ _("Please check your email.") }}</h1>
+                <p class="text-logo">{{ _("An email with your next steps should prontly arrive in your inbox.") }}</p>
+                <p class="text-logo">{{ _("If it has not arrived, fell free to click ") }}
+                   <a href="{{ url_for('user.resend_email_confirmation') }}">here</a> {{ _( "and try again") }}.
+                </p>
+            </div>
+        </div>
+    </div>
+
+{{footer()}}
+
+{% endblock body %}
