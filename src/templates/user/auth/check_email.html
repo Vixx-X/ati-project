@@ -3,7 +3,7 @@
 {% from "components/buttons.html" import buttons %}
 {% from "components/footer.html" import footer %}
 
-{% block title %} {{ _("Page Not Found") }} {% endblock title %}
+{% block title %} Home {% endblock title %}
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" >{% endblock %}
 
 {% block body %}
@@ -18,8 +18,11 @@
                         <h1>DEGVA</h1>
                     </div>
                 </a>
-                <h1>404</h1>
-                <p class="text-logo">{{ _("Page Not Found.") }}</p>
+                <h1>{{ _("Please check your email.") }}</h1>
+                <p class="text-logo">{{ _("An email with your next steps should prontly arrive in your inbox.") }}</p>
+                <p class="text-logo">{{ _("If it has not arrived, fell free to click ") }}
+                   <a href="{{ url_for('user.resend_email_confirmation') }}">here</a> {{ _( "and try again") }}.
+                </p>
             </div>
         </div>
     </div>

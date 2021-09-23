@@ -15,3 +15,4 @@ bp.add_url_rule(
 )
 bp.add_url_rule("/search/", view_func=views.Search.as_view("search"))
 bp.add_url_rule("/chat/", view_func=views.Chat.as_view("chat"))
+bp.add_url_rule("/check_email/", view_func=views.CheckEmailView.as_view("check_email"))

@@ -10,6 +10,7 @@
 {% from "components/long-cards.html" import longCard %}
 {% from "components/element-friend-list.html" import element_friend_list %}
 {% from "components/card.html" import card %}
+{% from "components/input.html" import input %}
 
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" >
 <link rel="stylesheet" href="{{ url_for('static', filename='css/profile-edit.css') }}" >
@@ -35,14 +36,13 @@
                     png=url_for('static', filename='img/users/26956071.png'),
                     webp=url_for('static', filename='img/users/26956071.webp')
                 ) }}
-                <p class="container-name fw-bold">Gabriela Ustariz</p>   
+                <p class="container-name fw-bold">Gabriela Ustariz</p>
             </div>
             </div>
 
             <div class="desktop-content">
                 <div class="container">
                 <nav class=" navegation-desktop">
-                    {% if is_myuser %}
                         {{buttons(
                             mensaje="Save",
                             type="primary last",
@@ -50,10 +50,56 @@
                             letters="",
                             function="parent.location='" + url_for('user.profile', pk=1) + "'")
                         }}
-                    {% endif %}
                 </nav>
                 </div>
             </div>
+            <form method="POST" id="editProfile" class="form-profile" enctype="multipart/form-data">
+                {{ form.csrf_token }}
+
+                {{ input(
+                     field=form.first_name,
+                     fieldClass="white w-100",
+                     placeholder=_("Your first name"),
+                     labelClass="d-flex fw-bold black",
+                )}}
+
+                {{ input(
+                     field=form.last_name,
+                     fieldClass="white w-100",
+                     placeholder=_("Your last name"),
+                     labelClass="d-flex fw-bold black",
+                )}}
+
+                {{ input(
+                     field=form.birth_date,
+                     fieldClass="white w-100",
+                     labelClass="d-flex fw-bold black",
+                )}}
+                {{ input(
+                     field=form.gender,
+                     fieldClass="white w-100",
+                     labelClass="d-flex fw-bold black",
+                )}}
+                {{ input(
+                     field=form.profile_photo,
+                     fieldClass="white w-100",
+                     labelClass="d-flex fw-bold black",
+                )}}
+                {{ input(
+                     field=form.banner_photo,
+                     fieldClass="white w-100",
+                     labelClass="d-flex fw-bold black",
+                )}}
+
+                <div class="container-button">
+                    {{buttons(
+                        mensaje="Save",
+                        type="primary",
+                        font="fw-bold",
+                        letters="text-uppercase",
+                    )}}
+                </div>
+            </form>
 
             <div class="mobile-content">
                 <div class="container margin-bottom">

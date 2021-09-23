@@ -10,6 +10,8 @@ from social_flask_mongoengine.models import FlaskStorage
 from backend import db
 from config import LANGUAGES  # for i18n
 
+from backend.apps.media.models import Image
+
 import re
 
 NO_ASCII_REGEX = re.compile(r"[^\x00-\x7F]+")
@@ -67,8 +69,18 @@ class User(db.Document, UserMixin):
     last_name = db.StringField(max_length=128, default="")
     ci = db.IntField()
 
+    # User media
+    profile_photo = db.ReferenceField(Image)
+    banner_photo = db.ReferenceField(Image)
+
+    # User extra info
+    description = db.StringField(max_length=255, default="")
     birth_date = db.DateTimeField()
-    GENDERS = (("F", _("femenine")), ("M", _("masculine")), ("O", _("other")))
+    GENDERS = [
+        ("F", _("femenine")),
+        ("M", _("masculine")),
+        ("O", _("other")),
+    ]
     gender = db.StringField(max_length=1, choices=GENDERS)
 
     # Relationships

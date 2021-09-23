@@ -40,12 +40,14 @@ USER_EMAIL_SENDER_NAME = "DEGVA"
 
 # - Override templates
 USER_LOGIN_TEMPLATE = "user/auth/login.html"
+USER_EDIT_USER_PROFILE_TEMPLATE = "user/profile-edit.html"
+USER_EDIT_USER_PROFILE_URL = "/user/profile/edit"  #:
 USER_FORGOT_PASSWORD_TEMPLATE = "user/auth/forgot-password.html"
 USER_REGISTER_TEMPLATE = "user/auth/register.html"
 
 USER_AFTER_LOGIN_ENDPOINT = "app.home"
 USER_AFTER_LOGOUT_ENDPOINT = "app.landing"
-USER_AFTER_REGISTER_ENDPOINT = "user.edit"
+USER_AFTER_REGISTER_ENDPOINT = "user.check_email"
 USER_AFTER_FORGOT_PASSWORD_ENDPOINT = "user.check_email"
 
 
@@ -63,6 +65,15 @@ CSRF_ENABLED = True
 
 # Use a secure, unique and absolutely secret key for signing the data.
 CSRF_SESSION_KEY = SECRET_KEY + "_csrf"
+
+# Media folder
+MEDIA_FOLDER = f"{BASE_DIR}/media/"
+MAX_CONTENT_LENGTH = 100 * 1024 * 1024  # max 100MB
+ALLOWED_EXTENSIONS = {
+    "image": ["png", "jpg", "jpeg", "gif"],
+    "video": ["mp4"],
+    "audio": ["mp3"],
+}
 
 # Static folder
 STATIC_FOLDER = f"{BASE_DIR}/static/"

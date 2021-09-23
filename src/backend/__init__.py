@@ -8,8 +8,8 @@ from flask_mongoengine import MongoEngine
 from flask_wtf.csrf import CSRFProtect
 from social_flask_mongoengine.models import init_social
 from werkzeug.middleware.proxy_fix import ProxyFix
-
 from backend.apps.user.user_manager import UserManager
+
 from backend.blueprints import register_blueprint
 
 db = MongoEngine()
