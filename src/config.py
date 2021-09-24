@@ -5,6 +5,8 @@ Config file for the entire application
 # Define the application directory
 import os
 
+from mongoengine.connection import DEFAULT_PORT
+
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 # Statement for enabling the development environment
@@ -91,6 +93,7 @@ LANGUAGES = {
     "es": "español",
     "pt": "português",
 }
+DEFAULT_LANGUAGE = "es"
 BABEL_TRANSLATION_DIRECTORIES = f"{BASE_DIR}/translations/"
 
 # Social Auth Config
