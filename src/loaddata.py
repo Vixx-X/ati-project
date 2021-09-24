@@ -18,11 +18,13 @@ field_map = {
     "imagen": "image",
 }
 
+
 def clean_date(value):
     try:
         return datetime.strptime(value, "%d/%m/%Y")
     except:
         return datetime.now
+
 
 def clean_gender(value):
     gender_map = {
@@ -33,21 +35,25 @@ def clean_gender(value):
         value = "O"
     return gender_map.get(value, "X")
 
+
 def clean_list(value):
     if isinstance(value, list):
         return value
     return [val.strip() for val in value.split(",")]
 
+
 def clean_ci(value):
     if isinstance(value, str):
-        value = value.replace(".","")
+        value = value.replace(".", "")
     return value
 
+
 def clean_description(value):
-    SIZE_OF_DESC = 255
+    SIZE_OF_DESC = 1024
     if len(value) > SIZE_OF_DESC:
-        value = value[:SIZE_OF_DESC-3] + "..."
+        value = value[: SIZE_OF_DESC - 3] + "..."
     return value
+
 
 def import_user(file, dirname=None, dry_run=False):
     """
@@ -63,7 +69,8 @@ def import_user(file, dirname=None, dry_run=False):
     for field in user_data:
         model_attr = field_map.get(field)
 
-        if model_attr is None: continue
+        if model_attr is None:
+            continue
         data = user_data[field]
 
         if model_attr == "birth_date":
@@ -78,16 +85,22 @@ def import_user(file, dirname=None, dry_run=False):
         if model_attr == "ci":
             data = clean_ci(data)
 
-        if model_attr in ["colors","books","games","music","langs",]:
+        if model_attr in [
+            "colors",
+            "books",
+            "games",
+            "music",
+            "langs",
+        ]:
             data = clean_list(data)
 
         # special cases
         if model_attr == "name":
             fullname = data.split()
             size = len(fullname)
-            kwargs['first_name'] = " ".join(fullname[:size//2]) or ""
-            kwargs['last_name'] = " ".join(fullname[size//2:]) or ""
-            kwargs['username'] = clean_username("_".join(fullname).lower())
+            kwargs["first_name"] = " ".join(fullname[: size // 2]) or ""
+            kwargs["last_name"] = " ".join(fullname[size // 2 :]) or ""
+            kwargs["username"] = clean_username("_".join(fullname).lower())
         elif model_attr == "image" and dirname:
             filename = os.path.join(dirname, data)
             if not os.path.isfile(filename):
@@ -104,10 +117,9 @@ def import_user(file, dirname=None, dry_run=False):
     user.active = True
     user.is_primary = True
     user.password = user_manager.hash_password(user.password)
-    user.email_confirmed_at=datetime.utcnow()
+    user.email_confirmed_at = datetime.utcnow()
 
     return user
-
 
 
 def loaddata(path, dry_run=False):
@@ -122,7 +134,7 @@ def loaddata(path, dry_run=False):
             for file in dirs:
                 dirname = os.path.join(root, file)
                 filename = os.path.join(dirname, "perfil.json")
-                with open(filename, 'r') as f:
+                with open(filename, "r") as f:
                     users.append(import_user(f, dirname, dry_run))
 
         if not dry_run:
@@ -132,4 +144,3 @@ def loaddata(path, dry_run=False):
         print(f"Loaded {len(users)} users.")
     except:
         raise Exception(f"A critical error ocurred.")
-

@@ -116,7 +116,7 @@ class User(db.Document, UserMixin):
 
     # User extra info
     description = db.StringField(
-        max_length=255,
+        max_length=1024,
         default="",
     )
     birth_date = db.DateTimeField()
