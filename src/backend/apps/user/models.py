@@ -41,7 +41,7 @@ class Config(db.EmbeddedDocument):
     THEME_OPTIONS = (("LIGHT", _("light mode")), ("DARK", _("dark mode")),)
     theme = db.StringField(max_length=10, choices=THEME_OPTIONS, default="LIGHT",)
 
-    LANGUAGES =  ((a, b) for a, b in LANGS.items())
+    LANGUAGES = [(a, b) for a, b in LANGS.items()]
     lang = db.StringField(max_length=3, choices=LANGUAGES, default=DEFAULT_LANGUAGE,)
 
     @property
