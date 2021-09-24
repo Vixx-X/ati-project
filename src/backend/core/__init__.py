@@ -2,13 +2,13 @@
 Init for core app
 """
 
-from flask import Blueprint, render_template, request
-from flask.globals import g
+from flask import Blueprint, render_template, request, g
 from flask_login import current_user
 
 from backend import babel
 from backend.core.urls import set_urls
 from config import LANGUAGES, DEFAULT_LANGUAGE  # for i18n
+from flask_babel import lazy_gettext as _  # for i18n
 
 
 def init_app(app):
@@ -20,12 +20,25 @@ def init_app(app):
     set_urls(app, bp)
     app.register_blueprint(bp)
 
+    def render_error(error):
+        return render_template(
+            "error.html",
+            error=error,
+        )
+
     @app.errorhandler(404)
     def not_found(error):
         """
         Return 404 template if not found
         """
-        return render_template("404.html", error=error), 404
+        return render_error(error), 404
+
+    @app.errorhandler(500)
+    def internal_error(error):
+        """
+        Return 500 template if internal error
+        """
+        return render_error(error), 500
 
     @app.before_request
     def global_user():
@@ -42,7 +55,7 @@ def init_app(app):
     @babel.localeselector
     def get_locale():
         # if a user is logged in, use the locale from the user settings
-        user = getattr(g, 'user', None)
+        user = getattr(g, "user", None)
         if user is not None and user.is_active:
             return user.config.lang or DEFAULT_LANGUAGE
 
