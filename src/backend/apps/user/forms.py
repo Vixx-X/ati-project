@@ -2,7 +2,8 @@
 Forms for user app
 """
 
-from flask_babel import lazy_gettext as _  # for i18n
+from flask_babel import lazy_gettext as _
+from flask_wtf.form import FlaskForm  # for i18n
 from wtforms import (
     PasswordField,
     StringField,
@@ -27,8 +28,9 @@ from flask_user.forms import (
     unique_email_validator,
     unique_username_validator,
 )
+from wtforms.fields.core import FieldList
 
-from wtforms.fields.simple import HiddenField
+from wtforms.fields.simple import HiddenField, TextAreaField
 from backend.apps.media.forms import FormMediaMixin
 from .models import User
 
@@ -218,11 +220,27 @@ class ProfileForm(FormMediaMixin, EditUserProfileForm):
     )
 
     profile_photo = FileField(_("Profile Photo"))
-
     banner_photo = FileField(_("Banner Photo"))
 
+    description = TextAreaField(_("Description"))
     birth_date = DateField(_("Birth Day"), format="%d-%m-%Y")
-
     gender = SelectField(_("Gender"), choices=User.GENDERS)
 
+    colors = FieldList(StringField(_("Favorite Colors")))
+    books = FieldList(StringField(_("Favorite Books")))
+    games = FieldList(StringField(_("Favorite Video Games")))
+    langs = FieldList(StringField(_("Favorite Programming Languages")))
+    music = FieldList(StringField(_("Favorite Music")))
+
     submit = SubmitField(_("Update"))
+
+class ConfigForm(FlaskForm):
+    """
+    User Configuration form
+    """
+    first_name = StringField(
+        _("First name"),
+        validators=[validators.DataRequired()],
+    )
+
+

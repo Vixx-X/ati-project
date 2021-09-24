@@ -10,10 +10,8 @@ import click
 
 from backend import init_app
 
-from loaddata import loaddata as ld
-
-ENV_DIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__))) + "/env/"
-load_dotenv(ENV_DIR + ".env")
+ENV_DIR = os.path.join(os.path.abspath(os.path.dirname(os.path.dirname(__file__))), "env")
+load_dotenv(os.path.join(ENV_DIR, ".env"))
 
 app = init_app()
 
@@ -28,19 +26,10 @@ def loaddata(filename, dry_run=False):
 
     DRY_RUN (bool) load data without saving it into the db.
     """
+    from loaddata import loaddata as ld
+
     return ld(filename, dry_run)
 
 
 if __name__ == "__main__":
-    from sys import argv
-
-    host, port = "0.0.0.0", 8080
-
-    if len(argv) > 2:
-        port = int(argv[2])
-    if len(argv) > 1:
-        host = argv[1]
-
-    DEBUG = os.getenv("DEBUG", "False").lower() in ["1", "t", "true"]
-
-    app.run(host=host, port=port, debug=DEBUG)
+    app.run()
