@@ -43,7 +43,7 @@
               type="primary",
               font="fw-bold",
               letters="",
-              function="parent.location='" + url_for('user.description', pk=2) + "'")
+              function="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")
           }}
           {{buttons(
               mensaje="Friends",
@@ -72,7 +72,7 @@
               type="primary",
               font="fw-bold",
               letters="",
-              function="parent.location='" + url_for('user.description', pk=2) + "'")
+              function="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")
             }}
             {{buttons(
               mensaje="Friends",
@@ -129,7 +129,7 @@
   </div>
 
   {{mobile_navmenu(publication=True, 
-    functionPublication="parent.location='" + url_for('user.profile', pk=1) + "'", functionDetails="parent.location='" + url_for('user.description', pk=1) + "'")}}
+    functionPublication="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'", functionDetails="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")}}
 
     <div class="container full-mobile main-container">
       <div class="publication">    
@@ -201,9 +201,9 @@
             type='secundary'
           ) }}
           {% if is_myuser %}
-          <a href="{{url_for('user.description', pk=1)}}" class="container-details">
+          <a href="{{url_for('user.profile', username='vittorio_adesso')}}" class="container-details">
           {% else %}
-          <a href="{{url_for('user.description', pk=2)}}" class="container-details">
+          <a href="{{url_for('user.profile', username='vittorio_adesso')}}" class="container-details">
           {% endif %}
             <img src="{{ url_for('static', filename='img/icons/menu_3_puntos_horizontal.svg') }}" alt="Details">
             <p>

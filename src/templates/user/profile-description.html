@@ -48,7 +48,7 @@
                             type="primary last",
                             font="fw-bold",
                             letters="",
-                            function="parent.location='" + url_for('user.profile', pk=1) + "'")
+                            function="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")
                         }}
                     {% else %}
                         {{buttons(
@@ -100,7 +100,7 @@
         </div>
         
         {{mobile_navmenu(details=True, 
-            functionPublication="parent.location='" + url_for('user.profile', pk=1) + "'", functionDetails="parent.location='" + url_for('user.description', pk=1) + "'")}}
+            functionPublication="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'", functionDetails="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")}}
 
         <p class="container details">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. sunt in culpa qui officia deserunt mollit anim id est laborum.”</p>
 
