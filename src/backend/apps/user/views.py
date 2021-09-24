@@ -15,7 +15,7 @@ class CheckEmailView(TemplateView):
     template_name = "user/auth/check_email.html"
 
 
-class Config(FormView):
+class ConfigView(FormView):
     """
     Config View to edit user configuration and personalization.
     """
@@ -23,7 +23,7 @@ class Config(FormView):
     template_name = "user/configurations.html"
 
 
-class Notification(TemplateView):
+class NotificationView(TemplateView):
     """
     Notification View to alert or notify user of interactions or events.
     """
@@ -31,7 +31,7 @@ class Notification(TemplateView):
     template_name = "user/notifications.html"
 
 
-class Friend(TemplateView):
+class FriendView(TemplateView):
     """
     Friend View list of a User.
     """
@@ -45,7 +45,7 @@ class Friend(TemplateView):
         return ctx
 
 
-class Profile(TemplateView):
+class ProfileView(TemplateView):
     """
     Profile View
     """
@@ -59,21 +59,7 @@ class Profile(TemplateView):
         return ctx
 
 
-class EditProfile(TemplateView):
-    """
-    Edit Profile View
-    """
-
-    template_name = "user/profile-edit.html"
-
-    def get_context_data(self, **kwargs):
-        pk = kwargs.get("pk", None)
-        ctx = super().get_context_data()
-        ctx["is_myuser"] = pk == 1
-        return ctx
-
-
-class Search(TemplateView):
+class SearchView(TemplateView):
     """
     Search View
     """
@@ -81,21 +67,7 @@ class Search(TemplateView):
     template_name = "user/search-page.html"
 
 
-class Description(TemplateView):
-    """
-    Edit Profile View
-    """
-
-    template_name = "user/profile-description.html"
-
-    def get_context_data(self, **kwargs):
-        pk = kwargs.get("pk", None)
-        ctx = super().get_context_data()
-        ctx["is_myuser"] = pk == 1
-        return ctx
-
-
-class Chat(TemplateView):
+class ChatView(TemplateView):
     """
     Chat View
     """
