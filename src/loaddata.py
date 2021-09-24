@@ -85,8 +85,8 @@ def import_user(file, dirname=None, dry_run=False):
         if model_attr == "name":
             fullname = data.split()
             size = len(fullname)
-            kwargs['first_name'] = " ".join(fullname[size//2:]) or ""
-            kwargs['last_name'] = " ".join(fullname[:size//2]) or ""
+            kwargs['first_name'] = " ".join(fullname[:size//2]) or ""
+            kwargs['last_name'] = " ".join(fullname[size//2:]) or ""
             kwargs['username'] = clean_username("_".join(fullname).lower())
         elif model_attr == "image" and dirname:
             filename = os.path.join(dirname, data)

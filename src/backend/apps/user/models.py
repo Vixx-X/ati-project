@@ -8,7 +8,7 @@ from flask_user import UserMixin
 from social_flask_mongoengine.models import FlaskStorage
 
 from backend import db
-from config import LANGUAGES  # for i18n
+from config import LANGUAGES as LANGS, DEFAULT_LANGUAGE  # for i18n
 
 from backend.apps.media.models import Image
 
@@ -41,7 +41,8 @@ class Config(db.EmbeddedDocument):
     THEME_OPTIONS = (("LIGHT", _("light mode")), ("DARK", _("dark mode")),)
     theme = db.StringField(max_length=10, choices=THEME_OPTIONS, default="LIGHT",)
 
-    lang = db.StringField(max_length=3, choices=((a, b) for a, b in LANGUAGES.items()),)
+    LANGUAGES = [(a, b) for a, b in LANGS.items()]
+    lang = db.StringField(max_length=3, choices=LANGUAGES, default=DEFAULT_LANGUAGE,)
 
     @property
     def prefer_private(self):

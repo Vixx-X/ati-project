@@ -2,12 +2,13 @@
 Init for core app
 """
 
-from flask import Blueprint, render_template, request, session
+from flask import Blueprint, render_template, request
 from flask.globals import g
 from flask_login import current_user
 
 from backend import babel
 from backend.core.urls import set_urls
+from config import LANGUAGES, DEFAULT_LANGUAGE  # for i18n
 
 
 def init_app(app):
@@ -40,6 +41,12 @@ def init_app(app):
 
     @babel.localeselector
     def get_locale():
-        if request.args.get("lang"):
-            session["lang"] = request.args.get("lang")
-        return session.get("lang", "en")
+        # if a user is logged in, use the locale from the user settings
+        user = getattr(g, 'user', None)
+        if user is not None and user.is_active:
+            return user.config.lang or DEFAULT_LANGUAGE
+
+        # otherwise try to guess the language from the user accept
+        # header the browser transmits.  We support de/fr/en in this
+        # example.  The best match wins.
+        return request.accept_languages.best_match(LANGUAGES.keys())
