@@ -91,7 +91,7 @@ msgstr ""
 #: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/muro.html:286
 #: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/notifications.html:182
 #: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/backend/apps/showroom/templates/showroom/register.html:91
-#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/templates/components/footer.html:4
+#: /home/vixx_/Documents/UCV/S5/ATI/Proyecto/ati-project/src/templates/all_components/footer.html:4
 msgid "Copyright &copy; ITA - Computer School"
 msgstr ""
 

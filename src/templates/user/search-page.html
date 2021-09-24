@@ -1,11 +1,11 @@
 {% extends "showroom/base.html" %}
 
-{% from "components/user-icon.html" import user_icon %}
-{% from "components/header-publication.html" import header_publication %}
-{% from "components/footer-mobile.html" import footer_mobile %}
-{% from "components/header.html" import header %}
-{% from "components/footer.html" import footer %}
-{% from "components/element-friend-list.html" import element_friend_list %}
+{% from "all_components/user-icon.html" import user_icon %}
+{% from "all_components/header-publication.html" import header_publication %}
+{% from "all_components/footer-mobile.html" import footer_mobile %}
+{% from "all_components/header.html" import header %}
+{% from "all_components/footer.html" import footer %}
+{% from "all_components/element-friend-list.html" import element_friend_list %}
 
 {% block title %} Search Results {% endblock title %}
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/searchpage.css') }}" >{% endblock %}
@@ -44,7 +44,7 @@
                     button=True,
                     trasparent=False, 
                     buttonfunction='delete',
-                    url=url_for("user.profile", pk=2), 
+                    url=url_for('user.profile', username='vittorio_adesso'), 
                     png=url_for('static', filename='img/users/26838989.png'),
                     webp=url_for('static', filename='img/users/26838989.webp'),
                     img=url_for('static', filename='img/users/26838989.png'),
@@ -57,7 +57,7 @@
                     button=True,
                     trasparent=False,
                     buttonfunction='addfriend',
-                    url=url_for("user.profile", pk=2), 
+                    url=url_for('user.profile', username='vittorio_adesso'), 
                     png=url_for('static', filename='img/users/26838989.png'),
                     webp=url_for('static', filename='img/users/26838989.webp'),
                     img=url_for('static', filename='img/users/26838989.png'),

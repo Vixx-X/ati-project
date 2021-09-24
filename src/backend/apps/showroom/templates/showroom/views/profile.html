@@ -1,18 +1,18 @@
 {% extends "showroom/base.html" %}
 
-{% from "components/user-icon.html" import user_icon %}
-{% from "components/header-publication.html" import header_publication %}
-{% from "components/footer-mobile.html" import footer_mobile %}
-{% from "components/buttons.html" import buttons %}
-{% from "components/header.html" import header %}
-{% from "components/footer.html" import footer %}
-{% from "components/mobile-navmenu.html" import mobile_navmenu %}
-{% from "components/long-cards.html" import longCard %}
-{% from "components/media.html" import media %}
+{% from "all_components/user-icon.html" import user_icon %}
+{% from "all_components/header-publication.html" import header_publication %}
+{% from "all_components/footer-mobile.html" import footer_mobile %}
+{% from "all_components/buttons.html" import buttons %}
+{% from "all_components/header.html" import header %}
+{% from "all_components/footer.html" import footer %}
+{% from "all_components/mobile-navmenu.html" import mobile_navmenu %}
+{% from "all_components/long-cards.html" import longCard %}
+{% from "all_components/media.html" import media %}
 
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" >{% endblock %}
 {% block onloadscripts %}
-<script src="{{url_for('static', filename='js/components/mobile-navmenu.js')}}"> </script>
+<script src="{{url_for('static', filename='js/all_components/mobile-navmenu.js')}}"> </script>
 {% endblock onloadscripts %}
 
 {% block title %} Profile {% endblock title %}
@@ -27,7 +27,7 @@
             img=url_for('static', filename='img/users/26956071.png'),
             alt="User2 Photo",
             type="shadow",
-            url=url_for("user.profile", pk=1),
+            url=url_for('user.profile', username='vittorio_adesso'),
             png=url_for('static', filename='img/users/26956071.png'),
             webp=url_for('static', filename='img/users/26956071.webp')
         ) }}   
@@ -64,7 +64,7 @@
                 type="primary last",
                 font="fw-bold",
                 letters="",
-                function="parent.location='" + url_for("user.profile", pk=1) + "'")
+                function="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")
             }}
           {% else %}
             {{buttons(
@@ -137,7 +137,7 @@
             img=url_for('static', filename='img/users/26272390.png'),
             input="UCV, la casa que vence las sombras",
             author="Daniel Vieira",
-            url=url_for("user.profile", pk=4),
+            url=url_for('user.profile', username='vittorio_adesso'),
             time="Today",
             png=url_for('static', filename='img/users/26272390.png'),
             webp=url_for('static', filename='img/users/26272390.webp')
