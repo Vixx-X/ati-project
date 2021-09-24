@@ -48,7 +48,7 @@
                             type="primary last",
                             font="fw-bold",
                             letters="",
-                            function="parent.location='" + url_for('user.profile', pk=1) + "'")
+                            function="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")
                         }}
                 </nav>
                 </div>
@@ -109,7 +109,7 @@
                         type="primary last",
                         font="fw-bold",
                         letters="",
-                        function="parent.location='" + url_for('user.profile', pk=1) + "'")
+                        function="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")
                     }}
                 {% endif %}
                 </div>
@@ -117,7 +117,7 @@
         </div>
         
         {{mobile_navmenu(details=True, 
-            functionPublication="parent.location='" + url_for('user.profile', pk=1) + "'", functionDetails="parent.location='" + url_for('user.description', pk=1) + "'")}}
+            functionPublication="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'", functionDetails="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")}}
 
         <div class="text-area-container container">
             <textarea id='note' maxlength="255" class="details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi ducimus tenetur aliquid reprehenderit tempore asperiores omnis debitis rem.</textarea>
