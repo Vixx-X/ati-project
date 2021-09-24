@@ -2,42 +2,36 @@
 Views for the media module.
 """
 
+from flask_restful import Resource
 from flask.views import MethodView
+from flask import request
+from mongoengine.errors import ValidationError, NotUniqueError
 
-# from flask_babel import gettext as _ # for i18n
+from backend.apps.posts.models import Post as PostModel
+from backend.apps.api.utils import makeRespone as res
 
+from flask_babel import gettext as _ # for i18n
 
-class Image(MethodView):
-    """
-    Endpoint that get Images
-    """
+class Post(Resource):
+    # HTTP POST method
+    def post(self):
+        body = request.get_json()
 
-    def get(self):
-        """
-        Gets image
-        """
-        return ""
+        try:
+            post = PostModel(**body).save()
+        except ValidationError:
+            return res(None, 'One or more required fields are missing', 0, 400)
+        except NotUniqueError:
+            return res(None, 'Post already exist', 0, 409)
 
+        return res(post.id, 'Success', 1, 200)
 
-class Video(MethodView):
-    """
-    Endpoint that get Videos
-    """
+class Posts(Resource):
+    # HTTP GET method
+    def get(self, page):
+        postsPagination = PostModel.objects(public=True).paginate(page, 10)
+        currentPage = postsPagination.items
+        
+        count = len(currentPage)
 
-    def get(self):
-        """
-        Gets video
-        """
-        return ""
-
-
-class Audio(MethodView):
-    """
-    Endpoint that get Audios
-    """
-
-    def get(self):
-        """
-        Gets audio
-        """
-        return ""
+        return res(currentPage, 'Success', count, 200)
