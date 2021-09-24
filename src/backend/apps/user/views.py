@@ -2,7 +2,7 @@
 Views for the user module.
 """
 
-from backend.utils.views import TemplateView
+from backend.utils.views import TemplateView, FormView
 
 # from flask_babel import gettext as _ # for i18n
 
@@ -15,7 +15,7 @@ class CheckEmailView(TemplateView):
     template_name = "user/auth/check_email.html"
 
 
-class Config(TemplateView):
+class Config(FormView):
     """
     Config View to edit user configuration and personalization.
     """
