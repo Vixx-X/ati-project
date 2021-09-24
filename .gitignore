@@ -8,7 +8,7 @@
 **/yarn-error.log
 
 # Media
-/media
+**/media
 
 # Static
 **/static/**

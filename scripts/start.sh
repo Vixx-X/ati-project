@@ -43,6 +43,7 @@ function help {
 	echo ""
 	echo "setup_dev      - bring docker files and start dev workspace"
 	echo "setup_db       - bring prod docker files (use in production)"
+	echo "loaddata       - load fixtures on db"
 	echo ""
 	echo "rundocker      - attach to dev container with bash"
 }

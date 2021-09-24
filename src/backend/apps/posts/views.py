@@ -50,6 +50,9 @@ class CreateUpdatePostView(UpdateView):
         post = self.object or Post()
 
         post.title = form.title
+        post.description = form.description
+        post.tags = form.tags
+        post.public = form.public
 
         post.save()
         return redirect(url_for("post.post-detail", id=post._id))

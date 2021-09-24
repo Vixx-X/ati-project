@@ -2,7 +2,7 @@
 Models for User module
 """
 
-from flask import current_app
+from flask import current_app, url_for
 from flask_babel import gettext as _
 from flask_user import UserMixin
 from social_flask_mongoengine.models import FlaskStorage
@@ -28,20 +28,20 @@ def clean_username(value):
     return value
 
 
-class Config(db.Document):
+class Config(db.EmbeddedDocument):
     """
     Config and personalization for a user
     """
 
-    PRIVACY_OPTIONS = (("PUBLIC", _("public")), ("PRIVATE", _("private")))
-    privacy = db.StringField(max_length=10, choices=PRIVACY_OPTIONS)
+    PRIVACY_OPTIONS = (("PUBLIC", _("public")), ("PRIVATE", _("private")),)
+    privacy = db.StringField(max_length=10, choices=PRIVACY_OPTIONS, default="PUBLIC",)
 
     notify = db.BooleanField(default=True)
 
-    THEME_OPTIONS = (("LIGHT", _("light mode")), ("DARK", _("dark mode")))
-    theme = db.StringField(max_length=10, choices=THEME_OPTIONS)
+    THEME_OPTIONS = (("LIGHT", _("light mode")), ("DARK", _("dark mode")),)
+    theme = db.StringField(max_length=10, choices=THEME_OPTIONS, default="LIGHT",)
 
-    lang = db.StringField(max_length=3, choices=((a, b) for a, b in LANGUAGES.items()))
+    lang = db.StringField(max_length=3, choices=((a, b) for a, b in LANGUAGES.items()),)
 
     @property
     def prefer_private(self):
@@ -56,42 +56,72 @@ class User(db.Document, UserMixin):
     User model for common user attributes and methods
     """
 
-    active = db.BooleanField(default=True)
+    active = db.BooleanField(default=True,)
 
     # User authentication information
-    username = db.StringField(max_length=128)
-    email = db.EmailField(unique=True)
+    username = db.StringField(max_length=128,)
+    email = db.EmailField(unique=True,)
     email_confirmed_at = db.DateTimeField()
-    password = db.StringField(max_length=255)
+    password = db.StringField(max_length=255,)
 
     # User information
-    first_name = db.StringField(max_length=128, default="")
-    last_name = db.StringField(max_length=128, default="")
+    first_name = db.StringField(max_length=128, default="",)
+    last_name = db.StringField(max_length=128, default="",)
     ci = db.IntField()
 
     # User media
-    profile_photo = db.ReferenceField(Image)
-    banner_photo = db.ReferenceField(Image)
+    profile_photo = db.ReferenceField(Image,)
+    banner_photo = db.ReferenceField(Image,)
 
     # User extra info
-    description = db.StringField(max_length=255, default="")
+    description = db.StringField(max_length=255, default="",)
     birth_date = db.DateTimeField()
     GENDERS = [
+        ("X", _("not specified")),
         ("F", _("femenine")),
         ("M", _("masculine")),
         ("O", _("other")),
     ]
-    gender = db.StringField(max_length=1, choices=GENDERS)
+    gender = db.StringField(max_length=1, choices=GENDERS,)
+    colors = db.ListField(db.StringField(max_length=128), default=[],)
+    books = db.ListField(db.StringField(max_length=128), default=[],)
+    games = db.ListField(db.StringField(max_length=128), default=[],)
+    langs = db.ListField(db.StringField(max_length=128), default=[],)
+    music = db.ListField(db.StringField(max_length=128), default=[],)
 
     # Relationships
     friends = db.SortedListField(
-        db.ReferenceField("self", reverse_delete_url=db.CASCADE),
+        db.ReferenceField("self", reverse_delete_url=db.CASCADE,),
         default=[],
+    )
+
+    config = db.EmbeddedDocumentField(
+        Config,
+        reverse_delete_url=db.CASCADE,
+        default=Config,
     )
 
     meta = {
         "collection": "users",
     }
+
+    def get_profile_photo_url(self):
+        if self.profile_photo:
+            return self.profile_photo.url
+        return url_for("static", filename="img/user/default_profile.jpg")
+
+    def add_friend(self, friend):
+        """
+        Add a new friend
+        """
+        if friend not in self.friends and friend.id != self.id:
+            self.friends.append(friend)
+
+    def remove_friend(self, friend):
+        """
+        Remove a friend
+        """
+        self.friends.remove(friend)
 
     @property
     def social_auth(self):
