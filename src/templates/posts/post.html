@@ -1,14 +1,14 @@
 {% extends "showroom/base.html" %}
 
-{% from "components/user-icon.html" import user_icon %}
-{% from "components/header-publication.html" import header_publication %}
-{% from "components/footer-mobile.html" import footer_mobile %}
-{% from "components/buttons.html" import buttons %}
-{% from "components/list-friends.html" import list_friends %}
-{% from "components/header.html" import header %}
-{% from "components/footer.html" import footer %}
-{% from "components/media.html" import media %}
-{% from "components/chat.html" import chat %}
+{% from "all_components/user-icon.html" import user_icon %}
+{% from "all_components/header-publication.html" import header_publication %}
+{% from "all_components/footer-mobile.html" import footer_mobile %}
+{% from "all_components/buttons.html" import buttons %}
+{% from "all_components/list-friends.html" import list_friends %}
+{% from "all_components/header.html" import header %}
+{% from "all_components/footer.html" import footer %}
+{% from "all_components/media.html" import media %}
+{% from "all_components/chat.html" import chat %}
 
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/viewpublication.css') }}" >{% endblock %}
 

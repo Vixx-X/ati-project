@@ -1,11 +1,11 @@
 {% extends "showroom/base.html" %}
 
-{% from "components/user-icon.html" import user_icon %}
-{% from "components/header-publication.html" import header_publication %}
-{% from "components/footer-mobile.html" import footer_mobile %}
-{% from "components/drop-down-list.html" import drop_down_list %}
-{% from "components/boolean-button.html" import boolean_button %}
-{% from "components/radio-button.html" import radioButton %}
+{% from "all_components/user-icon.html" import user_icon %}
+{% from "all_components/header-publication.html" import header_publication %}
+{% from "all_components/footer-mobile.html" import footer_mobile %}
+{% from "all_components/drop-down-list.html" import drop_down_list %}
+{% from "all_components/boolean-button.html" import boolean_button %}
+{% from "all_components/radio-button.html" import radioButton %}
 
 {% block title %} Configurations {% endblock title %}
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/configurations.css') }}" >{% endblock %}

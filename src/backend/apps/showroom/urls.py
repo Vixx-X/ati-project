@@ -46,7 +46,7 @@ list_of_components = [
     ("user_icon", ["User Icons", VA]),
 ]
 
-bp.add_url_rule("/components/", view_func=views.Components.as_view("components"))
+bp.add_url_rule("/all_components/", view_func=views.Components.as_view("components"))
 bp.add_url_rule("/buttons/", view_func=views.Buttons.as_view("buttons"))
 bp.add_url_rule("/header/", view_func=views.Header.as_view("header"))
 bp.add_url_rule("/user-icon/", view_func=views.UserIcon.as_view("user_icon"))
