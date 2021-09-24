@@ -2,12 +2,14 @@
 Models for User module
 """
 
+from datetime import datetime
 from flask import current_app, url_for
 from flask_babel import gettext as _
 from flask_user import UserMixin
 from social_flask_mongoengine.models import FlaskStorage
 
 from backend import db
+
 from config import LANGUAGES as LANGS, DEFAULT_LANGUAGE  # for i18n
 
 from backend.apps.media.models import Image
@@ -15,7 +17,7 @@ from backend.apps.media.models import Image
 import re
 
 NO_ASCII_REGEX = re.compile(r"[^\x00-\x7F]+")
-NO_SPECIAL_REGEX = re.compile(r"[^\w._-]+", re.UNICODE)
+NO_SPECIAL_REGEX = re.compile(r"[^\w_-]+", re.UNICODE)
 
 
 def clean_username(value):
@@ -33,16 +35,36 @@ class Config(db.EmbeddedDocument):
     Config and personalization for a user
     """
 
-    PRIVACY_OPTIONS = (("PUBLIC", _("public")), ("PRIVATE", _("private")),)
-    privacy = db.StringField(max_length=10, choices=PRIVACY_OPTIONS, default="PUBLIC",)
+    PRIVACY_OPTIONS = (
+        ("PUBLIC", _("public")),
+        ("PRIVATE", _("private")),
+    )
+    privacy = db.StringField(
+        max_length=10,
+        choices=PRIVACY_OPTIONS,
+        default="PUBLIC",
+    )
 
     notify = db.BooleanField(default=True)
 
-    THEME_OPTIONS = (("LIGHT", _("light mode")), ("DARK", _("dark mode")),)
-    theme = db.StringField(max_length=10, choices=THEME_OPTIONS, default="LIGHT",)
+    accept_friend_request = db.BooleanField(default=True)
+
+    THEME_OPTIONS = (
+        ("LIGHT", _("light mode")),
+        ("DARK", _("dark mode")),
+    )
+    theme = db.StringField(
+        max_length=10,
+        choices=THEME_OPTIONS,
+        default="LIGHT",
+    )
 
     LANGUAGES = [(a, b) for a, b in LANGS.items()]
-    lang = db.StringField(max_length=3, choices=LANGUAGES, default=DEFAULT_LANGUAGE,)
+    lang = db.StringField(
+        max_length=3,
+        choices=LANGUAGES,
+        default=DEFAULT_LANGUAGE,
+    )
 
     @property
     def prefer_private(self):
@@ -57,25 +79,46 @@ class User(db.Document, UserMixin):
     User model for common user attributes and methods
     """
 
-    active = db.BooleanField(default=True,)
+    active = db.BooleanField(
+        default=True,
+    )
 
     # User authentication information
-    username = db.StringField(max_length=128,)
-    email = db.EmailField(unique=True,)
+    username = db.StringField(
+        max_length=128,
+    )
+    email = db.EmailField(
+        unique=True,
+    )
     email_confirmed_at = db.DateTimeField()
-    password = db.StringField(max_length=255,)
+    password = db.StringField(
+        max_length=255,
+    )
 
     # User information
-    first_name = db.StringField(max_length=128, default="",)
-    last_name = db.StringField(max_length=128, default="",)
+    first_name = db.StringField(
+        max_length=128,
+        default="",
+    )
+    last_name = db.StringField(
+        max_length=128,
+        default="",
+    )
     ci = db.IntField()
 
     # User media
-    profile_photo = db.ReferenceField(Image,)
-    banner_photo = db.ReferenceField(Image,)
+    profile_photo = db.ReferenceField(
+        Image,
+    )
+    banner_photo = db.ReferenceField(
+        Image,
+    )
 
     # User extra info
-    description = db.StringField(max_length=255, default="",)
+    description = db.StringField(
+        max_length=255,
+        default="",
+    )
     birth_date = db.DateTimeField()
     GENDERS = [
         ("X", _("not specified")),
@@ -83,17 +126,38 @@ class User(db.Document, UserMixin):
         ("M", _("masculine")),
         ("O", _("other")),
     ]
-    gender = db.StringField(max_length=1, choices=GENDERS,)
-    colors = db.ListField(db.StringField(max_length=128), default=[],)
-    books = db.ListField(db.StringField(max_length=128), default=[],)
-    games = db.ListField(db.StringField(max_length=128), default=[],)
-    langs = db.ListField(db.StringField(max_length=128), default=[],)
-    music = db.ListField(db.StringField(max_length=128), default=[],)
+    gender = db.StringField(
+        max_length=1,
+        choices=GENDERS,
+    )
+    colors = db.ListField(
+        db.StringField(max_length=128),
+        default=[],
+    )
+    books = db.ListField(
+        db.StringField(max_length=128),
+        default=[],
+    )
+    games = db.ListField(
+        db.StringField(max_length=128),
+        default=[],
+    )
+    langs = db.ListField(
+        db.StringField(max_length=128),
+        default=[],
+    )
+    music = db.ListField(
+        db.StringField(max_length=128),
+        default=[],
+    )
 
     # Relationships
     friends = db.SortedListField(
-        db.ReferenceField("self", reverse_delete_url=db.CASCADE,),
-        default=[],
+        db.ReferenceField(
+            "self",
+            reverse_delete_url=db.CASCADE,
+        ),
+        ordering="username",
     )
 
     config = db.EmbeddedDocumentField(
@@ -111,6 +175,12 @@ class User(db.Document, UserMixin):
             return self.profile_photo.url
         return url_for("static", filename="img/user/default_profile.jpg")
 
+    def is_friend(self, user):
+        """
+        Check is user is friend with current user
+        """
+        return user in self.friends
+
     def add_friend(self, friend):
         """
         Add a new friend
@@ -123,6 +193,14 @@ class User(db.Document, UserMixin):
         Remove a friend
         """
         self.friends.remove(friend)
+
+    @property
+    def have_notification(self):
+        return len(self.notifications)
+
+    @property
+    def notifications(self):
+        return Notification.objects.filter(receiver=self)
 
     @property
     def social_auth(self):
@@ -173,3 +251,79 @@ class User(db.Document, UserMixin):
             token_is_valid = user and user_password == password_ends_with
 
         return user if token_is_valid else None
+
+
+class Notification(db.Document):
+
+    FRIEND_REQUEST_ACCEPTED = "FRA"
+    FRIEND_REQUEST = "FR"
+    CHECK_MESSAGE = "CM"
+    CHECK_POST = "CP"
+    PAGE = "P"
+    TYPES = [
+        (FRIEND_REQUEST, _("friend request")),
+        (FRIEND_REQUEST_ACCEPTED, _("friend request accepted")),
+        (CHECK_MESSAGE, _("check message")),
+        (CHECK_POST, _("check post")),
+        (PAGE, _("page")),
+    ]
+    type = db.StringField(
+        max_length=3,
+        choices=TYPES,
+    )
+
+    receiver = db.ReferenceField(
+        User,
+        reverse_delete_url=db.CASCADE,
+    )
+
+    sender = db.ReferenceField(
+        User,
+        reverse_delete_url=db.CASCADE,
+    )
+
+    date_created = db.DateTimeField()
+
+    def save(self, **kwargs):
+        self.date_created = datetime.now()
+        return super().save(**kwargs)
+
+    map_title = {
+        FRIEND_REQUEST: _("friend request"),
+        FRIEND_REQUEST_ACCEPTED: _("friend request accepted"),
+        CHECK_MESSAGE: _("check message"),
+        CHECK_POST: _("check post"),
+        PAGE: _("page"),
+    }
+
+    @property
+    def title(self):
+        text = self.map_title.get(self.type, _("Notification Title"))
+        num = text.count("%s")
+        if not num or num > 1:
+            return text
+
+        return text % self.receiver.username
+
+    map_message = {
+        FRIEND_REQUEST: _("friend request message"),
+        FRIEND_REQUEST_ACCEPTED: _("You and %s are now friends."),
+        CHECK_MESSAGE: _("check message message"),
+        CHECK_POST: _("check post message"),
+        PAGE: _("page message"),
+    }
+
+    @property
+    def message(self):
+        text = self.map_title.get(self.type, _("Notification Title"))
+        num = text.count("%s")
+        if not num or num > 1:
+            return text
+
+        return text % self.receiver.username
+
+    def is_friend_request(self):
+        """
+        Check is notification is friend request
+        """
+        return self.receiver and self.sender and self.type == self.FRIEND_REQUEST

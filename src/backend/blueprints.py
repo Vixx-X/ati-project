@@ -69,7 +69,7 @@ def register_blueprint(app):
 
     # Register Blueprints
     app.register_blueprint(customize_social_auth(), uri_prefix="oauth")
-    app.register_blueprint(api.bp, uri_prefix="/api")
+    app.register_blueprint(api.bp, url_prefix="/api")
     app.register_blueprint(chat.bp, url_prefix="/chat")
     app.register_blueprint(media.bp, url_prefix="/media")
     app.register_blueprint(posts.bp, url_prefix="/post")
