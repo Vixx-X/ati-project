@@ -50,7 +50,7 @@
               type="primary",
               font="fw-bold",
               letters="",
-              function="parent.location='" + url_for('user.friend', pk=1) + "'")
+              function="parent.location='" + url_for('user.friend', username='vittorio_adesso') + "'")
           }}
             {{buttons(
                 mensaje="Edit profile",
@@ -79,7 +79,7 @@
               type="primary",
               font="fw-bold",
               letters="",
-              function="parent.location='" + url_for('user.friend', pk=2) + "'")
+              function="parent.location='" + url_for('user.friend', username='vittorio_adesso') + "'")
             }}
             {{buttons(
                 mensaje="Be friends",
@@ -102,7 +102,7 @@
       <div class="container margin-bottom">
         {% if is_myuser %}
         <nav class="navegation-mobile">
-          <a href="{{url_for('user.friend', pk=1)}}">
+          <a href="{{url_for('user.friend', username='vittorio_adesso')}}">
             <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
           </a>
           <a href="{{url_for('user.edit', pk=1)}}">
@@ -111,7 +111,7 @@
         </nav>
         {% else %}
         <nav class="navegation-mobile-other">
-          <a href="{{url_for('user.friend', pk=2)}}">
+          <a href="{{url_for('user.friend', username='vittorio_adesso')}}">
             <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
           </a>
           <div class="container-right">
