@@ -102,3 +102,8 @@ p {
     display: none;
   }
 }
+
+label, option{
+  text-transform: capitalize;
+  color: $black;
+}

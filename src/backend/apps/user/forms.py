@@ -1,6 +1,12 @@
 """
 Forms for user app
 """
+from wtforms.widgets import (
+    RadioInput,
+    CheckboxInput,
+    ListWidget,
+    html_params,
+)
 
 from flask_babel import lazy_gettext as _
 from flask_wtf.form import FlaskForm  # for i18n
@@ -235,6 +241,25 @@ class ProfileForm(FormMediaMixin, EditUserProfileForm):
     submit = SubmitField(_("Update"))
 
 
+from markupsafe import Markup
+
+class LatchWidget(CheckboxInput):
+    def __call__(self, field, **kwargs):
+        inside = super().__call__(field, **kwargs)
+        return Markup('<label class="switch">%s<span class="slider round"></span></label>' % inside)
+
+class CustomListWidget(ListWidget):
+    def __call__(self, field, **kwargs):
+        kwargs.setdefault("id", field.id)
+        html = ["<div {}>".format(html_params(**{'class' : 'container-personalization'}))]
+        for subfield in field:
+            if self.prefix_label:
+                html.append(f"<div class='radio-button d-flex jc-space_between'>{subfield.label(**{'class' : 'black'})} {subfield()}</div>")
+            else:
+                html.append(f"<div class='radio-button d-flex jc-space_between'>{subfield()} {subfield.label(**{'class' : 'black'})}</div>")
+        html.append("</div>")
+        return Markup("".join(html))
+
 class ConfigForm(FlaskForm):
     """
     User Configuration form
@@ -242,19 +267,23 @@ class ConfigForm(FlaskForm):
 
     account_privacy = BooleanField(
         _("Private Account"),
+        widget=LatchWidget(),
     )
 
     notify = BooleanField(
         _("Notify via email"),
+        widget=LatchWidget(),
     )
 
     accept_friend_requests = BooleanField(
         _("Accept friend requests"),
+        widget=LatchWidget(),
     )
 
     theme = RadioField(
         _("Themes"),
         choices=Config.THEME_OPTIONS,
+        widget=CustomListWidget(),
     )
 
     lang = SelectField(
