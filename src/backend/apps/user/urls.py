@@ -2,7 +2,6 @@
 Urls for user module/blueprint
 """
 
-
 from . import bp, views
 
 # users
