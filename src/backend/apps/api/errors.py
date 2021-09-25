@@ -41,3 +41,4 @@ class ResourceNotFoundError(ApiExceptions):
     """Resource not found exception"""
     def __init__(self, *args, **kwargs):
        super().__init__(http_status_code=404, *args, **kwargs)
+

@@ -1,9 +1,9 @@
 {% extends "showroom/base.html" %}
 
-{% from "components/buttons.html" import buttons %}
-{% from "components/footer.html" import footer %}
+{% from "all_components/buttons.html" import buttons %}
+{% from "all_components/footer.html" import footer %}
 
-{% block title %} {{ _("Page Not Found") }} {% endblock title %}
+{% block title %} {{ _(error.name) }} {% endblock title %}
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" >{% endblock %}
 
 {% block body %}
@@ -18,8 +18,8 @@
                         <h1>DEGVA</h1>
                     </div>
                 </a>
-                <h1>404</h1>
-                <p class="text-logo">{{ _("Page Not Found.") }}</p>
+                <h1>{{ error.code }}</h1>
+                <p class="text-logo">{{ _(error.description) }}</p>
             </div>
         </div>
     </div>

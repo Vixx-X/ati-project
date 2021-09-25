@@ -23,6 +23,8 @@ from flask_babel import gettext as _  # for i18n
 
 class NotificationView(APIView):
 
+    decorators = [login_required]
+
     def check_veredict(self, veredict):
         """
         Check if veredict is true or false depending on frontend
@@ -51,7 +53,9 @@ class NotificationView(APIView):
             notification_id,
             friend_request=True,
         )
+
         veredict = request.get_json()["veredict"]
+
         if self.check_veredict(veredict):
             accept_friend_request(notification)
             return jsonify({"msg": _("You are now friends.")})

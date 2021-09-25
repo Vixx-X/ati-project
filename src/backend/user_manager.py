@@ -18,26 +18,22 @@ class UserManager(BaseUserManager):
         self,
         app,
         db,
-        UserClass,
-        UserInvitationClass=None,
-        UserEmailClass=None,
-        RoleClass=None,
     ):
+        from backend.apps.user.models import User
+
+        UserClass = User
         self.app = app
         return super().init_app(
             app,
             db,
             UserClass,
-            UserInvitationClass=UserInvitationClass,
-            UserEmailClass=UserEmailClass,
-            RoleClass=RoleClass,
         )
 
     def customize(self, app):
         """
         Configuring custom forms
         """
-        from . import forms
+        from backend.apps.user import forms
 
         self.ChangePasswordFormClass = forms.ChangePasswordForm
         self.ChangeUsernameFormClass = forms.ChangeUsernameForm
