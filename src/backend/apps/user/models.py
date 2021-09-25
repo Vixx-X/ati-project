@@ -35,28 +35,32 @@ class Config(db.EmbeddedDocument):
     Config and personalization for a user
     """
 
+    PUBLIC = "PUBLIC"
+    PRIVATE = "PRIVATE"
     PRIVACY_OPTIONS = (
-        ("PUBLIC", _("public")),
-        ("PRIVATE", _("private")),
+        (PUBLIC, _("public")),
+        (PRIVATE, _("private")),
     )
-    privacy = db.StringField(
+    account_privacy = db.StringField(
         max_length=10,
         choices=PRIVACY_OPTIONS,
-        default="PUBLIC",
+        default=PUBLIC,
     )
 
     notify = db.BooleanField(default=True)
 
-    accept_friend_request = db.BooleanField(default=True)
+    accept_friend_requests = db.BooleanField(default=True)
 
+    LIGHT = "LIGHT"
+    DARK = "DARK"
     THEME_OPTIONS = (
-        ("LIGHT", _("light mode")),
-        ("DARK", _("dark mode")),
+        (LIGHT, _("light mode")),
+        (DARK, _("dark mode")),
     )
     theme = db.StringField(
         max_length=10,
         choices=THEME_OPTIONS,
-        default="LIGHT",
+        default=LIGHT,
     )
 
     LANGUAGES = [(a, b) for a, b in LANGS.items()]
@@ -71,7 +75,7 @@ class Config(db.EmbeddedDocument):
         """
         Get privacy preference of user
         """
-        return self.privacy == "PRIVATE"
+        return self.account_privacy == self.PRIVATE
 
 
 class User(db.Document, UserMixin):

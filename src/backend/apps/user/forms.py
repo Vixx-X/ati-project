@@ -28,11 +28,11 @@ from flask_user.forms import (
     unique_email_validator,
     unique_username_validator,
 )
-from wtforms.fields.core import FieldList
+from wtforms.fields.core import FieldList, RadioField
 
 from wtforms.fields.simple import HiddenField, TextAreaField
 from backend.apps.media.forms import FormMediaMixin
-from .models import User
+from .models import User, Config
 
 
 # Forms
@@ -234,13 +234,43 @@ class ProfileForm(FormMediaMixin, EditUserProfileForm):
 
     submit = SubmitField(_("Update"))
 
+
 class ConfigForm(FlaskForm):
     """
     User Configuration form
     """
-    first_name = StringField(
-        _("First name"),
-        validators=[validators.DataRequired()],
+
+    account_privacy = BooleanField(
+        _("Private Account"),
     )
 
+    notify = BooleanField(
+        _("Notify via email"),
+    )
 
+    accept_friend_requests = BooleanField(
+        _("Accept friend requests"),
+    )
+
+    theme = RadioField(
+        _("Themes"),
+        choices=Config.THEME_OPTIONS,
+    )
+
+    lang = SelectField(
+        _("Languages"),
+        choices=Config.LANGUAGES,
+    )
+
+    def __init__(self, **kwargs):
+        obj = kwargs.get("obj", None)
+        data = obj.prefer_private
+        super().__init__(**kwargs)
+        if obj:
+            self.account_privacy.data = data
+
+    def populate_obj(self, obj):
+        super().populate_obj(obj)
+        obj.account_privacy = (
+            Config.PRIVATE if self.account_privacy.data else Config.PUBLIC
+        )
