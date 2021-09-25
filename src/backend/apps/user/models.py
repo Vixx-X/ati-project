@@ -35,28 +35,32 @@ class Config(db.EmbeddedDocument):
     Config and personalization for a user
     """
 
+    PUBLIC = "PUBLIC"
+    PRIVATE = "PRIVATE"
     PRIVACY_OPTIONS = (
-        ("PUBLIC", _("public")),
-        ("PRIVATE", _("private")),
+        (PUBLIC, _("public")),
+        (PRIVATE, _("private")),
     )
-    privacy = db.StringField(
+    account_privacy = db.StringField(
         max_length=10,
         choices=PRIVACY_OPTIONS,
-        default="PUBLIC",
+        default=PUBLIC,
     )
 
     notify = db.BooleanField(default=True)
 
-    accept_friend_request = db.BooleanField(default=True)
+    accept_friend_requests = db.BooleanField(default=True)
 
+    LIGHT = "LIGHT"
+    DARK = "DARK"
     THEME_OPTIONS = (
-        ("LIGHT", _("light mode")),
-        ("DARK", _("dark mode")),
+        (LIGHT, _("light mode")),
+        (DARK, _("dark mode")),
     )
     theme = db.StringField(
         max_length=10,
         choices=THEME_OPTIONS,
-        default="LIGHT",
+        default=LIGHT,
     )
 
     LANGUAGES = [(a, b) for a, b in LANGS.items()]
@@ -71,7 +75,7 @@ class Config(db.EmbeddedDocument):
         """
         Get privacy preference of user
         """
-        return self.privacy == "PRIVATE"
+        return self.account_privacy == self.PRIVATE
 
 
 class User(db.Document, UserMixin):
@@ -169,6 +173,29 @@ class User(db.Document, UserMixin):
     meta = {
         "collection": "users",
     }
+
+    def as_dict(self):
+        raw = self.to_mongo().to_dict()
+        raw["id"] = str(raw.pop("_id"))
+
+        if "banner_photo" in raw:
+            raw["banner_photo"] = list(map(lambda x: x.as_dict(), self.banner_photo)) 
+
+        
+        if "profile_photo" in raw:
+            raw["profile_photo"] = list(map(lambda x: x.as_dict(), self.profile_photo)) 
+
+
+        if "email_confirmed_at" in raw:
+            raw['email_confirmed_at'] = raw['email_confirmed_at'].isoformat()
+
+        if "birth_date" in raw:
+            raw['birth_date'] = raw['birth_date'].isoformat()
+
+        if "friends" in raw:
+            raw["friends"] = list(map(lambda x: x.as_dict(), self.friends)) 
+
+        return raw
 
     def get_profile_photo_url(self):
         if self.profile_photo:

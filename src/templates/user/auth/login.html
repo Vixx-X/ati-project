@@ -4,7 +4,8 @@
 {% from "components/utils/buttons.html" import buttons %}
 {% from "components/user/auth/slogan.html" import slogan %}
 
-{% block title %} {{ _("LogIn") }} {% endblock title %}
+{% block title %} {{ _("Log In") }} {% endblock title %}
+
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}" >{% endblock %}
 
 {% block body %}
@@ -27,7 +28,7 @@
 
                 <div class="heading black">
                     <h3 class="fw-normal">
-                        {{ _("LogIn") }}
+                        {{ _("Log In") }}
                     </h3>
                     <hr>
                 </div>

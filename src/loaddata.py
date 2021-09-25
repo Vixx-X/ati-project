@@ -134,7 +134,8 @@ def loaddata(path, dry_run=False):
             for file in dirs:
                 dirname = os.path.join(root, file)
                 filename = os.path.join(dirname, "perfil.json")
-                with open(filename, "r") as f:
+
+                with open(filename, 'r', encoding='utf-8') as f:
                     users.append(import_user(f, dirname, dry_run))
 
         if not dry_run:

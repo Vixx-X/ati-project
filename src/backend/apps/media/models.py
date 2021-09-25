@@ -2,6 +2,7 @@
 Models for Media module
 """
 
+from flask.helpers import url_for
 import mongoengine as db
 
 # from flask_babel import gettext as _
@@ -59,11 +60,15 @@ class Media(db.Document):
             return self._file
         return send_from_directory(self.get_media_root_path(), str(self.path))
 
+    # @property
+    # def url(self):
+    #     url = request.url_root
+    #     root = "/".join(url.split("/")[:3])
+    #     return f"{root}/media/{self.path}"
+
     @property
     def url(self):
-        url = request.url_root
-        root = "/".join(url.split("/")[:3])
-        return f"{root}/media/{self.path}"
+        return url_for('media.file', path=self.path)
 
     def save(self, **kwargs):
         """
@@ -99,6 +104,8 @@ class Image(Media):
 
     resolution = StringField()
 
+    def as_dict(self):
+        return self.to_mongo().to_dict()
 
 class Audio(Media):
     """

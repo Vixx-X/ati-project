@@ -25,6 +25,10 @@ class ApiExceptions(Exception):
 class ValidationError(ApiExceptions):
     """Should be raised in case of custom validations"""
 
+class NotUniqueError(ApiExceptions):
+    """Should be raised in case of a element already exist"""
+    def __init__(self, http_status_code: int, *args, **kwargs):
+        super().__init__(http_status_code=409, *args, **kwargs)
 
 class UnauthorizedError(ApiExceptions):
     """Unauthorized exception"""
@@ -35,3 +39,6 @@ class UnauthorizedError(ApiExceptions):
 
 class ResourceNotFoundError(ApiExceptions):
     """Resource not found exception"""
+    def __init__(self, *args, **kwargs):
+       super().__init__(http_status_code=404, *args, **kwargs)
+
