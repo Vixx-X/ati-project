@@ -6,9 +6,7 @@ Models for User module
 from datetime import datetime
 
 from backend import db
-from backend.loading import get_class
-
-User = get_class("user.models", "User")
+from backend.apps.user.models import  User
 
 
 class Post(db.Document):
@@ -18,7 +16,7 @@ class Post(db.Document):
 
     author = db.ReferenceField(
         User, reverse_delete_rule=db.NULLIFY
-    )  # hacer la referencia a user model
+    )
 
     # content
     title = db.StringField(max_length=255)
@@ -38,6 +36,21 @@ class Post(db.Document):
     meta = {
         "collection": "posts",
     }
+
+    def as_dict(self):
+        raw = self.to_mongo().to_dict()
+        raw["id"] = str(raw.pop("_id"))
+        
+        if "time_created" in raw:
+            raw['time_created'] = raw['time_created'].isoformat()
+        
+        if "time_edited" in raw:
+            raw['time_edited'] = raw['time_edited'].isoformat()
+
+        if "author" in raw:
+            raw["author"] = self.author.as_dict()
+
+        return raw
 
     def get_author(self):
         """

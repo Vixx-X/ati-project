@@ -170,6 +170,29 @@ class User(db.Document, UserMixin):
         "collection": "users",
     }
 
+    def as_dict(self):
+        raw = self.to_mongo().to_dict()
+        raw["id"] = str(raw.pop("_id"))
+
+        if "banner_photo" in raw:
+            raw["banner_photo"] = list(map(lambda x: x.as_dict(), self.banner_photo)) 
+
+        
+        if "profile_photo" in raw:
+            raw["profile_photo"] = list(map(lambda x: x.as_dict(), self.profile_photo)) 
+
+
+        if "email_confirmed_at" in raw:
+            raw['email_confirmed_at'] = raw['email_confirmed_at'].isoformat()
+
+        if "birth_date" in raw:
+            raw['birth_date'] = raw['birth_date'].isoformat()
+
+        if "friends" in raw:
+            raw["friends"] = list(map(lambda x: x.as_dict(), self.friends)) 
+
+        return raw
+
     def get_profile_photo_url(self):
         if self.profile_photo:
             return self.profile_photo.url
