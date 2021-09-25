@@ -2,10 +2,8 @@
 
 {% from "all_components/user-icon.html" import user_icon %}
 {% from "all_components/header-publication.html" import header_publication %}
-{% from "all_components/footer-mobile.html" import footer_mobile %}
 {% from "all_components/buttons.html" import buttons %}
 {% from "all_components/header.html" import header %}
-{% from "all_components/footer.html" import footer %}
 {% from "all_components/mobile-navmenu.html" import mobile_navmenu %}
 {% from "all_components/long-cards.html" import longCard %}
 {% from "all_components/element-friend-list.html" import element_friend_list %}
@@ -16,7 +14,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/profile-edit.css') }}" >
 {% endblock %}
 
-{% block title %} Edit {% endblock title %}
+{% block title %} {{_("Edit")}} {% endblock title %}
 
 {% block body -%}
 
@@ -91,6 +89,42 @@
                      label_class="d-flex fw-bold black",
                 )}}
 
+                {{ input(
+                    field=form.description,
+                    field_class="white w-100",
+                    label_class="d-flex fw-bold black",
+               )}}
+
+                {{ input(
+                    field=form.colors,
+                    field_class="white w-100",
+                    label_class="d-flex fw-bold black",
+               )}}
+
+                {{ input(
+                    field=form.books,
+                    field_class="white w-100",
+                    label_class="d-flex fw-bold black",
+               )}}
+
+                {{ input(
+                    field=form.games,
+                    field_class="white w-100",
+                    label_class="d-flex fw-bold black",
+               )}}
+
+                {{ input(
+                    field=form.langs,
+                    field_class="white w-100",
+                    label_class="d-flex fw-bold black",
+               )}}
+
+                {{ input(
+                    field=form.music,
+                    field_class="white w-100",
+                    label_class="d-flex fw-bold black",
+               )}}
+
                 <div class="container-button">
                     {{buttons(
                         mensaje="Save",
@@ -157,10 +191,5 @@
             edit=True
         )}}
     </div>
-    
-
-
-{{footer()}}
-{{footer_mobile(class="black")}}
 
 {%- endblock body %}

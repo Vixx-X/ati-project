@@ -2,12 +2,10 @@
 
 {% from "all_components/user-icon.html" import user_icon %}
 {% from "all_components/header-publication.html" import header_publication %}
-{% from "all_components/footer-mobile.html" import footer_mobile %}
 {% from "all_components/header.html" import header %}
-{% from "all_components/footer.html" import footer %}
 {% from "all_components/element-friend-list.html" import element_friend_list %}
 
-{% block title %} Search Results {% endblock title %}
+{% block title %} {{_("Search Results")}} {% endblock title %}
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/searchpage.css') }}" >{% endblock %}
 
 {% block body -%}
@@ -17,7 +15,7 @@
     <div class="container container-header-friends search-view">
         <div class="heading black">
             <h3 class="fw-normal">
-                Search Results: {{search}}
+                {{_("Search Results")}}: {{search}}
             </h3>
             <hr>
         </div>
@@ -68,9 +66,5 @@
         </div>
     </div>
   </section>
-
-
-{{footer()}}
-{{footer_mobile(class="black")}}
 
 {% endblock body %}
