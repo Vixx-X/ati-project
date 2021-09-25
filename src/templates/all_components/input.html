@@ -1,4 +1,4 @@
-{% macro input(field, label=True, errors=True, field_class="", field_class="", placeholder="") -%}
+{% macro input(field, label=True, errors=True, field_class="", label_class="", placeholder="") -%}
 <div class="input-label">
     {% if label %}
     {{ field.label(class=field_class + (
