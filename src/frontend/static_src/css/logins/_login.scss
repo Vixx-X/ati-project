@@ -4,7 +4,7 @@
 
 
 .content-distribution{
-    @include tablet{
+    @include mediumDesktop{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
@@ -31,6 +31,7 @@
 }
 
 .form-login{
+    margin: 2rem auto;
     @include tablet{
         width: 80%;
     }
@@ -43,6 +44,13 @@
             font-size: 1.6rem;
         }
     }
+}
+
+.error-login{
+    color: red;
+    line-height: 1;
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
 }
 
 input{
@@ -64,15 +72,4 @@ input{
 
 #linkpassword{
     margin-top: 2rem;
-}
-
-.container-api{
-    margin: 2rem 0;
-    font-size: 5.5px;
-    display: flex;
-    justify-content: space-between;
-    .button{
-        width: calc(50% - 1rem);
-        padding: 1rem 0;
-    }
 }

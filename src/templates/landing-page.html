@@ -1,48 +1,45 @@
-{% extends "showroom/base.html" %}
+{% extends "user/auth/base.html" %} 
+{% from "components/utils/buttons.html" import buttons %} 
+{% from "components/user/auth/slogan.html" import slogan %}
+{% from "components/user/auth/slogan.html" import slogan %}
 
-{% from "all_components/buttons.html" import buttons %}
-{% from "all_components/footer.html" import footer %}
-
-{% block title %} Home {% endblock title %}
-{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" >{% endblock %}
+{% block title %} DEGVA {% endblock title %} 
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}"
+/>
+{% endblock %}
 
 {% block body %}
-    <div class="container-center">
-        <div class="background-dark-transparent">
-            <div class="container content-distribution">
-                <a href="{{url_for('app.home')}}">
-                    <div class="main-logotype">
-                        <img
-                        src="{{ url_for('static', filename='img/logo.svg') }}"
-                        alt="DEGVA logotype" />
-                        <h1>DEGVA</h1>
-                    </div>
-                </a>
-                <p class="text-logo">Stay 127.0.0.1 use 255.255.255.0</p>
-
-                <div class="container-button">
-                    <a href="{{url_for('user.login')}}">
-                        {{buttons(
-                            mensaje="LogIn",
-                            type="primary",
-                            font="fw-bold",
-                            letters="text-uppercase")
-                        }}
-                    </a>
-                    <a href="{{url_for('user.register')}}">
-                        {{buttons(
-                            mensaje="Sign Up",
-                            type="primary",
-                            font="fw-bold",
-                            letters="text-uppercase")
-                        }}
-                    </a>
-                </div>
-
-            </div>
+<div class="container-center">
+  <div class="background-dark-transparent">
+    <div class="container content-distribution">
+      <a href="{{url_for('app.home')}}">
+        <div class="main-logotype">
+          <img
+            src="{{ url_for('static', filename='img/logo.svg') }}"
+            alt="DEGVA logotype"
+          />
+          <h1>DEGVA</h1>
         </div>
-    </div>
+      </a>
+      {{ slogan() }}
 
-{{footer()}}
+      <div class="container-button">
+        {{buttons( mensaje=_("Log In"), 
+            type="primary", 
+            font="fw-bold",
+            letters="text-uppercase", 
+            link=url_for('user.login')) 
+        }}
+        {{buttons(
+            mensaje=_("Sign Up"), 
+            type="primary", 
+            font="fw-bold",
+            letters="text-uppercase", 
+            link=url_for('user.login')) 
+        }}
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock body %}

@@ -1,13 +1,10 @@
-{% extends "showroom/base.html" %}
+{% extends "user/auth/base.html" %}
+{% from "components/user/auth/oauth.html" import oauth_button %}
+{% from "components/utils/input.html" import input %}
+{% from "components/utils/buttons.html" import buttons %}
+{% from "components/user/auth/slogan.html" import slogan %}
 
-{% from "all_components/oauth.html" import oauth_button %}
-{% from "all_components/input-label.html" import inputLabel %}
-{% from "all_components/input.html" import input %}
-{% from "all_components/buttons.html" import buttons %}
-{% from "all_components/footer.html" import footer %}
-
-
-{% block title %} LogIn {% endblock title %}
+{% block title %} {{ _("LogIn") }} {% endblock title %}
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}" >{% endblock %}
 
 {% block body %}
@@ -23,21 +20,17 @@
                         <h1>DEGVA</h1>
                     </div>
                 </a>
-                <p class="text-logo">Stay 127.0.0.1 use 255.255.255.0</p>
+                {{ slogan() }}
             </div>
             <form method="POST" id="logIn" class="form-login">
                 {{ login_form.csrf_token }}
 
                 <div class="heading black">
                     <h3 class="fw-normal">
-                        LogIn
+                        {{ _("LogIn") }}
                     </h3>
                     <hr>
                 </div>
-
-                {% if login_form.errors -%}
-                {{ login_form.errors.username[0] }}
-                {%- endif %}
 
                 {{ input(
                      field=login_form.username,
@@ -55,12 +48,18 @@
                      errors=False,
                 )}}
 
+                {% if login_form.errors -%}
+                <p class="error-login">
+                    {{ login_form.errors.username[0] }}
+                </p>
+                {%- endif %}
+
                 <a href="{{url_for('user.register')}}" id="linkaccount">
                     <p class="text-uppercase fw-bold">{{ _("Don't have account?") }}</p>
                 </a>
                 <div class="container-button">
                     {{buttons(
-                        mensaje="Sign In",
+                        mensaje=_("Sign In"),
                         type="primary",
                         font="fw-bold",
                         letters="text-uppercase",
@@ -77,7 +76,5 @@
         </div>
     </div>
 </div>
-
-{{footer()}}
 
 {% endblock body %}

@@ -1,16 +1,14 @@
-{% extends "showroom/base.html" %}
+{% extends "user/auth/base.html" %}
+{% from "components/utils/buttons.html" import buttons %}
 
-{% from "all_components/buttons.html" import buttons %}
-{% from "all_components/footer.html" import footer %}
-
-{% block title %} Home {% endblock title %}
+{% block title %} {{ _("Resend Password") }} {% endblock title %}
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" >{% endblock %}
 
 {% block body %}
     <div class="container-center">
         <div class="background-dark-transparent">
             <div class="container content-distribution">
-                <a href="{{url_for('app.home')}}">
+                <a href="{{url_for('app.landing')}}">
                     <div class="main-logotype">
                         <img
                         src="{{ url_for('static', filename='img/logo.svg') }}"
@@ -18,15 +16,13 @@
                         <h1>DEGVA</h1>
                     </div>
                 </a>
-                <h1>{{ _("Please check your email.") }}</h1>
+                <h1 class="title-auth">{{ _("Please check your email.") }}</h1>
                 <p class="text-logo">{{ _("An email with your next steps should prontly arrive in your inbox.") }}</p>
                 <p class="text-logo">{{ _("If it has not arrived, fell free to click ") }}
-                   <a href="{{ url_for('user.resend_email_confirmation') }}">here</a> {{ _( "and try again") }}.
+                   <a class="click-resend" href="{{ url_for('user.resend_email_confirmation') }}">here</a> {{ _( "and try again") }}.
                 </p>
             </div>
         </div>
     </div>
-
-{{footer()}}
 
 {% endblock body %}
