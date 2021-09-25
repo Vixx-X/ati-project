@@ -171,12 +171,19 @@ class UpdateView(View, FormMixin, TemplateMixin):
         except db.DoesNotExist:
             return None
 
+    def form_valid(self, form, *args, **kwargs):
+        """
+        Save form data with populate_obj method of form
+        """
+        form.populate_obj(self.object)
+        return super().form_valid(form, *args, **kwargs)
+
     def dispatch_request(self, *args, **kwargs):
         self.request = request
         self.args = request.args
         self.method = request.method
-        self.object = self.get_object(*args, **kwargs)
         self.user = g.user
+        self.object = self.get_object(*args, **kwargs)
         if self.method == "GET":
             return self.get(*args, **kwargs)
         return self.post(*args, **kwargs)

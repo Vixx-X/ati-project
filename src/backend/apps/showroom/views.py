@@ -65,7 +65,7 @@ class Buttons(TemplateView):
     Showcase for button component.
     """
 
-    template_name = "showroom/components/buttons.html"
+    template_name = "showroom/all_components/buttons.html"
 
 
 class Header(TemplateView):
@@ -73,7 +73,7 @@ class Header(TemplateView):
     Showcase for header component.
     """
 
-    template_name = "showroom/components/header.html"
+    template_name = "showroom/all_components/header.html"
 
 
 class UserIcon(TemplateView):
@@ -81,7 +81,7 @@ class UserIcon(TemplateView):
     Showcase for user-icon component.
     """
 
-    template_name = "showroom/components/user-icon.html"
+    template_name = "showroom/all_components/user-icon.html"
 
 
 class Card(TemplateView):
@@ -89,7 +89,7 @@ class Card(TemplateView):
     Showcase for card component.
     """
 
-    template_name = "showroom/components/card.html"
+    template_name = "showroom/all_components/card.html"
 
 
 class Header2(TemplateView):
@@ -97,7 +97,7 @@ class Header2(TemplateView):
     Showcase for header2 component.
     """
 
-    template_name = "showroom/components/header2.html"
+    template_name = "showroom/all_components/header2.html"
 
 
 class Comments(TemplateView):
@@ -105,7 +105,7 @@ class Comments(TemplateView):
     Showcase for comments-users component.
     """
 
-    template_name = "showroom/components/comments-users.html"
+    template_name = "showroom/all_components/comments-users.html"
 
 
 class Footers(TemplateView):
@@ -113,7 +113,7 @@ class Footers(TemplateView):
     Showcase for footer component.
     """
 
-    template_name = "showroom/components/footer.html"
+    template_name = "showroom/all_components/footer.html"
 
 
 class Heading(TemplateView):
@@ -121,7 +121,7 @@ class Heading(TemplateView):
     Showcase for heading component.
     """
 
-    template_name = "showroom/components/heading.html"
+    template_name = "showroom/all_components/heading.html"
 
 
 class LongCards(TemplateView):
@@ -129,7 +129,7 @@ class LongCards(TemplateView):
     Showcase for long cards component.
     """
 
-    template_name = "showroom/components/long-cards.html"
+    template_name = "showroom/all_components/long-cards.html"
 
 
 class Notification(TemplateView):
@@ -137,7 +137,7 @@ class Notification(TemplateView):
     Showcase for notification component.
     """
 
-    template_name = "showroom/components/notification.html"
+    template_name = "showroom/all_components/notification.html"
 
 
 class SearchButton(TemplateView):
@@ -145,7 +145,7 @@ class SearchButton(TemplateView):
     Showcase for search component.
     """
 
-    template_name = "showroom/components/search-button.html"
+    template_name = "showroom/all_components/search-button.html"
 
 
 class Chat(TemplateView):
@@ -153,7 +153,7 @@ class Chat(TemplateView):
     Showcase for chat component.
     """
 
-    template_name = "showroom/components/chat.html"
+    template_name = "showroom/all_components/chat.html"
 
 
 class ListFriends(TemplateView):
@@ -161,7 +161,7 @@ class ListFriends(TemplateView):
     Showcase for chat component.
     """
 
-    template_name = "showroom/components/list-friends.html"
+    template_name = "showroom/all_components/list-friends.html"
 
 
 class HeaderPublication(TemplateView):
@@ -169,7 +169,7 @@ class HeaderPublication(TemplateView):
     Showcase for header publication component.
     """
 
-    template_name = "showroom/components/header-publication.html"
+    template_name = "showroom/all_components/header-publication.html"
 
 
 class Muro(TemplateView):
@@ -201,7 +201,7 @@ class InputLabel(TemplateView):
     Showcase for inputLabel component.
     """
 
-    template_name = "showroom/components/input-label.html"
+    template_name = "showroom/all_components/input-label.html"
 
 
 class RadioButton(TemplateView):
@@ -209,7 +209,7 @@ class RadioButton(TemplateView):
     Showcase for RadioButton component.
     """
 
-    template_name = "showroom/components/radio-button.html"
+    template_name = "showroom/all_components/radio-button.html"
 
 
 class BooleanButton(TemplateView):
@@ -217,7 +217,7 @@ class BooleanButton(TemplateView):
     Showcase for chat component.
     """
 
-    template_name = "showroom/components/boolean-button.html"
+    template_name = "showroom/all_components/boolean-button.html"
 
 
 class DropDownList(TemplateView):
@@ -225,7 +225,7 @@ class DropDownList(TemplateView):
     Showcase for chat component.
     """
 
-    template_name = "showroom/components/drop-down-list.html"
+    template_name = "showroom/all_components/drop-down-list.html"
 
 
 class ElementFriendList(TemplateView):
@@ -233,7 +233,7 @@ class ElementFriendList(TemplateView):
     Showcase for chat component.
     """
 
-    template_name = "showroom/components/element-friend-list.html"
+    template_name = "showroom/all_components/element-friend-list.html"
 
 
 class FooterMobile(TemplateView):
@@ -241,7 +241,7 @@ class FooterMobile(TemplateView):
     Showcase for footer mobile component.
     """
 
-    template_name = "showroom/components/footer-mobile.html"
+    template_name = "showroom/all_components/footer-mobile.html"
 
 
 class Register(TemplateView):
@@ -265,7 +265,7 @@ class ListChats(TemplateView):
     Showcase for chat list component.
     """
 
-    template_name = "showroom/components/list-chats.html"
+    template_name = "showroom/all_components/list-chats.html"
 
 
 class Configurations(TemplateView):
@@ -289,7 +289,7 @@ class MobileNavMenu(TemplateView):
     Showcase for mobile nav menu component.
     """
 
-    template_name = "showroom/components/mobile-navmenu.html"
+    template_name = "showroom/all_components/mobile-navmenu.html"
 
 
 class ListComments(TemplateView):
@@ -297,7 +297,7 @@ class ListComments(TemplateView):
     Showcase for profile1 view.
     """
 
-    template_name = "showroom/components/list-comments.html"
+    template_name = "showroom/all_components/list-comments.html"
 
 
 class ChatView(TemplateView):

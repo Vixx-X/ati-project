@@ -1,13 +1,15 @@
 {% extends "showroom/base.html" %}
 
-{% from "components/user-icon.html" import user_icon %}
-{% from "components/header-publication.html" import header_publication %}
-{% from "components/footer-mobile.html" import footer_mobile %}
-{% from "components/drop-down-list.html" import drop_down_list %}
-{% from "components/boolean-button.html" import boolean_button %}
-{% from "components/radio-button.html" import radioButton %}
-{% from "components/header.html" import header %}
-{% from "components/footer.html" import footer %}
+{% from "all_components/buttons.html" import buttons %}
+{% from "all_components/input.html" import input %}
+{% from "all_components/user-icon.html" import user_icon %}
+{% from "all_components/header-publication.html" import header_publication %}
+{% from "all_components/footer-mobile.html" import footer_mobile %}
+{% from "all_components/drop-down-list.html" import drop_down_list %}
+{% from "all_components/boolean-button.html" import boolean_button %}
+{% from "all_components/radio-button.html" import radioButton %}
+{% from "all_components/header.html" import header %}
+{% from "all_components/footer.html" import footer %}
 
 {% block title %} Configurations {% endblock title %}
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/configurations.css') }}" >{% endblock %}
@@ -21,6 +23,46 @@
         </h3>
         <hr>
     </div>
+
+    <form method="POST" id="config" class="form from-config">
+        {{ form.csrf_token }}
+
+    {{ input(
+         field=form.account_privacy,
+         fieldClass="white w-100",
+         labelClass="d-flex fw-bold black",
+    )}}
+    {{ input(
+         field=form.notify,
+         fieldClass="white w-100",
+         labelClass="d-flex fw-bold black",
+    )}}
+    {{ input(
+         field=form.accept_friend_requests,
+         fieldClass="white w-100",
+         labelClass="d-flex fw-bold black",
+    )}}
+    {{ input(
+         field=form.theme,
+         fieldClass="white w-100",
+         labelClass="d-flex fw-bold black",
+    )}}
+    {{ input(
+         field=form.lang,
+         fieldClass="white w-100",
+         labelClass="d-flex fw-bold black",
+    )}}
+
+    <div class="container-button">
+        {{buttons(
+            mensaje=_("Save"),
+            type="primary",
+            font="fw-bold",
+            letters="text-uppercase",
+        )}}
+    </div>
+    </form>
+
     {{boolean_button(
         id="booleanButton",
         text="Privacidad",

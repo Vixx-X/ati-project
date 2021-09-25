@@ -3,7 +3,7 @@
 
 <div class="footer-mobile {{class}}">
     <div class="container d-flex jc-space_between">
-        <a href="{{url_for('user.profile', pk=1)}}">
+        <a href="{{url_for('user.profile', username='vittorio_adesso')}}">
             <img loading="lazy" src="{{ url_for("static", filename="img/icons/user.svg") }}" alt="User icon">
         </a>
         <a href="{{url_for('posts.post-create')}}">

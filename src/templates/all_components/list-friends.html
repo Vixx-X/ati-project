@@ -1,6 +1,6 @@
-{% from "components/user-icon.html" import user_icon %}
-{% from "components/buttons.html" import buttons %}
-{% from "components/element-friend-list.html" import element_friend_list %}
+{% from "all_components/user-icon.html" import user_icon %}
+{% from "all_components/buttons.html" import buttons %}
+{% from "all_components/element-friend-list.html" import element_friend_list %}
 {% macro list_friends(img, name, comunFriends="Comun Friends", url=None, png="", webp="", alt="", type="basic",button="",txtbutton="", titlelist="List Friends", globalbutton=None, number=6) %}
 
 <div class="cont-listaAmigos">
@@ -14,7 +14,7 @@
   
   {% set number_friends = number %}
   {% for i in range(number_friends) %}
-    <a href="{{url_for('user.profile', pk=2)}}">
+    <a href="{{url_for('user.profile', username='vittorio_adesso')}}">
       {{element_friend_list(
         user=name,
         comunFriends=comunFriends,
@@ -36,7 +36,7 @@
     type="primary",
     font="fw-bold",
     letters="text-uppercase",
-    function="parent.location='" + url_for('user.friend', pk=1) + "'",
+    function="parent.location='" + url_for('user.friend', username='vittorio_adesso') + "'",
     )
   }}
 

@@ -8,8 +8,7 @@ from flask_mongoengine import MongoEngine
 from flask_wtf.csrf import CSRFProtect
 from social_flask_mongoengine.models import init_social
 from werkzeug.middleware.proxy_fix import ProxyFix
-from backend.apps.user.user_manager import UserManager
-
+from backend.user_manager import UserManager
 from backend.blueprints import register_blueprint
 
 db = MongoEngine()
@@ -37,6 +36,9 @@ def init_app(config_file="config"):
     if template_folder:
         app.template_folder = template_folder
 
+    # Chill trailing slash check
+    app.url_map.strict_slashes = False
+
     # Initialize Plugins
     db.init_app(app)  # db
 
@@ -54,10 +56,7 @@ def init_app(config_file="config"):
     init_social(app, db)  # social auth
     babel.init_app(app)  # i18n
     csrf.init_app(app)  # csrf tokens
-
-    from backend.apps.user.models import User
-
-    user_manager.init_app(app, db, User)
+    user_manager.init_app(app, db)
 
     with app.app_context():
         # Include our Routes, and the core app

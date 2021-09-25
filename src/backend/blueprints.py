@@ -32,12 +32,12 @@ def customize_social_auth():
 
         return ret
 
-    @social_auth.route("/sign-in/<string:backend>/", methods=("GET", "POST"))
+    @social_auth.route("/sign-in/<string:backend>", methods=("GET", "POST"))
     @psa("social.complete")
     def auth(backend):
         return do_auth(g.backend)
 
-    @social_auth.route("/complete/<string:backend>/", methods=("GET", "POST"))
+    @social_auth.route("/complete/<string:backend>", methods=("GET", "POST"))
     @psa("social.complete")
     def complete(backend, *args, **kwargs):
         """Overrided view to auto confirm emails due to being confirmed by
@@ -45,12 +45,12 @@ def customize_social_auth():
 
         return do_complete(g.backend, login=do_login, user=g.user, *args, **kwargs)
 
-    @social_auth.route("/disconnect/<string:backend>/", methods=("POST",))
+    @social_auth.route("/disconnect/<string:backend>", methods=("POST",))
     @social_auth.route(
-        "/disconnect/<string:backend>/<int:association_id>/", methods=("POST",)
+        "/disconnect/<string:backend>/<int:association_id>", methods=("POST",)
     )
     @social_auth.route(
-        "/disconnect/<string:backend>/<string:association_id>/", methods=("POST",)
+        "/disconnect/<string:backend>/<string:association_id>", methods=("POST",)
     )
     @login_required
     @psa()
