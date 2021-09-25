@@ -53,7 +53,9 @@ class NotificationView(APIView):
             notification_id,
             friend_request=True,
         )
-        veredict = request.form["veredict"]
+
+        veredict = request.get_json()["veredict"]
+
         if self.check_veredict(veredict):
             accept_friend_request(notification)
             return jsonify({"msg": _("You are now friends.")})
