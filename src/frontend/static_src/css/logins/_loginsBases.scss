@@ -6,13 +6,20 @@ body{
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.51), rgba(0, 0, 0, 0.51)), url("../../../static/img/background1.jpg");
     background-size: cover;
     background-position: center center;
-    height: 100vh;
+    min-height: 100vh;
     &.darkmode{
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)), url("../../../static/img/background-login-dark.jpg");
         background-size: cover;
         background-position: center center;
     }
 }
+
+.errorPageNumber{
+    font-size: 12rem;
+    color: $light;
+    text-shadow: 4px 4px 2px $secundary, 7px 7px 2px $primary;
+}
+
 
 .text-logo{
     display: none;
@@ -62,9 +69,47 @@ a{
 }
 
 .background-dark-transparent{
-    background: rgba(0, 0, 0, 0.5);
-    padding: 5rem 0;
     width: 100%;
+    margin: 2rem 0;
+    @include tablet{
+        background: rgba(0, 0, 0, 0.5);
+        padding: 5rem 0;
+    }
+}
+
+.title-auth{
+    color: $light;
+}
+
+.text-logo{
+    .click-resend{
+        color: darken($primary, 0.4);
+        transition: 2s;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+
+.error{
+    width: "100%";
+    background: red;
+}
+
+.container-api{
+    margin: 2rem 0;
+    font-size: 5.5px;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    .button{
+        width: calc(50% - 1rem);
+        padding: 1rem 0;
+    }
+}
+
+input.error{
+    border: 1px solid red !important;
 }
 
 .footer{

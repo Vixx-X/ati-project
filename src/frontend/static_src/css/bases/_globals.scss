@@ -1,7 +1,7 @@
 html {
   font-size: 50%;
   box-sizing: border-box;
-  @include desktop {
+  @include desktopContain {
     font-size: 62.5%;
   }
 }

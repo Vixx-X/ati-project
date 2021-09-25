@@ -1,13 +1,14 @@
 {	
-	"nombre": "Evencio Hernández",
-	"descripcion": "Soy estudiante de computacion de la UCV.",
-	"color": "Negro",
-	"libro": ["Harry Potter"],
-	"musica": ["Rock"],
-	"video_juego": ["Battlefield"],
-	"lenguajes": ["C", "C++", "Java"],
-	"email": "evenciohernandez15@gmail.com",
-	"ci": "26967771",
-	"genero": "masculino",
-	"fecha_nacimiento": "18/02/1997"
+    "nombre": "Gabriela Ustariz",
+    "descripcion": "Soy estudiante de Licenciatura en Computación de la Universidad Central de Venezuela. Curso 5to semestre de la carrera y pretendo desenvolverme en la mención ATI que ofrece la misma, puesto que me parece muy interesante el desarrollo web y todo lo relacionado.",
+    "color": "Violeta",
+    "libro": "Legend de Marie Lu",
+    "musica": ["Pop", "Indie"],
+    "video_juego": ["Beyond Two Souls", "Limbo", "Among Us"],
+    "lenguajes": ["C++", "Python", "C", "Haskell", "Prolog"],
+    "email": "gabrielaustariz@gmail.com",
+    "ci": "26956071",
+    "genero": "femenino",
+    "fecha_nacimiento": "27/12/1999",
+    "imagen": "26956071.jpg"
 }

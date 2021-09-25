@@ -10,8 +10,20 @@
     }
 }
 
+@mixin mediumDesktop {
+    @media (min-width: 920px) {
+        @content;
+    }
+}
+
 @mixin desktop {
     @media (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin desktopContain {
+    @media (min-width: 768px) and (min-height: 950px){
         @content;
     }
 }

@@ -1,0 +1,21 @@
+{% macro input(field, label=True, errors=True, fieldClass="", labelClass="", placeholder="") -%}
+<div class="input-label">
+    {% if label %}
+    {{ field.label(class=labelClass + (
+       " required" if field.flags.required else ""
+    )) }}
+    {%- endif %}
+    {{ field(
+       class=fieldClass + (
+          " error" if field.errors else ""
+       ),
+       placeholder=placeholder) }}
+    {% if errors and field.errors -%}
+    <ul class="errors">
+        {% for error in field.errors -%}
+        <li class="errorfield">{{ error }}</li>
+        {%- endfor %}
+    </ul>
+    {%- endif %}
+</div>
+{%- endmacro %}
