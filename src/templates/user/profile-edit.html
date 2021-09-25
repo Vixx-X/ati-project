@@ -1,4 +1,4 @@
-{% extends "showroom/base.html" %}
+{% extends "base.html" %}
 
 {% from "all_components/user-icon.html" import user_icon %}
 {% from "all_components/header-publication.html" import header_publication %}
@@ -58,37 +58,37 @@
 
                 {{ input(
                      field=form.first_name,
-                     fieldClass="white w-100",
+                     field_class="white w-100",
                      placeholder=_("Your first name"),
-                     labelClass="d-flex fw-bold black",
+                     label_class="d-flex fw-bold black",
                 )}}
 
                 {{ input(
                      field=form.last_name,
-                     fieldClass="white w-100",
+                     field_class="white w-100",
                      placeholder=_("Your last name"),
-                     labelClass="d-flex fw-bold black",
+                     label_class="d-flex fw-bold black",
                 )}}
 
                 {{ input(
                      field=form.birth_date,
-                     fieldClass="white w-100",
-                     labelClass="d-flex fw-bold black",
+                     field_class="white w-100",
+                     label_class="d-flex fw-bold black",
                 )}}
                 {{ input(
                      field=form.gender,
-                     fieldClass="white w-100",
-                     labelClass="d-flex fw-bold black",
+                     field_class="white w-100",
+                     label_class="d-flex fw-bold black",
                 )}}
                 {{ input(
                      field=form.profile_photo,
-                     fieldClass="white w-100",
-                     labelClass="d-flex fw-bold black",
+                     field_class="white w-100",
+                     label_class="d-flex fw-bold black",
                 )}}
                 {{ input(
                      field=form.banner_photo,
-                     fieldClass="white w-100",
-                     labelClass="d-flex fw-bold black",
+                     field_class="white w-100",
+                     label_class="d-flex fw-bold black",
                 )}}
 
                 <div class="container-button">

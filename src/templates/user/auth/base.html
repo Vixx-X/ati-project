@@ -12,24 +12,27 @@
     />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}{% endblock title %}</title>
 
-    {% block extrahead %}{% endblock %}
+    {% block extrahead %}{% endblock extrahead %}
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}" >
     <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}" >
-    {% block extrastyles %}{% endblock %}
+    {% block extrastyles %}{% endblock extrastyles %}
 
     <script type="module" src="{{ url_for('static', filename='js/components.js') }}" ></script>
-    {% block extrascripts %}{% endblock %}
+    {% block extrascripts %}{% endblock extrascripts %}
   </head>
-  <body>
-    {% block body %}{% endblock %}
-    {% block onloadscripts %}{% endblock %}
+  <body {% if user.is_active and user.config.prefer_dark_mode -%}class="darkmode"{%- endif %}>
+    {% block body %}
+    {% endblock body %}
+    {% block footer %}
+    <footer class="footer bg-footer">
+      <div class="container container-footer text-center">
+        {{ _('Copyright &copy; ITA - Computer School') }}
+      </div>
+    </footer>
+    {% endblock footer %}
+    {% block onloadscripts %}{% endblock onloadscripts %}
   </body>
-  <footer class="footer bg-footer">
-    <div class="container container-footer text-center">
-      {{ _('Copyright &copy; ITA - Computer School') }}
-    </div>
-  </footer>
 </html>

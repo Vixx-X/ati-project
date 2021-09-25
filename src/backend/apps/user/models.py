@@ -76,6 +76,13 @@ class Config(db.EmbeddedDocument):
         Get privacy preference of user
         """
         return self.account_privacy == self.PRIVATE
+    
+    @property
+    def prefer_dark_mode(self):
+        """
+        Get theme preference of user
+        """
+        return self.theme == self.DARK
 
 
 class User(db.Document, UserMixin):

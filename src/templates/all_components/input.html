@@ -1,12 +1,12 @@
-{% macro input(field, label=True, errors=True, fieldClass="", labelClass="", placeholder="") -%}
+{% macro input(field, label=True, errors=True, field_class="", label_class="", placeholder="") -%}
 <div class="input-label">
     {% if label %}
-    {{ field.label(class=labelClass + (
+    {{ field.label(class=field_class + (
        " required" if field.flags.required else ""
     )) }}
     {%- endif %}
     {{ field(
-       class=fieldClass + (
+       class=field_class + (
           " error" if field.errors else ""
        ),
        placeholder=placeholder) }}

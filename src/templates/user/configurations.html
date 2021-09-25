@@ -1,17 +1,14 @@
-{% extends "showroom/base.html" %}
+{% extends "base.html" %}
 
-{% from "all_components/buttons.html" import buttons %}
-{% from "all_components/input.html" import input %}
+{% from "components/utils/buttons.html" import buttons %}
+{% from "components/utils/input.html" import input %}
 {% from "all_components/user-icon.html" import user_icon %}
 {% from "all_components/header-publication.html" import header_publication %}
-{% from "all_components/footer-mobile.html" import footer_mobile %}
 {% from "all_components/drop-down-list.html" import drop_down_list %}
-{% from "all_components/boolean-button.html" import boolean_button %}
 {% from "all_components/radio-button.html" import radioButton %}
 {% from "all_components/header.html" import header %}
-{% from "all_components/footer.html" import footer %}
 
-{% block title %} Configurations {% endblock title %}
+{% block title %} {{_("Configurations")}} {% endblock title %}
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/configurations.css') }}" >{% endblock %}
 
 {% block body -%}
@@ -19,7 +16,7 @@
   <section class="container configurations-view">
     <div class="heading black">
         <h3 class="fw-normal">
-            Configuraciones
+            {{_("Configurations")}}
         </h3>
         <hr>
     </div>
@@ -28,79 +25,50 @@
         {{ form.csrf_token }}
 
     {{ input(
+         field_wrapper_class="boolean-button d-flex jc-space_between",
          field=form.account_privacy,
-         fieldClass="white w-100",
-         labelClass="d-flex fw-bold black",
+         label_class="d-flex fw-bold black",
     )}}
     {{ input(
+         field_wrapper_class="boolean-button d-flex jc-space_between",
          field=form.notify,
-         fieldClass="white w-100",
-         labelClass="d-flex fw-bold black",
+         field_class="white w-100",
+         label_class="d-flex fw-bold black",
     )}}
     {{ input(
+         field_wrapper_class="boolean-button d-flex jc-space_between",
          field=form.accept_friend_requests,
-         fieldClass="white w-100",
-         labelClass="d-flex fw-bold black",
-    )}}
-    {{ input(
-         field=form.theme,
-         fieldClass="white w-100",
-         labelClass="d-flex fw-bold black",
-    )}}
-    {{ input(
-         field=form.lang,
-         fieldClass="white w-100",
-         labelClass="d-flex fw-bold black",
+         field_class="white w-100",
+         label_class="d-flex fw-bold black",
     )}}
 
-    <div class="container-button">
-        {{buttons(
-            mensaje=_("Save"),
-            type="primary",
-            font="fw-bold",
-            letters="text-uppercase",
-        )}}
+    <div class="input-label margin-small-bottom">
+        {{form.lang.label(class="d-flex fw-bold black")}}
     </div>
-    </form>
-
-    {{boolean_button(
-        id="booleanButton",
-        text="Privacidad",
-        class="black fw-bold"
+    {{ input(
+         field_wrapper_class="drop-down-list",
+         field=form.lang,
+         label=False,
+         field_class="white w-100 cont-item-drop-down-list",
     )}}
-    {{boolean_button(
-        id="booleanButton",
-        text="Notificaciones correo",
-        class="black fw-bold"
-    )}}
-    {{drop_down_list()}}
+    
     <div class="heading black other">
         <h3 class="fw-normal">
-            Personalización
+            {{_("Personalization")}}
         </h3>
         <hr>
     </div>
-    <p>Temas</p>
-    <form name="myForm" class="container-personalization">
-        {{radioButton(
-            id='Day',
-            name='personalization',
-            text='Modo diurno',
-            classLabel='black',
-            classInput='black',
-            checked="checked"
-        )}}
-        {{radioButton(
-            id='Night',
-            name='personalization',
-            text='Modo nocturno',
-            classLabel='black',
-            classInput='black'
-        )}}
+    {{form.theme.label(class="d-flex fw-bold black")}}
+    {{form.theme()}}
+        <div class="container-button">
+            {{buttons(
+                mensaje=_("Save"),
+                type="primary",
+                font="fw-bold",
+                letters="text-uppercase",
+            )}}
+        </div>
     </form>
   </section>
-
-{{footer()}}
-{{footer_mobile(class="black")}}
 
 {% endblock body %}

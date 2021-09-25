@@ -20,8 +20,7 @@
         width: 100%;
         margin-bottom: 4rem;
         &.other{
-            margin-top: 4rem;
-            margin-bottom: 2rem;
+            margin: 4rem 0;
         }
     }
 
@@ -40,10 +39,26 @@
     }
 
     .container-personalization{
+        margin: 2rem 0;
         @include grid(1, 2rem);
         row-gap: 3rem;
         @include tablet{
             @include grid(2, 5rem);
+        }
+    }
+
+    .container-button{
+        font-size: 0.7rem;
+        margin-top: 4rem;
+        button{
+            width: 100%;
+        }
+        @include tablet{
+            button{
+                width: auto;
+            }
+            display: flex;
+            justify-content: flex-end;
         }
     }
 

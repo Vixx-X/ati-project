@@ -1,30 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="{% block viewport %}width=device-width, initial-scale=1.0{% endblock %}" />
-    <meta name="robots" content="NOARCHIVE,NOCACHE" />
-    <link
-      rel="shortcut icon"
-      href="{{ url_for('static', filename='img/logo.svg') }}"
-      type="image/x-icon"
-    />
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-
-    <title>{% block title %}{% endblock %}</title>
-
-    {% block extrahead %}{% endblock %}
-
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}" >
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}" >
-    {% block extrastyles %}{% endblock %}
-
-    <script type="module" src="{{ url_for('static', filename='js/components.js') }}" ></script>
-    {% block extrascripts %}{% endblock %}
-  </head>
-  <body>
-    {% block body %}{% endblock %}
-    {% block onloadscripts %}{% endblock %}
-  </body>
-</html>
+{% extends "user/auth/base.html" %} 
+{% block footer %} 
+{{super()}}
+<div class="margin-mobile"></div>
+<div class="footer-mobile black">
+  <div class="container d-flex jc-space_between">
+    <a href="{{url_for('user.profile', username='vittorio_adesso')}}">
+      <img loading="lazy" src="{{ url_for("static",
+      filename="img/icons/user.svg") }}" alt="User icon">
+    </a>
+    <a href="{{url_for('posts.post-create')}}">
+      <img loading="lazy" src="{{ url_for("static",
+      filename="img/icons/plus-sign.svg") }}" alt="Add publication">
+    </a>
+    <a href="{{url_for('user.chat')}}">
+      <img loading="lazy" src="{{ url_for("static",
+      filename="img/icons/chat.svg") }}" alt="Chat">
+    </a>
+  </div>
+</div>
+{% endblock footer %}
