@@ -84,6 +84,13 @@ class Config(db.EmbeddedDocument):
         """
         return self.theme == self.DARK
 
+    @property
+    def prefer_lang(self):
+        """
+        Get lang preference of user
+        """
+        return self.lang
+
 
 class User(db.Document, UserMixin):
     """
@@ -181,6 +188,27 @@ class User(db.Document, UserMixin):
         "collection": "users",
     }
 
+    @property
+    def prefer_private(self):
+        """
+        Get privacy preference of user
+        """
+        return self.config.prefer_private
+
+    @property
+    def prefer_dark_mode(self):
+        """
+        Get theme preference of user
+        """
+        return self.config.prefer_dark_mode
+
+    @property
+    def prefer_lang(self):
+        """
+        Get lang preference of user
+        """
+        return self.config.prefer_lang
+
     def as_dict(self):
         raw = self.to_mongo().to_dict()
         raw["id"] = str(raw.pop("_id"))
@@ -206,7 +234,7 @@ class User(db.Document, UserMixin):
         if self.profile_photo:
             return self.profile_photo.url
         return url_for("static", filename="img/user/default-profile.png")
-    
+
     @property
     def profile_photo_url(self):
         return self.get_profile_photo_url()
@@ -215,7 +243,7 @@ class User(db.Document, UserMixin):
         if self.banner_photo:
             return self.banner_photo.url
         return url_for("static", filename="img/user/default-banner.jpg")
-    
+
     @property
     def banner_url(self):
         return self.get_banner_url()
