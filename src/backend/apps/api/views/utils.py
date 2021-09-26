@@ -15,9 +15,9 @@ from backend.apps.api.errors import (
     ResourceNotFoundError,
     ValidationError,
 )
-from flask_babel import lazy_gettext as _
+from flask_babel import lazy_gettext as _  # for i18n
 
-from backend.apps.api.utils import make_response  # for i18n
+from backend.apps.api.utils import make_response
 
 
 class APIView(Resource):
@@ -150,7 +150,7 @@ class APIDetailView(APIView):
         """
         Override this for kwargs queryset filter
         """
-        return {self.look_up_attr, self.kwargs.get(self.look_up_attr)}
+        return {self.look_up_attr: self.kwargs.get(self.look_up_attr)}
 
     def get_object(self):
         """

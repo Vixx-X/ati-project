@@ -3,7 +3,6 @@ API module
 """
 
 from flask import Blueprint
-from flask.json import jsonify
 from flask_restful import Api
 from werkzeug.exceptions import HTTPException
 from werkzeug.http import HTTP_STATUS_CODES
@@ -11,7 +10,6 @@ from flask_babel import lazy_gettext as _  # for i18n
 
 from backend.apps.api.utils import make_response
 
-from .errors import ApiExceptions
 
 bp = Blueprint("api", __name__)
 

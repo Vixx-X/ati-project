@@ -28,7 +28,8 @@ class ValidationError(ApiExceptions):
     def __init__(self, *args, **kwargs):
         super().__init__(
             http_status_code=400,
-            message=_("One or more required fields are missing") * args,
+            message=_("One or more required fields are missing"),
+            *args,
             **kwargs
         )
 
