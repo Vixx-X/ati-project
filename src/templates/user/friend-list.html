@@ -2,10 +2,8 @@
 
 {% from "all_components/user-icon.html" import user_icon %}
 {% from "all_components/header-publication.html" import header_publication %}
-{% from "all_components/footer-mobile.html" import footer_mobile %}
 {% from "all_components/buttons.html" import buttons %}
 {% from "all_components/header.html" import header %}
-{% from "all_components/footer.html" import footer %}
 {% from "all_components/mobile-navmenu.html" import mobile_navmenu %}
 {% from "all_components/long-cards.html" import longCard %}
 {% from "all_components/element-friend-list.html" import element_friend_list %}
@@ -17,7 +15,7 @@
 <script src="{{url_for('static', filename='js/all_components/mobile-navmenu.js')}}"> </script>
 {% endblock onloadscripts %}
 
-{% block title %} Friends {% endblock title %}
+{% block title %} {{_("Friends")}} {% endblock title %}
 
 {% block body -%}
     {{ header(classname="bg-header") }}
@@ -76,7 +74,7 @@
         <div class="container-header-friends">
             <div class="heading black">
                 <h3 class="fw-normal">
-                    Friends
+                    {{_("Friends")}}
                 </h3>
                 <hr>
             </div>
@@ -129,8 +127,5 @@
             {% endfor %} -->
         </div>
     </div>
-
-{{footer()}}
-{{footer_mobile(class="black")}}
 
 {%- endblock body %}

@@ -1,0 +1,24 @@
+{% macro user_icon(img, alt="", type="basic", url=None, png="", webp="") -%}
+<div class="user-icon {{ type }}">
+    {%if url-%}
+        <a href="{{ url }}">
+    {%- endif %}
+        <picture>
+            {% if webp -%}
+            <source srcset="{{ webp }}" type="image/webp">
+            {%- endif %}
+            {% if png -%}
+            <source srcset="{{ png }}" type="image/png">
+            {%- endif %}
+            <img class="profile" loading="lazy" src="{{ img }}" alt="{{ alt }}">
+        </picture>
+    {%if url-%}
+        </a>
+    {%- endif %}
+    {%if type=="change"-%}
+        <label for="file-upload-profile" id="changeimgageprofile">
+            <img src="{{ url_for('static', filename='img/icons/gallery.svg') }}" alt="Camara icon">
+        </label>
+    {%- endif %}
+</div>
+{%- endmacro %}

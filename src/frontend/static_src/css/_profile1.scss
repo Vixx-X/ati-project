@@ -4,7 +4,7 @@
 .section-header{
     position: relative;
     background-color: $black;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.51), rgba(0, 0, 0, 0.51)), url("../../../static/img/background1.jpg");
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.51), rgba(0, 0, 0, 0.51)), var(--bg-image);
     background-size: cover;
     background-position: center center;
     min-height: 25rem;
@@ -17,6 +17,22 @@
     background-color: #fff;
     @include desktop{
         background-color: transparent;
+    }
+    .user-icon {
+        width: 15rem;
+        height: 15rem;
+        img{
+            height: 100%;
+            width: 100%;
+        }
+        @include tablet{
+            width: 25rem;
+            height: 25rem;
+            img{
+                height: 100%;
+                width: 100%;
+            }
+        }
     }
 }
 
@@ -51,7 +67,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 2rem 0 4rem 0;
+    padding: 2rem 0 7rem 0;
     @include desktop{
         display: none;
     }

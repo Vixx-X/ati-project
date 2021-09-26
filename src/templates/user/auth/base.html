@@ -23,7 +23,7 @@
     <script type="module" src="{{ url_for('static', filename='js/components.js') }}" ></script>
     {% block extrascripts %}{% endblock extrascripts %}
   </head>
-  <body {% if user.is_active and user.config.prefer_dark_mode -%}class="darkmode"{%- endif %}>
+  <body class="{{ theme }}">
     {% block body %}
     {% endblock body %}
     {% block footer %}

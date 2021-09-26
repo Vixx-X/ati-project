@@ -32,7 +32,7 @@ def login_required(view_function):
         allowed = _is_logged_in_with_confirmed_email(user_manager)
         if not allowed:
             # Redirect to unauthenticated page
-            raise UnauthorizedError(msg="You are not authenticated.")
+            raise UnauthorizedError()
 
         # It's OK to call the view
         return view_function(*args, **kwargs)

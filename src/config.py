@@ -51,6 +51,7 @@ USER_AFTER_LOGIN_ENDPOINT = "app.home"
 USER_AFTER_LOGOUT_ENDPOINT = "app.landing"
 USER_AFTER_REGISTER_ENDPOINT = "user.check_email"
 USER_AFTER_FORGOT_PASSWORD_ENDPOINT = "user.check_email"
+USER_AFTER_EDIT_USER_PROFILE_ENDPOINT = "user.edit_user_profile"
 
 
 # Application threads. A common general assumption is

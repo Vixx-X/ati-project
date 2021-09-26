@@ -2,10 +2,8 @@
 
 {% from "all_components/user-icon.html" import user_icon %}
 {% from "all_components/header-publication.html" import header_publication %}
-{% from "all_components/footer-mobile.html" import footer_mobile %}
 {% from "all_components/buttons.html" import buttons %}
 {% from "all_components/header.html" import header %}
-{% from "all_components/footer.html" import footer %}
 {% from "all_components/mobile-navmenu.html" import mobile_navmenu %}
 {% from "all_components/long-cards.html" import longCard %}
 {% from "all_components/media.html" import media %}
@@ -15,7 +13,7 @@
 <script src="{{url_for('static', filename='js/all_components/mobile-navmenu.js')}}"> </script>
 {% endblock onloadscripts %}
 
-{% block title %} Profile {% endblock title %}
+{% block title %} {{_("Profile")}} {% endblock title %}
 
 {% block body -%}
 
@@ -212,8 +210,5 @@
           </a>
       </aside>
     </div>
-
-{{footer()}}
-{{footer_mobile(class="black")}}
 
 {%- endblock body %}

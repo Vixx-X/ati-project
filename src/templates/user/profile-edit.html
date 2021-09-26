@@ -1,166 +1,136 @@
 {% extends "base.html" %}
 
-{% from "all_components/user-icon.html" import user_icon %}
-{% from "all_components/header-publication.html" import header_publication %}
-{% from "all_components/footer-mobile.html" import footer_mobile %}
-{% from "all_components/buttons.html" import buttons %}
+{% from "components/utils/user-icon.html" import user_icon %}
+{% from "components/utils/buttons.html" import buttons %}
+{% from "components/utils/input.html" import input %}
 {% from "all_components/header.html" import header %}
-{% from "all_components/footer.html" import footer %}
 {% from "all_components/mobile-navmenu.html" import mobile_navmenu %}
 {% from "all_components/long-cards.html" import longCard %}
-{% from "all_components/element-friend-list.html" import element_friend_list %}
 {% from "all_components/card.html" import card %}
-{% from "all_components/input.html" import input %}
 
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" >
 <link rel="stylesheet" href="{{ url_for('static', filename='css/profile-edit.css') }}" >
 {% endblock %}
 
-{% block title %} Edit {% endblock title %}
+{% block title %} {{_("Edit")}} {% endblock title %}
 
 {% block body -%}
-
     <div class="main-container-header">
-        <div class="header-group ">
-            <div class="section-header">
-            <button id="changeheader">
-                <img src="{{ url_for('static', filename='img/icons/gallery.svg') }}" alt="Camara icon">
-            </button>
-            {{ header(classname="bg-header transparent") }}
-            <div class="container profile-icon">
-                {{ user_icon(
-                    img=url_for('static', filename='img/users/26956071.png'),
-                    alt="User2 Photo",
-                    type="change",
-                    url=url_for('user.profile', username='vittorio_adesso'),
-                    png=url_for('static', filename='img/users/26956071.png'),
-                    webp=url_for('static', filename='img/users/26956071.webp')
-                ) }}
-                <p class="container-name fw-bold">Gabriela Ustariz</p>
-            </div>
-            </div>
+        <form method="POST" id="editProfile" class="form-profile" enctype="multipart/form-data">
+            <div class="header-group ">
+                <div class="section-header" style='--bg-image: url({{user.banner_url}})'>
+                    <label id="changeheader" for="file-upload-baner" >
+                        <img src="{{ url_for('static', filename='img/icons/gallery.svg') }}" alt="Camara icon">
+                    </label>
+                    {{ header(classname="bg-header transparent") }}
+                    <div class="container profile-icon">
+                        {{ user_icon(
+                            img=user.profile_photo_url,
+                            alt=user.username,
+                            type="change",
+                            url=url_for('user.profile', username=user.username),
+                        ) }}
+                        <p class="container-name fw-bold">{{user.first_name}} {{user.last_name}}</p>
+                    </div>
+                </div>
+                <div class="desktop-content">
+                    <div class="container">
+                    <nav class=" navegation-desktop">
+                            {{buttons(
+                                mensaje=_("Save"),
+                                type="primary last",
+                                font="fw-bold",
+                                letters="")
+                            }}
+                    </nav>
+                    </div>
+                </div>
 
-            <div class="desktop-content">
-                <div class="container">
-                <nav class=" navegation-desktop">
+                <div class="mobile-content">
+                    <div class="container margin-bottom">
                         {{buttons(
-                            mensaje="Save",
+                            mensaje=_("Save"),
                             type="primary last",
                             font="fw-bold",
-                            letters="",
-                            function="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")
+                            letters="")
                         }}
-                </nav>
+                    </div>
                 </div>
+
+                <section class="container">
+                        {{mobile_navmenu(details=True, 
+                        functionPublication="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'", functionDetails="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")}}
+
+                        {{ form.csrf_token }}
+                        <div class="text-area-container">
+                        {{ input(
+                            field_wrapper_class="w-100",
+                            field=form.description,
+                            field_class="white w-100 details",
+                            label_class="d-flex fw-bold black",
+                            label=False,
+                        )}}
+                        </div>
+
+                        <hr>
+
+                        <div class="container-fields margin-top">
+                            <div class="container-fields-main">
+                                {{ input(
+                                    field_wrapper_class="input-label w-100",
+                                    field=form.first_name,
+                                    field_class="white w-100",
+                                    placeholder=_("Your first name"),
+                                    label_class="fw-bold black",
+                                )}}
+
+                                {{ input(
+                                    field_wrapper_class="input-label w-100",
+                                    field=form.last_name,
+                                    field_class="white w-100",
+                                    placeholder=_("Your last name"),
+                                    label_class="fw-bold black",
+                                )}}
+
+                                {{ input(
+                                    field_wrapper_class="input-label w-100",
+                                    field=form.birth_date,
+                                    field_class="white w-100",
+                                    label_class="fw-bold black",
+                                )}}
+
+                                {{ input(
+                                    field_wrapper_class="drop-down-list",
+                                    field=form.gender,
+                                    field_class="white w-100 cont-item-drop-down-list",
+                                    label_class="fw-bold black",
+                                )}}
+                            </div>
+                            <div class="container-fields-favorites">
+                                {{ input(field=form.books, label=False)}}
+                                {{ input(field=form.colors, label=False)}}
+                                {{ input(field=form.games, label=False)}}
+                                {{ input(field=form.langs, label=False)}}
+                                {{ input(field=form.music, label=False)}}
+                            </div>
+                        </div>
+
+                        {{ input(
+                            field=form.profile_photo,
+                            label=False,
+                            field_class="d-none",
+                            id="file-upload-profile",
+                        )}}
+
+                        {{ input(
+                            field=form.banner_photo,
+                            label=False,
+                            field_class="d-none",
+                            id="file-upload-baner"
+                        )}}
+
+                </section>
             </div>
-            <form method="POST" id="editProfile" class="form-profile" enctype="multipart/form-data">
-                {{ form.csrf_token }}
-
-                {{ input(
-                     field=form.first_name,
-                     field_class="white w-100",
-                     placeholder=_("Your first name"),
-                     label_class="d-flex fw-bold black",
-                )}}
-
-                {{ input(
-                     field=form.last_name,
-                     field_class="white w-100",
-                     placeholder=_("Your last name"),
-                     label_class="d-flex fw-bold black",
-                )}}
-
-                {{ input(
-                     field=form.birth_date,
-                     field_class="white w-100",
-                     label_class="d-flex fw-bold black",
-                )}}
-                {{ input(
-                     field=form.gender,
-                     field_class="white w-100",
-                     label_class="d-flex fw-bold black",
-                )}}
-                {{ input(
-                     field=form.profile_photo,
-                     field_class="white w-100",
-                     label_class="d-flex fw-bold black",
-                )}}
-                {{ input(
-                     field=form.banner_photo,
-                     field_class="white w-100",
-                     label_class="d-flex fw-bold black",
-                )}}
-
-                <div class="container-button">
-                    {{buttons(
-                        mensaje="Save",
-                        type="primary",
-                        font="fw-bold",
-                        letters="text-uppercase",
-                    )}}
-                </div>
-            </form>
-
-            <div class="mobile-content">
-                <div class="container margin-bottom">
-                {% if is_myuser %}
-                    {{buttons(
-                        mensaje="Save",
-                        type="primary last",
-                        font="fw-bold",
-                        letters="",
-                        function="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")
-                    }}
-                {% endif %}
-                </div>
-            </div>
-        </div>
-        
-        {{mobile_navmenu(details=True, 
-            functionPublication="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'", functionDetails="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")}}
-
-        <div class="text-area-container container">
-            <textarea id='note' maxlength="255" class="details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi ducimus tenetur aliquid reprehenderit tempore asperiores omnis debitis rem.</textarea>
-            <p id="number">
-                120/255
-            </p>
-        </div>
-
+        </form>
     </div>
-
-    <hr class="container">
-
-    <div class="margin-top"></div>
-    <div class="container cards-edit margin-bottom">
-        {{longCard(
-            title='Video Games',
-            content=['Call of duty: Mobile', 'Beyond: Two Souls'],
-            type='secundary',
-            edit=True
-        )}}
-        {{ longCard(
-          title='Books',
-          content=['Inferno'],
-          type='secundary',
-          edit=True
-        )}}
-        {{ longCard(
-            title='Languages',
-            content=['Python3', 'Haskell'],
-            type='secundary',
-            edit=True
-        )}}
-        {{ longCard(
-            title='Music',
-            content=['Pop', 'Indie'],
-            type='secundary',
-            edit=True
-        )}}
-    </div>
-    
-
-
-{{footer()}}
-{{footer_mobile(class="black")}}
-
 {%- endblock body %}

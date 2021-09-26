@@ -1,11 +1,17 @@
 """
 Forms for user app
 """
+from flask import request
 from wtforms.widgets import (
-    RadioInput,
     CheckboxInput,
     ListWidget,
     html_params,
+)
+
+from flask.helpers import url_for
+
+from wtforms.widgets.html5 import (
+    DateInput,
 )
 
 from flask_babel import lazy_gettext as _
@@ -213,6 +219,23 @@ class ResetPasswordForm(BaseResetPasswordForm):
     next = HiddenField()
     submit = SubmitField(_("Change password"))
 
+class CalendarWidget(DateInput):
+    def __call__(self, field, **kwargs):
+        inside = super().__call__(field, **kwargs)
+        return Markup('%s' % inside)
+
+class CustomInfoWidget(ListWidget):
+    def __call__(self, field, **kwargs):
+        kwargs.setdefault("id", field.id)
+        html = ["<div {}>".format(html_params(**{'class' : 'long-card'}))]
+        html.append(f"{field.label(**{'class' : 'label-card black'})}<div class='content-inputs'>")
+        for index, subfield in enumerate(field):
+            if self.prefix_label:
+                html.append(f"<div class='input-content'>{subfield()}<button type='button'><img id='element{index}' class='delete-content' loading='lazy' src={url_for('static', filename='img/icons/delete.svg')} alt='Delete detail' /></button> {subfield.label(**{'class' : 'd-none'})}</div>")
+            else:
+                html.append(f"<div class='input-content'>{subfield()}<button type='button'><img id='element{index}' class='delete-content' loading='lazy' src={url_for('static', filename='img/icons/delete.svg')} alt='Delete detail' /></button> {subfield.label(**{'class' : 'd-none'})}</div>")
+        html.append(f"</div><button class='morecontent'><img loading='lazy' src={url_for('static', filename='img/icons/plus-sign.svg')} alt='Add publication'></button></div>")
+        return Markup("".join(html))
 
 class ProfileForm(FormMediaMixin, EditUserProfileForm):
 
@@ -229,36 +252,68 @@ class ProfileForm(FormMediaMixin, EditUserProfileForm):
     banner_photo = FileField(_("Banner Photo"))
 
     description = TextAreaField(_("Description"))
-    birth_date = DateField(_("Birth Day"), format="%d-%m-%Y")
+    birth_date = DateField(
+        _("Birth Day"), 
+        widget=CalendarWidget(),
+    )
     gender = SelectField(_("Gender"), choices=User.GENDERS)
 
-    colors = FieldList(StringField(_("Favorite Colors")))
-    books = FieldList(StringField(_("Favorite Books")))
-    games = FieldList(StringField(_("Favorite Video Games")))
-    langs = FieldList(StringField(_("Favorite Programming Languages")))
-    music = FieldList(StringField(_("Favorite Music")))
+    colors = FieldList(StringField(
+        _("Favorite Colors")),
+        widget=CustomInfoWidget()
+    )
+
+    books = FieldList(StringField(
+        _("Favorite Books")),
+        widget=CustomInfoWidget()
+    )
+
+    games = FieldList(StringField(
+        _("Favorite Video Games")),
+        widget=CustomInfoWidget()
+    )
+    langs = FieldList(StringField(
+        _("Favorite Programming Languages")),
+        widget=CustomInfoWidget()
+    )
+    music = FieldList(StringField(
+        _("Favorite Music")),
+        widget=CustomInfoWidget()
+    )
 
     submit = SubmitField(_("Update"))
 
 
 from markupsafe import Markup
 
+
 class LatchWidget(CheckboxInput):
     def __call__(self, field, **kwargs):
         inside = super().__call__(field, **kwargs)
-        return Markup('<label class="switch">%s<span class="slider round"></span></label>' % inside)
+        return Markup(
+            '<label class="switch">%s<span class="slider round"></span></label>'
+            % inside
+        )
+
 
 class CustomListWidget(ListWidget):
     def __call__(self, field, **kwargs):
         kwargs.setdefault("id", field.id)
-        html = ["<div {}>".format(html_params(**{'class' : 'container-personalization'}))]
+        html = [
+            "<div {}>".format(html_params(**{"class": "container-personalization"}))
+        ]
         for subfield in field:
             if self.prefix_label:
-                html.append(f"<div class='radio-button d-flex jc-space_between'>{subfield.label(**{'class' : 'black'})} {subfield()}</div>")
+                html.append(
+                    f"<div class='radio-button d-flex jc-space_between'>{subfield.label(**{'class' : 'black'})} {subfield()}</div>"
+                )
             else:
-                html.append(f"<div class='radio-button d-flex jc-space_between'>{subfield()} {subfield.label(**{'class' : 'black'})}</div>")
+                html.append(
+                    f"<div class='radio-button d-flex jc-space_between'>{subfield()} {subfield.label(**{'class' : 'black'})}</div>"
+                )
         html.append("</div>")
         return Markup("".join(html))
+
 
 class ConfigForm(FlaskForm):
     """
@@ -293,10 +348,9 @@ class ConfigForm(FlaskForm):
 
     def __init__(self, **kwargs):
         obj = kwargs.get("obj", None)
-        data = obj.prefer_private
         super().__init__(**kwargs)
-        if obj:
-            self.account_privacy.data = data
+        if obj is not None and request.method.lower() == "get":
+            self.account_privacy.data = obj.prefer_private
 
     def populate_obj(self, obj):
         super().populate_obj(obj)

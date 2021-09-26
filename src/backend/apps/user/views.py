@@ -2,7 +2,7 @@
 Views for the user module.
 """
 
-from flask import url_for
+from flask import sessions, url_for, session
 from flask_user import login_required
 from backend.utils.views import TemplateView, UpdateView
 
@@ -34,6 +34,8 @@ class ConfigView(UpdateView):
 
     def get_success_url(self):
         self.user.save()
+        session["theme"] = "darkmode" if self.user.prefer_dark_mode else ""
+        session["lang"] = self.user.prefer_lang
         return url_for("user.config")
 
 

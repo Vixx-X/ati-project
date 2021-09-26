@@ -2,12 +2,8 @@
 Views for the friends endpoints of api module.
 """
 
-from flask.json import jsonify
-from flask import request
+from backend.apps.api.errors import UnauthorizedError
 
-from backend.apps.api.errors import ResourceNotFoundError, UnauthorizedError
-
-from backend.apps.api.decorators import login_required
 from backend.apps.user.models import User, Notification
 from backend.apps.user.utils import (
     delete_notification,
@@ -17,92 +13,70 @@ from backend.apps.user.utils import (
     accept_friend_request,
     deny_friend_request,
 )
-from backend.apps.api.views.utils import APIView
+from backend.apps.api.views.utils import APIDetailView
 from flask_babel import gettext as _  # for i18n
 
 
-class NotificationView(APIView):
+class NotificationView(APIDetailView):
 
-    decorators = [login_required]
+    resource = Notification
 
-    def check_veredict(self, veredict):
-        """
-        Check if veredict is true or false depending on frontend
-        """
-        return bool(veredict)
-
-    def get_notification(self, notification_id, friend_request=False):
-        """
-        Given notification_id get notification
-        """
+    def get_resource_filter(self):
         kwargs = {
-            "id": notification_id,
+            "id": self.kwargs["id"],
             "receiver": self.user,
         }
-        if friend_request:
-            kwargs["type"]: Notification.FRIEND_REQUEST
-        try:
-            return Notification.objects.get(**kwargs)
-        except:
-            raise ResourceNotFoundError(
-                404, msg=_("Target notification (%s) not found") % notification_id
-            )
+        if self.method.lower() == "post":  # post is only for friend requests
+            kwargs["type"] = Notification.FRIEND_REQUEST
+        return kwargs
 
-    def post(self, notification_id):
-        notification = self.get_notification(
-            notification_id,
-            friend_request=True,
-        )
+    def post(self, data, **kwargs):
 
-        veredict = request.get_json()["veredict"]
+        veredict = data["veredict"]
+        notification = self.object
 
-        if self.check_veredict(veredict):
+        if veredict:
             accept_friend_request(notification)
-            return jsonify({"msg": _("You are now friends.")})
+            return self.response(message=_("You are now friends."))
         deny_friend_request(notification)
-        return jsonify({"msg": _("Rejected")})
+        return self.response(message=_("Rejected."))
 
-    def delete(self, notification_id):
-        notification = self.get_notification(
-            notification_id,
-        )
+    def delete(self, **kwargs):
+        notification = self.object
         delete_notification(notification)
-        return jsonify({"msg": _("Notification deleted.")})
+        return self.response(message=_("Notification deleted."))
 
 
-class FriendView(APIView):
+class FriendView(APIDetailView):
 
-    decorators = [login_required]
+    resource = User
+    look_up_attr = "username"
 
-    def targer_user(self, username):
-        try:
-            return User.objects.get(username=username)
-        except:
-            raise ResourceNotFoundError(
-                404, msg=_("Target user (%s) not found") % username
-            )
-
-    def get(self, username):
+    def get(self, **kwargs):
         """
         Get username's friends
         """
-        user = self.targer_user(username)
-        return jsonify({"friends": get_user_friends(user, requester=self.user)})
+        user = self.object
+        start = (self.page - 1) * self.size
+        end = start + self.size
+        return self.response(
+            data=get_user_friends(user, requester=self.user)[start:end]
+        )
 
-    def post(self, username):
+    def post(self, **kwargs):
         """
         Send username's a friend request
         """
-        user = self.targer_user(username)
+        user = self.object
         if send_friend_request(user, requester=self.user):
-            return {"ok": ""}
-        raise UnauthorizedError(msg="You are not allowed.")
+            return self.response(status=201)
+        raise UnauthorizedError()
 
-    def delete(self, username):
+    def delete(self, **kwargs):
         """
         Unfriend username
         """
-        user = self.targer_user(username)
+        user = self.object
         if remove_friend(user, requester=self.user):
-            return {"msg": "You are not friends anymore"}
-        raise UnauthorizedError(msg="You are not allowed.")
+            return self.response(message=_("You are not friends anymore"))
+        raise UnauthorizedError()

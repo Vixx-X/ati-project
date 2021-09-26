@@ -6,6 +6,11 @@ body {
 
 .user-icon{
     width: 7em;
+
+    .profile{
+        object-fit: cover;
+    }
+    
     img{
         border-radius: 50%;
     }
