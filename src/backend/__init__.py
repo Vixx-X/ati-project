@@ -1,9 +1,7 @@
 """
 Main app factory to boostrap the application
 """
-
 from flask import Flask
-from flask_restful import Api
 from flask_babel import Babel
 from flask_mongoengine import MongoEngine
 from flask_wtf.csrf import CSRFProtect
@@ -12,7 +10,6 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 from backend.user_manager import UserManager
 from backend.blueprints import register_blueprint
 
-api = Api()
 db = MongoEngine()
 babel = Babel()
 user_manager = UserManager()
@@ -42,8 +39,6 @@ def init_app(config_file="config"):
     app.url_map.strict_slashes = False
 
     # Initialize Plugins
-    import backend.apps.api.urls
-    api.init_app(app)
     db.init_app(app)  # db
 
     try:
@@ -72,3 +67,4 @@ def init_app(config_file="config"):
         register_blueprint(app)
 
         return app
+

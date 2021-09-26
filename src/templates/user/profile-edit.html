@@ -15,7 +15,6 @@
 {% block title %} {{_("Edit")}} {% endblock title %}
 
 {% block body -%}
-
     <div class="main-container-header">
         <form method="POST" id="editProfile" class="form-profile" enctype="multipart/form-data">
             <div class="header-group ">
@@ -92,7 +91,7 @@
                                     placeholder=_("Your last name"),
                                     label_class="fw-bold black",
                                 )}}
-                            
+
                                 {{ input(
                                     field_wrapper_class="input-label w-100",
                                     field=form.birth_date,
@@ -107,7 +106,7 @@
                                     label_class="fw-bold black",
                                 )}}
                             </div>
-                            <div class="container-fields-favorites">   
+                            <div class="container-fields-favorites">
                                 {{ input(field=form.books, label=False)}}
                                 {{ input(field=form.colors, label=False)}}
                                 {{ input(field=form.games, label=False)}}
@@ -129,7 +128,7 @@
                             field_class="d-none",
                             id="file-upload-baner"
                         )}}
-                    
+
                 </section>
             </div>
         </form>

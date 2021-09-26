@@ -25,6 +25,5 @@ class FormMediaMixin:
                 getattr(obj, field.name),
                 field.name,
             )
-            setattr(obj, field.name, media)
-
-        obj.save()
+            if media:
+                setattr(obj, field.name, media)

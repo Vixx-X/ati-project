@@ -11,7 +11,7 @@ bp.add_url_rule(
 )
 
 # current user
-bp.add_url_rule("/profile", view_func=views.ProfileView.as_view("view-profile"))
+bp.add_url_rule("/profile", view_func=views.ProfileView.as_view("profile_detail"))
 bp.add_url_rule(
     "/notifications", view_func=views.NotificationView.as_view("notification")
 )

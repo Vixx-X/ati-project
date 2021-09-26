@@ -1,6 +1,6 @@
 import mongoengine as db
 from flask import redirect, render_template, request
-from flask.globals import g
+from flask_user import current_user
 from flask.views import View
 
 # from flask_babel import gettext as _ # for i18n
@@ -121,8 +121,9 @@ class FormView(View, FormMixin, TemplateMixin):
     def dispatch_request(self, *args, **kwargs):
         self.request = request
         self.args = request.args
+        self.kwargs = kwargs
         self.method = request.method
-        self.user = g.user
+        self.user = current_user._get_current_object()  # current user
         if self.method == "GET":
             return self.get(*args, **kwargs)
         return self.post(*args, **kwargs)
@@ -182,7 +183,7 @@ class UpdateView(View, FormMixin, TemplateMixin):
         self.request = request
         self.args = request.args
         self.method = request.method
-        self.user = g.user
+        self.user = current_user._get_current_object()  # current user
         self.object = self.get_object(*args, **kwargs)
         if self.method == "GET":
             return self.get(*args, **kwargs)

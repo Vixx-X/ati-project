@@ -8,7 +8,8 @@
     "dev": "yarn run w-concurrently npm:dev-css npm:dev-js npm:dev-flask",
     "build-img": "gulp images",
     "build-js": "rollup -c",
-    "build-css": "gulp build_css"
+    "build-css": "gulp build_css",
+    "build": "yarn run w-concurrently npm:build-css npm:build-js npm:build-img"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",

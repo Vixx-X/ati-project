@@ -11,6 +11,8 @@ user_signals = Namespace()
 friend_signal = user_signals.signal("friend")
 unfriend_signal = user_signals.signal("unfriend")
 friend_request_signal = user_signals.signal("friend_request")
+check_comment_signal = user_signals.signal("check_reply")
+check_message_signal = user_signals.signal("check_message")
 email_notification_signal = user_signals.signal("send_email")
 
 
@@ -28,6 +30,28 @@ def friend(sender, receiver):
 def unfriend(sender, receiver):
     sender.remove_friend(receiver)
     receiver.remove_friend(sender)
+
+
+@check_comment_signal.connect
+def reply_comment(sender, receiver):
+    from backend.apps.user.utils import create_notification
+
+    create_notification(
+        Notification.CHECK_RESPONSE,
+        receiver=receiver,
+        sender=sender,
+    )
+
+
+@check_comment_signal.connect
+def reply_message(sender, receiver):
+    from backend.apps.user.utils import create_notification
+
+    create_notification(
+        Notification.CHECK_MESSAGE,
+        receiver=receiver,
+        sender=sender,
+    )
 
 
 @friend_request_signal.connect
