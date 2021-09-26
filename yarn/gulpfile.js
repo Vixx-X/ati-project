@@ -1,7 +1,6 @@
 const { series, parallel, src, dest, watch } = require("gulp");
 
 const sass = require("gulp-dart-sass");
-const imagenmin = require("gulp-imagemin");
 const argv = require("yargs").argv;
 const webp = require("gulp-webp");
 
@@ -36,20 +35,16 @@ function css() {
   return el.pipe(dest(dstPaths.scss));
 }
 
-function optimizeImages() {
-  return src(srcPaths.img).pipe(imagenmin()).pipe(dest(dstPaths.img));
-  // .pipe(notify({ message: 'Imagen Minificada' }));
-}
-
-function versionWebp() {
-  return src(srcPaths.img).pipe(webp()).pipe(dest(dstPaths.img));
-}
-
 function watchFilesCss() {
   watch([srcPaths.scss, `${srcPath}/css/**/*.scss`], css);
 }
 
+// IMAGES
+function versionWebp() {
+  return src(srcPaths.img).pipe(webp()).pipe(dest(dstPaths.img));
+}
+
+exports.images = series(versionWebp);
 exports.build_css = css;
 exports.css = watchFilesCss;
-exports.images = series(optimizeImages, versionWebp);
 exports.default = parallel(css, versionWebp, watchFilesCss);
