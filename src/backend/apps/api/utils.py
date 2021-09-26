@@ -8,23 +8,19 @@ from flask.json import jsonify
 
 def _make_response(data=None, message=""):
     resp = {
-        "message": message,
+        "message": str(message),
     }
-    if data:
+    if data is None:
         resp["results"] = data
     return resp
 
 
 def make_response(data=None, message="", status=200, **kwargs):
-    return (
-        jsonify(
-            {
+    resp = {
                 **_make_response(
                     data=data,
                     message=message,
                 ),
                 **kwargs,
             }
-        ),
-        status,
-    )
+    return resp, status
