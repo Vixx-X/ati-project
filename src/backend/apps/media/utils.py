@@ -61,11 +61,18 @@ def save_media(file, dry_run=False, **kwargs):
     """
     Save any kind of media depending of MIME
     """
-    mediaClass = get_media_class(file)
-    media = mediaClass(file=file, filename=secure_filename(file.filename))
-    if not dry_run:
-        media.save(**kwargs)
-    return media
+    if not isinstance(file, list):
+        file = [file]
+    medias = []
+    for f in file:
+        mediaClass = get_media_class(f)
+        media = mediaClass(file=f, filename=secure_filename(f.filename))
+        if not dry_run:
+            media.save(**kwargs)
+        medias.append(media)
+    if len(medias) == 1:
+        return medias[0]
+    return medias
 
 
 def save_media_from_form(field_name):
@@ -85,7 +92,10 @@ def create_or_replace(instance, file, dry_run=False, **kwargs):
     Create or replace any kind of media depending of MIME
     """
     if instance:
-        instance.delete()
+        if not isinstance(instance, list):  # list of media
+            instance = [instance]
+        for ins in instance:
+            ins.delete()
     return save_media(file, dry_run=dry_run, **kwargs)
 
 

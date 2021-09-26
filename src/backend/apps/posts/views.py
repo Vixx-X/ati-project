@@ -6,14 +6,11 @@ from flask import redirect
 from flask.helpers import url_for
 
 from backend.apps.posts.forms import PostForm
-from backend.loading import get_class
 from backend.utils.views import TemplateView, UpdateView
 
-# from flask_babel import gettext as _ # for i18n
+from backend.apps.posts.models import Post
 
-# import models
-Post = get_class("posts.models", "Post")
-User = get_class("user.models", "User")
+# from flask_babel import gettext as _ # for i18n
 
 
 class PostView(TemplateView):
@@ -22,14 +19,6 @@ class PostView(TemplateView):
     """
 
     template_name = "posts/post.html"
-
-
-class CommentView(TemplateView):
-    """
-    Comment View to watch a comment in detail.
-    """
-
-    template_name = "user/comment.html"
 
 
 class CreateUpdatePostView(UpdateView):
@@ -48,11 +37,6 @@ class CreateUpdatePostView(UpdateView):
 
     def form_valid(self, form, *args, **kwargs):
         post = self.object or Post()
-
-        post.title = form.title
-        post.description = form.description
-        post.tags = form.tags
-        post.public = form.public
-
+        form.populate_obj(obj=post)
         post.save()
-        return redirect(url_for("post.post-detail", id=post._id))
+        return redirect(url_for("post.post-detail", id=str(post.id)))

@@ -6,7 +6,6 @@
 {% from "all_components/footer.html" import footer%}
 {% from "all_components/input-label.html" import inputLabel %}
 {% from "all_components/footer-mobile.html" import footer_mobile %}
-{% from "all_components/boolean-button.html" import boolean_button %}
 
 {% block extrastyles %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/publicationpage.css') }}">{% endblock %}
@@ -41,11 +40,6 @@
                 </div>
                 <div class="cont-create-publication-body-boolean-button">
                     <!-- TODO hacer que de aqui se obtenga el valer de public -->
-                    {{boolean_button(
-                    id="booleanButton",
-                    text="Public",
-                    class="black"
-                    )}}
                 </div>
                 <div class="input-label-title">
                     <label class="d-flex fw-bold black" id="description">Title</label>
