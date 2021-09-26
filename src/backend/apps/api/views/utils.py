@@ -113,18 +113,18 @@ class APIListView(APIView):
                 per_page=self.size,
             )
         except:
-            raise ResourceNotFoundError(_("Resource does not exist."))
+            raise ResourceNotFoundError()
 
     def process_context(self):
         self.queryset = self.get_queryset()
-        self.data = self.get_data()
         return super().process_context()
 
     def get(self, **kwargs):
         total = self.queryset.total
         items = [item.as_dict() for item in self.queryset.items]
         count = len(items)
-        return self.response(data=items, count=count, total=total)
+        ret = self.response(data=items, count=count, total=total)
+        return ret
 
     def post(self, data, **kwargs):
         init_data = self.get_resource_kwargs(data)

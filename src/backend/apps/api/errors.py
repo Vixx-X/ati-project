@@ -2,6 +2,7 @@
 Custom API Error Exceptions
 """
 
+from flask_babel import lazy_gettext as _
 
 class ApiExceptions(Exception):
     """Base class for api exceptions"""
@@ -28,7 +29,7 @@ class ValidationError(ApiExceptions):
     def __init__(self, *args, **kwargs):
         super().__init__(
             http_status_code=400,
-            message=_("One or more required fields are missing") * args,
+            message=_("One or more required fields are missing"), *args,
             **kwargs
         )
 
@@ -38,7 +39,7 @@ class NotUniqueError(ApiExceptions):
 
     def __init__(self, *args, **kwargs):
         super().__init__(
-            http_status_code=409, message=_("Already exist") * args, **kwargs
+            http_status_code=409, message=_("Already exist"), *args, **kwargs
         )
 
 
@@ -55,4 +56,4 @@ class ResourceNotFoundError(ApiExceptions):
     """Resource not found exception"""
 
     def __init__(self, *args, **kwargs):
-        super().__init__(http_status_code=404, *args, **kwargs)
+        super().__init__(http_status_code=404, message=_("Resource does not exist."), *args, **kwargs)

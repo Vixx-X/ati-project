@@ -183,7 +183,7 @@ class UpdateView(View, FormMixin, TemplateMixin):
         self.request = request
         self.args = request.args
         self.method = request.method
-        self.user = g.user
+        self.user = current_user._get_current_object()  # current user
         self.object = self.get_object(*args, **kwargs)
         if self.method == "GET":
             return self.get(*args, **kwargs)
