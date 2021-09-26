@@ -207,7 +207,20 @@ class User(db.Document, UserMixin):
     def get_profile_photo_url(self):
         if self.profile_photo:
             return self.profile_photo.url
-        return url_for("static", filename="img/user/default_profile.jpg")
+        return url_for("static", filename="img/user/default-profile.png")
+    
+    @property
+    def profile_photo_url(self):
+        return self.get_profile_photo_url()
+
+    def get_banner_url(self):
+        if self.banner_photo:
+            return self.banner_photo.url
+        return url_for("static", filename="img/user/default-banner.jpg")
+    
+    @property
+    def banner_url(self):
+        return self.get_banner_url()
 
     def is_friend(self, user):
         """

@@ -12,9 +12,47 @@
         .container-name{
             width: 74rem;
             margin: 0 auto;
+			@include tablet{
+				z-index: -1;
+				margin-left: 25rem;
+			}
         }
     }
 }
+
+.container-fields{
+	display: grid;
+	column-gap: 2rem;
+	grid-template-columns: repeat(1, 1fr);
+	@include tablet{
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.container-fields-main{
+		background-color: lighten($primary, 20%);
+		padding: 3rem;
+		border-radius: 2rem;
+		margin-bottom: 4rem;
+		display: grid;
+		column-gap: 2rem;
+		gap: 4rem;
+		grid-template-columns: repeat(1, 1fr);
+		height: max-content;
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	}
+	.container-fields-favorites{
+		margin-bottom: 4rem;
+		border-radius: 2rem;
+		display: grid;
+		column-gap: 2rem;
+		gap: 1rem;
+		grid-template-columns: repeat(1, 1fr);
+		height: max-content;
+		.input-label input{
+			margin: 0.5rem;
+		}
+	}
+}
+
 
 .text-area-container{
 	margin: 4rem auto;
@@ -36,9 +74,9 @@
 	line-height: 1.5;
 	overflow-y: auto;
 	font-style: italic;
-	border: none;
-	color: lighten($black, 40%);
-	padding: 0.5rem 1rem;
+	border: 1px solid $primary !important;
+	color: lighten($black, 50%);
+	padding: 1rem;
 }
 
 .cards-edit{
