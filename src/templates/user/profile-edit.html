@@ -20,6 +20,9 @@
         <form method="POST" id="editProfile" class="form-profile" enctype="multipart/form-data">
             <div class="header-group ">
                 <div class="section-header" style='--bg-image: url({{user.banner_url}})'>
+                    <label id="changeheader" for="file-upload-baner" >
+                        <img src="{{ url_for('static', filename='img/icons/gallery.svg') }}" alt="Camara icon">
+                    </label>
                     {{ header(classname="bg-header transparent") }}
                     <div class="container profile-icon">
                         {{ user_icon(
@@ -113,16 +116,18 @@
                             </div>
                         </div>
 
-
                         {{ input(
                             field=form.profile_photo,
-                            field_class="white w-100",
-                            label_class="d-flex fw-bold black",
+                            label=False,
+                            field_class="d-none",
+                            id="file-upload-profile",
                         )}}
+
                         {{ input(
                             field=form.banner_photo,
-                            field_class="white w-100",
-                            label_class="d-flex fw-bold black",
+                            label=False,
+                            field_class="d-none",
+                            id="file-upload-baner"
                         )}}
                     
                 </section>

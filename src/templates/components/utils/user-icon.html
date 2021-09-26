@@ -16,9 +16,9 @@
         </a>
     {%- endif %}
     {%if type=="change"-%}
-        <button id="changeimgageprofile">
+        <label for="file-upload-profile" id="changeimgageprofile">
             <img src="{{ url_for('static', filename='img/icons/gallery.svg') }}" alt="Camara icon">
-        </button>
+        </label>
     {%- endif %}
 </div>
 {%- endmacro %}

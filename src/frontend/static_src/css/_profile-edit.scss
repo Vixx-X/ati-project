@@ -10,10 +10,8 @@
         }
     
         .container-name{
-            width: 74rem;
             margin: 0 auto;
 			@include tablet{
-				z-index: -1;
 				margin-left: 25rem;
 			}
         }
@@ -102,6 +100,11 @@
     background: $light;
     border-radius: 50%;
     border: 1px solid $secundary;
+	display: grid;
+	place-items: center;
+	&:hover {
+		cursor: pointer;
+	}
 
 }
 
