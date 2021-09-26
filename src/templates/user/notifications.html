@@ -2,11 +2,9 @@
 
 {% from "all_components/user-icon.html" import user_icon %}
 {% from "all_components/header-publication.html" import header_publication %}
-{% from "all_components/footer-mobile.html" import footer_mobile %}
 {% from "all_components/header.html" import header %}
-{% from "all_components/footer.html" import footer %}
 
-{% block title %} Notifications {% endblock title %}
+{% block title %} {{_("Notifications")}} {% endblock title %}
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/notifications.css') }}" >{% endblock %}
 
 {% block body -%}
@@ -14,7 +12,7 @@
   <section class="container notifications-view">
     <div class="heading black">
         <h3 class="fw-normal">
-            Notifications
+            {{_("Notifications")}}
         </h3>
         <hr>
     </div>
@@ -22,7 +20,7 @@
         <div class="w-18 notification white">
             <div class="d-flex">
             <img src="{{ url_for('static', filename='img/icons/delete.svg') }}" alt="delete">
-            <h3>{{ _('Notification') }}</h3>
+            <h3>{{ _('Notifications') }}</h3>
             <img src="{{ url_for('static', filename='img/icons/image.svg') }}" alt="image">
             </div>
             <hr>
@@ -121,9 +119,5 @@
         </div>
     </div>
   </section>
-
-
-{{footer()}}
-{{footer_mobile(class="black")}}
 
 {% endblock body %}
