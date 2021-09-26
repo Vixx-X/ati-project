@@ -29,12 +29,9 @@
             {{ header(classname="bg-header transparent") }}
             <div class="container profile-icon">
                 {{ user_icon(
-                    img=url_for('static', filename='img/users/26956071.png'),
+                    img=user.profile_photo.url,
                     alt="User2 Photo",
                     type="change",
-                    url=url_for('user.profile', username='vittorio_adesso'),
-                    png=url_for('static', filename='img/users/26956071.png'),
-                    webp=url_for('static', filename='img/users/26956071.webp')
                 ) }}
                 <p class="container-name fw-bold">Gabriela Ustariz</p>
             </div>

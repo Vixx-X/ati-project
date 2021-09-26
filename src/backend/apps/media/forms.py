@@ -26,5 +26,3 @@ class FormMediaMixin:
                 field.name,
             )
             setattr(obj, field.name, media)
-
-        obj.save()

@@ -1,8 +1,8 @@
 """
 Forms for user app
 """
+from flask import request
 from wtforms.widgets import (
-    RadioInput,
     CheckboxInput,
     ListWidget,
     html_params,
@@ -243,22 +243,34 @@ class ProfileForm(FormMediaMixin, EditUserProfileForm):
 
 from markupsafe import Markup
 
+
 class LatchWidget(CheckboxInput):
     def __call__(self, field, **kwargs):
         inside = super().__call__(field, **kwargs)
-        return Markup('<label class="switch">%s<span class="slider round"></span></label>' % inside)
+        return Markup(
+            '<label class="switch">%s<span class="slider round"></span></label>'
+            % inside
+        )
+
 
 class CustomListWidget(ListWidget):
     def __call__(self, field, **kwargs):
         kwargs.setdefault("id", field.id)
-        html = ["<div {}>".format(html_params(**{'class' : 'container-personalization'}))]
+        html = [
+            "<div {}>".format(html_params(**{"class": "container-personalization"}))
+        ]
         for subfield in field:
             if self.prefix_label:
-                html.append(f"<div class='radio-button d-flex jc-space_between'>{subfield.label(**{'class' : 'black'})} {subfield()}</div>")
+                html.append(
+                    f"<div class='radio-button d-flex jc-space_between'>{subfield.label(**{'class' : 'black'})} {subfield()}</div>"
+                )
             else:
-                html.append(f"<div class='radio-button d-flex jc-space_between'>{subfield()} {subfield.label(**{'class' : 'black'})}</div>")
+                html.append(
+                    f"<div class='radio-button d-flex jc-space_between'>{subfield()} {subfield.label(**{'class' : 'black'})}</div>"
+                )
         html.append("</div>")
         return Markup("".join(html))
+
 
 class ConfigForm(FlaskForm):
     """
@@ -293,10 +305,9 @@ class ConfigForm(FlaskForm):
 
     def __init__(self, **kwargs):
         obj = kwargs.get("obj", None)
-        data = obj.prefer_private
         super().__init__(**kwargs)
-        if obj:
-            self.account_privacy.data = data
+        if obj is not None and request.method.lower() == "get":
+            self.account_privacy.data = obj.prefer_private
 
     def populate_obj(self, obj):
         super().populate_obj(obj)
