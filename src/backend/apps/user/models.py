@@ -76,7 +76,7 @@ class Config(db.EmbeddedDocument):
         Get privacy preference of user
         """
         return self.account_privacy == self.PRIVATE
-    
+
     @property
     def prefer_dark_mode(self):
         """
@@ -186,21 +186,19 @@ class User(db.Document, UserMixin):
         raw["id"] = str(raw.pop("_id"))
 
         if "banner_photo" in raw:
-            raw["banner_photo"] = list(map(lambda x: x.as_dict(), self.banner_photo)) 
+            raw["banner_photo"] = list(map(lambda x: x.as_dict(), self.banner_photo))
 
-        
         if "profile_photo" in raw:
-            raw["profile_photo"] = list(map(lambda x: x.as_dict(), self.profile_photo)) 
-
+            raw["profile_photo"] = list(map(lambda x: x.as_dict(), self.profile_photo))
 
         if "email_confirmed_at" in raw:
-            raw['email_confirmed_at'] = raw['email_confirmed_at'].isoformat()
+            raw["email_confirmed_at"] = raw["email_confirmed_at"].isoformat()
 
         if "birth_date" in raw:
-            raw['birth_date'] = raw['birth_date'].isoformat()
+            raw["birth_date"] = raw["birth_date"].isoformat()
 
         if "friends" in raw:
-            raw["friends"] = list(map(lambda x: x.as_dict(), self.friends)) 
+            raw["friends"] = list(map(lambda x: x.as_dict(), self.friends))
 
         return raw
 
@@ -292,6 +290,7 @@ class Notification(db.Document):
     FRIEND_REQUEST_ACCEPTED = "FRA"
     FRIEND_REQUEST = "FR"
     CHECK_MESSAGE = "CM"
+    CHECK_RESPONSE = "CR"
     CHECK_POST = "CP"
     PAGE = "P"
     TYPES = [
@@ -299,6 +298,7 @@ class Notification(db.Document):
         (FRIEND_REQUEST_ACCEPTED, _("friend request accepted")),
         (CHECK_MESSAGE, _("check message")),
         (CHECK_POST, _("check post")),
+        (CHECK_RESPONSE, _("check response")),
         (PAGE, _("page")),
     ]
     type = db.StringField(

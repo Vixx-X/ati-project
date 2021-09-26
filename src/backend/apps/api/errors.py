@@ -25,20 +25,34 @@ class ApiExceptions(Exception):
 class ValidationError(ApiExceptions):
     """Should be raised in case of custom validations"""
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(
+            http_status_code=400,
+            message=_("One or more required fields are missing") * args,
+            **kwargs
+        )
+
+
 class NotUniqueError(ApiExceptions):
     """Should be raised in case of a element already exist"""
-    def __init__(self, http_status_code: int, *args, **kwargs):
-        super().__init__(http_status_code=409, *args, **kwargs)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(
+            http_status_code=409, message=_("Already exist") * args, **kwargs
+        )
+
 
 class UnauthorizedError(ApiExceptions):
     """Unauthorized exception"""
 
     def __init__(self, *args, **kwargs):
-        super().__init__(http_status_code=401, *args, **kwargs)
+        super().__init__(
+            http_status_code=401, message=_("You are not authorized"), *args, **kwargs
+        )
 
 
 class ResourceNotFoundError(ApiExceptions):
     """Resource not found exception"""
-    def __init__(self, *args, **kwargs):
-       super().__init__(http_status_code=404, *args, **kwargs)
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(http_status_code=404, *args, **kwargs)

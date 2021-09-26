@@ -1,8 +1,30 @@
-def makeRespone(data, message, count, status):
-    res = {
-        "count": count,
-        "message": message,
-        "results": data
-    }
+"""
+Utils functions for api module
+"""
 
-    return res, status
+
+from flask.json import jsonify
+
+
+def _make_response(data=None, message=""):
+    resp = {
+        "message": message,
+    }
+    if data:
+        resp["results"] = data
+    return resp
+
+
+def make_response(data=None, message="", status=200, **kwargs):
+    return (
+        jsonify(
+            {
+                **_make_response(
+                    data=data,
+                    message=message,
+                ),
+                **kwargs,
+            }
+        ),
+        status,
+    )
