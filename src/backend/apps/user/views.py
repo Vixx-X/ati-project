@@ -2,11 +2,11 @@
 Views for the user module.
 """
 
-from flask import sessions, url_for, session
+from flask import session, sessions, url_for
 from flask_user import login_required
-from backend.utils.views import TemplateView, UpdateView
 
 from backend.apps.user.forms import ConfigForm
+from backend.utils.views import TemplateView, UpdateView
 
 # from flask_babel import gettext as _ # for i18n
 

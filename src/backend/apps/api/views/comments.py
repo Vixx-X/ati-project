@@ -2,11 +2,11 @@
 Views for comment module
 """
 
+from flask_babel import lazy_gettext as _  # for i18n
+
 from backend.apps.api import api
 from backend.apps.api.views.utils import APIListView
 from backend.apps.posts.models import Comment
-from flask_babel import lazy_gettext as _  # for i18n
-
 from backend.apps.posts.utils import get_comments_by_path, save_comment_by_path
 
 
@@ -14,7 +14,7 @@ class CommentListView(APIListView):
     resource = Comment
 
     def process_context(self):
-        self.path = '/'.join([self.kwargs["id"], self.kwargs["path"]])
+        self.path = "/".join([self.kwargs["id"], self.kwargs["path"]])
         return super().process_context()
 
     def get_queryset(self):
@@ -23,15 +23,23 @@ class CommentListView(APIListView):
             for replies in parent["comment"]:
                 # TODO agregar reply
                 pk, *path = parent["more"]
-                replies["reply"] = api.url_for(CommentListView, id=pk, path="/".join(path))
+                replies["reply"] = api.url_for(
+                    CommentListView, id=pk, path="/".join(path)
+                )
             if "more" in parent:
                 pk, *path = parent["more"]
-                parent["more"] = api.url_for(CommentListView, id=pk, path="/".join(path)) + f"?page={self.page+1}&size={self.size}"
+                parent["more"] = (
+                    api.url_for(CommentListView, id=pk, path="/".join(path))
+                    + f"?page={self.page+1}&size={self.size}"
+                )
             pk, *path = parent["more"]
             parent["reply"] = api.url_for(CommentListView, id=pk, path="/".join(path))
         if "more" in ret:
             pk, *path = ret["more"]
-            ret["more"] = api.url_for(CommentListView, id=pk, path="/".join(path)) + f"?page={self.page+1}&size={self.size}"
+            ret["more"] = (
+                api.url_for(CommentListView, id=pk, path="/".join(path))
+                + f"?page={self.page+1}&size={self.size}"
+            )
 
         return ret
 

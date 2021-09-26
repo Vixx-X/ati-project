@@ -1,6 +1,7 @@
-from datetime import datetime
 import json
 import os
+from datetime import datetime
+
 from PIL import Image
 
 field_map = {
@@ -59,10 +60,9 @@ def import_user(file, dirname=None, dry_run=False):
     """
     Given a path it retrieve information for that user and profile photo
     """
-    from backend.apps.user.models import User
-    from backend.apps.user.models import clean_username
-    from backend.apps.media.utils import save_media
     from backend import user_manager
+    from backend.apps.media.utils import save_media
+    from backend.apps.user.models import User, clean_username
 
     user_data = json.load(file)
     kwargs = {}
@@ -135,7 +135,7 @@ def loaddata(path, dry_run=False):
                 dirname = os.path.join(root, file)
                 filename = os.path.join(dirname, "perfil.json")
 
-                with open(filename, 'r', encoding='utf-8') as f:
+                with open(filename, "r", encoding="utf-8") as f:
                     users.append(import_user(f, dirname, dry_run))
 
         if not dry_run:

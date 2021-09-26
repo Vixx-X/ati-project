@@ -6,9 +6,8 @@ from flask import redirect
 from flask.helpers import url_for
 
 from backend.apps.posts.forms import PostForm
-from backend.utils.views import TemplateView, UpdateView
-
 from backend.apps.posts.models import Post
+from backend.utils.views import TemplateView, UpdateView
 
 # from flask_babel import gettext as _ # for i18n
 

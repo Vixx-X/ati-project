@@ -3,13 +3,12 @@ API module
 """
 
 from flask import Blueprint
+from flask_babel import lazy_gettext as _  # for i18n
 from flask_restful import Api
 from werkzeug.exceptions import HTTPException
 from werkzeug.http import HTTP_STATUS_CODES
-from flask_babel import lazy_gettext as _  # for i18n
 
 from backend.apps.api.utils import make_response
-
 
 bp = Blueprint("api", __name__)
 

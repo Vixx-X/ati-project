@@ -2,13 +2,13 @@
 Init for core app
 """
 
-from flask import Blueprint, render_template, request, g, session
+from flask import Blueprint, g, render_template, request, session
+from flask_babel import lazy_gettext as _  # for i18n
 from flask_login import current_user
 
 from backend import babel
 from backend.core.urls import set_urls
-from config import LANGUAGES, DEFAULT_LANGUAGE  # for i18n
-from flask_babel import lazy_gettext as _  # for i18n
+from config import DEFAULT_LANGUAGE, LANGUAGES  # for i18n
 
 
 def init_app(app):

@@ -2,21 +2,20 @@
 Views for the api module.
 """
 
-from flask_restful import Resource
-from flask_wtf.csrf import generate_csrf
-
-from flask_user import current_user
 from flask import request
+from flask_babel import lazy_gettext as _  # for i18n
+from flask_restful import Resource
+from flask_user import current_user
+from flask_wtf.csrf import generate_csrf
+from mongoengine.errors import NotUniqueError as MNUE
+from mongoengine.errors import ValidationError as MVE
 
 from backend.apps.api.decorators import login_required
-from mongoengine.errors import ValidationError as MVE, NotUniqueError as MNUE
 from backend.apps.api.errors import (
     NotUniqueError,
     ResourceNotFoundError,
     ValidationError,
 )
-from flask_babel import lazy_gettext as _  # for i18n
-
 from backend.apps.api.utils import make_response
 
 

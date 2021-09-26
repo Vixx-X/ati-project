@@ -1,7 +1,7 @@
 import mongoengine as db
 from flask import redirect, render_template, request
-from flask_user import current_user
 from flask.views import View
+from flask_user import current_user
 
 # from flask_babel import gettext as _ # for i18n
 

@@ -2,50 +2,43 @@
 Forms for user app
 """
 from flask import request
-from wtforms.widgets import (
-    CheckboxInput,
-    ListWidget,
-    html_params,
-)
-
 from flask.helpers import url_for
-
-from wtforms.widgets.html5 import (
-    DateInput,
-)
-
 from flask_babel import lazy_gettext as _
-from flask_wtf.form import FlaskForm  # for i18n
-from wtforms import (
-    PasswordField,
-    StringField,
-    validators,
-    BooleanField,
-    SubmitField,
-    FileField,
-    DateField,
-    SelectField,
-)
+from flask_user.forms import ChangePasswordForm as BaseChangePasswordForm
+from flask_user.forms import ChangeUsernameForm as BaseChangeUsernameForm
+from flask_user.forms import EditUserProfileForm
+from flask_user.forms import ForgotPasswordForm as BaseForgotPasswordForm
+from flask_user.forms import LoginForm as BaseLoginForm
+from flask_user.forms import RegisterForm as BaseRegisterForm
 from flask_user.forms import (
-    LoginForm as BaseLoginForm,
-    RegisterForm as BaseRegisterForm,
-    ChangePasswordForm as BaseChangePasswordForm,
-    ChangeUsernameForm as BaseChangeUsernameForm,
-    ForgotPasswordForm as BaseForgotPasswordForm,
-    ResetPasswordForm as BaseResetPasswordForm,
     ResendEmailConfirmationForm as BaseResendEmailConfirmationForm,
-    EditUserProfileForm,
+)
+from flask_user.forms import ResetPasswordForm as BaseResetPasswordForm
+from flask_user.forms import (
     password_validator,
-    username_validator,
     unique_email_validator,
     unique_username_validator,
+    username_validator,
+)
+from flask_wtf.form import FlaskForm  # for i18n
+from wtforms import (
+    BooleanField,
+    DateField,
+    FileField,
+    PasswordField,
+    SelectField,
+    StringField,
+    SubmitField,
+    validators,
 )
 from wtforms.fields.core import FieldList, RadioField
-
 from wtforms.fields.simple import HiddenField, TextAreaField
-from backend.apps.media.forms import FormMediaMixin
-from .models import User, Config
+from wtforms.widgets import CheckboxInput, ListWidget, html_params
+from wtforms.widgets.html5 import DateInput
 
+from backend.apps.media.forms import FormMediaMixin
+
+from .models import Config, User
 
 # Forms
 
@@ -219,23 +212,34 @@ class ResetPasswordForm(BaseResetPasswordForm):
     next = HiddenField()
     submit = SubmitField(_("Change password"))
 
+
 class CalendarWidget(DateInput):
     def __call__(self, field, **kwargs):
         inside = super().__call__(field, **kwargs)
-        return Markup('%s' % inside)
+        return Markup("%s" % inside)
+
 
 class CustomInfoWidget(ListWidget):
     def __call__(self, field, **kwargs):
         kwargs.setdefault("id", field.id)
-        html = ["<div {}>".format(html_params(**{'class' : 'long-card'}))]
-        html.append(f"{field.label(**{'class' : 'label-card black'})}<div class='content-inputs'>")
+        html = ["<div {}>".format(html_params(**{"class": "long-card"}))]
+        html.append(
+            f"{field.label(**{'class' : 'label-card black'})}<div class='content-inputs'>"
+        )
         for index, subfield in enumerate(field):
             if self.prefix_label:
-                html.append(f"<div class='input-content'>{subfield()}<button type='button'><img id='element{index}' class='delete-content' loading='lazy' src={url_for('static', filename='img/icons/delete.svg')} alt='Delete detail' /></button> {subfield.label(**{'class' : 'd-none'})}</div>")
+                html.append(
+                    f"<div class='input-content'>{subfield()}<button type='button'><img id='element{index}' class='delete-content' loading='lazy' src={url_for('static', filename='img/icons/delete.svg')} alt='Delete detail' /></button> {subfield.label(**{'class' : 'd-none'})}</div>"
+                )
             else:
-                html.append(f"<div class='input-content'>{subfield()}<button type='button'><img id='element{index}' class='delete-content' loading='lazy' src={url_for('static', filename='img/icons/delete.svg')} alt='Delete detail' /></button> {subfield.label(**{'class' : 'd-none'})}</div>")
-        html.append(f"</div><button class='morecontent'><img loading='lazy' src={url_for('static', filename='img/icons/plus-sign.svg')} alt='Add publication'></button></div>")
+                html.append(
+                    f"<div class='input-content'>{subfield()}<button type='button'><img id='element{index}' class='delete-content' loading='lazy' src={url_for('static', filename='img/icons/delete.svg')} alt='Delete detail' /></button> {subfield.label(**{'class' : 'd-none'})}</div>"
+                )
+        html.append(
+            f"</div><button class='morecontent'><img loading='lazy' src={url_for('static', filename='img/icons/plus-sign.svg')} alt='Add publication'></button></div>"
+        )
         return Markup("".join(html))
+
 
 class ProfileForm(FormMediaMixin, EditUserProfileForm):
 
@@ -253,33 +257,20 @@ class ProfileForm(FormMediaMixin, EditUserProfileForm):
 
     description = TextAreaField(_("Description"))
     birth_date = DateField(
-        _("Birth Day"), 
+        _("Birth Day"),
         widget=CalendarWidget(),
     )
     gender = SelectField(_("Gender"), choices=User.GENDERS)
 
-    colors = FieldList(StringField(
-        _("Favorite Colors")),
-        widget=CustomInfoWidget()
-    )
+    colors = FieldList(StringField(_("Favorite Colors")), widget=CustomInfoWidget())
 
-    books = FieldList(StringField(
-        _("Favorite Books")),
-        widget=CustomInfoWidget()
-    )
+    books = FieldList(StringField(_("Favorite Books")), widget=CustomInfoWidget())
 
-    games = FieldList(StringField(
-        _("Favorite Video Games")),
-        widget=CustomInfoWidget()
+    games = FieldList(StringField(_("Favorite Video Games")), widget=CustomInfoWidget())
+    langs = FieldList(
+        StringField(_("Favorite Programming Languages")), widget=CustomInfoWidget()
     )
-    langs = FieldList(StringField(
-        _("Favorite Programming Languages")),
-        widget=CustomInfoWidget()
-    )
-    music = FieldList(StringField(
-        _("Favorite Music")),
-        widget=CustomInfoWidget()
-    )
+    music = FieldList(StringField(_("Favorite Music")), widget=CustomInfoWidget())
 
     submit = SubmitField(_("Update"))
 

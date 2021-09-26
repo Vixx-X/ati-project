@@ -2,19 +2,19 @@
 Views for the friends endpoints of api module.
 """
 
-from backend.apps.api.errors import UnauthorizedError
+from flask_babel import gettext as _  # for i18n
 
-from backend.apps.user.models import User, Notification
+from backend.apps.api.errors import UnauthorizedError
+from backend.apps.api.views.utils import APIDetailView
+from backend.apps.user.models import Notification, User
 from backend.apps.user.utils import (
+    accept_friend_request,
     delete_notification,
+    deny_friend_request,
     get_user_friends,
     remove_friend,
     send_friend_request,
-    accept_friend_request,
-    deny_friend_request,
 )
-from backend.apps.api.views.utils import APIDetailView
-from flask_babel import gettext as _  # for i18n
 
 
 class NotificationView(APIDetailView):
