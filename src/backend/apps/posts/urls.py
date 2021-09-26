@@ -11,16 +11,11 @@ bp.add_url_rule(
 )
 
 bp.add_url_rule(
-    "/<int:id>",
+    "/<string:id>",
     view_func=views.PostView.as_view("post-detail"),
 )
 
 bp.add_url_rule(
-    "/<int:id>/edit",
+    "/<string:id>/edit",
     view_func=views.CreateUpdatePostView.as_view("post-edit"),
-)
-
-bp.add_url_rule(
-    "/comment/<int:id>",
-    view_func=views.CommentView.as_view("comment-detail"),
 )

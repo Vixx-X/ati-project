@@ -6,6 +6,7 @@ Models for User module
 from datetime import datetime
 
 from backend import db
+from backend.apps.media.models import Media
 from backend.apps.user.models import User
 
 
@@ -54,6 +55,13 @@ class Post(db.Document):
     tags = db.ListField(
         db.StringField(max_length=255),
         default=[],
+    )
+
+    media = db.ListField(
+        db.ReferenceField(
+            Media,
+            reverse_delete_url=db.CASCADE,
+        ),
     )
 
     # metadata
