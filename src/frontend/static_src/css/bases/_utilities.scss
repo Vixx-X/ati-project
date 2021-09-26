@@ -54,3 +54,24 @@
       margin-left: 0.5rem;
   }
 }
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.jc-space_between {
+  justify-content: space-between;
+}
+
+.w-25 {
+  width: 25em;
+}
+
+.w-2 {
+  width: 2em;
+}
+
+.d-none {
+  display: none;
+}
