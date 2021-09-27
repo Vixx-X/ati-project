@@ -12,18 +12,26 @@ class FormMediaMixin:
         return ret
 
     def __init__(self, *args, **kwargs) -> None:
-        obj = kwargs["obj"]
+        obj = kwargs.get("obj")
         super().__init__(*args, **kwargs)
-        for field in self.get_all_media_fields():
-            setattr(field, "media", getattr(obj, field.name))
+        if not self.is_submitted() and obj:
+            for field in self.get_all_media_fields():
+                setattr(field, "media", getattr(obj, field.name))
 
     def populate_obj(self, obj, **kwargs):
+        media_fields = self.get_all_media_fields()
+        media_aux = {field.name: getattr(obj, field.name) for field in media_fields}
+
         super().populate_obj(obj, **kwargs)
 
-        for field in self.get_all_media_fields():
+        for name, media in media_aux.items():
+            setattr(obj, name, media)
+
+        for field in media_fields:
             media = create_or_replace_from_form(
                 getattr(obj, field.name),
                 field.name,
+                isinstance(field, MultipleFileField),
             )
             if media:
                 setattr(obj, field.name, media)

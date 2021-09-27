@@ -3,7 +3,6 @@ Views for the media module.
 """
 
 from backend.apps.api.views.utils import APIDetailView, APIListView
-
 from backend.apps.posts.models import Post
 
 

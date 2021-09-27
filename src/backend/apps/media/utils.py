@@ -57,7 +57,7 @@ def get_media_class(file):
     raise UnknownMedia(f"{filename} is not a valid media")
 
 
-def save_media(file, dry_run=False, **kwargs):
+def save_media(file, dry_run=False, multiple=False, **kwargs):
     """
     Save any kind of media depending of MIME
     """
@@ -70,21 +70,29 @@ def save_media(file, dry_run=False, **kwargs):
         if not dry_run:
             media.save(**kwargs)
         medias.append(media)
-    if len(medias) == 1:
+    if not medias:
+        return None
+    if not multiple:
         return medias[0]
     return medias
 
 
-def save_media_from_form(field_name):
+def save_media_from_form(field_name, multiple=False):
     """
     Given a file name save media from form
     """
     if field_name not in request.files:
         raise BadConfigured(f"Request did not come with {field_name}")
-    file = request.files[field_name]
-    if file.filename:
-        return save_media(file)
-    return None
+    files = request.files.getlist(field_name)
+    ret = []
+    for file in files:
+        if file.filename:
+            ret.append(save_media(file))
+    if not ret:
+        return None
+    if not multiple:
+        return ret[0]
+    return ret
 
 
 def create_or_replace(instance, file, dry_run=False, **kwargs):
@@ -99,16 +107,22 @@ def create_or_replace(instance, file, dry_run=False, **kwargs):
     return save_media(file, dry_run=dry_run, **kwargs)
 
 
-def create_or_replace_from_form(instance, field_name):
+def create_or_replace_from_form(instance, field_name, multiple=False):
     """
     Given a file name save or replace media from form
     """
     if field_name not in request.files:
         raise BadConfigured(f"Request did not come with {field_name}")
-    file = request.files[field_name]
-    if file.filename:
-        return create_or_replace(instance, file)
-    return None
+    files = request.files.getlist(field_name)
+    ret = []
+    for file in files:
+        if file.filename:
+            ret.append(create_or_replace(instance, file))
+    if not ret:
+        return None
+    if not multiple:
+        return ret[0]
+    return ret
 
 
 def upload_to(instance):

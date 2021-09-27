@@ -2,19 +2,18 @@
 Models for User module
 """
 
+import re
 from datetime import datetime
+
 from flask import current_app, url_for
 from flask_babel import gettext as _
 from flask_user import UserMixin
 from social_flask_mongoengine.models import FlaskStorage
 
 from backend import db
-
-from config import LANGUAGES as LANGS, DEFAULT_LANGUAGE  # for i18n
-
 from backend.apps.media.models import Image
-
-import re
+from config import DEFAULT_LANGUAGE
+from config import LANGUAGES as LANGS  # for i18n
 
 NO_ASCII_REGEX = re.compile(r"[^\x00-\x7F]+")
 NO_SPECIAL_REGEX = re.compile(r"[^\w_-]+", re.UNICODE)

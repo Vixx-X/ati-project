@@ -2,6 +2,15 @@
 @import "bases/mixins";
 
 
+.container-styles {
+    @include tablet{
+        background-color: $white;
+        border: 1px dashed #FF3E91;
+        box-sizing: border-box;
+        box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+        padding: 3rem 5rem;
+    }
+}
 
 .cont-create-publication{
     display: grid;
@@ -23,23 +32,13 @@
                          "linea linea"
                          ". publicButton"
                          "title title"
-                         "bodyContent bodyContent"
-                         "inputContent inputContent";
+                         "bodyContent bodyContent";
     // grid-template-columns: 4fr 1fr;
     @include tablet{
         grid-template-areas: "user title  . button"
         ". . publicButton publicButton"
-        "bodyContent bodyContent bodyContent bodyContent"
-        "inputContent inputContent inputContent inputContent";
+        "bodyContent bodyContent bodyContent bodyContent";
         grid-template-columns: 1fr 4fr 1fr;
-    }
-
-    @include tablet{
-        background-color: $white;
-        border: 1px dashed #FF3E91;
-        box-sizing: border-box;
-        box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
-        padding: 3rem 5rem;
     }
 
     .heading{
@@ -100,73 +99,70 @@
     .input-label-content{
         grid-area: bodyContent;
     }
+}
 
-    .cont-create-publication-body-input-label{
-        grid-area: inputContent;
-        display: flex;
-        justify-content: center;
-        margin: 4rem 0;
-        flex-wrap: wrap;
+.cont-create-publication-body-input-label{
+    text-align: center;
+    width: 40rem;
+    height: 22rem;
+    margin-top: 5rem;
+}
 
-        .image-size{
-            width: 100%;
+.container-display{
+    display: flex;
+    justify-content: center;
+}
+
+.container-buttons{
+    text-align: center;
+    width: 40rem;
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    justify-content: center;
+    place-items: center;
+    .button{
+        font-size: 1.3rem;
+        width: 15rem !important;
+        padding: 1.5rem 0;
+    }
+}
+
+.create-publication-body-input-label{
+    .image-size{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    height: 20rem;
+    background-color: lighten($primary, 30%);
+    border-style: inset;
+    border: 1px inset $light;
+    border-radius: 1.5rem;
+    width: 100%;
+    & .change-image-publication {
+        height: 100%;
+        div{
+            display: flex;
+            align-items: center;
+            text-align: center;
             height: 100%;
-            object-fit: contain;
+            justify-content: center;
+            label {
+                display: inline-block;
+                color: $primary !important;
+                cursor: pointer !important;
+                font-size: 14rem !important;
+                text-shadow: 2px 2px 2px $light;
+            }
         }
+    }
+    @include tablet{
+        // width: 35rem;
+    }
 
-        & .create-publication-body-input-label{
-            height: 20rem;
-            background-color: lighten($primary, 30%);
-            border-style: inset;
-            border: 1px inset $light;
-            border-radius: 1.5rem;
-            width: 100%;
-            & .change-image-publication {
-                height: 100%;
-                div{
-                    display: flex;
-                    align-items: center;
-                    text-align: center;
-                    height: 100%;
-                    justify-content: center;
-                    label {
-                        display: inline-block;
-                        color: $primary !important;
-                        cursor: pointer !important;
-                        font-size: 14rem !important;
-                        text-shadow: 2px 2px 2px $light;
-                    }
-                }
-            }
-            @include tablet{
-                width: 35rem;
-            }
-
-            & img{
-                border-radius: 1em;
-            }
-
-            & form{
-                width: 100%;
-                height: 100%;
-                display: grid;
-                place-items: center;
-                position: relative;
-                & input[type=file]{
-                    width: 2rem;
-                    height: 2rem;
-                    opacity: 0;
-                    &:hover{
-                        cursor: pointer;
-                    }
-                }
-                p{
-                    position: absolute;
-                    font-size: 5rem;
-                    
-                }
-            }
-            
-        }
+    & img{
+        border-radius: 1em;
     }
 }

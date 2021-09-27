@@ -23,7 +23,7 @@ def get_two_last_obj_with_path(path):
 
 
 def get_object_by_path(path):
-    _, son = _get_two_last_obj_with_path (path)
+    _, son = _get_two_last_obj_with_path(path)
     return son
 
 
@@ -38,7 +38,7 @@ def save_comment_by_path(path, comment):
     else:
         parent.comments.append(comment)
 
-    post = get_object_by_path(path.split('/')[0])
+    post = get_object_by_path(path.split("/")[0])
     post.save()
 
     # notify son author
@@ -54,16 +54,15 @@ def get_comments(obj, page=1, size=10, path=None):
         childs = []
         for child in com.comments[: size / 2]:
             c = child.as_dict()
-            c["reply"] = path.split('/') + [curr["id"], c["id"]]
+            c["reply"] = path.split("/") + [curr["id"], c["id"]]
             childs.append(c)
         setattr(curr, "comments", childs)
-        curr["reply"] = path.split('/') + [curr["id"]]
-        junior = {"comments": curr,
-                  "more": path.split('/') + [curr["id"]]}
+        curr["reply"] = path.split("/") + [curr["id"]]
+        junior = {"comments": curr, "more": path.split("/") + [curr["id"]]}
         raiz.append(junior)
     ret = {"comments": raiz}
     if len(raiz) == size:
-        ret["more"] = path.split('/')
+        ret["more"] = path.split("/")
     return raiz
 
 

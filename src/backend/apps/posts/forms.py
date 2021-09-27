@@ -16,6 +16,7 @@ from backend.apps.media.forms import FormMediaMixin
 
 from markupsafe import Markup
 
+
 class LatchWidget(CheckboxInput):
     def __call__(self, field, **kwargs):
         inside = super().__call__(field, **kwargs)
@@ -24,7 +25,8 @@ class LatchWidget(CheckboxInput):
             % inside
         )
 
-class PostForm(FlaskForm, FormMediaMixin):
+
+class PostForm(FormMediaMixin, FlaskForm):
     """
     Posts Form
     """
