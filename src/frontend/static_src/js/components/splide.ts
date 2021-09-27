@@ -1,3 +1,3 @@
-import Splide from "@splidejs/splide";
+import { Splide } from "@splidejs/splide";
 
 new Splide(".splide").mount();
