@@ -13,7 +13,7 @@
 {% block title %}{{ _('CreatePublications') }}{% endblock title %}
 {% block body %}
 
-{{ header(classname="bg-header") }}
+{{ header(classname="bg-header", user=user) }}
 <div class="cont-create-publication container margin-section">
     {{ user_icon(
     img=url_for('static', filename='img/users/26956071.png'),

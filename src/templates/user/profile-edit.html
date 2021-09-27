@@ -3,7 +3,7 @@
 {% from "components/utils/user-icon.html" import user_icon %}
 {% from "components/utils/buttons.html" import buttons %}
 {% from "components/utils/input.html" import input %}
-{% from "all_components/header.html" import header %}
+{% from "components/utils/header.html" import header %}
 {% from "all_components/mobile-navmenu.html" import mobile_navmenu %}
 
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" >
@@ -20,7 +20,7 @@
                     <label id="changeheader" for="file-upload-baner" >
                         <img src="{{ url_for('static', filename='img/icons/gallery.svg') }}" alt="Camara icon">
                     </label>
-                    {{ header(classname="bg-header transparent") }}
+                    {{ header(classname="bg-header transparent", user=user) }}
                     <div class="container profile-icon">
                         {{ user_icon(
                             user=user,

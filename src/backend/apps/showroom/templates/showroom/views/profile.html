@@ -21,7 +21,7 @@
 
   <div class="header-group ">
     <div class="section-header">
-      {{ header(classname="bg-header transparent") }}
+      {{ header(classname="bg-header transparent", user=user) }}
       <div class="profile-icon">
         {{ user_icon(
             img=url_for('static', filename='img/users/26956071.png'),

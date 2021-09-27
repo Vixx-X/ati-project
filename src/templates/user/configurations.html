@@ -8,7 +8,7 @@
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/configurations.css') }}" >{% endblock %}
 
 {% block body -%}
-{{ header(classname="bg-header") }}
+{{ header(classname="bg-header", user=user) }}
   <section class="container configurations-view">
     <div class="heading black">
         <h3 class="fw-normal">

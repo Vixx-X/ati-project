@@ -4,11 +4,11 @@
 
 {% from "all_components/header.html" import header %} 
 {% block body %}
-{{ header(classname="bg-header") }}
+{{ header(classname="bg-header", user=user) }}
 
   <div class="margin-section"></div>
 
-{{ header(classname="bg-header transparent") }}
+{{ header(classname="bg-header transparent", user=user) }}
 
   <div class="margin-section"></div>
 

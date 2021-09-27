@@ -12,7 +12,7 @@
 {% block title %}{{ _('Modify Publication') }}{% endblock title %}
 {% block body %}
 
-{{ header(classname="bg-header") }}
+{{ header(classname="bg-header", user=user) }}
 <form method="POST" id="publication-form" enctype="multipart/form-data">
     <div class="container-styles container margin-section">
         <div class="cont-create-publication">

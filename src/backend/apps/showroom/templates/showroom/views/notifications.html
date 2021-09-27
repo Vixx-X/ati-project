@@ -10,7 +10,7 @@
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/notifications.css') }}" >{% endblock %}
 
 {% block body -%}
-{{ header(classname="bg-header") }}
+{{ header(classname="bg-header", user=user) }}
   <section class="container notifications-view">
     <div class="heading black">
         <h3 class="fw-normal">
