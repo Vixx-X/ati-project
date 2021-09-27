@@ -31,6 +31,10 @@ class CreateUpdatePostView(UpdateView):
     form_class = PostForm
     model = Post
 
+    def get_context_data(self, **kwargs):
+        kwargs["create"] = self.object is None
+        return super().get_context_data(**kwargs)
+
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
         kwargs["user"] = self.user
@@ -39,5 +43,6 @@ class CreateUpdatePostView(UpdateView):
     def form_valid(self, form, *args, **kwargs):
         post = self.object or Post()
         form.populate_obj(obj=post)
+        post.author = self.user
         post = post.save()
         return redirect(url_for("posts.post-detail", id=str(post.id)))

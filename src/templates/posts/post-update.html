@@ -17,10 +17,8 @@
     <div class="container-styles container margin-section">
         <div class="cont-create-publication">
             {{ user_icon(
-            img=user.profile_photo_url,
-            alt=user.username,
-            type="basic",
-            url=url_for('user.profile', username=user.username),
+                user=user,
+                type="basic",
             ) }}
             <div class="heading black">
                 <h3 class="fw-normal">

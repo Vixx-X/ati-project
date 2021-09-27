@@ -9,7 +9,7 @@ import mongoengine as db
 from mongoengine.fields import StringField
 from pathlib import Path
 
-from flask import request, send_from_directory
+from flask import send_from_directory
 
 from backend.apps.media.utils import (
     get_media_root_path,
