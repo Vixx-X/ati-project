@@ -9,14 +9,14 @@ const postcss = require("gulp-postcss");
 const cssnano = require("cssnano");
 const sourcemap = require("gulp-sourcemaps");
 
-const srcPath = "../src/frontend/static_src";
-const bundlePath = "../src/frontend/static_bundle";
+const srcPath = "./src/frontend/static_src";
+const bundlePath = "./src/frontend/static_bundle";
 const srcPaths = {
   img: `${srcPath}/img/**/*`,
   scss: `${bundlePath}/css/**/*.scss`,
 };
 
-const dstPath = "../src/static";
+const dstPath = "./src/static";
 const dstPaths = {
   img: `${dstPath}/img`,
   scss: `${dstPath}/css`,
