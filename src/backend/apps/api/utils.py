@@ -17,10 +17,10 @@ def _make_response(data=None, message=""):
 
 def make_response(data=None, message="", status=200, **kwargs):
     resp = {
-                **_make_response(
-                    data=data,
-                    message=message,
-                ),
-                **kwargs,
-            }
+        **_make_response(
+            data=data,
+            message=message,
+        ),
+        **kwargs,
+    }
     return resp, status

@@ -18,10 +18,10 @@ const baseExtensions = [".js", ".jsx", ".ts", ".tsx"];
 // Import extensions to look for
 const importExtensions = [...baseExtensions, ...[".mjs", ".json", ".node"]];
 
-const srcDir = "../src/frontend/static_src";
-const bundleDir = "../src/frontend/static_bundle/js";
+const srcDir = "src/frontend/static_src";
+const bundleDir = "src/frontend/static_bundle/js";
 const bundlePath = `${bundleDir}/**/*.ts`;
-const dstPath = "../src/static/js";
+const dstPath = "src/static/js";
 
 export default {
   input: [
@@ -61,6 +61,9 @@ export default {
 
       // Specifies the properties to scan within a package.json
       mainFields: ["browser", "jsnext:main", "module", "main"],
+
+      // rootDir: srcDir,
+      // moduleDirectories: [__dirname, srcDir, bundleDir],
     }),
 
     // Allow relative paths in your import directives
@@ -95,4 +98,3 @@ export default {
     }),
   ],
 };
-

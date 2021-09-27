@@ -9,7 +9,7 @@ import mongoengine as db
 from mongoengine.fields import StringField
 from pathlib import Path
 
-from flask import request, send_from_directory
+from flask import send_from_directory
 
 from backend.apps.media.utils import (
     get_media_root_path,
@@ -68,7 +68,7 @@ class Media(db.Document):
 
     @property
     def url(self):
-        return url_for('media.file', path=self.path)
+        return url_for("media.file", path=self.path)
 
     def save(self, **kwargs):
         """
@@ -106,6 +106,7 @@ class Image(Media):
 
     def as_dict(self):
         return self.to_mongo().to_dict()
+
 
 class Audio(Media):
     """

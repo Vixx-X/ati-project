@@ -4,6 +4,7 @@ Decorators for api module
 
 
 from functools import wraps
+
 from flask import current_app
 from flask_user.decorators import _is_logged_in_with_confirmed_email
 

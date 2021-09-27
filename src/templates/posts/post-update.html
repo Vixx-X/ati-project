@@ -1,78 +1,100 @@
 {% extends "base.html" %}
 
-{% from "all_components/user-icon.html" import user_icon %}
-{% from "all_components/buttons.html" import buttons %}
+{% from "components/utils/user-icon.html" import user_icon %}
+{% from "components/utils/buttons.html" import buttons %}
+{% from "components/utils/input.html" import input %}
 {% from "all_components/header.html" import header %}
-{% from "all_components/footer.html" import footer%}
-{% from "all_components/input-label.html" import inputLabel %}
-{% from "all_components/footer-mobile.html" import footer_mobile %}
 
 {% block extrastyles %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/publicationpage.css') }}">{% endblock %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/publicationpage.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+{% endblock %}
 
 {% block title %}{{ _('Modify Publication') }}{% endblock title %}
 {% block body %}
 
 {{ header(classname="bg-header") }}
+<form method="POST" id="publication-form" enctype="multipart/form-data">
 <div class="cont-create-publication container margin-section">
     {{ user_icon(
-    img=url_for('static', filename='img/users/26956071.png'),
-    alt="User2 Photo",
+    user=user,
     type="basic",
-    url=url_for('user.profile', username='vittorio_adesso'),
-    png=url_for('static', filename='img/users/26956071.png'),
-    webp=url_for('static', filename='img/users/26956071.webp')
     ) }}
     <div class="heading black">
         <h3 class="fw-normal">
-            Modify Publication
+            {{ _('Modify Publication') }}
         </h3>
     </div>
     <hr class="linea">
+    {{ form.csrf_token }}
+    <div class="public-button">
+        {{buttons(
+            mensaje=_("Publish") if create else _("Edit"),
+            type="primary",
+            font="fw-bold",
+            letters="text-uppercase"
+        )}}
+    </div>
+    <div class="cont-create-publication-body-boolean-button">
+        {{ input(
+            field_wrapper_class="boolean-button d-flex jc-space_between",
+            field=form.public,
+            label_class="d-flex fw-bold black",
+       )}}
+    </div>
+    <div class="input-label-title">
+        {{ input(
+            field=form.title,
+            placeholder=_("Write Title"),
+            field_class="white w-100",
+            label_class="d-flex fw-bold black",
+        )}}
+
+    </div>
+    <div class="input-label-content">
+        {{ input(
+            field=form.description,
+            placeholder=_("Write Content"),
+            field_class="white w-100",
+            label_class="d-flex fw-bold black",
+        )}}
+    </div>
     <div class="cont-create-publication-body-input-label">
         <div class="create-publication-body-input-label">
-            <form method="POST" id="publication-form">
-                {{ form.csrf_token }}
-                <div class="public-button">
-                    <button class="button primary fw-bold text-uppercase" type="submit">
-                        Edit
-                    </button>
-                </div>
-                <div class="cont-create-publication-body-boolean-button">
-                    <!-- TODO hacer que de aqui se obtenga el valer de public -->
-                </div>
-                <div class="input-label-title">
-                    <label class="d-flex fw-bold black" id="description">Title</label>
-                    <!--TODO cambiar el value por el que trae en la bd en el caso de edit -->
-                    <input class="white w-100" type="text" id="description" name="description" value="UCV, la casa de las sombras"> 
-                    {{inputLabel(
-                        type='text',
-                        classInput='white w-100',
-                        classLabel='black',
-                        textLabel="Tittle",
-                        placeholderText="Write Title",
-                        value="UCV, la casa de las sombras"
-                    )}}
-                    
-                </div>
-                <div class="input-label-content">
-                    <div class="input-label">
-                        <label class="d-flex fw-bold black">Content</label>
-                        <textarea rows="5" cols="21"  form="publication-form" class="white w-100" name="content" id="content" placeholder="Write Content" >
-                        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi obcaecati ullam non ipsa
-                        ipsum at! Consequuntur aspernatur, fugiat, quia tempora repudiandae amet ab vitae at deleniti
-                        temporibus, asperiores quasi nihil.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-                        corporis assumenda. Asperiores delectus porro deserunt provident officia, mollitia necessitatibus
-                        explicabo exercitationem alias possimus expedita, similique cum accusantium fugit pariatur eum.
-                        </textarea>
+            <div>
+            {{ input(
+                field=form.media,
+                label=False,
+                field_class="d-none",
+                id="file-upload-image-publication",
+            )}}
+                <div class="change-image-publication" >
+                    <div  >
+                        <label id="change-image-publication" for="file-upload-image-publication">+</label>
                     </div>
                 </div>
-                <input type="file" class="create-publication-new-publication-input" value='+'>
-            </form>
+            </div>
         </div>
     </div>
 </div>
-{{footer_mobile(class="black")}}
-{{ footer() }}
+</form>
+<div class="splide">
+    <div class="splide__track">
+        <ul class="splide__list">
+            <li class="splide__slide">    {{ user_icon(
+                user=user,
+                type="basic",
+                ) }}</li>
+            <li class="splide__slide">    {{ user_icon(
+                user=user,
+                type="basic",
+                ) }}</li>
+            <li class="splide__slide">    {{ user_icon(
+                user=user,
+                type="basic",
+                ) }}</li>
+        </ul>
+    </div>
+</div>
 
 {% endblock body %}

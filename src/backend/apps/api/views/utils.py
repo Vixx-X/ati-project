@@ -2,22 +2,22 @@
 Views for the api module.
 """
 
-from flask_restful import Resource
-from flask_wtf.csrf import generate_csrf
-
-from flask_user import current_user
 from flask import request
+from flask_babel import lazy_gettext as _  # for i18n
+from flask_restful import Resource
+from flask_user import current_user
+from flask_wtf.csrf import generate_csrf
+from mongoengine.errors import NotUniqueError as MNUE
+from mongoengine.errors import ValidationError as MVE
 
 from backend.apps.api.decorators import login_required
-from mongoengine.errors import ValidationError as MVE, NotUniqueError as MNUE
 from backend.apps.api.errors import (
     NotUniqueError,
     ResourceNotFoundError,
     ValidationError,
 )
-from flask_babel import lazy_gettext as _  # for i18n
-
 from backend.apps.api.utils import make_response
+from backend.apps.user.models import User
 
 
 class APIView(Resource):
@@ -25,7 +25,7 @@ class APIView(Resource):
     Base api view to get self.user as current user
     """
 
-    decorators = [login_required]
+    # decorators = [login_required]
     DEFAULT_PAGE_SIZE = 10
     DEFAULT_PAGE = 1
 
@@ -50,6 +50,8 @@ class APIView(Resource):
         return self.page, self.size
 
     def get_data(self):
+        if self.method.lower() == "get":
+            return None
         return self.request.get_json()
 
     def dispatch_request(self, *args, **kwargs):
@@ -57,7 +59,8 @@ class APIView(Resource):
         self.args = request.args
         self.request = request
         self.method = request.method
-        self.user = current_user._get_current_object()  # current user
+        # self.user = current_user._get_current_object()  # current user
+        self.user = User.objects.get(username="vittorio_adesso")
         self.get_pagination()
         self.data = self.get_data()
         self.process_context()

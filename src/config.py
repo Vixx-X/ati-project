@@ -63,6 +63,9 @@ THREADS_PER_PAGE = 2
 # Secret key for signing cookies
 SECRET_KEY = os.getenv("SECRET_KEY", "secret")
 
+# Enable SAMESITE
+# SESSION_COOKIE_SAMESITE="LAX"
+
 # Enable protection agains *Cross-site Request Forgery (CSRF)*
 CSRF_ENABLED = True
 

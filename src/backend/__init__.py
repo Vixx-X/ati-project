@@ -7,8 +7,9 @@ from flask_mongoengine import MongoEngine
 from flask_wtf.csrf import CSRFProtect
 from social_flask_mongoengine.models import init_social
 from werkzeug.middleware.proxy_fix import ProxyFix
-from backend.user_manager import UserManager
+
 from backend.blueprints import register_blueprint
+from backend.user_manager import UserManager
 
 db = MongoEngine()
 babel = Babel()
@@ -67,4 +68,3 @@ def init_app(config_file="config"):
         register_blueprint(app)
 
         return app
-
