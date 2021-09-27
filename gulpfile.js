@@ -2,7 +2,6 @@ const { series, parallel, src, dest, watch } = require("gulp");
 
 const sass = require("gulp-dart-sass");
 const argv = require("yargs").argv;
-const webp = require("gulp-webp");
 
 // CSS
 const autoprexifer = require("autoprefixer");
@@ -41,7 +40,7 @@ function watchFilesCss() {
 
 // IMAGES
 function versionWebp() {
-  return src(srcPaths.img).pipe(webp()).pipe(dest(dstPaths.img));
+  return src(srcPaths.img).pipe(dest(dstPaths.img));
 }
 
 exports.images = series(versionWebp);
