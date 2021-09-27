@@ -7,6 +7,7 @@
 
 {% block extrastyles %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/publicationpage.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/css/splide.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
 {% endblock %}
 
@@ -14,7 +15,7 @@
 {% block body %}
 
 {{ header(classname="bg-header") }}
-<form method="POST" id="publication-form">
+<form method="POST" id="publication-form" enctype="multipart/form-data">
 <div class="cont-create-publication container margin-section">
     {{ user_icon(
     img=user.profile_photo_url,
@@ -66,45 +67,37 @@
     <div class="cont-create-publication-body-input-label">
         <div class="create-publication-body-input-label">
             <div>
-            {{ input(
-                field=form.media,
-                label=False,
-                field_class="d-none",
-                id="file-upload-image-publication",
-            )}}
                 <div class="change-image-publication" >
-                    <div  >
+                    <div>
                         <label id="change-image-publication" for="file-upload-image-publication">+</label>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    {{ input(
+        field=form.media,
+        label=False,
+        field_class="d-none",
+        id="file-upload-image-publication",
+    )}}
+</div>
+<div class="splide">
+	<div class="splide__track">
+		<ul class="splide__list">
+			<li class="splide__slide black">Slide 01</li>
+			<li class="splide__slide black">Slide 02</li>
+			<li class="splide__slide black">Slide 03</li>
+		</ul>
+	</div>
 </div>
 </form>
-<div class="splide">
-    <div class="splide__track">
-        <ul class="splide__list">
-            <li class="splide__slide">    {{ user_icon(
-                img=user.profile_photo_url,
-                alt=user.username,
-                type="basic",
-                url=url_for('user.profile', username=user.username),
-                ) }}</li>
-            <li class="splide__slide">    {{ user_icon(
-                img=user.profile_photo_url,
-                alt=user.username,
-                type="basic",
-                url=url_for('user.profile', username=user.username),
-                ) }}</li>
-            <li class="splide__slide">    {{ user_icon(
-                img=user.profile_photo_url,
-                alt=user.username,
-                type="basic",
-                url=url_for('user.profile', username=user.username),
-                ) }}</li>
-        </ul>
-    </div>
-</div>
+
 
 {% endblock body %}
+
+{% block onloadscripts %}<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/js/splide.js"></script>
+<script>window.addEventListener('DOMContentLoaded', (event) => {
+    new Splide( '.splide' ).mount();
+});</script>
+{% endblock onloadscripts %}
