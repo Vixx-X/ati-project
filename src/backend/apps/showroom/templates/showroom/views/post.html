@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "showroom/base.html" %}
 
 {% from "all_components/user-icon.html" import user_icon %}
 {% from "all_components/header-publication.html" import header_publication %}
@@ -40,7 +40,7 @@
                 png=url_for("static", filename="img/media1.png"),
                 webp=url_for("static", filename="img/media1.webp"),
                 alt="Photo Publication",
-                url=url_for("posts.post", id=1)
+                url=""
             )}}
         </div>
     </div>

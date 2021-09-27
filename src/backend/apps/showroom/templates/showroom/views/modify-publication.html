@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "showroom/base.html" %}
 
 {% from "all_components/user-icon.html" import user_icon %}
 {% from "all_components/buttons.html" import buttons %}
@@ -6,7 +6,6 @@
 {% from "all_components/footer.html" import footer%}
 {% from "all_components/input-label.html" import inputLabel %}
 {% from "all_components/footer-mobile.html" import footer_mobile %}
-{% from "all_components/boolean-button.html" import boolean_button %}
 
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/publicationpage.css') }}" >{% endblock %}
 
@@ -31,17 +30,10 @@
     <hr class="linea">
     <div class="public-button">
         {{buttons(
-            mensaje="Edit",
+            mensaje=_('Edit'),
             type="primary",
             font="fw-bold",
             letters="text-uppercase"
-        )}}
-    </div>
-    <div class="cont-create-publication-body-boolean-button">
-        {{boolean_button(
-            id="booleanButton",
-            text="Public",
-            class="black"
         )}}
     </div>
     <div class="input-label-title">

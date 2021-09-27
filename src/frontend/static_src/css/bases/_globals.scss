@@ -107,3 +107,7 @@ label, option{
   text-transform: capitalize;
   color: $black;
 }
+
+textarea {
+  resize: none;
+}

@@ -25,3 +25,24 @@ inputBanner.addEventListener('change', (e) => {
     };
     reader.readAsDataURL(selectedFile);
 })
+
+// const inputMedia = document.querySelector('#file-upload-image-publication');
+// const publicationUpload = document.querySelector('.create-publication-body-input-label');
+// const oldChild = publicationUpload.firstElementChild;
+// const newImage = document.createElement('IMG');
+
+// inputMedia.addEventListener('change', (e) => {
+//     console.log(publicationUpload);
+//     console.log(oldChild);
+//     const reader = new FileReader();
+//     const selectedFile = e.target.files[0]
+//     reader.onload = function (event) {
+//       newImage.setAttribute(
+//         "src",
+//         event.target.result.toString()
+//       );
+//       newImage.classList.add('image-size');
+//       publicationUpload.replaceChild(newImage, oldChild)
+//     };
+//     reader.readAsDataURL(selectedFile);
+// })

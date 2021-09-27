@@ -8,8 +8,21 @@ from wtforms import FieldList, StringField, validators
 from wtforms.fields.core import BooleanField
 from wtforms.fields.simple import MultipleFileField, TextAreaField
 
+from wtforms.widgets import (
+    CheckboxInput,
+)
+
 from backend.apps.media.forms import FormMediaMixin
 
+from markupsafe import Markup
+
+class LatchWidget(CheckboxInput):
+    def __call__(self, field, **kwargs):
+        inside = super().__call__(field, **kwargs)
+        return Markup(
+            '<label class="switch">%s<span class="slider round"></span></label>'
+            % inside
+        )
 
 class PostForm(FlaskForm, FormMediaMixin):
     """
@@ -38,7 +51,10 @@ class PostForm(FlaskForm, FormMediaMixin):
         )
     )
     media = MultipleFileField(_("Multimedia"))
-    public = BooleanField(_("Public"))
+    public = BooleanField(
+        _("Public"),
+        widget=LatchWidget(),
+    )
 
     def __init__(self, user, **kwargs):
         super().__init__(**kwargs)
