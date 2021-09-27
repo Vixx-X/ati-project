@@ -18,10 +18,10 @@ const baseExtensions = [".js", ".jsx", ".ts", ".tsx"];
 // Import extensions to look for
 const importExtensions = [...baseExtensions, ...[".mjs", ".json", ".node"]];
 
-const srcDir = "../src/frontend/static_src";
-const bundleDir = "../src/frontend/static_bundle/js";
+const srcDir = "src/frontend/static_src";
+const bundleDir = "src/frontend/static_bundle/js";
 const bundlePath = `${bundleDir}/**/*.ts`;
-const dstPath = "../src/static/js";
+const dstPath = "src/static/js";
 
 export default {
   input: [

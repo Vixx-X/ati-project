@@ -11,3 +11,4 @@ import "js/components/changeImages.ts";
 // import "js/components/sendMessages.ts";
 // import "js/components/sendComments.ts";
 // import "js/components/listChats.ts";
+import "js/components/splide.ts";
