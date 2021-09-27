@@ -3,7 +3,7 @@
 {% from "components/utils/user-icon.html" import user_icon %}
 {% from "components/utils/buttons.html" import buttons %}
 {% from "components/utils/input.html" import input %}
-{% from "all_components/header.html" import header %}
+{% from "components/utils/header.html" import header %}
 
 {% block extrastyles %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/css/splide.min.css"><link rel="stylesheet" href="{{ url_for('static', filename='css/publicationpage.css') }}">
@@ -122,10 +122,8 @@ const labelInfo = document.querySelector('#label-input')
 const handleFiles = function (event) {
 
     if (window.File && window.FileList && window.FileReader) {
-
         labelInfo.classList.add('dissable');
         deleteFiles.classList.remove('dissable');
-        inputFile.setAttribute('disabled', '');
         deleteFiles.removeAttribute('disabled');
         var files = event.target.files; //FileList object
         var output = document.querySelector(".splide__list");
@@ -166,7 +164,6 @@ const handleFiles = function (event) {
 
 deleteFiles.addEventListener('click', (e) => {
     e.preventDefault();
-    inputFile.removeAttribute('disabled');
     deleteFiles.setAttribute('disabled', '');
     const mainContainer = document.querySelector('.container-styles');
     const imageAppear = document.querySelector('#image-preview-element');
