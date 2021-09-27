@@ -340,7 +340,7 @@ class ConfigForm(FlaskForm):
     def __init__(self, **kwargs):
         obj = kwargs.get("obj", None)
         super().__init__(**kwargs)
-        if obj is not None and request.method.lower() == "get":
+        if not self.is_submitted() and obj:
             self.account_privacy.data = obj.prefer_private
 
     def populate_obj(self, obj):

@@ -42,6 +42,52 @@ class TemplateView(View, TemplateMixin):
         return self.render_template(self.get_context_data())
 
 
+class DetailView(TemplateView):
+    """
+    View to get object details
+    """
+
+    methods = ["GET"]
+    pk_or_slug_url = "id"
+    model_pk = "pk"
+    model = None
+    object_name = "object"
+
+    def get_model(self, *args, **kwargs):
+        """
+        Return the model class to use
+        """
+        if not self.model:
+            raise NotImplementedError("Model not configured.")
+        return self.model
+
+    def get_object(self, *args, **kwargs):
+        """
+        Return object give the model and lookup attributes
+        """
+        key = kwargs.get(self.pk_or_slug_url)
+        if key is None:
+            return None
+        try:
+            return self.get_model(*args, **kwargs).objects.get(**{self.model_pk: key})
+        except db.MultipleObjectsReturned:
+            raise db.MultipleObjectsReturned(
+                f"The lookup (self.model_pk) argument is not unique"
+            )
+        except db.DoesNotExist:
+            return None
+
+    def dispatch_request(self, *args, **kwargs):
+        self.request = request
+        self.args = request.args
+        self.method = request.method
+        self.user = current_user._get_current_object()  # current user
+        self.object = self.get_object(*args, **kwargs)
+        return self.render_template(
+            self.get_context_data(**{self.object_name: self.object})
+        )
+
+
 class FormMixin(TemplateMixin):
 
     form_class = None
@@ -136,7 +182,7 @@ class UpdateView(View, FormMixin, TemplateMixin):
 
     methods = ["GET", "POST"]
     pk_or_slug_url = "id"
-    model_pk = "_id"
+    model_pk = "pk"
     model = None
 
     def get_form_kwargs(self):
@@ -164,7 +210,7 @@ class UpdateView(View, FormMixin, TemplateMixin):
         if key is None:
             return None
         try:
-            return self.get_model(*args, **kwargs).get(**{self.model_pk: key})
+            return self.get_model(*args, **kwargs).objects.get(**{self.model_pk: key})
         except db.MultipleObjectsReturned:
             raise db.MultipleObjectsReturned(
                 f"The lookup (self.model_pk) argument is not unique"
