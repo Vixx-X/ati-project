@@ -61,6 +61,9 @@ export default {
 
       // Specifies the properties to scan within a package.json
       mainFields: ["browser", "jsnext:main", "module", "main"],
+
+      // rootDir: srcDir,
+      // moduleDirectories: [__dirname, srcDir, bundleDir],
     }),
 
     // Allow relative paths in your import directives
@@ -95,4 +98,3 @@ export default {
     }),
   ],
 };
-
