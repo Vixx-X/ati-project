@@ -28,7 +28,7 @@
             <button id="changeheader">
                 <img src="{{ url_for('static', filename='img/icons/gallery.svg') }}" alt="Camara icon">
             </button>
-            {{ header(classname="bg-header transparent") }}
+            {{ header(classname="bg-header transparent", user=user) }}
             <div class="container profile-icon">
                 {{ user_icon(
                     img=url_for('static', filename='img/users/26956071.png'),

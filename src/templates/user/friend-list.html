@@ -18,12 +18,12 @@
 {% block title %} {{_("Friends")}} {% endblock title %}
 
 {% block body -%}
-    {{ header(classname="bg-header") }}
+    {{ header(classname="bg-header", user=user) }}
 
     <div class="main-container-header">
         <div class="header-group ">
             <div class="section-header">
-            {{ header(classname="bg-header transparent") }}
+            {{ header(classname="bg-header transparent", user=user) }}
             <div class="container profile-icon">
                 {{ user_icon(
                     img=url_for('static', filename='img/users/26956071.png'),

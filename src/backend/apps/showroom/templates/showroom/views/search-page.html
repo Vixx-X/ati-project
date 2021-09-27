@@ -11,7 +11,7 @@
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/searchpage.css') }}" >{% endblock %}
 
 {% block body -%}
-{{ header(classname="bg-header") }}
+{{ header(classname="bg-header", user=user) }}
 {% set search =  'Vittorio' %}
 
     <div class="container container-header-friends search-view">

@@ -16,7 +16,7 @@
 {% endblock onloadscripts %}
 
 {% block body %}
-{{ header(classname="bg-header") }}
+{{ header(classname="bg-header", user=user) }}
 <div class="header-main container">
     <div class="section-left">
         {{ user_icon(
