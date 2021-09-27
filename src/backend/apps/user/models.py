@@ -188,6 +188,10 @@ class User(db.Document, UserMixin):
     }
 
     @property
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}"
+
+    @property
     def prefer_private(self):
         """
         Get privacy preference of user

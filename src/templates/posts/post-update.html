@@ -17,10 +17,8 @@
 <form method="POST" id="publication-form" enctype="multipart/form-data">
 <div class="cont-create-publication container margin-section">
     {{ user_icon(
-    img=user.profile_photo_url,
-    alt=user.username,
+    user=user,
     type="basic",
-    url=url_for('user.profile', username=user.username),
     ) }}
     <div class="heading black">
         <h3 class="fw-normal">
@@ -84,22 +82,16 @@
     <div class="splide__track">
         <ul class="splide__list">
             <li class="splide__slide">    {{ user_icon(
-                img=user.profile_photo_url,
-                alt=user.username,
+                user=user,
                 type="basic",
-                url=url_for('user.profile', username=user.username),
                 ) }}</li>
             <li class="splide__slide">    {{ user_icon(
-                img=user.profile_photo_url,
-                alt=user.username,
+                user=user,
                 type="basic",
-                url=url_for('user.profile', username=user.username),
                 ) }}</li>
             <li class="splide__slide">    {{ user_icon(
-                img=user.profile_photo_url,
-                alt=user.username,
+                user=user,
                 type="basic",
-                url=url_for('user.profile', username=user.username),
                 ) }}</li>
         </ul>
     </div>

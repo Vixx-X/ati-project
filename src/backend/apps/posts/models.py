@@ -2,12 +2,22 @@
 Models for User module
 """
 
-# from flask_babel import lazy_gettext as _
-from datetime import datetime
+from flask_babel import lazy_gettext as _, format_datetime as _d
+from datetime import datetime, timedelta
 
 from backend import db
 from backend.apps.media.models import Media
 from backend.apps.user.models import User
+
+
+def get_time(time):
+    now = datetime.now()
+    delta = time - now
+    if delta < timedelta(days=1):
+        return _("Today")
+    elif delta < timedelta(days=2):
+        return _("Yesterday")
+    return _d(time, format="%A %d-%m-%Y, %H:%M")
 
 
 class Comment(db.EmbeddedDocument):
@@ -29,6 +39,10 @@ class Comment(db.EmbeddedDocument):
     )
 
     time_created = db.DateTimeField()
+
+    @property
+    def time(self):
+        return get_time(self.time_created)
 
     def as_dict(self):
         raw = self.to_mongo().to_dict()
@@ -80,15 +94,25 @@ class Post(db.Document):
         "collection": "posts",
     }
 
+    @property
+    def primary_media(self):
+        if self.media:
+            return self.media[0]
+        return None
+
+    @property
+    def time(self):
+        return get_time(self.time_created)
+
     def as_dict(self):
         raw = self.to_mongo().to_dict()
         raw["id"] = str(raw.pop("_id"))
 
         if "time_created" in raw:
-            raw["time_created"] = raw["time_created"].isoformat()
+            raw["time_created"] = get_time(raw["time_created"])
 
         if "time_edited" in raw:
-            raw["time_edited"] = raw["time_edited"].isoformat()
+            raw["time_edited"] = get_time(raw["time_edited"])
 
         if "author" in raw:
             raw["author"] = self.author.as_dict()

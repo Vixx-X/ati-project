@@ -23,10 +23,8 @@
                     {{ header(classname="bg-header transparent") }}
                     <div class="container profile-icon">
                         {{ user_icon(
-                            img=user.profile_photo_url,
-                            alt=user.username,
+                            user=user,
                             type="change",
-                            url=url_for('user.profile', username=user.username),
                         ) }}
                         <p class="container-name fw-bold">{{user.first_name}} {{user.last_name}}</p>
                     </div>
