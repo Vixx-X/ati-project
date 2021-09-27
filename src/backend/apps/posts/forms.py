@@ -59,6 +59,7 @@ class PostForm(FormMediaMixin, FlaskForm):
     )
 
     def __init__(self, user, **kwargs):
+        obj = kwargs.get("obj")
         super().__init__(**kwargs)
         if not self.is_submitted():
-            self.public.data = not user.prefer_private
+            self.public.data = obj.public if obj else not user.prefer_private
