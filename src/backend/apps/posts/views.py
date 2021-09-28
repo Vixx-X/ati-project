@@ -51,4 +51,4 @@ class CreateUpdatePostView(UpdateView):
         form.populate_obj(obj=post)
         post.author = self.user
         post = post.save()
-        return redirect(url_for("posts.post-detail", id=str(post.id)))
+        return redirect(url_for("app.home", id=str(post.id)))

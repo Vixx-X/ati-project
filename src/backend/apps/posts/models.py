@@ -9,6 +9,7 @@ from backend import db
 from backend.apps.media.models import Media
 from backend.apps.user.models import User
 
+from flask_user import current_user
 
 def get_time(time):
     now = datetime.now()
@@ -140,6 +141,10 @@ class Post(db.Document):
         if self.author:
             return self.author
         return User.get_deleted_user()
+
+    @property
+    def is_my_post(self):
+        return current_user == self.author
 
     def save(self, *args, **kwargs):
         """

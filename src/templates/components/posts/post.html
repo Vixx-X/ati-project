@@ -1,6 +1,5 @@
 {% from "all_components/media.html" import media %}
 {% from "components/utils/user-icon.html" import user_icon %}
-{% from "" import post with context%}
 {% macro post(obj) -%}
   <div class="publication">
     <div class="header-publication">
@@ -16,12 +15,14 @@
       </div>
       
       <!-- TODO: change # for url to modify publication (parameter) -->
-      <a class="modify" href="{{url_for('posts.post-edit', id=obj.pk)}}">
-        <img src="{{ url_for('static', filename='img/icons/menu_3_puntos_horizontal.svg') }}" alt="menu_3_puntos_horizontal">
-      </a>
+      {% if obj.is_my_post %}
+        <a class="modify" href="{{url_for('posts.post-edit', id=obj.pk)}}">
+          <img src="{{ url_for('static', filename='img/icons/menu_3_puntos_horizontal.svg') }}" alt="menu_3_puntos_horizontal">
+        </a>
+      {% endif %}
     </div>
 
-    <a href="{{url_for('posts.post-edit', id=obj.pk)}}">
+    <a href="{{url_for('posts.post-detail', id=obj.pk)}}">
       <div class="media-publication">
         <p>{{ obj.description }}</p>
       </div>
@@ -32,7 +33,7 @@
         type=obj.primary_media.type,
         img=obj.primary_media.url,
         alt=obj.title,
-        url=url_for("posts.post-edit", id=obj.pk)
+        url=url_for("posts.post-detail", id=obj.pk)
     )}}
     {% endif %}
   </div>

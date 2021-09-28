@@ -39,7 +39,6 @@
                         letters="",
                         link=url_for('user.page', username=target_user.username))
                     }} 
-                    {%- endif %}
                       {{buttons(
                           mensaje=_("Messages") if is_myuser else _("Chat"),
                           type="primary last",
