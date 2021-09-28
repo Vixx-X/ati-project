@@ -17,7 +17,7 @@ body.darkmode {
         }
     }
 
-    .cont-create-publication, .configurations-view{
+    .container-styles, .configurations-view{
         @include tablet{
             background: darken($black, 5%);
             box-shadow: 0px 2px 8px rgba(255, 255, 255, 0.25);
