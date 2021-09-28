@@ -9,14 +9,14 @@ from backend.apps.user.forms import ConfigForm
 from backend.apps.user.utils import are_friends, get_common_friends_number, get_user_friends, search_users
 from backend.utils.views import DetailView, TemplateView, UpdateView
 from backend.apps.user.models import User
-
+from backend.apps.posts.utils import get_posts_by_user
 # from flask_babel import gettext as _ # for i18n
 
 def append_friend_data(friends, user):
     for friend in friends:
-        setattr(friend, "common_friends", get_common_friends_number(friend, user))
+        setattr(friend, "common_friends", get_common_friends_number(friend, user),)
         not_foes = are_friends(friend, user)
-        url = "api.friend-list" if not_foes else "api.friend-list"
+        url = "api.friend-list"
         action = {
                 "url" : url_for(url, username=friend.username),
                 "friends" : not_foes,
@@ -94,8 +94,20 @@ class ProfileView(DetailView):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data()
         ctx["target_user"] = self.object or self.user
+        ctx["is_myuser"] = self.object == self.user
         return ctx
 
+class PageView(ProfileView):
+    """
+    Page View
+    """
+    template_name = "user/page.html"
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data()
+        ctx['posts'] = get_posts_by_user(ctx["target_user"], self.user)
+        ctx['is_friend'] = are_friends(ctx["target_user"], self.user)
+        return ctx
 
 class SearchView(TemplateView):
     """
