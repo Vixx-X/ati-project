@@ -297,7 +297,7 @@ class User(db.Document, UserMixin):
         """
         Return a deleted username for templates
         """
-        return User(username="[DELETED]")
+        return User(username="[DELETED]", first_name="[USER", last_name="DELETED]")
 
     @classmethod
     def get_user_by_token(cls, token, expiration_in_seconds=None):

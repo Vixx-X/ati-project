@@ -1,0 +1,48 @@
+{% macro navegation(is_myuser, is_friend, user) -%}
+
+<div class="mobile-content">
+  {% set button = 'add_friend.svg' if is_friend else 'delete_friend.svg' %}
+  <div class="container margin-bottom">
+    {% if is_myuser %}
+    <nav class="navegation-mobile">
+      <a href="{{ url_for('user.friends', username=user.username) }}">
+        <img
+          src="{{ url_for('static', filename='img/icons/friends.svg') }}"
+          alt="Friend List"
+        />
+      </a>
+      <a href="{{url_for('user.edit_user_profile')}}">
+        <img
+          src="{{url_for('static', filename='img/icons/edit.svg')}}"
+          alt="Edit Profile"
+        />
+      </a>
+    </nav>
+    {% else %}
+    <nav class="navegation-mobile-other">
+      <button data-url="{{url_for('api.friend-list', username=user.username)}}">
+        <img
+          src="{{ url_for('static', filename='img/icons/ + button + ''') }}"
+          alt="{{button}}"
+        />
+      </button>
+      <div class="container-right">
+        <a href="{{ url_for('user.friends', username=user.username) }}">
+          <img
+            src="{{ url_for('static', filename='img/icons/friends.svg') }}"
+            alt="Friend List"
+          />
+        </a>
+        <a href="{{url_for('user.chat')}}">
+          <img
+            src="{{url_for('static', filename='img/icons/chat.svg')}}"
+            alt="Chat icon link"
+          />
+        </a>
+      </div>
+    </nav>
+    {% endif %}
+  </div>
+</div>
+
+{%- endmacro %}

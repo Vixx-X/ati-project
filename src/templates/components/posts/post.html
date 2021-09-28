@@ -2,15 +2,14 @@
 {% from "components/utils/user-icon.html" import user_icon %}
 {% from "" import post with context%}
 {% macro post(obj) -%}
-<div class="publication-container">
   <div class="publication">
     <div class="header-publication">
       <div class="d-flex title-wrap">
-        {{ user_icon(obj.author) }}
+        {{ user_icon(obj.get_author) }}
         <div>
           <h2>{{ obj.title }}</h2>
           <div class="d-flex jc-space_between details">
-            <p>{{ obj.author.full_name }}</p>
+            <p>{{ obj.get_author.full_name }}</p>
             <p>{{ obj.time }}</p>
           </div>
         </div>
@@ -37,6 +36,37 @@
     )}}
     {% endif %}
   </div>
-</div>
+
+  {% set comments = obj.get_firts_comments %}
+
+  {% if comments|length > 0 %}
+  <div class="comments-user">
+    <div class="comments-group">
+      {{ user_icon(
+        user=comments[0].get_author,
+        type="basic one",
+      ) }}
+
+      {% if comments|length > 1 -%}
+
+      {{ user_icon(
+        user=comments[1].get_author,
+        type="basic two",
+      ) }}
+
+      {%- endif %}
+
+      {% if comments|length > 2 -%}
+      {{ user_icon(
+        user=comments[2].get_author,
+        type="basic three",
+      ) }}
+
+      {%- endif %}
+
+    </div>
+    <a href="{{url_for('posts.post', id=obj.pk)}}">Ver comentarios</a>
+  </div>
+  {%- endif %}
 
 {%- endmacro %}

@@ -41,8 +41,21 @@ class Comment(db.EmbeddedDocument):
     time_created = db.DateTimeField()
 
     @property
+    def get_author(self):
+        """
+        Get Author of post
+        """
+        if self.author:
+            return self.author
+        return User.get_deleted_user()
+
+    @property
     def time(self):
         return get_time(self.time_created)
+
+    @property
+    def get_firts_comments(self):
+        return self.comments[:3]
 
     def as_dict(self):
         raw = self.to_mongo().to_dict()
@@ -119,6 +132,7 @@ class Post(db.Document):
 
         return raw
 
+    @property
     def get_author(self):
         """
         Get Author of post

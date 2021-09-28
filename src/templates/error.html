@@ -1,7 +1,4 @@
-{% extends "base.html" %}
-
-{% from "all_components/buttons.html" import buttons %}
-{% from "all_components/footer.html" import footer %}
+{% extends "user/auth/base.html" %}
 
 {% block title %} {{ _(error.name) }} {% endblock title %}
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" >{% endblock %}
@@ -23,7 +20,5 @@
             </div>
         </div>
     </div>
-
-{{footer()}}
 
 {% endblock body %}
