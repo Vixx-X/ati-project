@@ -6,7 +6,7 @@ from flask import session, url_for
 from flask_user import login_required
 
 from backend.apps.user.forms import ConfigForm
-from backend.apps.user.utils import get_common_friends, get_common_friends_number, get_user_friends, search_users
+from backend.apps.user.utils import are_friends, get_common_friends, get_common_friends_number, get_user_friends, search_users
 from backend.utils.views import DetailView, TemplateView, UpdateView
 from backend.apps.user.models import User
 
@@ -102,6 +102,13 @@ class SearchView(TemplateView):
         ctx["users"] = search_users(term)
         for friend in ctx["users"]:
             setattr(friend, "common_friends", get_common_friends_number(friend, self.user))
+            not_foes = are_friends(friend, self.user)
+            url = "api.friend-list" if not_foes else "api.friend-list"
+            action = {
+                    "url" : url_for(url, username=friend.username),
+                    "friends" : not_foes,
+            }
+            setattr(friend, "action", action)
         ctx["term"] = term
         return ctx
 
