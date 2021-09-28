@@ -6,11 +6,22 @@ from flask import session, url_for
 from flask_user import login_required
 
 from backend.apps.user.forms import ConfigForm
-from backend.apps.user.utils import get_common_friends, get_common_friends_number, get_user_friends, search_users
+from backend.apps.user.utils import are_friends, get_common_friends_number, get_user_friends, search_users
 from backend.utils.views import DetailView, TemplateView, UpdateView
 from backend.apps.user.models import User
 
 # from flask_babel import gettext as _ # for i18n
+
+def append_friend_data(friends, user):
+    for friend in friends:
+        setattr(friend, "common_friends", get_common_friends_number(friend, user))
+        not_foes = are_friends(friend, user)
+        url = "api.friend-list" if not_foes else "api.friend-list"
+        action = {
+                "url" : url_for(url, username=friend.username),
+                "friends" : not_foes,
+        }
+        setattr(friend, "action", action)
 
 
 class CheckEmailView(TemplateView):
@@ -64,10 +75,9 @@ class FriendView(DetailView):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data()
         target_user = self.object or self.user
-        ctx["friends"] = get_user_friends(target_user, self.user)
-        for friend in ctx["friends"]:
-            setattr(friend, "common_friends", get_common_friends_number(friend, self.user))
-
+        friends = get_user_friends(target_user, self.user)
+        append_friend_data(friends, self.user)
+        ctx["friends"] = friends
         return ctx
 
 
@@ -99,9 +109,9 @@ class SearchView(TemplateView):
     def get_context_data(self, **kwargs):
         term = self.args.get("term","")
         ctx = super().get_context_data(**kwargs)
-        ctx["users"] = search_users(term)
-        for friend in ctx["users"]:
-            setattr(friend, "common_friends", get_common_friends_number(friend, self.user))
+        users = search_users(term)
+        append_friend_data(users, self.user)
+        ctx["users"] = users
         ctx["term"] = term
         return ctx
 
