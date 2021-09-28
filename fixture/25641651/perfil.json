@@ -1,0 +1,14 @@
+{	
+	"nombre":"Eduardo Suarez",
+	"descripcion":"Hola soy estudiante de Computacion en la Universidad Central De Venezuela, tengo 23 años. Actualmente me encuentro estudiando mi 5to semestre estudiando ATI, Sistemas de Informacion y Aprendizaje Supervisado. En el futuro gustaria desarrollarme en desarrollo de aplicaciones e inteligencia artifical.",
+	"color":"Naranja",
+	"libro":"Historias de hielo y fuego",
+	"musica":"House",
+	"video_juego":["League of Legends"],
+	"lenguajes":["C++", "Python"],
+	"email":"eduardosuarez.ucv@gmail.com",
+	"ci": "25641651",
+	"genero": "masculino",
+	"fecha_nacimiento": "06/08/1997",
+	"imagen": "25641651.jpg"
+}
