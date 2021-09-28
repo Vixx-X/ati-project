@@ -1,0 +1,13 @@
+{
+	"nombre":"Heider Delgado López",
+	"descripcion":"Estoy en el 7mo semestre de Computación en la UCV. Se hablar ingles, español y alemán. He participado en talleres del CEIDEC de la UCV. Me gusta bailar y cantar aunque no lo hago muy bien, también practico piano.",
+	"color":"Azul",
+	"libro": ["Ender's game"],
+	"musica": ["Rock"],
+	"video_juego": ["Metal Gear Solid V"],
+	"lenguajes":["SQL","Haskell","Prolog","C++","C"],
+	"email":"heider2112@gmail.com",
+	"ci":"24981800",
+	"genero":"masculino",
+	"fecha_nacimiento":"21/12/1995"
+}

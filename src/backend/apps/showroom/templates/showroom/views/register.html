@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% from "all_components/input-label.html" import inputLabel %}
+{% from "all_components/buttons.html" import buttons %}
+{% from "all_components/footer.html" import footer %}
+
+{% block title %} Sign Up {% endblock title %}
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}" >{% endblock %}
+
+{% block body %}
+<div class="container-center">
+    <div class="background-dark-transparent">
+        <div class="container content-distribution">
+            <div class="container-left">
+                <a href="{{url_for('app.landing')}}">
+                    <div class="main-logotype">
+                        <img
+                        src="{{ url_for('static', filename='img/logo.svg') }}"
+                        alt="DEGVA logotype" />
+                        <h1>DEGVA</h1>
+                    </div>
+                </a>
+                <p class="text-logo">Stay 127.0.0.1 use 255.255.255.0</p>
+            </div>
+            <form id="logIn" class="form-login">
+                <div class="heading black">
+                    <h3 class="fw-normal">
+                        Sign Up
+                    </h3>
+                    <hr>
+                </div>
+                {{inputLabel(
+                    type='text',
+                    classInput='white w-100',
+                    classLabel='black',
+                    textLabel='Username',
+                    placeholderText='Your username'
+                )}}
+                {{inputLabel(
+                    type='email',
+                    classInput='white w-100',
+                    classLabel='black',
+                    textLabel='E-mail',
+                    placeholderText='Your email'
+                )}}
+                {{inputLabel(
+                    type='password',
+                    classInput='white w-100',
+                    classLabel='black',
+                    textLabel='Password',
+                    placeholderText='Your password'
+                )}}
+                {{inputLabel(
+                    type='password',
+                    classInput='white w-100',
+                    classLabel='black',
+                    textLabel='Confirm Password',
+                    placeholderText='Confirm your password'
+                )}}
+                <a href="{{url_for('app.login')}}" id="linkaccount">
+                    <p class="text-uppercase fw-bold">Alredy have an account?</p>
+                </a>
+                <div class="container-button">
+                    <a href="{{url_for('app.home')}}">
+                        {{buttons(
+                            mensaje="Sign In",
+                            type="primary",
+                            font="fw-bold",
+                            letters="text-uppercase")
+                        }}
+                    </a>
+                </div>
+                <div class="container-api">
+                    {{buttons(
+                        mensaje="Twitter",
+                        type="secundary",
+                        font="fw-bold",
+                        letters="text-uppercase")
+                    }}
+                    {{buttons(
+                        mensaje="Facebook",
+                        type="secundary",
+                        font="fw-bold",
+                        letters="text-uppercase")
+                    }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{footer()}}
+
+{% endblock body %}

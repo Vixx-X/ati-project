@@ -1,0 +1,52 @@
+@import "../bases/variables";
+
+.container-showroom-list-friends{
+    width: 40em;
+}
+
+.cont-element-friend-list{
+    margin: 0.5em 0;
+    display: flex;
+    background-color: $light;
+    border-radius: 1em;
+    padding: 0.5em;
+    align-items: center;
+    font-size: 1.3rem;
+    justify-content: space-between;
+}
+
+.cont-element-friend-list.trasparent{
+    background-color:transparent;
+}
+
+.cont-element-friend-list-description{
+    flex: 1;
+    margin-left: 1em;
+}
+
+.cont-element-friend-list .user-icon{
+    font-size: 0.7em;
+    align-self: flex-start;
+}
+
+.element_friend_list_user{
+    font-size: 1.5em;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.element_friend_list_commun_friends{
+    font-size: 1em;
+}
+.cont-element-friend-button{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 1.2rem;
+}
+
+.cont-element-friend-button .button{
+    font-size: 0.8em;
+    height: 3em;
+    width: 15em;
+}

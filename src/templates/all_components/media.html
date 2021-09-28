@@ -1,0 +1,50 @@
+<!-- TODO add url parameter -->
+{% macro media(type, img="", png="", webp="", alt="", src="", text="", url="") -%}
+
+{% if type == "img" or type=="image"-%}
+<a href="{{url}}">
+    <div class="media-publication">
+        <picture>
+            {% if webp -%}
+            <source srcset="{{ webp }}" type="image/webp">
+            {%- endif %}
+            {% if png -%}
+            <source srcset="{{ png }}" type="image/png">
+            {%- endif %}
+            <img loading="lazy" src="{{ img }}" alt="{{ alt }}">
+        </picture>
+    </div>
+</a>
+{%- endif %}
+
+{% if type == "text" -%}
+<a href="{{url}}">
+    <div class="media-publication margin-section">
+        <p>{{text}}</p>
+    </div>
+</a>
+{%- endif %}
+
+{% if type == "video" -%}
+<a href="{{url}}">
+    <div>
+        <video class="media-publication" controls>
+            <source src="{{ src }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</a>
+{%- endif %}
+
+{% if type == "audio" -%}
+<a href="{{url}}">
+    <div>
+        <audio class="media-publication" controls>
+            <source src="{{ src }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+</a>
+{%- endif %}
+
+{%- endmacro %}

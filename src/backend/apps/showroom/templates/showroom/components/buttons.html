@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% from "all_components/buttons.html" import buttons %}
+{% block title %} Buttons {% endblock title %}
+
+{% block body %}
+<div class="button-container">
+  {{buttons(
+    mensaje="Button 1",
+    type="primary",
+    font="fw-bold",
+    letters="text-uppercase")
+  }}
+
+  <div class="margin-section"></div>
+
+  {{buttons(
+    mensaje="Button 2",
+    type="secundary",
+    font="fw-bold",
+    letters="text-uppercase")
+  }}
+
+  <div class="margin-section"></div>
+
+  {{buttons(
+    mensaje="Button 3",
+    type="transparent",
+    font="fw-bold",
+    letters="text-uppercase")
+  }}
+
+  <div class="margin-section"></div>
+
+  {{buttons(
+    mensaje="Button 3",
+    type="transparent",
+    font="fw-normal",
+    letters="text-uppercase")
+  }}
+</div>
+{% endblock body %}

@@ -1,0 +1,14 @@
+{
+    "nombre": "Daniel Vieira",
+    "descripcion": "Soy estudiante de computación de la Universidad Central de Venezuela. Estoy interesado en la rama de Inteligencia Artificial debido a eso he realizado diversos cursos respecto a eso. En mi tiempo libre me gusta ir a jugar fútbol.",
+    "color": "Azul",
+    "libro": ["Las Crónicas de Narnia"],
+    "musica": ["Reggaeton"],
+    "video_juego": ["World of Warcraft"],
+    "lenguajes": ["C", "C++", "C#", "Python"],
+    "email": "danielvieiucv@gmail.com",
+    "ci": "26272390",
+    "genero": "masculino",
+    "fecha_nacimiento": "27/06/1997",
+    "imagen": "26272390.jpg"
+}

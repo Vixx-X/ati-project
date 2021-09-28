@@ -1,0 +1,13 @@
+{	
+	"nombre":"Karen Gonzalez",
+	"descripcion":"Soy estudiante de computacion, me gusta el area de networking, tambien soy preparadora de la materia comunicacion de datos, estoy trabajando en este momento en el area de reparacion de equipos.",
+	"color":"Azul",
+	"libro": ["La Apuesta"],
+	"musica": ["Rock", "Reggae", "Clasica", "Electronica"],
+	"video_juego":["Team Fortress 2", "Portal Hotline Miami"],
+	"lenguajes":["C", "C++", "Haskell","Prolog"],
+	"email":"kren1504@gmail.com",
+	"ci":"24207211",
+	"genero":"femenino",
+	"fecha_nacimiento":"15/04/1994"
+}

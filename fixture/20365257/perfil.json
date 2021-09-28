@@ -1,0 +1,13 @@
+{	
+	"nombre":"Christian Alberto Angulo Salinas",
+	"descripcion":"Estoy estudiando la Licenciatura de Computacion en la Universidad Central de Venezuela.",
+	"color": "Azul",
+	"libro": ["Pensar Bien, Sentirse Bien"],
+	"musica": ["Electónica"],
+	"video_juego": ["Watch Dogs"],
+	"lenguajes":["Java", "SQL", "C", "C++", "Haskell"],
+	"email":"angulo.christian@gmail.com",
+	"ci":"20365257",
+	"genero": "masculino",
+	"fecha_nacimiento":""
+}

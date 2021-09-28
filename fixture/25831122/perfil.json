@@ -1,0 +1,13 @@
+{
+	"nombre":"Kharleann Cabrera",
+	"descripcion":"Estudiante de Computacion en la Universidad Central de Venezuela, interesado en el area matematica y machine learning.<br/>Actualmente en formacion en areas relacionadas al desarrollo web y la creacion de nuevas aplicaciones. Apacionado por la investigacion cientifica y la tecnologia.<br/>Buscador de tesoros y joyas perdidas en las decadas pasadas.",
+	"color":"verde",
+	"libro":["ready player one", "the madman tale"],
+	"musica":["Rock Progresivo"],
+	"video_juego":["aventuras graficas"],
+	"lenguajes":["Java","C++","C","Python","Haskell"],
+	"email":"kharleann@gmail.com",
+	"ci": "25831122",
+	"genero":"masculino",
+	"fecha_nacimiento": "29/07/1997"
+}

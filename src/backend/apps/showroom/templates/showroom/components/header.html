@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %} Header {% endblock title %}
+
+{% from "all_components/header.html" import header %} 
+{% block body %}
+{{ header(classname="bg-header", user=user) }}
+
+  <div class="margin-section"></div>
+
+{{ header(classname="bg-header transparent", user=user) }}
+
+  <div class="margin-section"></div>
+
+{{ header(classname="waves") }}
+{% endblock body %}

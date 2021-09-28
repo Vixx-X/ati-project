@@ -4,11 +4,20 @@
 .header-main{
     font-size: 10px;
     display: flex;
+    height: 16rem;
     align-items: center;
     justify-content: space-between;
+    & * {
+        height: 100%;
+    }
+
     .user-icon{
+        width: 70%;
         display: none;
-        width: 100%;
+        img{
+            width: 100%;
+            height: 100%;
+        }
         @include tablet{
             display: block;
         }
@@ -17,6 +26,7 @@
     .button{
         font-size: 16px;
         height: fit-content;
+
         &.with-icon{
             display: none;
             @include tablet{
@@ -26,7 +36,7 @@
                 justify-content: center;
                 padding: 0.5em 1em;
                 img{
-                    filter: invert(100%) sepia(84%) saturate(8%) hue-rotate(283deg) brightness(114%) contrast(87%);
+                    filter: inherit;
                     margin-right: 0.5em;
                 }
             }
@@ -36,6 +46,7 @@
             border: 0.15em solid $primary;
             text-align: left;
             width: 100%;
+            font-style: italic;
             padding: 0 auto;
             padding: 1em 1.5em;
             @include tablet{
@@ -58,5 +69,5 @@
             column-gap: 1em;
         }
     }
-    
 }
+

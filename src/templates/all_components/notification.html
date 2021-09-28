@@ -1,0 +1,15 @@
+{% macro notification(class="", title="Notification", text="") -%}
+
+<div class="w-18 notification {{class}}">
+    <div class="d-flex">
+      <img src="{{ url_for('static', filename='img/icons/delete.svg') }}" alt="delete">
+      <h3>{{ _(title) }}</h3>
+      <img src="{{ url_for('static', filename='img/icons/image.svg') }}" alt="image">
+    </div>
+    <hr>
+    <p>
+        {{text}}
+    </p>
+</div>
+
+{%- endmacro %}

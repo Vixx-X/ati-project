@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% from "all_components/user-icon.html" import user_icon %}
+{% from "all_components/header-publication.html" import header_publication %}
+{% from "components/utils/header.html" import header %}
+
+{% from "components/user/notification.html" import notification %}
+{% block title %} {{_("Notifications")}} {% endblock title %}
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/notifications.css') }}" >{% endblock %}
+
+{% block body -%}
+{{ header(classname="bg-header", user=user) }}
+  <section class="container notifications-view">
+    <div class="heading black">
+        <h3 class="fw-normal">
+            {{_("Notifications")}}
+        </h3>
+        <hr>
+    </div>
+    <div class="container-notications">
+        {% for element in user.notifications %}
+            {{notification (element)}}
+        {% endfor %}
+    </div>
+  </section>
+
+{% endblock body %}

@@ -1,0 +1,13 @@
+{	
+	"nombre":"Jesus Gomez",
+	"descripcion":"Soy estudiante de Computación en la UCV.",
+	"color": "Azul",
+	"libro": ["Artemis Fowl"],
+	"musica": ["Instrumental"],
+	"video_juego": ["KOTOR", "Skyrim"],
+	"lenguajes":["C","C++","Haskell","Prolog","java"],
+	"email":"jaganc99@gmail.com",
+	"ci":"21375700",
+	"genero": "masculino",
+	"fecha_nacimiento":"16/08/1993"
+}

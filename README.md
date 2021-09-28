@@ -32,6 +32,8 @@ Installation tested on Ubuntu 20.04.1 LTS.
   [Installation on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
   [Other OS or distros](https://docs.docker.com/engine/install/)
 
+- Use mongo from docker
+  `docker run --name mongo -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=1234 -p 27017:27017 -d mongo`
 - Use mongo shell from mongo image
   `docker run -it --rm --name mongo-shell --net=host mongo mongo`
 

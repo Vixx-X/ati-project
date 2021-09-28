@@ -1,0 +1,52 @@
+@import "../bases/variables";
+@import "../bases/mixins";
+
+.container-chat-showroom{
+    width: 40rem;
+}
+.chat{
+    border-radius: .8em;
+    justify-content: space-between;
+    align-items: top;
+    padding: 1em 1em .5em;
+    position: relative;
+    flex-flow: row;
+    flex-basis: 90%;
+    display: flex;
+
+    p{
+        line-height: 1.5;
+        font-size: 1em;
+    }
+    &.response{
+        fill: $light;
+        background-color: $light;
+    }
+    &.reply{
+        fill: $primary;
+        background-color: $primary;
+    }
+    & .user-icon{
+        flex-basis: 4em;
+    }
+    & .cont-chat{
+        &{
+            margin-left: 1em;
+            flex: 1;
+        }
+        & p{
+            word-break: break-all;
+        }
+    }
+    & .cont-chat-description{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1em;
+
+        & button{
+            background-color: transparent;
+            border: none;
+            color: #6e6e6e;
+        }
+    }
+}

@@ -6,6 +6,18 @@
   margin: 4rem 0;
 }
 
+.margin-bottom {
+  margin-bottom: 4rem;
+}
+
+.margin-small-bottom {
+  margin-bottom: 2rem;
+}
+
+.margin-top {
+  margin-top: 4rem;
+}
+
 .text-uppercase {
   text-transform: uppercase;
 }
@@ -16,4 +28,54 @@
 
 .fw-bold{
   font-weight: 700;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.p-2 {
+  padding: 0 2em;
+}
+
+.margin-mobile{
+  margin-bottom: 17rem !important;
+  @include cell{
+    margin-bottom: 0rem !important;
+  }
+}
+
+.required {
+  &:after{
+      content: '*';
+      color: red;
+      font-size: 1.6rem;
+      text-align: left;
+      margin-left: 0.5rem;
+  }
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.jc-space_between {
+  justify-content: space-between;
+}
+
+.w-25 {
+  width: 25em;
+}
+
+.w-2 {
+  width: 2em;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.dissable {
+  opacity: 0.5;
 }

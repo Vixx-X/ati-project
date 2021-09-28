@@ -1,0 +1,79 @@
+@import "./loginsBases";
+@import "../bases/variables";
+@import "../bases/mixins";
+
+
+.content-distribution{
+    @include mediumDesktop{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .container-left{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.main-logotype {
+    margin-bottom: 8rem;
+    @include tablet{
+        margin-bottom: 0rem;
+    }
+}
+
+
+.heading{
+    font-size: 3.2rem;
+    width: 100%;
+    margin-bottom: 4rem;
+}
+
+.form-login{
+    margin: 2rem auto;
+    @include tablet{
+        width: 80%;
+    }
+    background-color: #EEEEEE;
+    border-radius: 3rem;
+    padding: 2rem 4rem;
+    a{
+        p{
+            color: lighten($black, 30%);
+            font-size: 1.6rem;
+        }
+    }
+}
+
+input{
+    margin: 1rem 0;
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.05);
+}
+
+.container-button{
+    width: 100%;
+    font-size: 7px;
+    .button{
+        width: 100%;
+    }
+}
+
+#linkaccount{
+    text-align: right;
+}
+
+#linkpassword{
+    margin-top: 2rem;
+}
+
+.container-api{
+    margin: 2rem 0;
+    font-size: 5.5px;
+    display: flex;
+    justify-content: space-between;
+    .button{
+        width: calc(50% - 1rem);
+        padding: 1rem 0;
+    }
+}

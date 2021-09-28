@@ -1,0 +1,13 @@
+{
+	"nombre": "Jose Andres Regalado",
+	"descripcion": "Soy estudiante de la escuela de computación de la UCV, actualmente cursando materias correspondientes al 6to y 7mo semestre de la carrera, aspiro obtener el titulo con la meción de Aplicaciones en Internet. Trabajo independientemente como soporte técnico y reparación de computadoras mientras comienzo a realizar las pasantías.",
+	"color":"Negro",
+	"libro": ["The lord of the rings"],
+	"musica": ["Rock"],
+	"video_juego": "Halo.",
+	"lenguajes": ["JavaScript","Java", "PL/SQL"],
+	"email": "scfjose.h.h@gmail.com",
+	"ci": "23194799",
+	"genero": "Masculino.",
+	"fecha_nacimiento": "19/02/1995"
+}

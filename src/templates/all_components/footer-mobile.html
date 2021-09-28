@@ -1,0 +1,17 @@
+{% macro footer_mobile(class="black") -%}
+<div class="margin-mobile"></div>
+
+<div class="footer-mobile {{class}}">
+    <div class="container d-flex jc-space_between">
+        <a href="{{url_for('user.profile', username='vittorio_adesso')}}">
+            <img loading="lazy" src="{{ url_for("static", filename="img/icons/user.svg") }}" alt="User icon">
+        </a>
+        <a href="{{url_for('posts.post-create')}}">
+            <img loading="lazy" src="{{ url_for("static", filename="img/icons/plus-sign.svg") }}" alt="Add publication">
+        </a>
+        <a href="{{url_for('user.chat')}}">
+            <img loading="lazy" src="{{ url_for("static", filename="img/icons/chat.svg") }}" alt="Chat">
+        </a>
+    </div>
+</div>
+{%- endmacro %}

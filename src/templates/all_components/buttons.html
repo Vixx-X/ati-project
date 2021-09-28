@@ -1,0 +1,17 @@
+{% macro buttons(id=None, class="button", mensaje="Button", type="primary", buttonfunction="", font="fw-bold", letters="text-uppercase", function=None, icon=None, alticon=None) %}
+<button
+{% if id -%}
+id = "{{id}}"
+{%- endif %}
+class="{{class}} {{type}} {{letters}} {{font}} {{buttonfunction}}"
+{% if function and function != "" -%}
+onclick="{{function}}"
+{%- endif %}
+>
+{% if icon -%}
+<img class="icon" src="{{icon}}" alt={{alticon}}>
+{%- endif %}
+    {{ mensaje|safe }}
+</button>
+{% endmacro %}
+

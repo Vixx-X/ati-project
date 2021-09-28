@@ -1,0 +1,148 @@
+@import "bases/variables";
+@import "bases/mixins";
+
+.section-header{
+    position: relative;
+    background-color: $black;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.51), rgba(0, 0, 0, 0.51)), var(--bg-image);
+    background-size: cover;
+    background-position: center center;
+    min-height: 25rem;
+    @include tablet{
+        min-height: 40rem;
+    }
+}
+
+.header-group{
+    background-color: #fff;
+    @include desktop{
+        background-color: transparent;
+    }
+    .user-icon {
+        width: 15rem;
+        height: 15rem;
+        img{
+            height: 100%;
+            width: 100%;
+        }
+        @include tablet{
+            width: 25rem;
+            height: 25rem;
+            img{
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+}
+
+.profile-icon{
+    display: flex;
+    justify-content: center;
+    .user-icon{
+        font-size: 2.3rem;
+        position: absolute;
+        bottom: -8rem;
+        @include tablet{
+            font-size: 3.5rem;
+        }
+    }
+
+    p{
+        position: absolute;
+        bottom: -14rem;
+        text-align: center;
+        font-size: 3rem;
+    }
+}
+
+.mobile-navmenu{
+    width: 100%;
+    @include desktop{
+        display: none;
+    }
+}
+
+.mobile-content{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0 7rem 0;
+    @include desktop{
+        display: none;
+    }
+
+    .navegation-mobile{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navegation-mobile-other{
+        display: flex;
+        justify-content: space-between;
+        .container-right{
+            min-width: 9rem;
+            width: 15%;
+            filter:  invert(34%) sepia(1%) saturate(0%) hue-rotate(179deg) brightness(93%) contrast(84%);
+        }
+    }
+}
+
+.desktop-content{
+    margin: 2rem 0;
+    display: none;
+    justify-content: center;
+    min-height: 4rem;
+    height: auto;
+    @include desktop{
+        display: flex;
+    }
+    .navegation-desktop{
+        width: 100%;
+        margin: 0 auto 4rem auto;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        font-size: 0.7rem;
+        .button{
+            margin: 0 auto;
+            width: 20rem;
+            padding: 1rem;
+            &.tercero{
+                grid-column: 4;
+            }
+            &.last{
+                grid-column: 5;
+            }
+        }
+}
+}
+
+.main-container{
+    @include desktop{
+        margin: 8rem auto;
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        column-gap: 2rem;
+    }
+
+    aside{
+        display: none;
+        .container-details{
+            display: flex;
+            margin-top: 3rem;
+            img{
+                width: 2.5rem;
+                margin-right: 1rem;
+            }
+        }
+        @include desktop{
+            display: block;
+        }
+    }
+}
+
+.container-section{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}

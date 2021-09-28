@@ -1,0 +1,13 @@
+{
+	"nombre":"Gianfranco Manfredi",
+ 	"descripcion":"Saludos y bienvenidos sean a mi página! Mi nombre es Gianfranco Manfredi, nací el 20 de junio de 1996 y soy estudiante de computación en la Universidad Central de Venezuela. Actualmente me encuentro cursando el séptimo semestre de la carrera, realizando un proyecto para la materia de \"Aplicaciones con la Tecnología Internet (ATI).\" Mis compañeros y yo estamos aprendiendo a crear páginas web, ¡esta es mi primera página web! En un futuro lograré hacer páginas mucho mas complejas, pero estoy satisfecho con como ha quedado esta.",
+ 	"color":"azul",
+ 	"libro": ["La Isla del Tesoro de R. L. Stevenson"],
+ 	"musica": ["Rock", "Electronica"],
+ 	"video_juego": ["Monster Hunter","The Elder Scrolls V: Skyrim","Fallout 4"],
+ 	"lenguajes": ["c++","c","java"],
+ 	"email":"franco.manfredi2006@gmail.com",
+ 	"ci":"25217607",
+ 	"genero":"Masculino",
+ 	"fecha_nacimiento":"20/06/1996"
+ }

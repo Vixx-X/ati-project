@@ -1,0 +1,88 @@
+{% extends "user/auth/base.html" %}
+{% from "components/user/auth/oauth.html" import oauth_button %}
+{% from "components/utils/input.html" import input %}
+{% from "components/utils/buttons.html" import buttons %}
+{% from "components/user/auth/slogan.html" import slogan %}
+
+{% block title %} {{ _("Sign Up") }} {% endblock title %}
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}" >{% endblock %}
+
+{% block body %}
+<div class="container-center">
+    <div class="background-dark-transparent">
+        <div class="container content-distribution">
+            <div class="container-left">
+                <a href="{{url_for('app.landing')}}">
+                    <div class="main-logotype">
+                        <img
+                        src="{{ url_for('static', filename='img/logo.svg') }}"
+                        alt="DEGVA logotype" />
+                        <h1>DEGVA</h1>
+                    </div>
+                </a>
+                {{ slogan() }}
+                
+            </div>
+            <form method="POST" id="register" class="form-login">
+                {{ register_form.csrf_token }}
+
+                <div class="heading black">
+                    <h3 class="fw-normal">
+                        {{ _("Sign Up") }}
+                    </h3>
+                    <hr>
+                </div>
+                {{ input(
+                     field=register_form.reg_next,
+                     label=False,
+                )}}
+
+                {{ input(
+                     field=register_form.username,
+                     field_class="white w-100",
+                     placeholder=_("Your username"),
+                     label_class="d-flex fw-bold black",
+                )}}
+
+                {{ input(
+                     field=register_form.email,
+                     field_class="white w-100",
+                     placeholder=_("Your email"),
+                     label_class="d-flex fw-bold black",
+                )}}
+
+                {{ input(
+                     field=register_form.password,
+                     field_class="white w-100",
+                     placeholder=_("Your password"),
+                     label_class="d-flex fw-bold black",
+                )}}
+
+                {{ input(
+                     field=register_form.retype_password,
+                     field_class="white w-100",
+                     placeholder=_("Retype your password"),
+                     label_class="d-flex fw-bold black",
+                )}}
+
+                <a href="{{url_for('user.login')}}" id="linkaccount">
+                    <p class="text-uppercase fw-bold">Alredy have an account?</p>
+                </a>
+                <div class="container-button">
+                    {{buttons(
+                        mensaje=_("Sign Up"),
+                        type="primary",
+                        font="fw-bold",
+                        letters="text-uppercase",
+                    )}}
+                </div>
+                <div class="container-api">
+                    {{ oauth_button(provider="twitter") }}
+                    {{ oauth_button(provider="facebook") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

@@ -1,0 +1,46 @@
+{% from "all_components/user-icon.html" import user_icon %}
+{% from "all_components/buttons.html" import buttons %}
+{% from "all_components/element-friend-list.html" import element_friend_list %}
+{% macro list_friends(img, name, comunFriends="Comun Friends", url=None, png="", webp="", alt="", type="basic",button="",txtbutton="", titlelist="List Friends", globalbutton=None, number=6) %}
+
+<div class="cont-listaAmigos">
+  <!-- TODO change # for a new parameter value -->
+  {% if titlelist -%}
+  <div class="center">
+    <h2>{{titlelist}}</h2>
+    <hr>
+  </div>
+  {%- endif %}
+  
+  {% set number_friends = number %}
+  {% for i in range(number_friends) %}
+    <a href="{{url_for('user.profile', username='vittorio_adesso')}}">
+      {{element_friend_list(
+        user=name,
+        comunFriends=comunFriends,
+        button=button,
+        txtbutton=txtbutton,
+        type=type,
+        trasparent=true,
+        url="",
+        png=png,
+        webp=webp,
+        img=img,
+      )}}
+    </a>
+  {% endfor %}
+
+  {% if globalbutton -%}
+  {{buttons(
+    mensaje="See All",
+    type="primary",
+    font="fw-bold",
+    letters="text-uppercase",
+    function="parent.location='" + url_for('user.friends', username='vittorio_adesso') + "'",
+    )
+  }}
+
+  {%- endif %}  
+</div>
+
+{% endmacro %}

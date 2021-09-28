@@ -1,0 +1,13 @@
+{
+	"nombre": "Carlos Figueroa",
+	"descripcion":"Estudiante de Computacion en la UCV. Uno de los tantos \"Carlos\" de la facultad de Ciencias, soy preparador de Discretas I, sé comer sushi con palillos y me gusta el humor absurdo. Trato de ser aprendiz en todo o el mejor en algo, lo que pase primero.",
+	"color":"Verde",
+	"libro": ["El principito - Antoine de Saint-Exupéry"],
+	"musica":["Rock", "Pop", "Jazz"],
+	"video_juego":["League of Legends", "The Legend of Zelda", "Resident Evil"],
+	"lenguajes":["C/C++", "Java" , "Python"],
+	"email":"carlosfp04@gmail.com",
+	"ci":"22749832",
+	"genero":"Masculino",
+	"fecha_nacimiento":"16/02/1995"
+}

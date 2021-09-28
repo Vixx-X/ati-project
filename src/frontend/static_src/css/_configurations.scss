@@ -1,0 +1,65 @@
+@import "bases/variables";
+@import "bases/mixins";
+
+.configurations-view{
+    min-height: 80vh;
+    font-size: 17px;
+    @include desktop{
+        font-size: 22px;
+    }
+    margin: 4rem auto;
+    @include tablet{
+        background-color: rgb(255, 255, 255);
+        border: 1px dashed #FF3E91;
+        box-sizing: border-box;
+        box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+        padding: 3rem 5rem;
+    }
+    .heading{
+        font-size: 2.3rem;
+        width: 100%;
+        margin-bottom: 4rem;
+        &.other{
+            margin: 4rem 0;
+        }
+    }
+
+    .drop-down-list{
+        select{
+            width: 100%;
+            padding: 1rem 4rem;
+        }
+    }
+    .boolean-button{
+        margin: 3rem 0;
+    }
+    p{
+        font-size: 2.3rem;
+        font-style: italic;
+    }
+
+    .container-personalization{
+        margin: 2rem 0;
+        @include grid(1, 2rem);
+        row-gap: 3rem;
+        @include tablet{
+            @include grid(2, 5rem);
+        }
+    }
+
+    .container-button{
+        font-size: 0.7rem;
+        margin-top: 4rem;
+        button{
+            width: 100%;
+        }
+        @include tablet{
+            button{
+                width: auto;
+            }
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+
+}

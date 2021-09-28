@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% from "all_components/list-friends.html" import list_friends %}
+
+{% block title %}{{ _('List of Friends') }}{% endblock title %}
+{% from "all_components/buttons.html" import buttons %}
+
+{% block body %}
+
+<div class="container-showroom-list">
+    {{list_friends(
+        img=url_for('static', filename='img/users/26838989.png'),
+        name="User 1",
+        alt="User1 Photo",
+        type="connect",
+        comunFriends="Comun Friends",
+        png=url_for('static', filename='img/users/26838989.png'),
+        webp=url_for('static', filename='img/users/26838989.webp'),
+        titlelist="List Friends",
+        globalbutton="True"
+    )}}
+</div>
+
+{% endblock body %}

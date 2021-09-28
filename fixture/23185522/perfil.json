@@ -1,0 +1,14 @@
+{
+  "nombre": "Edinson Jose Escobar Lemus",
+  "descripcion": "Soy estudiante de computacion en la UCV. Ingrese a la universidad Central de venezuela en noviembre del 2013 estoy estudiando casi que sexto semestre, me interesa las areas como de bases de datos y aplicaciones en internet, he realizado cursos de ensamblaje y mantenimiento de pc, Word, Excel, PowerPoint y otras herramientas.",
+  "color": "Rojo",
+  "libro": ["Harry Potter"],
+  "musica": ["De todo un poquito"],
+  "video_juego": ["WOW", "LOL", "Yu gi oh"],
+  "lenguajes": ["C++", "C#"],
+  "email": "edinson.j.e.l@gmail.com",
+  "ci": "23.185.522",
+  "genero": "masculino",
+  "fecha_nacimiento": "16/03/1995"
+}
+

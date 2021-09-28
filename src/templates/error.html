@@ -1,0 +1,24 @@
+{% extends "user/auth/base.html" %}
+
+{% block title %} {{ _(error.name) }} {% endblock title %}
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" >{% endblock %}
+
+{% block body %}
+    <div class="container-center">
+        <div class="background-dark-transparent">
+            <div class="container content-distribution">
+                <a href="{{url_for('app.home')}}">
+                    <div class="main-logotype">
+                        <img
+                        src="{{ url_for('static', filename='img/logo.svg') }}"
+                        alt="DEGVA logotype" />
+                        <h1>DEGVA</h1>
+                    </div>
+                </a>
+                <h1 class="errorPageNumber">{{ error.code }}</h1>
+                <p class="text-logo text-center">{{ _(error.description) }}</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}

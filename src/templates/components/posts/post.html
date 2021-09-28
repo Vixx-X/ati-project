@@ -1,0 +1,72 @@
+{% from "all_components/media.html" import media %}
+{% from "components/utils/user-icon.html" import user_icon %}
+
+{% macro post(obj) -%}
+  <div class="publication">
+    <div class="header-publication">
+      <div class="d-flex title-wrap">
+        {{ user_icon(obj.get_author) }}
+        <div>
+          <h2>{{ obj.title }}</h2>
+          <div class="d-flex jc-space_between details">
+            <p>{{ obj.get_author.full_name }}</p>
+            <p>{{ obj.time }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TODO: change # for url to modify publication (parameter) -->
+      <a class="modify" href="{{url_for('posts.post-edit', id=obj.pk)}}">
+        <img src="{{ url_for('static', filename='img/icons/menu_3_puntos_horizontal.svg') }}" alt="menu_3_puntos_horizontal">
+      </a>
+    </div>
+
+    <a href="{{url_for('posts.post-edit', id=obj.pk)}}">
+      <div class="media-publication margin-section">
+        <p>{{ obj.description }}</p>
+      </div>
+    </a>
+
+    {% if obj.primary_media %}
+    {{ media(
+        type=obj.primary_media.type,
+        img=obj.primary_media.url,
+        alt=obj.title,
+        url=url_for("posts.post-edit", id=obj.pk)
+    )}}
+    {% endif %}
+  </div>
+
+  {% set comments = obj.get_firts_comments %}
+
+  {% if comments|length > 0 %}
+  <div class="comments-user">
+    <div class="comments-group">
+      {{ user_icon(
+        user=comments[0].get_author,
+        type="basic one",
+      ) }}
+
+      {% if comments|length > 1 -%}
+
+      {{ user_icon(
+        user=comments[1].get_author,
+        type="basic two",
+      ) }}
+
+      {%- endif %}
+
+      {% if comments|length > 2 -%}
+      {{ user_icon(
+        user=comments[2].get_author,
+        type="basic three",
+      ) }}
+
+      {%- endif %}
+
+    </div>
+    <a href="{{url_for('posts.post', id=obj.pk)}}">Ver comentarios</a>
+  </div>
+  {%- endif %}
+
+{%- endmacro %}

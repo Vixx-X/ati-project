@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% from "all_components/user-icon.html" import user_icon %}
+{% from "all_components/header-publication.html" import header_publication %}
+{% from "all_components/footer-mobile.html" import footer_mobile %}
+{% from "all_components/drop-down-list.html" import drop_down_list %}
+{% from "all_components/boolean-button.html" import boolean_button %}
+{% from "all_components/radio-button.html" import radioButton %}
+
+{% block title %} Configurations {% endblock title %}
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/configurations.css') }}" >{% endblock %}
+
+{% block body -%}
+<header class="header bg-header">
+    <div class="container container-header">
+      <a href="#">
+        <div class="main-logotype">
+          <img
+            src="{{ url_for('static', filename='img/logo.svg') }}"
+            alt="DEGVA logotype" />
+          <h1>DEGVA</h1>
+        </div>
+      </a>
+      <div class="container-right">
+        <form class="form-search">
+          <label for="search"></label>
+          <input type="text" id="search" />
+          <button class="button-search">
+            <img
+              class="icon logotype"
+              src="{{ url_for("static", filename="img/icons/search.svg") }}"
+              alt="Notifications logotype"
+            />
+          </button>
+        </form>
+
+        <nav class="navegation">
+          <a href="#" class="search-header">
+            <img
+              class="icon"
+              src="{{ url_for("static", filename="img/icons/search.svg") }}"
+              alt="Notifications logotype"
+            />
+          </a>
+          <a href="#">
+            <img
+              class="icon"
+              src="{{ url_for("static", filename="img/icons/notifications.svg") }}"
+              alt="Notifications logotype"
+            />
+          </a>
+          <a href="#">
+            <img
+              class="icon"
+              src="{{ url_for("static", filename="img/icons/settings.svg") }}"
+              alt="Notifications logotype"
+            />
+          </a>
+          <a href="#">
+            <img
+              class="icon"
+              src="{{ url_for("static", filename="img/icons/logout.svg") }}"
+              alt="Notifications logotype"
+            />
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <section class="container configurations-view">
+    <div class="heading black">
+        <h3 class="fw-normal">
+            Configuraciones
+        </h3>
+        <hr>
+    </div>
+    {{boolean_button(
+        id="booleanButton",
+        text="Privacidad",
+        class="black fw-bold"
+    )}}
+    {{boolean_button(
+        id="booleanButton",
+        text="Notificaciones correo",
+        class="black fw-bold"
+    )}}
+    {{drop_down_list()}}
+    <div class="heading black other">
+        <h3 class="fw-normal">
+            Personalización
+        </h3>
+        <hr>
+    </div>
+    <p>Temas</p>
+    <div class="container-personalization">
+        {{radioButton(
+            id='Test',
+            name='Gray-radio-button',
+            text='Modo diurno',
+            classLabel='black',
+            classInput='black'
+        )}}
+        {{radioButton(
+            id='Test',
+            name='Gray-radio-button',
+            text='Modo nocturno',
+            classLabel='black',
+            classInput='black'
+        )}}
+    </div>
+  </section>
+  
+
+<div class="margin-mobile"></div>
+<footer class="footer bg-footer">
+    <div class="container container-footer text-center">
+        {{ _('Copyright &copy; ITA - Computer School') }}
+    </div>
+</footer>
+
+{{footer_mobile(class="black")}}
+
+{% endblock body %}

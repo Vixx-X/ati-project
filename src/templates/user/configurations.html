@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% from "components/utils/buttons.html" import buttons %}
+{% from "components/utils/input.html" import input %}
+{% from "components/utils/header.html" import header %}
+
+{% block title %} {{_("Configurations")}} {% endblock title %}
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/configurations.css') }}" >{% endblock %}
+
+{% block body -%}
+{{ header(classname="bg-header", user=user) }}
+  <section class="container configurations-view">
+    <div class="heading black">
+        <h3 class="fw-normal">
+            {{_("Configurations")}}
+        </h3>
+        <hr>
+    </div>
+
+    <form method="POST" id="config" class="form from-config">
+        {{ form.csrf_token }}
+
+    {{ input(
+         field_wrapper_class="boolean-button d-flex jc-space_between",
+         field=form.account_privacy,
+         label_class="d-flex fw-bold black",
+    )}}
+    {{ input(
+         field_wrapper_class="boolean-button d-flex jc-space_between",
+         field=form.notify,
+         field_class="white w-100",
+         label_class="d-flex fw-bold black",
+    )}}
+    {{ input(
+         field_wrapper_class="boolean-button d-flex jc-space_between",
+         field=form.accept_friend_requests,
+         field_class="white w-100",
+         label_class="d-flex fw-bold black",
+    )}}
+
+    <div class="input-label margin-small-bottom">
+        {{form.lang.label(class="d-flex fw-bold black")}}
+    </div>
+    {{ input(
+         field_wrapper_class="drop-down-list",
+         field=form.lang,
+         label=False,
+         field_class="white w-100 cont-item-drop-down-list",
+    )}}
+
+    <div class="heading black other">
+        <h3 class="fw-normal">
+            {{_("Personalization")}}
+        </h3>
+        <hr>
+    </div>
+    {{form.theme.label(class="d-flex fw-bold black")}}
+    {{form.theme()}}
+        <div class="container-button">
+            {{buttons(
+                mensaje=_("Save"),
+                type="primary",
+                font="fw-bold",
+                letters="text-uppercase",
+            )}}
+        </div>
+    </form>
+  </section>
+
+{% endblock body %}

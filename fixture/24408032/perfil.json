@@ -1,0 +1,21 @@
+{
+  "foto": "24408032.jpg",
+  "nombre": "Jorge Ramirez",
+  "descripcion": "Estudiante de Computaci&oacute;n de la Universidad Central de Venezuela. Me gusta la parte de desarrollo web, la apariencia e interacción. Aspiro a aprender sobre diseño gráfico, trabajar en mis habilidades creativas y realizar varios emprendimientos.",
+  "color": "Verde",
+  "libro": ["El Túnel"],
+  "musica": ["Pop"],
+  "video_juego": [
+    "Need For Speed",
+    "Grand Theft Auto",
+    "Mafia I",
+    "Plantas Vs Zombies",
+    "Tetris Battle"
+  ],
+  "lenguajes": ["C++", "C", "Java", "JavaScript"],
+  "email": "jlr032032@gmail.com",
+  "ci": "24408032",
+  "genero": "masculino",
+  "fecha_nacimiento": "19/06/1993"
+}
+

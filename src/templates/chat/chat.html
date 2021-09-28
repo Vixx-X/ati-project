@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% from "all_components/element-friend-list.html" import element_friend_list %}
+{% from "all_components/footer-mobile.html" import footer_mobile %}
+{% from "all_components/list-friends.html" import list_friends %}
+{% from "components/utils/header.html" import header %}
+{% from "all_components/chat.html" import chat %} 
+{% from "all_components/footer.html" import footer %}
+
+{% block title %} Chat {% endblock title %}
+
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}" >{% endblock %}
+
+{% block body -%}
+
+{{ header(classname="bg-header", user=user) }}
+
+<div class="main-container-chat container full-mobile margin-section full-mobile">
+    <aside id="leftMenu">
+      <div class="cont-listaAmigos">  
+        <div class="center">
+          <div class="section-top-chats">
+            <h2>Chats</h2>  
+            <button class="closeList">&times;</button>
+          </div>
+          <hr>
+        </div>
+        {% set number_friends = 15 %}
+        <div class="listChats">
+          {% for i in range(number_friends) %}
+            {{element_friend_list(
+              user='Usuario ' ~ loop.index,
+              comunFriends='',
+              type='connect',
+              trasparent=true,
+              png=url_for('static', filename='img/users/26838989.png'),
+              webp=url_for('static', filename='img/users/26838989.webp'),
+              img=url_for('static', filename='img/users/26838989.png'),
+            )}}
+          {% endfor %}
+        </div>
+      </div>
+    </aside>
+    <main class="main-chat">
+        <div class="header-chat">
+          <a class="link-icon" href="{{url_for('app.home')}}"">
+            <img class="icon back" src="{{ url_for('static', filename='img/icons/back.svg') }}" alt="Back Symbol">
+          </a>
+            {{element_friend_list(
+                user='Vittorio Addeso',
+                comunFriends='En linea',
+                type='connect',
+                trasparent=true,
+                png=url_for('static', filename='img/users/26838989.png'),
+                webp=url_for('static', filename='img/users/26838989.webp'),
+                img=url_for('static', filename='img/users/26838989.png'),
+            )}}
+            <button class="openList">
+              <img loading="lazy" src="{{ url_for("static", filename="img/icons/chat.svg") }}" alt="Chat">
+            </button>
+        </div>
+        <div class="messages">
+            {{chat(
+                type="reply",
+                menssage="So much Text that edu cant imaginate more text",
+                date_time="Date Time",
+                comment="",
+                png=url_for('static', filename='img/users/25641651.png'),
+                webp=url_for('static', filename='img/users/25641651.webp'),
+                alt=""
+              )}}
+              {{chat(
+                type="reply",
+                menssage="So much Text that edu cant imaginate more text",
+                date_time="Date Time",
+                comment="",
+                png=url_for('static', filename='img/users/25641651.png'),
+                webp=url_for('static', filename='img/users/25641651.webp'),
+                alt=""
+              )}}
+              {{chat(
+                type="response",
+                menssage="So much Text that edu cant imaginate more text",
+                date_time="Date Time",
+                comment="",
+                png=url_for('static', filename='img/users/25641651.png'),
+                webp=url_for('static', filename='img/users/25641651.webp'),
+                alt=""
+              )}}
+              {{chat(
+                type="response",
+                menssage="So much Text that edu cant imaginate more text",
+                date_time="Date Time",
+                comment="",
+                png=url_for('static', filename='img/users/25641651.png'),
+                webp=url_for('static', filename='img/users/25641651.webp'),
+                alt=""
+              )}}
+              {{chat(
+                type="response",
+                menssage="So much Text that edu cant imaginate more text",
+                date_time="Date Time",
+                comment="",
+                png=url_for('static', filename='img/users/25641651.png'),
+                webp=url_for('static', filename='img/users/25641651.webp'),
+                alt=""
+              )}}
+              {{chat(
+                type="reply",
+                menssage="So much Text that edu cant imaginate more text ",
+                date_time="Date Time",
+                comment="",
+                png=url_for('static', filename='img/users/25641651.png'),
+                webp=url_for('static', filename='img/users/25641651.webp'),
+                alt=""
+              )}}
+              {{chat(
+                type="reply",
+                menssage="So much Text that edu cant imaginate more text",
+                date_time="Date Time",
+                comment="",
+                png=url_for('static', filename='img/users/25641651.png'),
+                webp=url_for('static', filename='img/users/25641651.webp'),
+                alt=""
+              )}}
+              {{chat(
+                type="reply",
+                menssage="So much Text that edu cant imaginate more text. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos amet quo excepturi odit est, aspernatur temporibus adipisci aliquam. Vitae assumenda fuga officia rem unde nihil minima similique quas ducimus autem. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos amet quo excepturi odit est, aspernatur temporibus adipisci aliquam. Vitae assumenda fuga officia rem unde nihil minima similique quas ducimus autem.",
+                date_time="Date Time",
+                comment="",
+                png=url_for('static', filename='img/users/25641651.png'),
+                webp=url_for('static', filename='img/users/25641651.webp'),
+                alt=""
+              )}}
+        </div>
+
+        <div class="footer-chat">
+            <div class="send-message">
+                <input type="text" placeholder="Send Text Messages">
+                <button>
+                  <img src="{{ url_for('static', filename='img/icons/send_message.svg') }}" alt="">
+                </button>
+            </div>
+        </div>
+    </main>
+</div>
+
+
+{{footer()}}
+{{footer_mobile(class="black")}}
+
+{%- endblock body %}

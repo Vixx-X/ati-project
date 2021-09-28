@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% from "all_components/user-icon.html" import user_icon %}
+{% from "all_components/header-publication.html" import header_publication %}
+{% from "all_components/buttons.html" import buttons %}
+{% from "components/utils/header.html" import header %}
+{% from "all_components/mobile-navmenu.html" import mobile_navmenu %}
+{% from "all_components/long-cards.html" import longCard %}
+{% from "all_components/element-friend-list.html" import element_friend_list %}
+
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" >
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile2.css') }}" >
+{% endblock %}
+{% block onloadscripts %}
+<script src="{{url_for('static', filename='js/all_components/mobile-navmenu.js')}}"> </script>
+{% endblock onloadscripts %}
+
+{% block title %} {{_("Friends")}} {% endblock title %}
+
+{% block body -%}
+    {{ header(classname="bg-header", user=user) }}
+
+    <div class="main-container-header">
+        <div class="header-group ">
+            <div class="section-header" style='--bg-image: url({{target_user.banner_url}})''>
+            {{ header(classname="bg-header transparent", user=user) }}
+            <div class="container profile-icon">
+                {{ user_icon(
+                    img=url_for('static', filename='img/users/26956071.png'),
+                    alt="User2 Photo",
+                    type="shadow",
+                    url=url_for('user.profile', username='vittorio_adesso'),
+                    png=url_for('static', filename='img/users/26956071.png'),
+                    webp=url_for('static', filename='img/users/26956071.webp')
+                ) }}
+            <p class="container-name fw-bold">Gabriela Ustariz</p>   
+            </div>
+            </div>
+
+            <div class="desktop-content">
+                <div class="container">
+                <nav class=" navegation-desktop">
+                    {% if is_myuser %}
+                        {{buttons(
+                            mensaje="Publications",
+                            type="primary last",
+                            font="fw-bold",
+                            letters="",
+                            function="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")
+                        }}
+                    {% else %}
+                        {{buttons(
+                            mensaje="Be friends",
+                            type="primary tercero",
+                            font="fw-bold",
+                            letters="")
+                        }}  
+                        {{buttons(
+                            mensaje="Chat",
+                            type="primary last",
+                            font="fw-bold",
+                            letters="")
+                        }}
+                    {% endif %}
+                </nav>
+                </div>
+            </div>
+        </div>
+        
+            <p class="container details margin-section">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. sunt in culpa qui officia deserunt mollit anim id est laborum.”</p>
+
+    </div>
+    <div class="container">
+        <div class="container-header-friends">
+            <div class="heading black">
+                <h3 class="fw-normal">
+                    {{_("Friends")}}
+                </h3>
+                <hr>
+            </div>
+            <div class="search-main-container">
+                <div class="search search-bg ">
+                    <div class="container-search">
+                    <img class="icon" src="{{ url_for('static', filename='img/icons/search.svg') }}" alt="Notifications logotype"/>
+                    <form action="">
+                        <input type="text" placeholder="Search">
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+
+    {% set number_friends =  9 %}
+    <div class="container">
+        <p class="number"></p>
+        <div class="container-friends margin-bottom">
+            
+            <!-- {% for i in range(number_friends) %}
+                {% if is_myuser %}
+                {{element_friend_list(
+                    user="Vittorio",
+                    comunFriends="35", 
+                    button=True,
+                    trasparent=False,
+                    buttonfunction='delete',
+                    url=url_for('user.profile', username='vittorio_adesso'), 
+                    png=url_for('static', filename='img/users/26838989.png'),
+                    webp=url_for('static', filename='img/users/26838989.webp'),
+                    img=url_for('static', filename='img/users/26838989.png'),
+                    txtbutton="Delete")
+                }}
+                {% else %}
+                {{element_friend_list(
+                    user="Vittorio",
+                    comunFriends="35", 
+                    button=True,
+                    trasparent=False, 
+                    buttonfunction='addfriend',
+                    url=url_for('user.profile', username='vittorio_adesso'), 
+                    png=url_for('static', filename='img/users/26838989.png'),
+                    webp=url_for('static', filename='img/users/26838989.webp'),
+                    img=url_for('static', filename='img/users/26838989.png'),
+                    txtbutton="Be Friends")
+                }}
+                {% endif %}
+            {% endfor %} -->
+        </div>
+    </div>
+
+{%- endblock body %}

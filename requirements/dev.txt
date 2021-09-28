@@ -13,3 +13,9 @@ Sphinx==4.0.2
 sphinx-autodoc-annotation==1.0.post1
 sphinx-rtd-theme==0.5.2
 
+# autoreloader
+watchdog==2.1.3
+
+# loaddata fixtures
+Pillow==8.3.2
+

@@ -28,6 +28,7 @@ source $CURRENT_DIR/load.sh
 function help {
 	echo "venv           - activate virtualenv (if needed)"
 	echo "setup_venv     - initial venv and pip install the project"
+	echo "setup_yarn     - initial yarn install the project"
 	echo ""
 	echo "setup_db       - initial db setup"
 	echo ""
@@ -37,11 +38,13 @@ function help {
 	echo "build          - build and minify both css and js files"
 	echo "autodocs       - build automatic documentation"
 	echo ""
-	echo "black          - run formatter (black)"
+	echo "format         - run formatter (black)"
 	echo "runtests       - run pylint and pytest tests"
+	echo "dos2unix       - run dos2unix recursively from root dir"
 	echo ""
 	echo "setup_dev      - bring docker files and start dev workspace"
-	echo "setup_db       - bring prod docker files (use in production)"
+	echo "setup_prod     - bring prod docker files (use in production)"
+	echo "loaddata       - load fixtures on db"
 	echo ""
 	echo "rundocker      - attach to dev container with bash"
 }

@@ -1,0 +1,59 @@
+{% macro inputLabel(type, id=None, name=None, classLabel="", classInput="", textLabel="Text Label", placeholderText="Placeholder Text", rows=5, cols=21, value=None) -%}
+<div class="input-label">
+    <label class="d-flex fw-bold {{classLabel}}"
+    {% if id -%}
+        for="{{id}}"
+    {%- endif %}
+    >{{textLabel}}</label>
+    {% if type == 'text' %}
+    <input class="{{classInput}}"
+        {% if id -%}
+        id="{{id}}"
+        {%- endif %}
+        {% if name -%}
+        name="{{name}}"
+        {%- endif %}
+        type="text" placeholder="{{placeholderText}}"
+        {% if value -%}
+        value="{{value}}"
+        {%- endif %}
+        >
+    {% endif %}
+    {% if type == 'textarea' %}
+    <textarea class="{{classInput}}"
+        {% if id -%}
+        id="{{id}}"
+        {%- endif %}
+        {% if name -%}
+        name="{{name}}"
+        {%- endif %}
+        rows="{{rows}}" cols="{{cols}}" placeholder="{{placeholderText}}">{% if value %}{{value}}{% endif %}</textarea>
+    {% endif %}
+    {% if type == 'password' %}
+    <input class="{{classInput}}"
+        {% if id -%}
+        id="{{id}}"
+        {%- endif %}
+        {% if name -%}
+        name="{{name}}"
+        {%- endif %}
+        {% if value -%}
+        value="{{value}}"
+        {%- endif %}
+        type="password" placeholder="{{placeholderText}}">
+    {% endif %}
+    {% if type == 'email' %}
+    <input class="{{classInput}}"
+        {% if id -%}
+        id="{{id}}"
+        {%- endif %}
+        {% if name -%}
+        name="{{name}}"
+        {%- endif %}
+        {% if value -%}
+        value="{{value}}"
+        {%- endif %}
+        type="email" placeholder="{{placeholderText}}">
+    {% endif %}
+</div>
+{%- endmacro %}

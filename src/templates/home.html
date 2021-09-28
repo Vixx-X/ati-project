@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% from "components/utils/user-icon.html" import user_icon with context %}
+{% from "all_components/header-publication.html" import header_publication %}
+{% from "components/utils/buttons.html" import buttons %}
+{% from "all_components/list-friends.html" import list_friends %}
+{% from "components/utils/header.html" import header %}
+{% from "all_components/media.html" import media %}
+{% from "components/posts/post.html" import post as _post %}
+{% from "all_components/element-friend-list.html" import element_friend_list %}
+
+{% block title %} DEGVA {% endblock title %}
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/muro.css') }}" >{% endblock %}
+{% block onloadscripts %}
+<script src="{{url_for('static', filename='js/all_components/test.js')}}"> </script>
+{% endblock onloadscripts %}
+
+{% block body %}
+{{ header(classname="bg-header", user=user) }}
+<div class="header-main container">
+    <div class="section-left">
+        {{ user_icon(
+            user=user,
+            type="shadow",
+        ) }}
+        {{buttons(
+            mensaje=_("What do you think?..."),
+            type="create",
+            link=url_for('posts.post-create'),
+            font = "fw-normal",
+            letters="")
+        }}
+    </div>
+    {{buttons(
+        mensaje=_("Messages"),
+        type="primary with-icon",
+        link=url_for('user.chat'),
+        icon=url_for("static", filename="img/icons/chat.svg"),
+        alticon="Messages Icon",
+        font = "fw-normal",
+        letters="")
+    }}
+</div>
+<div class="container main-container margin-section full-mobile">
+    <aside>
+
+        <!-- SE ACCEDE ASI PERO DEBEN EXISTIR AMIGOS -->
+        {% for friend in friends-%}
+          {{ friend.full_name }}
+        {%- endfor %}
+
+        <!-- ESTE ES EL VIEJO -->
+        {{list_friends(
+        img=url_for('static', filename='img/users/26838989.png'),
+        name="Vittorio Adesso",
+        alt="User1 Photo",
+        url=url_for('user.profile', username='vittorio_adesso'),
+        type="connect",
+        comunFriends="32",
+        png=url_for('static', filename='img/users/26838989.png'),
+        webp=url_for('static', filename='img/users/26838989.webp'),
+        globalbutton="True"
+        )}}
+    </aside>
+    <main>
+        {% for post in posts-%}
+          {{_post(post)}}
+        {%- endfor %}
+    </main>
+</div>
+
+{% endblock body %}

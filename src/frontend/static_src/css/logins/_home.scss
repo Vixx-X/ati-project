@@ -1,0 +1,39 @@
+@import "./loginsBases";
+@import "../bases/variables";
+@import "../bases/mixins";
+
+.content-distribution{
+    min-height: 50vh;
+    display: grid;
+    place-items: center;
+}
+
+#linkaccount{
+    display: none;
+    @include tablet{
+        width: 65%;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+.container-button{
+    font-size: 7px;
+    width: 90%;
+    @include cell{
+        display: flex;
+        justify-content: space-between;
+        column-gap: 2rem;
+        font-size: 8px;
+        width: 65%;
+    }
+    .button{
+        width: 100%;
+        display: block;
+        padding: 1em 0em;
+        margin-bottom: 3rem;
+        @include tablet{
+            width: 15em;
+        }
+    }
+}

@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% from "all_components/input-label.html" import inputLabel %}
+{% from "all_components/input.html" import input %}
+{% from "all_components/buttons.html" import buttons %}
+{% from "all_components/footer.html" import footer %}
+
+
+{% block title %} LogIn {% endblock title %}
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}" >{% endblock %}
+
+{% block body %}
+<div class="container-center">
+    <div class="background-dark-transparent">
+        <div class="container content-distribution">
+            <div class="container-left">
+                <a href="{{url_for('app.landing')}}">
+                    <div class="main-logotype">
+                        <img
+                        src="{{ url_for('static', filename='img/logo.svg') }}"
+                        alt="DEGVA logotype" />
+                        <h1>DEGVA</h1>
+                    </div>
+                </a>
+                <p class="text-logo">Stay 127.0.0.1 use 255.255.255.0</p>
+            </div>
+            <form method="POST" id="logIn" class="form-login">
+                {{ form.csrf_token }}
+
+                <div class="heading black">
+                    <h3 class="fw-normal">
+                        LogIn
+                    </h3>
+                    <hr>
+                </div>
+
+                {{ input(
+                     input=form.username(
+                         class="white w-100",
+                         placeholder="Your username",
+                     ),
+                     label=form.username.label(class="d-flex fw-bold black"+(
+                        " required" if form.username.flags.required else ""
+                     )),
+                     errors=form.username.errors,
+                )}}
+                {{ input(
+                     input=form.password(
+                         class="white w-100",
+                         placeholder="Your password",
+                     ),
+                     label=form.password.label(class="d-flex fw-bold black"+(
+                        " required" if form.password.flags.required else ""
+                     )),
+                     errors=form.password.errors,
+                )}}
+                <a href="{{url_for('app.register')}}" id="linkaccount">
+                    <p class="text-uppercase fw-bold">Don't have account?</p>
+                </a>
+                <div class="container-button">
+                    {{buttons(
+                        mensaje="Sign In",
+                        type="primary",
+                        font="fw-bold",
+                        letters="text-uppercase",
+                    )}}
+                </div>
+                <div class="container-api">
+                    {{buttons(
+                        mensaje="Twitter",
+                        type="secundary",
+                        font="fw-bold",
+                        letters="text-uppercase")
+                    }}
+                    {{buttons(
+                        mensaje="Facebook",
+                        type="secundary",
+                        font="fw-bold",
+                        letters="text-uppercase")
+                    }}
+                </div>
+                <a href="{{url_for('app.forgotpassword')}}" id="linkpassword" class="margin-section">
+                    <p class="text-uppercase fw-bold">Forgot your Password?</p>
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{footer()}}
+
+{% endblock body %}

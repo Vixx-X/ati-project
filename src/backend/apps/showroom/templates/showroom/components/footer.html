@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Buttons') }}{% endblock title %}
+{% from "all_components/footer.html" import footer %} 
+
+{% block body %}
+<div class="margin-section"></div>
+{{ footer() }}
+
+<div class="margin-section"></div>
+{{ footer(classname="trasparent") }}
+{% endblock body %}

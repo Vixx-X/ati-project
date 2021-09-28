@@ -1,0 +1,13 @@
+{
+	"nombre": "Roger Morillo",
+	"descripcion": "Soy estudiante de la UCV en la facultad de ciencias, cursando la licenciatura en computación. Me gusta el baloncesto, programar y los videojuegos",
+	"color": "El Naranja",
+	"libro": ["El Silmarillion"],
+	"musica": ["No tengo una en particular"],
+	"video_juego": ["Deus ex y Half Life 2"],
+	"lenguajes": ["C", "C++", "Java", "Python", "R"],
+	"email": "rogers.ucv@gmail.com",
+	"ci": 20978444,
+	"genero": "Masculino",
+	"fecha_nacimiento": "09/01/1992"
+}

@@ -1,0 +1,13 @@
+{
+	"nombre": "Luis Ramos",
+	"descripcion": "Soy estudiante de la licenciatura de Computacion en la UCV. Actualmente cursando el 8vo Semestre, me desempeño en el area de desarrollo web bajo las plataformas de Spring Boot (Java - BackEnd), Angular 6 y Bootstrap (FrontEnd), ademas  de haber sido preparador de la materia Matematicas Discretas 1 durante 4 semestres consecutivos.",
+	"color": "Verde",
+	"libro": ["Persecusion, Sindey Sheldon (1993)"],
+	"musica": ["Rock"],
+	"video_juego": ["Saga de Crash Bandicoot"],
+	"lenguajes": ["C++", "C", "Java", "Python", "JavaScript", "Visual Basic", "TypeScript"],
+	"email": "flamos284@gmail.com",
+	"ci": "22565510",
+	"genero": "masculino" ,
+	"fecha_nacimiento": "13/01/1995"
+}

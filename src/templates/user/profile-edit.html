@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% from "components/utils/user-icon.html" import user_icon %}
+{% from "components/utils/buttons.html" import buttons %}
+{% from "components/utils/input.html" import input %}
+{% from "components/utils/header.html" import header %}
+{% from "components/user/mobile-navmenu.html" import mobile_navmenu %}
+
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" >
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile-edit.css') }}" >
+{% endblock %}
+
+{% block title %} {{_("Edit")}} {% endblock title %}
+
+{% block body -%}
+    <div class="main-container-header">
+        <form method="POST" id="editProfile" class="form-profile" enctype="multipart/form-data">
+            <div class="header-group ">
+                <div class="section-header" style='--bg-image: url({{user.banner_url}})'>
+                    <label id="changeheader" for="file-upload-baner" >
+                        <img src="{{ url_for('static', filename='img/icons/gallery.svg') }}" alt="Camara icon">
+                    </label>
+                    {{ header(classname="bg-header transparent", user=user) }}
+                    <div class="container profile-icon">
+                        {{ user_icon(
+                            user=user,
+                            type="change",
+                        ) }}
+                        <p class="container-name fw-bold">{{user.first_name}} {{user.last_name}}</p>
+                    </div>
+                </div>
+                <div class="desktop-content">
+                    <div class="container">
+                    <nav class=" navegation-desktop">
+                            {{buttons(
+                                mensaje=_("Save"),
+                                type="primary last",
+                                font="fw-bold",
+                                letters="")
+                            }}
+                    </nav>
+                    </div>
+                </div>
+
+                <div class="mobile-content">
+                    <div class="container margin-bottom">
+                        {{buttons(
+                            mensaje=_("Save"),
+                            type="primary last",
+                            font="fw-bold",
+                            letters="")
+                        }}
+                    </div>
+                </div>
+
+                <section class="container">
+                        {{mobile_navmenu(publication=True, user=user)}}
+
+                        {{ form.csrf_token }}
+                        <div class="text-area-container">
+                        {{ input(
+                            field_wrapper_class="w-100",
+                            field=form.description,
+                            field_class="white w-100 details",
+                            label_class="d-flex fw-bold black",
+                            label=False,
+                        )}}
+                        </div>
+
+                        <hr>
+
+                        <div class="container-fields margin-top">
+                            <div class="container-fields-main">
+                                {{ input(
+                                    field_wrapper_class="input-label w-100",
+                                    field=form.first_name,
+                                    field_class="white w-100",
+                                    placeholder=_("Your first name"),
+                                    label_class="fw-bold black",
+                                )}}
+
+                                {{ input(
+                                    field_wrapper_class="input-label w-100",
+                                    field=form.last_name,
+                                    field_class="white w-100",
+                                    placeholder=_("Your last name"),
+                                    label_class="fw-bold black",
+                                )}}
+
+                                {{ input(
+                                    field_wrapper_class="input-label w-100",
+                                    field=form.birth_date,
+                                    field_class="white w-100",
+                                    label_class="fw-bold black",
+                                )}}
+
+                                {{ input(
+                                    field_wrapper_class="drop-down-list",
+                                    field=form.gender,
+                                    field_class="white w-100 cont-item-drop-down-list",
+                                    label_class="fw-bold black",
+                                )}}
+                            </div>
+                            <div class="container-fields-favorites">
+                                {{ input(field=form.books, label=False)}}
+                                {{ input(field=form.colors, label=False)}}
+                                {{ input(field=form.games, label=False)}}
+                                {{ input(field=form.langs, label=False)}}
+                                {{ input(field=form.music, label=False)}}
+                            </div>
+                        </div>
+
+                        {{ input(
+                            field=form.profile_photo,
+                            label=False,
+                            field_class="d-none",
+                            id="file-upload-profile",
+                        )}}
+
+                        {{ input(
+                            field=form.banner_photo,
+                            label=False,
+                            field_class="d-none",
+                            id="file-upload-baner"
+                        )}}
+
+                </section>
+            </div>
+        </form>
+    </div>
+{%- endblock body %}

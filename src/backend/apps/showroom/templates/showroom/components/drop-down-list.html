@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% from "all_components/drop-down-list.html" import drop_down_list %}
+
+{% block title %}{{ _('Drop Down List') }}{% endblock title %}
+
+{% block body %}
+
+{{drop_down_list()}}
+
+{% endblock body %}

@@ -1,0 +1,13 @@
+{	
+	"nombre":"Pedro Alejandro Rodriguez Orellana",
+	"descripcion":"Soy estudiante universitario de la Universidad Central de Venezuela, actualmente curso 6to y 7mo semestre de Licenciatura de Computación. He participado en distintos cursos de inglés empresarial de la Universidad de Washington de manera online. También soy Auxiliar Docente de la Facultad de Ciencias, en el cual me encargo de desarrollar un sistema automatizado para los profesores de la misma.",
+	"color":"Vinotinto",
+	"libro":["The Hunger Games: Mockingjay"],
+	"musica":["Pop","Indie"],
+	"video_juego": ["The Elder Scrolls V: Skyrim"],
+	"lenguajes":["C++","C","Java","Ruby","Python"],
+	"email":"pedroaro123@gmail.com",
+	"ci":25880625,
+	"genero":"masculino",
+	"fecha_nacimiento":"02/02/1998"
+}

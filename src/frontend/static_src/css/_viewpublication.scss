@@ -1,0 +1,114 @@
+@import "bases/variables";
+@import "bases/mixins";
+
+
+.main-container-publication{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    @include desktop{
+        grid-template-columns: 2.5fr 1fr;
+    }
+}
+
+.publication{
+    .media-publication{
+        img, video, audio{
+            width: 100%;
+            max-height: 100%;
+        }
+    }
+}
+
+aside{
+    .header-list-comments{
+        padding: 2rem;
+        padding-bottom: 0;
+    }
+    position: relative;
+    @include desktop{
+        background: $white;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    .container-list-comments{
+        margin: 3rem auto 0 auto;
+        height: 60rem;
+        overflow-y: auto;
+        @include desktop{
+            font-size: 1.2rem;
+            margin: 0;
+            width: 100%;
+            padding: 2rem;
+        }
+    }
+    .footer-chat{
+        background-color: lighten($primary, 10%);
+        @include desktop{
+            // position: absolute;
+        }
+        // position: fixed;
+        width: 100%;
+        padding: 1rem;
+        .send-message{
+            display: flex;
+            justify-content: space-between;
+            border-style: inset;
+            border-color: $light;
+            background: $white;
+            border-radius: 2rem;
+            width: 100%;
+            padding: 1rem;
+            input[type=text]{
+                flex: 1;
+                border: none;
+                background: transparent;
+            }
+            input::placeholder{
+                font-style: italic;
+            }
+            button{
+                border: none;
+                background: transparent;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+
+
+.list-comments{
+    padding: 0 2rem;
+    .item{
+        display: flex;
+        margin: 2rem 0;
+        &.right{
+            justify-content: flex-end;
+        }
+        &.left{
+            justify-content: flex-start;
+        }
+    }
+
+    @include desktop{
+        padding: 0 1rem;
+    }
+
+    .chat{
+        flex-basis: 90%;
+        .cont-chat{
+            h2{
+                font-weight: 400;
+                font-size: 1.5rem;
+            }
+        }
+        @include cell{
+            flex-basis: 60%;
+        }
+        @include desktop{
+            flex-basis: 90%;
+        }
+    }
+}

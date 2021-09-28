@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% from "components/posts/post.html" import post as _post %}
+
+{% from "all_components/user-icon.html" import user_icon %}
+{% from "all_components/footer-mobile.html" import footer_mobile %}
+{% from "all_components/buttons.html" import buttons %}
+{% from "all_components/list-friends.html" import list_friends %}
+{% from "components/utils/header.html" import header %}
+{% from "all_components/footer.html" import footer %}
+{% from "all_components/chat.html" import chat %}
+
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/viewpublication.css') }}" >{% endblock %}
+
+{% block title %} _("Post") {% endblock title %}
+
+{% block body -%}
+
+{{ header(classname="bg-header", user=user) }}
+
+<div class="main-container-publication container w-140 margin-section full-mobile">
+    {{ _post(post) }}
+    <aside class="container-aside-comments">
+        <div class="header-list-comments">
+            <h2>Comments</h2>
+            <hr>
+        </div>
+        <div class="container-list-comments">
+            <div class="list-comments">
+                <div class="item left">
+                    {{chat(
+                        type="response",
+                        menssage="Comment One Comment One Comment One Comment One Comment One Comment One",
+                        date_time="Date Time",
+                        comment="1",
+                        png=url_for('static', filename='img/users/25641651.png'),
+                        webp=url_for('static', filename='img/users/25641651.webp'),
+                        alt="Edu",
+                        name="Eduardo"
+                    )}}
+                </div>
+                <div class="item right">
+                    {{chat(
+                        type="reply",
+                        menssage="@Reply to Comment One",
+                        date_time="Date Time",
+                        comment="1",
+                        png=url_for('static', filename='img/users/26956071.png'),
+                        webp=url_for('static', filename='img/users/26956071.webp'),
+                        alt="Gabi",
+                        name="Gabriela"
+                    )}}
+                </div>
+                <div class="item left">
+                    {{chat(
+                        type="response",
+                        menssage="Comment Three",
+                        date_time="Date Time",
+                        comment="1",
+                        png=url_for('static', filename='img/users/26838989.png'),
+                        webp=url_for('static', filename='img/users/26838989.webp'),
+                        alt="Creo que vitto",
+                        name="Vittorio"
+                    )}}
+                </div>
+                <div class="item right">
+                    {{chat(
+                        type="reply",
+                        menssage="@Reply Comment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment Four",
+                        date_time="Date Time",
+                        comment="1",
+                        png=url_for('static', filename='img/users/26272390.png'),
+                        webp=url_for('static', filename='img/users/26272390.webp'),
+                        alt="Creo que Daniel",
+                        name="Daniel"
+                    )}}
+                </div>
+                <div class="item left">
+                    {{chat(
+                        type="response",
+                        menssage="@Reply Comment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment FourComment Four",
+                        date_time="Date Time",
+                        comment="1",
+                        png=url_for('static', filename='img/users/26272390.png'),
+                        webp=url_for('static', filename='img/users/26272390.webp'),
+                        alt="Creo que Daniel",
+                        name="Daniel"
+                    )}}
+                </div>
+            </div>
+        </div>
+        <div class="footer-chat">
+            <div class="send-message">
+                <input id="input-commnets" type="text" placeholder="Send Comment">
+                <button>
+                <img src="{{ url_for('static', filename='img/icons/send_message.svg') }}" alt="">
+                </button>
+            </div>
+        </div>
+    </aside>
+</div>
+
+
+{{footer()}}
+{{footer_mobile(class="black")}}
+
+{%- endblock body %}

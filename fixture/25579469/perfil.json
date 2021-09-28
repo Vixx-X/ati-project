@@ -1,0 +1,13 @@
+{	
+	"nombre":"Kristian Ferreira",
+	"descripcion":"Estudiante de la Escuela de Computación de la Unversidad Central de Venezuela. Graduado de bachiller en el año 2014. Me gusta por la historia y la mitología. Tengo buen manejo del ingles y algo del portugues. Mi hobby es ver series y peliculas.",
+	"color":"Azul",
+	"libro":["1984"],
+	"musica":["Rock", "Electronica"],
+	"video_juego":["Soul Calibur"],
+	"lenguajes":["c++", "c", "java", "html", "etc."],
+	"email":"kristiandc3@gmail.com",
+	"ci":"25579469",
+	"genero":"Masculino",
+	"fecha_nacimiento":"13/05/1996"
+}

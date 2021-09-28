@@ -1,0 +1,34 @@
+{% macro buttons(id=None, class="button", mensaje="Button", type="primary", font="fw-bold", letters="text-uppercase", link=False,
+icon=None, textalign="text-center", alticon=None, data=None) %} 
+{% if link -%}
+<a href="{{ link }}"
+    {%if id -%}
+    id="{{id}}"
+    {%- endif %}
+    class="{{class}} {{type}} {{letters}}
+    {{font}} {{buttonfunction}} {{textalign}}"
+>
+    {% if icon -%}
+        <img class="icon" src="{{icon}}" alt="{{alticon}}" />
+    {%- endif %}
+    {{ mensaje|safe }}
+</a>
+{%- else %}
+    <button
+    {% if id -%}
+    id = "{{id}}"
+    {%- endif %}
+    class="{{class}} {{type}} {{letters}} {{font}} {{buttonfunction}} 
+    {{textalign}}"
+    {% if data -%}
+    data-{{data}}
+    {%- endif %}
+    >
+    {% if icon -%}
+        <img class="icon" src="{{icon}}" alt={{alticon}}>
+    {%- endif %}
+        {{ mensaje|safe }}
+    </button>
+
+{%- endif %}
+{% endmacro %}

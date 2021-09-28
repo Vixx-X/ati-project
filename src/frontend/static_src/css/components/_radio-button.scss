@@ -1,0 +1,19 @@
+.radio-button{
+    background-color: transparent;
+    border-radius: 1rem;
+    border: 1px dashed $primary;
+    padding: 0.5em;
+    .black {
+        color: #000;
+    }
+    
+    .gray {
+        color: #585858;
+    }
+    input {
+        margin: 0 0.5em;
+    }
+    input[type='radio']{
+        transform: scale(1.5);
+    }
+}

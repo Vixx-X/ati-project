@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% from "all_components/header-publication.html" import header_publication %}
+
+{% from "components/utils/header.html" import header %}
+{% from "components/utils/element-friend-list.html" import element_friend_list %}
+
+{% block title %} {{_("Search Results")}} {% endblock title %}
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/searchpage.css') }}" >{% endblock %}
+
+{% block body -%}
+{{ header(classname="bg-header", user=user) }}
+
+    <div class="container container-header-friends search-view">
+        <div class="heading black">
+            <h3 class="fw-normal">
+                {{result}} {{_("Search Results")}}: {{term}}
+            </h3>
+            <hr>
+        </div>
+        <div class="search-main-container">
+            <div class="container-search search search-bg">
+            <img class="icon" src="{{ url_for('static', filename='img/icons/search.svg') }}" alt="Notifications logotype"/>
+            <form action="">
+                <input type="text" placeholder="Search">
+            </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="container-friends margin-bottom">
+            {% for element in users  %}
+                {{element_friend_list(
+                    obj=element
+                )
+                }}
+            {% endfor %}
+        </div>
+    </div>
+  </section>
+
+{% endblock body %}

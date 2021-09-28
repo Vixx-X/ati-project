@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% from "components/utils/user-icon.html" import user_icon %}
+{% from "components/utils/buttons.html" import buttons %}
+{% from "components/utils/input.html" import input %}
+{% from "components/utils/header.html" import header %}
+
+{% block extrastyles %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/css/splide.min.css"><link rel="stylesheet" href="{{ url_for('static', filename='css/publicationpage.css') }}">
+{% endblock %}
+
+{% block title %}{{ _("Create") if create else _("Edit") }} {{_(' Post') }}{% endblock title %}
+{% block body %}
+
+{{ header(classname="bg-header", user=user) }}
+<form method="POST" id="publication-form" enctype="multipart/form-data">
+    <div class="container-styles container margin-section">
+        <div class="cont-create-publication">
+            {{ user_icon(
+                user=user,
+                type="basic",
+            ) }}
+            <div class="heading black">
+                <h3 class="fw-normal">
+                    {{ _('Modify Publication') }}
+                </h3>
+            </div>
+            <hr class="linea">
+            {{ form.csrf_token }}
+            <div class="public-button">
+                {{buttons(
+                    mensaje=_("Create") if create else _("Edit"),
+                    type="primary",
+                    font="fw-bold",
+                    letters="text-uppercase"
+                )}}
+            </div>
+            <div class="cont-create-publication-body-boolean-button">
+                {{ input(
+                    field_wrapper_class="boolean-button d-flex jc-space_between",
+                    field=form.public,
+                    label_class="d-flex fw-bold black",
+            )}}
+            </div>
+            <div class="input-label-title">
+                {{ input(
+                    field=form.title,
+                    placeholder=_("Write Title"),
+                    field_class="white w-100",
+                    label_class="d-flex fw-bold black",
+                )}}
+            </div>
+            <div class="input-label-content">
+                {{ input(
+                    field=form.description,
+                    placeholder=_("Write Content"),
+                    field_class="white w-100",
+                    label_class="d-flex fw-bold black",
+                )}}
+            </div>
+            {{ input(
+                field=form.media,
+                label=False,
+                field_class="d-none",
+                id="file-upload-image-publication",
+            )}}
+
+        </div>
+
+        <div class="container-upload-data">
+            <div class="container-display" >
+                <div class="cont-create-publication-body-input-label">
+                    <img src="{{ url_for('static', filename='img/post/default-preview-img.png') }}" alt="Preview image">
+                </div>
+            </div>
+        </div>
+
+        <template id=image-preview-element>
+            <div class="container-upload-data">
+                <div class="container-display" >
+                    <div class="cont-create-publication-body-input-label">
+                        <img src="{{ url_for('static', filename='img/post/default-preview-img.png') }}" alt="Preview image">
+                    </div>
+                </div>
+            </div>
+        </template>
+        
+        <template id=splide-element>
+            <div class="container-splide-data container-display" >
+                <div class="cont-create-publication-body-input-label">
+                    <div class="splide">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <div class="container-display" >
+            <div class="container-buttons">
+                <label for="file-upload-image-publication" id='label-input' class="button secundary fw-bold text-uppercase">{{_("Add")}}</label>
+                <button disabled id="delete-files"  class="button dissable secundary fw-bold text-uppercase">{{_("Remove")}}</button>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+
+{% endblock body %}

@@ -5,7 +5,12 @@ body {
   }
 
 .user-icon{
-    width: 8rem;
+    width: 7em;
+
+    .profile{
+        object-fit: cover;
+    }
+    
     img{
         border-radius: 50%;
     }
@@ -20,12 +25,13 @@ body {
             bottom: 0;
             right: 0;
             position: absolute;
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 2.2em;
+            height: 2.2em;
             content: '';
             display: block;
             border-radius: 50%;
             border: 0.3rem solid $light;
+            
         }
     }
 

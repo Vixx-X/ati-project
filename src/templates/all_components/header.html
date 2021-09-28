@@ -1,0 +1,63 @@
+{% macro header(user, classname='') -%}
+<header class="header {{classname}}">
+  <div class="container container-header">
+    <a href="{{url_for('app.home')}}">
+      <div class="main-logotype">
+        <img
+          src="{{ url_for('static', filename='img/logo.svg') }}"
+          alt="DEGVA logotype" />
+        <h1>DEGVA</h1>
+      </div>
+    </a>
+    <div class="container-right">
+      <div class="form-search">
+        <label for="search"></label>
+        <input type="text" id="search" />
+        <button id="button-search" class="button-search" data="{{url_for('user.search')}}">
+          <img
+            class="icon logotype"
+            src="{{ url_for("static", filename="img/icons/search.svg") }}"
+            alt="Search logotype"
+          />
+        </button>
+      </div>
+
+      <nav class="navegation">
+        <a href="{{url_for('user.search')}}" class="search-header">
+          <img
+            class="icon"
+            src="{{ url_for("static", filename="img/icons/search.svg") }}"
+            alt="Search logotype"
+          />
+        </a>
+        <a href="{{url_for('user.notification')}}">
+          <img
+            class="icon notification-icon"
+            src="{{ url_for("static", filename="img/icons/notifications.svg") }}"
+            alt="Notifications logotype"
+          />
+          {%if user.have_notification > 0 -%} 
+            <div class='notification-circle'>
+              {{user.have_notification}}
+            </div>
+          {%- endif %}
+        </a>
+        <a href="{{url_for('user.config')}}">
+          <img
+            class="icon"
+            src="{{ url_for("static", filename="img/icons/settings.svg") }}"
+            alt="Configurations logotype"
+          />
+        </a>
+        <a href="{{url_for('user.logout')}}">
+          <img
+            class="icon"
+            src="{{ url_for("static", filename="img/icons/logout.svg") }}"
+            alt="Log out logotype"
+          />
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>
+{%- endmacro %}

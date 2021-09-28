@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="{% block viewport %}width=device-width, initial-scale=1.0{% endblock %}" />
+    <meta name="robots" content="NOARCHIVE,NOCACHE" />
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='img/logo.svg') }}"
+      type="image/x-icon"
+    />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <title>{% block title %}{% endblock title %}</title>
+
+    {% block extrahead %}{% endblock extrahead %}
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}" >
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}" >
+    {% block extrastyles %}{% endblock extrastyles %}
+
+    <script type="module" src="{{ url_for('static', filename='js/components.js') }}" ></script>
+    {% block extrascripts %}{% endblock extrascripts %}
+  </head>
+  <body class="{{ theme }}">
+    {% block body %}
+    {% endblock body %}
+    {% block footer %}
+    <footer class="footer bg-footer">
+      <div class="container container-footer text-center">
+        {{ _('Copyright &copy; ITA - Computer School') }}
+      </div>
+    </footer>
+    {% endblock footer %}
+    {% block onloadscripts %}{% endblock onloadscripts %}
+  </body>
+</html>

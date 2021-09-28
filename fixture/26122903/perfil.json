@@ -1,0 +1,13 @@
+{
+  "nombre": "Daniel Cavadia",
+  "descripcion": "Estudiante de la Escuela de Computacion de la UCV",
+  "color": "Negro",
+  "libro": ["Rebelion en la granja"],
+  "musica": ["Hip-Hop"],
+  "video_juego": ["Zelda"],
+  "lenguajes": ["Python", "Java", "C", "C++"],
+  "email": "daniel.cavadia@ucv.ve",
+  "ci": "26122903",
+  "genero": "Masculino",
+  "fecha_nacimiento": "18/07/1997"
+}

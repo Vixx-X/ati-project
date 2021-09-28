@@ -1,0 +1,13 @@
+{
+	"nombre": "Andrés Olivares",
+	"descripcion": "Estudiante de computación y gamer frustrado. Estudio en la Universidad Central de Venezuela y estudié bachillerato en el colegio Nuestra Señora de Fatima. Mientras estudio practico esgrima, toco guitarra y trabajo. Probabilidad y estadísticas es mi dolor de cabeza.",
+	"color": "Azul",
+	"libro": ["Los libros de sherlock holmes"],
+	"musica": ["Metal", "Jazz"],
+	"video_juego": ["Demasiados como para mencionarlos todos"],
+	"lenguajes": ["C", "C++", "Assembly", "Java", "HTML", "JQuery", "Haskell", "Prolog"],
+	"email": "andres.e.olivares@gmail.com",
+	"ci": 24998740,
+	"genero": "masculino",
+	"fecha_nacimiento": "16/10/1996"
+}

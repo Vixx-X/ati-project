@@ -1,0 +1,24 @@
+.input-label {
+    ::placeholder {
+        text-align: start;
+    }
+    input, textarea {
+        margin-top: 0.5em;
+        border: 0;
+        padding: 1em;
+        border-radius: 0.7em;
+    }
+    .black {
+        color: #333;
+    }
+    .white {
+        color: #808080;
+        background-color: #F2F2F2;
+    }
+    .primary {
+        background-color: #6BB0A9;
+        &::placeholder {
+            color: #FFF;
+        }
+    }
+}

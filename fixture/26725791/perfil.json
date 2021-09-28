@@ -1,0 +1,13 @@
+{	
+	"nombre": "Manuel Da Silva",
+	"descripcion":"Soy un estudiande de computacion de la facultad de ciencias, me interesa el desarrollo web, la administracion de dase de datos y el area de Front-end/diseño/UI. Trabajo con Angular, Firebase e Ionic. Una vez gané una competencia de programacion, nos ganamos un PowerBank, pero nunca funcionó.",
+	"color":"Anaranjado",
+	"libro":["El hobbit"],
+	"musica": ["Indie rock","soul","electronica"],
+	"video_juego": ["Battlefield","Call of duty","Apex","League of legends","Overwatch","Journey","Mario Kart","Smash bros"],
+	"lenguajes":["C++","C","Java","Javascript","PHP","SQL"],
+	"email":"manueldasilva98@gmail.com",
+	"ci":"26725791",
+	"genero":"masculino",
+	"fecha_nacimiento":"10/02/1998"
+}

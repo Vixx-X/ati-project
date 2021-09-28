@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% from "all_components/buttons.html" import buttons %}
+{% from "all_components/footer.html" import footer %}
+
+{% block title %} Home {% endblock title %}
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" >{% endblock %}
+
+{% block body %}
+    <div class="container-center">
+        <div class="background-dark-transparent">
+            <div class="container content-distribution">
+                <a href="{{url_for('app.home')}}">
+                    <div class="main-logotype">
+                        <img
+                        src="{{ url_for('static', filename='img/logo.svg') }}"
+                        alt="DEGVA logotype" />
+                        <h1>DEGVA</h1>
+                    </div>
+                </a>
+                <p class="text-logo">Stay 127.0.0.1 use 255.255.255.0</p>
+                <a href="{{url_for('app.register')}}" id="linkaccount">
+                    <p class="text-uppercase fw-bold">Don't have account?</p>
+                </a>
+                <div class="container-button">
+                    <a href="{{url_for('app.login')}}">
+                        {{buttons(
+                            mensaje="LogIn",
+                            type="primary",
+                            font="fw-bold",
+                            letters="text-uppercase")
+                        }}
+                    </a>
+                    <a href="{{url_for('app.register')}}">
+                        {{buttons(
+                            mensaje="Sign Up",
+                            type="primary",
+                            font="fw-bold",
+                            letters="text-uppercase")
+                        }}
+                    </a>
+                </div>
+
+                <a href="{{url_for('app.forgotpassword')}}" id="linkpassword">
+                    <p class="text-uppercase fw-bold">Forgot your Password?</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+{{footer()}}
+    
+{% endblock body %}

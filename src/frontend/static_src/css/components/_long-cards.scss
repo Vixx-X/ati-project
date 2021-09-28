@@ -1,0 +1,73 @@
+@import "../bases/variables";
+
+body {
+    background-color: #000;
+}
+
+.content-showroom-long-card{
+    width: 18em;
+}
+
+.long-card {
+    position: relative;
+    padding: 1em;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 1px solid $primary;
+    &.primary{
+        background-color: #f2f2f2;
+        h4 {
+            color: #333;
+        }
+        p {
+            color: #808080;
+        }
+    }
+    &.secundary{
+        color: #333;
+        background-color: lighten($primary, 20%);
+    }   
+    .label-card {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        display: block;
+    }
+
+    p, .input-content{
+        margin-bottom: 0.8em;
+    }
+
+    .input-content{
+        background: $light;
+        opacity: 0.8;
+        border: 1px inset $light;
+        width: 100%;
+        display: flex;
+        border-radius: 2rem;
+        input{
+            background: transparent;
+            color: darken($light, 30%);
+            font-style: italic;
+            border-radius: 2rem;
+            padding: 0.5rem;
+            flex: 1;
+            border: none;
+        }
+        button{
+            background: transparent;
+        }
+    }
+
+    .morecontent{
+        background: transparent;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        img{
+            width: 1.5em;
+            filter: invert(1);
+        }
+    }
+
+}

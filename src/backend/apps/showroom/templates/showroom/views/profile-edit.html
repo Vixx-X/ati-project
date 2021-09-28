@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% from "all_components/user-icon.html" import user_icon %}
+{% from "all_components/header-publication.html" import header_publication %}
+{% from "all_components/footer-mobile.html" import footer_mobile %}
+{% from "all_components/buttons.html" import buttons %}
+{% from "all_components/header.html" import header %}
+{% from "all_components/footer.html" import footer %}
+{% from "all_components/mobile-navmenu.html" import mobile_navmenu %}
+{% from "all_components/long-cards.html" import longCard %}
+{% from "all_components/element-friend-list.html" import element_friend_list %}
+{% from "all_components/card.html" import card %}
+
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" >
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile-edit.css') }}" >
+{% endblock %}
+{% block onloadscripts %}
+<script src="{{url_for('static', filename='js/all_components/mobile-navmenu.js')}}"> </script>
+{% endblock onloadscripts %}
+
+{% block title %} Edit {% endblock title %}
+
+{% block body -%}
+
+    <div class="main-container-header">
+        <div class="header-group ">
+            <div class="section-header">
+            <button id="changeheader">
+                <img src="{{ url_for('static', filename='img/icons/gallery.svg') }}" alt="Camara icon">
+            </button>
+            {{ header(classname="bg-header transparent", user=user) }}
+            <div class="container profile-icon">
+                {{ user_icon(
+                    img=url_for('static', filename='img/users/26956071.png'),
+                    alt="User2 Photo",
+                    type="change",
+                    url=url_for('user.profile', username='vittorio_adesso'),
+                    png=url_for('static', filename='img/users/26956071.png'),
+                    webp=url_for('static', filename='img/users/26956071.webp')
+                ) }}
+                <p class="container-name fw-bold">Gabriela Ustariz</p>   
+            </div>
+            </div>
+
+            <div class="desktop-content">
+                <div class="container">
+                <nav class=" navegation-desktop">
+                    {% if is_myuser %}
+                        {{buttons(
+                            mensaje="Save",
+                            type="primary last",
+                            font="fw-bold",
+                            letters="",
+                            function="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")
+                        }}
+                    {% endif %}
+                </nav>
+                </div>
+            </div>
+
+            <div class="mobile-content">
+                <div class="container margin-bottom">
+                {% if is_myuser %}
+                    {{buttons(
+                        mensaje="Save",
+                        type="primary last",
+                        font="fw-bold",
+                        letters="",
+                        function="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")
+                    }}
+                {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        {{mobile_navmenu(details=True, 
+            functionPublication="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'", functionDetails="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")}}
+
+        <div class="text-area-container container">
+            <textarea id='note' maxlength="255" class="details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi ducimus tenetur aliquid reprehenderit tempore asperiores omnis debitis rem.</textarea>
+            <p id="number">
+                120/255
+            </p>
+        </div>
+
+    </div>
+
+    <hr class="container">
+
+    <div class="margin-top"></div>
+
+    <div class="container cards-edit margin-bottom">
+        {{longCard(
+            title='Video Games',
+            content=['Call of duty: Mobile', 'Beyond: Two Souls'],
+            type='secundary',
+            edit=True
+        )}}
+        {{ longCard(
+          title='Books',
+          content=['Inferno'],
+          type='secundary',
+          edit=True
+        )}}
+        {{ longCard(
+            title='Languages',
+            content=['Python3', 'Haskell'],
+            type='secundary',
+            edit=True
+        )}}
+        {{ longCard(
+            title='Music',
+            content=['Pop', 'Indie'],
+            type='secundary',
+            edit=True
+        )}}
+    </div>
+    
+
+
+{{footer()}}
+{{footer_mobile(class="black")}}
+
+{%- endblock body %}
