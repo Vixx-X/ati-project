@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% from "components/utils/user-icon.html" import user_icon %}
+{% from "components/utils/user-icon.html" import user_icon with context %}
 {% from "all_components/header-publication.html" import header_publication %}
 {% from "components/utils/buttons.html" import buttons %}
 {% from "all_components/list-friends.html" import list_friends %}
@@ -39,7 +39,7 @@
         letters="")
     }}
 </div>
-<div class="container main-container margin-section full-mobile">  
+<div class="container main-container margin-section full-mobile">
     <aside>
         {{list_friends(
         img=url_for('static', filename='img/users/26838989.png'),
