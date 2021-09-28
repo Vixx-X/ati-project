@@ -1,12 +1,10 @@
 {% extends "base.html" %}
 
-{% from "all_components/user-icon.html" import user_icon %}
+{% from "components/utils/user-icon.html" import user_icon %}
 {% from "all_components/header-publication.html" import header_publication %}
-{% from "all_components/footer-mobile.html" import footer_mobile %}
-{% from "all_components/buttons.html" import buttons %}
+{% from "components/utils/buttons.html" import buttons %}
 {% from "all_components/list-friends.html" import list_friends %}
 {% from "components/utils/header.html" import header %}
-{% from "all_components/footer.html" import footer %}
 {% from "all_components/media.html" import media %}
 
 {% block title %} DEGVA {% endblock title %}
@@ -20,25 +18,21 @@
 <div class="header-main container">
     <div class="section-left">
         {{ user_icon(
-            img=url_for('static', filename='img/users/26956071.png'),
-            alt="User2 Photo",
+            user=user,
             type="shadow",
-            url=url_for('user.profile', username='vittorio_adesso'),
-            png=url_for('static', filename='img/users/26956071.png'),
-            webp=url_for('static', filename='img/users/26956071.webp')
         ) }}
         {{buttons(
-            mensaje="What do you think?...",
+            mensaje=_("What do you think?..."),
             type="create",
-            function="parent.location='" + url_for('posts.post-create') + "'",
+            link=url_for('posts.post-create'),
             font = "fw-normal",
             letters="")
         }}
     </div>
     {{buttons(
-        mensaje="Messages",
+        mensaje=_("Messages"),
         type="primary with-icon",
-        function="parent.location='" + url_for('user.chat') + "'",
+        link=url_for('user.chat'),
         icon=url_for("static", filename="img/icons/chat.svg"),
         alticon="Messages Icon",
         font = "fw-normal",
@@ -82,29 +76,18 @@
             <div class="comments-user">
                 <div class="comments-group">
 
-                {{ user_icon(
-                    img=url_for('static', filename='img/users/25641651.png'),
-                    alt="User1 Photo",
-                    type="basic one",
-                    png=url_for('static', filename='img/users/25641651.png'),
-                    webp=url_for('static', filename='img/users/25641651.webp')
-                ) }}
-
-                {{ user_icon(
-                    img=url_for('static', filename='img/users/26838989.png'),
-                    alt="User2 Photo",
-                    type="basic two",
-                    png=url_for('static', filename='img/users/26838989.png'),
-                    webp=url_for('static', filename='img/users/26838989.webp')
-                ) }}
-
-                {{ user_icon(
-                    img=url_for('static', filename='img/users/26956071.png'),
-                    alt="User3 Photo",
-                    type="basic three",
-                    png=url_for('static', filename='img/users/26956071.png'),
-                    webp=url_for('static', filename='img/users/26956071.webp')
-                ) }}
+                    {{ user_icon(
+                        user=user,
+                        type="basic one",
+                    ) }}
+                    {{ user_icon(
+                        user=user,
+                        type="basic two",
+                    ) }}
+                    {{ user_icon(
+                        user=user,
+                        type="basic three",
+                    ) }}
 
                 </div>
                 <a href="{{url_for('posts.post-detail', id=1)}}">Ver comentarios</a>
@@ -129,31 +112,18 @@
             )}}
             <div class="comments-user">
                 <div class="comments-group">
-
-                {{ user_icon(
-                    img=url_for('static', filename='img/users/25641651.png'),
-                    alt="User1 Photo",
-                    type="basic one",
-                    png=url_for('static', filename='img/users/25641651.png'),
-                    webp=url_for('static', filename='img/users/25641651.webp')
-                ) }}
-
-                {{ user_icon(
-                    img=url_for('static', filename='img/users/26838989.png'),
-                    alt="User2 Photo",
-                    type="basic two",
-                    png=url_for('static', filename='img/users/26838989.png'),
-                    webp=url_for('static', filename='img/users/26838989.webp')
-                ) }}
-
-                {{ user_icon(
-                    img=url_for('static', filename='img/users/26956071.png'),
-                    alt="User3 Photo",
-                    type="basic three",
-                    png=url_for('static', filename='img/users/26956071.png'),
-                    webp=url_for('static', filename='img/users/26956071.webp')
-                ) }}
-
+                    {{ user_icon(
+                        user=user,
+                        type="basic one",
+                    ) }}
+                    {{ user_icon(
+                        user=user,
+                        type="basic two",
+                    ) }}
+                    {{ user_icon(
+                        user=user,
+                        type="basic three",
+                    ) }}
                 </div>
                 <a href="{{url_for('posts.post-detail', id=1)}}">Ver comentarios</a>
             </div>
@@ -179,27 +149,16 @@
                 <div class="comments-group">
 
                 {{ user_icon(
-                    img=url_for('static', filename='img/users/25641651.png'),
-                    alt="User1 Photo",
+                    user=user,
                     type="basic one",
-                    png=url_for('static', filename='img/users/25641651.png'),
-                    webp=url_for('static', filename='img/users/25641651.webp')
                 ) }}
-
                 {{ user_icon(
-                    img=url_for('static', filename='img/users/26838989.png'),
-                    alt="User2 Photo",
+                    user=user,
                     type="basic two",
-                    png=url_for('static', filename='img/users/26838989.png'),
-                    webp=url_for('static', filename='img/users/26838989.webp')
                 ) }}
-
                 {{ user_icon(
-                    img=url_for('static', filename='img/users/26956071.png'),
-                    alt="User3 Photo",
+                    user=user,
                     type="basic three",
-                    png=url_for('static', filename='img/users/26956071.png'),
-                    webp=url_for('static', filename='img/users/26956071.webp')
                 ) }}
 
                 </div>
@@ -227,27 +186,16 @@
                 <div class="comments-group">
 
                 {{ user_icon(
-                    img=url_for('static', filename='img/users/25641651.png'),
-                    alt="User1 Photo",
+                    user=user,
                     type="basic one",
-                    png=url_for('static', filename='img/users/25641651.png'),
-                    webp=url_for('static', filename='img/users/25641651.webp')
                 ) }}
-
                 {{ user_icon(
-                    img=url_for('static', filename='img/users/26838989.png'),
-                    alt="User2 Photo",
+                    user=user,
                     type="basic two",
-                    png=url_for('static', filename='img/users/26838989.png'),
-                    webp=url_for('static', filename='img/users/26838989.webp')
                 ) }}
-
                 {{ user_icon(
-                    img=url_for('static', filename='img/users/26956071.png'),
-                    alt="User3 Photo",
+                    user=user,
                     type="basic three",
-                    png=url_for('static', filename='img/users/26956071.png'),
-                    webp=url_for('static', filename='img/users/26956071.webp')
                 ) }}
 
                 </div>
@@ -273,27 +221,16 @@
                 <div class="comments-group">
 
                 {{ user_icon(
-                    img=url_for('static', filename='img/users/25641651.png'),
-                    alt="User1 Photo",
+                    user=user,
                     type="basic one",
-                    png=url_for('static', filename='img/users/25641651.png'),
-                    webp=url_for('static', filename='img/users/25641651.webp')
                 ) }}
-
                 {{ user_icon(
-                    img=url_for('static', filename='img/users/26838989.png'),
-                    alt="User2 Photo",
+                    user=user,
                     type="basic two",
-                    png=url_for('static', filename='img/users/26838989.png'),
-                    webp=url_for('static', filename='img/users/26838989.webp')
                 ) }}
-
                 {{ user_icon(
-                    img=url_for('static', filename='img/users/26956071.png'),
-                    alt="User3 Photo",
+                    user=user,
                     type="basic three",
-                    png=url_for('static', filename='img/users/26956071.png'),
-                    webp=url_for('static', filename='img/users/26956071.webp')
                 ) }}
 
                 </div>
@@ -304,9 +241,4 @@
     </main>
 </div>
 
-{{footer()}}
-{{footer_mobile(class="black")}}
-
-<script>
-</script>
 {% endblock body %}

@@ -1,7 +1,7 @@
 {
   "scripts": {
     "w-concurrently": "concurrently -c white",
-    "dev-flask": "FLASK_APP=../src/wsgi.py flask run --reload -h 0.0.0.0 -p 5000",
+    "dev-flask": "FLASK_APP=src/wsgi.py flask run --reload -h 0.0.0.0 -p 5000",
     "dev-img": "gulp images",
     "dev-js": "rollup -c -w",
     "dev-css": "gulp css",
