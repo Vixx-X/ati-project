@@ -46,6 +46,8 @@ USER_EDIT_USER_PROFILE_TEMPLATE = "user/profile-edit.html"
 USER_EDIT_USER_PROFILE_URL = "/user/profile/edit"  #:
 USER_FORGOT_PASSWORD_TEMPLATE = "user/auth/forgot-password.html"
 USER_REGISTER_TEMPLATE = "user/auth/register.html"
+USER_RESEND_CONFIRM_EMAIL_TEMPLATE = "user/auth/forgot-password.html"
+USER_RESET_PASSWORD_TEMPLATE = "user/auth/reset-password.html"
 
 USER_AFTER_LOGIN_ENDPOINT = "app.home"
 USER_AFTER_LOGOUT_ENDPOINT = "app.landing"

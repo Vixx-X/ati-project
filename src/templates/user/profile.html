@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
-{% from "all_components/user-icon.html" import user_icon %}
+{% from "components/utils/user-icon.html" import user_icon %}
 {% from "all_components/header-publication.html" import header_publication %}
-{% from "all_components/buttons.html" import buttons %}
+{% from "components/utils/buttons.html" import buttons %}
 {% from "components/utils/header.html" import header %}
 {% from "all_components/mobile-navmenu.html" import mobile_navmenu %}
 {% from "all_components/long-cards.html" import longCard %}
@@ -22,14 +22,10 @@
       {{ header(classname="bg-header transparent", user=user) }}
       <div class="profile-icon">
         {{ user_icon(
-            img=url_for('static', filename='img/users/26956071.png'),
-            alt="User2 Photo",
-            type="shadow",
-            url=url_for('user.profile', username='vittorio_adesso'),
-            png=url_for('static', filename='img/users/26956071.png'),
-            webp=url_for('static', filename='img/users/26956071.webp')
-        ) }}   
-      <p class="fw-bold">Gabriela Ustariz</p>   
+          user=user,
+          type="profile",
+        ) }}
+      <p class="fw-bold">{{user.first_name}} {{user.last_name}} </p>   
       </div>
     </div>
 
@@ -41,28 +37,28 @@
               type="primary",
               font="fw-bold",
               letters="",
-              function="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")
+              link=url_for('user.profile', username='vittorio_adesso'))
           }}
           {{buttons(
               mensaje="Friends",
               type="primary",
               font="fw-bold",
               letters="",
-              function="parent.location='" + url_for('user.friend', username='vittorio_adesso') + "'")
+              link=url_for('user.profile', username='vittorio_adesso'))
           }}
             {{buttons(
                 mensaje="Edit profile",
                 type="primary tercero",
                 font="fw-bold",
                 letters="",
-                function="parent.location='" + url_for("user.edit", pk=1) + "'")
+                link=url_for('user.profile', username='vittorio_adesso'))
             }}  
             {{buttons(
                 mensaje="Publications",
                 type="primary last",
                 font="fw-bold",
                 letters="",
-                function="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")
+                link=url_for('user.profile', username='vittorio_adesso'))
             }}
           {% else %}
             {{buttons(
@@ -70,14 +66,14 @@
               type="primary",
               font="fw-bold",
               letters="",
-              function="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")
+              link=url_for('user.profile', username='vittorio_adesso'))
             }}
             {{buttons(
               mensaje="Friends",
               type="primary",
               font="fw-bold",
               letters="",
-              function="parent.location='" + url_for('user.friend', username='vittorio_adesso') + "'")
+              link=url_for('user.profile', username='vittorio_adesso'))
             }}
             {{buttons(
                 mensaje="Be friends",
@@ -90,7 +86,7 @@
                 type="primary last",
                 font="fw-bold",
                 letters="",
-                function="parent.location='" + url_for('user.chat') + "'")
+                link=url_for('user.chat'))
             }}
           {% endif %}
       </nav>
@@ -151,32 +147,22 @@
         )}}
         <div class="comments-user">
             <div class="comments-group">
+              {{ user_icon(
+                user=user,
+                type="basic",
+              ) }}
 
-            {{ user_icon(
-                img=url_for('static', filename='img/users/25641651.png'),
-                alt="User1 Photo",
-                type="basic one",
-                png=url_for('static', filename='img/users/25641651.png'),
-                webp=url_for('static', filename='img/users/25641651.webp')
-            ) }}
+              {{ user_icon(
+                user=user,
+                type="basic",
+              ) }}
 
-            {{ user_icon(
-                img=url_for('static', filename='img/users/26838989.png'),
-                alt="User2 Photo",
-                type="basic two",
-                png=url_for('static', filename='img/users/26838989.png'),
-                webp=url_for('static', filename='img/users/26838989.webp')
-            ) }}
-
-            {{ user_icon(
-                img=url_for('static', filename='img/users/26956071.png'),
-                alt="User3 Photo",
-                type="basic three",
-                png=url_for('static', filename='img/users/26956071.png'),
-                webp=url_for('static', filename='img/users/26956071.webp')
-            ) }}
-
+              {{ user_icon(
+                user=user,
+                type="basic",
+              ) }}
             </div>
+
             <a href="{{url_for('posts.post-detail', id=1)}}">Ver comentarios</a>
         </div>
       </div>
