@@ -33,20 +33,12 @@
             <div class="desktop-content">
                 <div class="container">
                   <nav class="navegation-desktop">
-                    {% if is_myuser -%}
-                      {{buttons(
-                          mensaje=_("Edit profile"),
-                          type="primary tercero",
-                          letters="",
-                          link=url_for('user.edit_user_profile'))
-                      }} 
-                    {%- else -%}
-                      {{buttons(
-                          mensaje=_("Delete") if is_friend else _("Be friend"),
-                          type="primary tercero",
-                          letters="",
-                          data='url=' + url_for('api.friend-list', username=target_user.username))
-                      }}
+                    {{buttons(
+                        mensaje=_("Publications"),
+                        type="primary tercero",
+                        letters="",
+                        link=url_for('user.page', username=target_user.username))
+                    }} 
                     {%- endif %}
                       {{buttons(
                           mensaje=_("Messages") if is_myuser else _("Chat"),

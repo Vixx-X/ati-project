@@ -10,12 +10,14 @@
         <p class="element_friend_list_user">{{obj.full_name}}</p>
         <p class="element_friend_list_commun_friends">{{obj.common_friends}}</p>
     </div>
+    {% if obj.action %}
     <div class="cont-element-friend-button">
         {{buttons(
             mensaje=_("Delete") if obj.action.friends else _("Be Friends")
             )
         }}
-        </div>
+    </div>
+    {% endif %}
 </div>
 
 

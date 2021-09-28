@@ -1,5 +1,5 @@
 import mongoengine as db
-from flask import redirect, render_template, request
+from flask import redirect, render_template, request, abort
 from flask.views import View
 from flask_user import current_user
 
@@ -78,6 +78,8 @@ class DetailView(TemplateView):
             raise db.MultipleObjectsReturned(
                 f"The lookup (self.model_pk) argument is not unique"
             )
+        except db.ValidationError:
+            abort(404)
 
     def dispatch_request(self, *args, **kwargs):
         self.request = request

@@ -43,14 +43,14 @@
   <div class="comments-user">
     <div class="comments-group">
       {{ user_icon(
-        user=comments[0].author,
+        user=comments[0].get_author,
         type="basic one",
       ) }}
 
       {% if comments|length > 1 -%}
 
       {{ user_icon(
-        user=comments[1].author,
+        user=comments[1].get_author,
         type="basic two",
       ) }}
 
@@ -58,12 +58,12 @@
 
       {% if comments|length > 2 -%}
       {{ user_icon(
-        user=comments[2].author,
+        user=comments[2].get_author,
         type="basic three",
       ) }}
 
       {%- endif %}
-      
+
     </div>
     <a href="{{url_for('posts.post', id=obj.pk)}}">{{_('Ver comentarios')}}</a>
   </div>
