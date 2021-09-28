@@ -1,0 +1,11 @@
+{% macro card(img, title='Title', content='', alt='') -%}
+<div class="card">
+    <h2>{{title}}</h2> <br>
+    <picture>
+        <img loading="lazy" src="{{ img }}" alt="{{ alt }}">
+    </picture>
+    {% for cont in content %}
+        <p class="mt-half">{{cont}}</p>
+    {% endfor %}
+</div>
+{%- endmacro %}

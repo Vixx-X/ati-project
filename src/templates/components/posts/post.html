@@ -6,15 +6,15 @@
     <div class="header-publication">
       <div class="d-flex title-wrap">
         {{ user_icon(obj.author) }}
-        <div>
+        <div class='w-100'>
           <h2>{{ obj.title }}</h2>
-          <div class="d-flex jc-space_between details">
+          <div class="d-flex jc-space_between details w-100">
             <p>{{ obj.author.full_name }}</p>
             <p>{{ obj.time }}</p>
           </div>
         </div>
       </div>
-
+      
       <!-- TODO: change # for url to modify publication (parameter) -->
       <a class="modify" href="{{url_for('posts.post-edit', id=obj.pk)}}">
         <img src="{{ url_for('static', filename='img/icons/menu_3_puntos_horizontal.svg') }}" alt="menu_3_puntos_horizontal">
@@ -22,7 +22,7 @@
     </div>
 
     <a href="{{url_for('posts.post-edit', id=obj.pk)}}">
-      <div class="media-publication margin-section">
+      <div class="media-publication">
         <p>{{ obj.description }}</p>
       </div>
     </a>
@@ -65,7 +65,7 @@
       {%- endif %}
       
     </div>
-    <a href="{{url_for('posts.post', id=obj.pk)}}">Ver comentarios</a>
+    <a href="{{url_for('posts.post', id=obj.pk)}}">{{_('Ver comentarios')}}</a>
   </div>
   {%- endif %}
 
