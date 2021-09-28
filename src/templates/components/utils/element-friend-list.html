@@ -1,0 +1,22 @@
+{% from "components/utils/user-icon.html" import user_icon %}
+{% from "components/utils/buttons.html" import buttons %}
+{% macro element_friend_list(obj) %}
+
+<div class="cont-element-friend-list {% if trasparent %} trasparent {% endif %}">
+    {{ user_icon(
+        user=obj,
+    )}}
+    <div class="cont-element-friend-list-description">
+        <p class="element_friend_list_user">{{obj.full_name}}</p>
+        <p class="element_friend_list_commun_friends">{{obj.common_friends}}</p>
+    </div>
+    <div class="cont-element-friend-button">
+        {{buttons(
+            mensaje=_("Delete") if obj.action.friends else _("Be Friends")
+            )
+        }}
+        </div>
+</div>
+
+
+{%endmacro%}

@@ -113,6 +113,7 @@ class SearchView(TemplateView):
         append_friend_data(users, self.user)
         ctx["users"] = users
         ctx["term"] = term
+        ctx["result"] = len(users)
         return ctx
 
 

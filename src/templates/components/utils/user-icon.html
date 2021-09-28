@@ -1,4 +1,4 @@
-{% macro user_icon(user, type) -%}
+{% macro user_icon(user, type="basic") -%}
 <div class="user-icon {{ type }}">
   <a href="{{ url_for('user.profile', username=user.username) }}">
     <picture>
