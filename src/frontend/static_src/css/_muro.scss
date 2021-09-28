@@ -26,6 +26,9 @@ aside{
 
 
 main{
+    display: grid;
+    grid-gap: 6rem;
+    margin-bottom: 5rem;
     @include desktop{
         grid-column: 2;
     }

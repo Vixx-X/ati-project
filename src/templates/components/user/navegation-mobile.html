@@ -1,11 +1,11 @@
-{% macro navegation(is_myuser, is_friend, user) -%}
+{% macro navegation(is_myuser, is_friend, target_user) -%}
 
 <div class="mobile-content">
   {% set button = 'add_friend.svg' if is_friend else 'delete_friend.svg' %}
   <div class="container margin-bottom">
     {% if is_myuser %}
     <nav class="navegation-mobile">
-      <a href="{{ url_for('user.friends', username=user.username) }}">
+      <a href="{{ url_for('user.friends', username=target_user.username) }}">
         <img
           src="{{ url_for('static', filename='img/icons/friends.svg') }}"
           alt="Friend List"
@@ -20,14 +20,14 @@
     </nav>
     {% else %}
     <nav class="navegation-mobile-other">
-      <button data-url="{{url_for('api.friend-list', username=user.username)}}">
+      <div data-url="{{url_for('api.friend-list', username=target_user.username)}}">
         <img
-          src="{{ url_for('static', filename='img/icons/ + button + ''') }}"
+          src="{{ url_for('static', filename='img/icons/{}'.format(button)) }}"
           alt="{{button}}"
         />
-      </button>
+      </div>
       <div class="container-right">
-        <a href="{{ url_for('user.friends', username=user.username) }}">
+        <a href="{{ url_for('user.friends', username=target_user.username) }}">
           <img
             src="{{ url_for('static', filename='img/icons/friends.svg') }}"
             alt="Friend List"
