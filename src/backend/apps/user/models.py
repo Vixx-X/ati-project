@@ -376,6 +376,9 @@ class Notification(db.Document):
 
     @property
     def title(self):
+        """
+        Return title
+        """
         text = self.map_title.get(self.type, _("Notification Title"))
         num = text.count("%s")
         if not num or num > 1:
@@ -393,7 +396,10 @@ class Notification(db.Document):
 
     @property
     def message(self):
-        text = self.map_title.get(self.type, _("Notification Title"))
+        """
+        Return message
+        """
+        text = self.map_message.get(self.type, _("Notification Body"))
         num = text.count("%s")
         if not num or num > 1:
             return text

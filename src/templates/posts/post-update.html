@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/css/splide.min.css"><link rel="stylesheet" href="{{ url_for('static', filename='css/publicationpage.css') }}">
 {% endblock %}
 
-{% block title %}{{ _('Modify Publication') }}{% endblock title %}
+{% block title %}{{ _("Create") if create else _("Edit") }} {{_(' Post') }}{% endblock title %}
 {% block body %}
 
 {{ header(classname="bg-header", user=user) }}
@@ -29,7 +29,7 @@
             {{ form.csrf_token }}
             <div class="public-button">
                 {{buttons(
-                    mensaje=_("Edit"),
+                    mensaje=_("Create") if create else _("Edit"),
                     type="primary",
                     font="fw-bold",
                     letters="text-uppercase"
@@ -41,17 +41,14 @@
                     field=form.public,
                     label_class="d-flex fw-bold black",
             )}}
-                <!-- TODO hacer que de aqui se obtenga el valer de public -->
             </div>
             <div class="input-label-title">
-                <!--TODO cambiar el value por el que trae en la bd en el caso de edit -->
                 {{ input(
                     field=form.title,
                     placeholder=_("Write Title"),
                     field_class="white w-100",
                     label_class="d-flex fw-bold black",
                 )}}
-
             </div>
             <div class="input-label-content">
                 {{ input(
@@ -110,5 +107,6 @@
 
     </div>
 </form>
+
 
 {% endblock body %}
