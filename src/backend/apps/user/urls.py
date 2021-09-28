@@ -9,6 +9,9 @@ bp.add_url_rule("/<string:username>", view_func=views.ProfileView.as_view("profi
 bp.add_url_rule(
     "/<string:username>/friends", view_func=views.FriendView.as_view("friend")
 )
+bp.add_url_rule(
+    "/friends", view_func=views.FriendView.as_view("friend_detail")
+)
 
 # current user
 bp.add_url_rule("/profile", view_func=views.ProfileView.as_view("profile_detail"))
