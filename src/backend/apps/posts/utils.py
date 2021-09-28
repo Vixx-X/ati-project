@@ -75,5 +75,6 @@ def get_main_posts(requester):
 
 
 def get_posts_by_user(user, requester):
-    return Post.objects.filter(Q(author=user) and (Q(public=True) or Q(author__friends__in=[user]))).order_by("-time_created")
+    filter_param = Q(author=user) and (Q(public=True) or Q(author__friends__in=[requester]) or Q(author=requester))   
+    return Post.objects.filter(filter_param).order_by("-time_created")
 

@@ -1,6 +1,6 @@
 {% macro user_icon(user, type="basic") -%}
 <div class="user-icon {{ type }}">
-  <a href="{{ url_for('user.profile_detail') if current_user == user else url_for('user.profile', username=user.username) }}">
+  <a href="{{ url_for('user.page', username=user.username) }}">
     <picture>
       <img class="profile" loading="lazy" src="{{ user.profile_photo_url }}" alt="{{ _("Profile photo of") }}{{ user.full_name }}">
     </picture>

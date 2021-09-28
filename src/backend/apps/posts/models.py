@@ -44,6 +44,10 @@ class Comment(db.EmbeddedDocument):
     def time(self):
         return get_time(self.time_created)
 
+    @property
+    def get_firts_comments(self):
+        return self.comments[:3]
+
     def as_dict(self):
         raw = self.to_mongo().to_dict()
         raw["id"] = str(raw.pop("_id"))

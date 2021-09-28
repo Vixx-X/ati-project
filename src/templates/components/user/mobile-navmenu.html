@@ -1,0 +1,18 @@
+{% macro mobile_navmenu( user, details=None, publication=None) -%}
+
+<div class="mobile-navmenu container-menu">
+    <ul class="options-tabs">
+        <li id="tab-publication" {% if publication -%} class="active-tab" {%- endif %} ">
+            <a id="buttonDetails" href="{{url_for('user.page', username=user.username)}}">
+                <img src="{{url_for('static', filename='img/icons/publications.svg')}}" alt="Publication tab">
+            </a>
+        </li>
+        <li id="tab-details" {% if details -%} class="active-tab" {%- endif %} >
+            <a id="buttonDetails" href="{{url_for('user.profile', username=user.username)}}">
+                <img src="{{url_for('static', filename='img/icons/details.svg')}}" alt='Details tab' >
+            </a>
+        </li>
+    </ul>
+</div>
+
+{%- endmacro %}
