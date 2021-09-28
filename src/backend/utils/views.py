@@ -73,7 +73,9 @@ class DetailView(TemplateView):
         if key is None:
             return None
         try:
-            return self.get_model(*args, **kwargs).objects.get_or_404(**{self.model_pk: key})
+            return self.get_model(*args, **kwargs).objects.get_or_404(
+                **{self.model_pk: key}
+            )
         except db.MultipleObjectsReturned:
             raise db.MultipleObjectsReturned(
                 f"The lookup (self.model_pk) argument is not unique"
@@ -188,6 +190,11 @@ class UpdateView(View, FormMixin, TemplateMixin):
     pk_or_slug_url = "id"
     model_pk = "pk"
     model = None
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx["object"] = self.object
+        return ctx
 
     def get_form_kwargs(self):
         """
