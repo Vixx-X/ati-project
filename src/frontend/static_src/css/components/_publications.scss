@@ -1,6 +1,13 @@
 @import "../bases/mixins";
 @import "../bases/variables";
 
+
+.publication-container {
+    display: grid;
+    row-gap: 6rem;
+    margin-bottom: 10rem;
+}
+
 .publication{
     background-color: rgb(255, 255, 255);
     border: 1px dashed $secundary;
@@ -15,6 +22,11 @@
         object-fit: contain;
     }
     
+    .media-publication {
+        p{
+            margin: 1rem 0;
+            }
+    }
     .comments-user{
         font-size: 0.7rem;
         @include desktop{

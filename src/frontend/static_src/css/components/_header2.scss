@@ -4,7 +4,6 @@
 .header-main{
     font-size: 10px;
     display: flex;
-    height: 16rem;
     align-items: center;
     justify-content: space-between;
     & * {
@@ -49,6 +48,7 @@
             font-style: italic;
             padding: 0 auto;
             padding: 1em 1.5em;
+            display: inline-block;
             @include tablet{
                 width: auto;
                 width: 100%;

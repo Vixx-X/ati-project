@@ -68,6 +68,7 @@ body.darkmode {
     }
 
     .button.create{
+        display: inline-block;
         background-color: $black;
         color: $light;
         border: 1px solid $light;
