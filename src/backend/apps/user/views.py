@@ -14,7 +14,7 @@ from backend.apps.posts.utils import get_posts_by_user
 
 def append_friend_data(friends, user):
     for friend in friends:
-        setattr(friend, "common_friends", get_common_friends_number(friend, user))
+        setattr(friend, "common_friends", get_common_friends_number(friend, user),)
         not_foes = are_friends(friend, user)
         url = "api.friend-list"
         action = {
