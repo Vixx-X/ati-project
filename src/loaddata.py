@@ -1,7 +1,6 @@
 import json
 import os
 from datetime import datetime
-
 from PIL import Image
 
 field_map = {
@@ -63,6 +62,7 @@ def import_user(file, dirname=None, dry_run=False):
     from backend import user_manager
     from backend.apps.media.utils import save_media
     from backend.apps.user.models import User, clean_username
+    from backend.apps.user.utils import create_user
 
     user_data = json.load(file)
     kwargs = {}
@@ -113,11 +113,7 @@ def import_user(file, dirname=None, dry_run=False):
     # ci is default password
     kwargs["password"] = str(kwargs.get("ci", "<SECRET>"))
 
-    user = User(**kwargs)
-    user.active = True
-    user.is_primary = True
-    user.password = user_manager.hash_password(user.password)
-    user.email_confirmed_at = datetime.utcnow()
+    user = create_user(**kwargs)
 
     return user
 

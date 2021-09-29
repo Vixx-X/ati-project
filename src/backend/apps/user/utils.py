@@ -3,8 +3,11 @@ Utilities for user module
 """
 
 from bisect import bisect_left
+from datetime import datetime
 
-from backend.apps.user.models import Notification
+from backend import user_manager
+
+from backend.apps.user.models import Notification, User
 from backend.apps.user.signals import friend_signal, unfriend_signal
 
 
@@ -93,3 +96,12 @@ def accept_friend_request(notification):
 
 def deny_friend_request(notification):
     respond_to_friend_request(notification, False)
+
+def create_user(**kwargs):
+    user = User(**kwargs)
+    user.active = True
+    user.is_primary = True
+    user.password = user_manager.hash_password(user.password)
+    user.email_confirmed_at = datetime.utcnow()
+    
+    return user
