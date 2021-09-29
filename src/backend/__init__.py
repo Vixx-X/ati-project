@@ -7,6 +7,7 @@ from flask_mongoengine import MongoEngine
 from flask_wtf.csrf import CSRFProtect
 from social_flask_mongoengine.models import init_social
 from werkzeug.middleware.proxy_fix import ProxyFix
+from flask_thumbnails import Thumbnail
 
 from backend.blueprints import register_blueprint
 from backend.user_manager import UserManager
@@ -15,6 +16,7 @@ db = MongoEngine()
 babel = Babel()
 user_manager = UserManager()
 csrf = CSRFProtect()
+thumb = Thumbnail()
 
 
 def init_app(config_file="config"):
@@ -56,6 +58,7 @@ def init_app(config_file="config"):
     init_social(app, db)  # social auth
     babel.init_app(app)  # i18n
     csrf.init_app(app)  # csrf tokens
+    thumb.init_app(app)  # thumbs
 
     user_manager.init_app(app, db)
 
