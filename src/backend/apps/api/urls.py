@@ -3,7 +3,10 @@ Urls for media module/blueprint
 """
 
 from . import api
-from .views import comments, post, user
+from .views import comments, post, user, health
+
+# Health
+api.add_resource(health.Health, '/health')
 
 # user
 api.add_resource(user.FriendView, "/users/<string:username>/friends")

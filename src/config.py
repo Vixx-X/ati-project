@@ -28,9 +28,9 @@ MONGODB_SETTINGS = {
 MAIL_SERVER = os.getenv("MAIL_SERVER")
 MAIL_PORT = int(os.getenv("MAIL_PORT", "587"))
 MAIL_USE_TLS = True
-MAIL_DEFAULT_SENDER = os.getenv("MAIL_USERNAME")
+MAIL_DEFAULT_SENDER = os.getenv("MAIL_USERNAME", "TEST@correo.com")
 MAIL_USERNAME = MAIL_DEFAULT_SENDER
-MAIL_PASSWORD = os.getenv("MAIL_PASSWORD")
+MAIL_PASSWORD = os.getenv("MAIL_PASSWORD", "TESTPASSWORD")
 
 # Flask User settings
 # https://github.com/lingthio/Flask-User/blob/master/flask_user/user_manager__settings.py

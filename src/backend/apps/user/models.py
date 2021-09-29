@@ -229,7 +229,11 @@ class User(db.Document, UserMixin):
             raw["birth_date"] = raw["birth_date"].isoformat()
 
         if "friends" in raw:
-            raw["friends"] = list(map(lambda x: x.as_dict(), self.friends))
+            raw["friends"] = list(map(lambda x: {
+                "username": x.username,
+                "photo": x.get_profile_photo_url,
+                "id": x.id,
+            }, self.friends))
 
         return raw
 
