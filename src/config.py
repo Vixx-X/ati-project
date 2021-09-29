@@ -46,12 +46,14 @@ USER_EDIT_USER_PROFILE_TEMPLATE = "user/profile-edit.html"
 USER_EDIT_USER_PROFILE_URL = "/user/profile/edit"  #:
 USER_FORGOT_PASSWORD_TEMPLATE = "user/auth/forgot-password.html"
 USER_REGISTER_TEMPLATE = "user/auth/register.html"
+USER_RESEND_CONFIRM_EMAIL_TEMPLATE = "user/auth/forgot-password.html"
+USER_RESET_PASSWORD_TEMPLATE = "user/auth/reset-password.html"
 
 USER_AFTER_LOGIN_ENDPOINT = "app.home"
 USER_AFTER_LOGOUT_ENDPOINT = "app.landing"
 USER_AFTER_REGISTER_ENDPOINT = "user.check_email"
 USER_AFTER_FORGOT_PASSWORD_ENDPOINT = "user.check_email"
-USER_AFTER_EDIT_USER_PROFILE_ENDPOINT = "user.edit_user_profile"
+USER_AFTER_EDIT_USER_PROFILE_ENDPOINT = "user.mypage"
 
 
 # Application threads. A common general assumption is

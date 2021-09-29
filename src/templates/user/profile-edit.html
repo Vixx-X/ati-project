@@ -4,7 +4,7 @@
 {% from "components/utils/buttons.html" import buttons %}
 {% from "components/utils/input.html" import input %}
 {% from "components/utils/header.html" import header %}
-{% from "all_components/mobile-navmenu.html" import mobile_navmenu %}
+{% from "components/user/mobile-navmenu.html" import mobile_navmenu %}
 
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" >
 <link rel="stylesheet" href="{{ url_for('static', filename='css/profile-edit.css') }}" >
@@ -54,8 +54,7 @@
                 </div>
 
                 <section class="container">
-                        {{mobile_navmenu(details=True, 
-                        functionPublication="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'", functionDetails="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")}}
+                        {{mobile_navmenu(publication=True, user=user)}}
 
                         {{ form.csrf_token }}
                         <div class="text-area-container">

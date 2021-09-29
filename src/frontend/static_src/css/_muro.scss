@@ -22,15 +22,13 @@ aside{
     .button{
         display: block;
     }
-    .cont-listaAmigos{
-        position: sticky;
-        position: -webkit-sticky;
-        top: 20vh; /* required */
-    }
 }
 
 
 main{
+    display: grid;
+    grid-gap: 6rem;
+    margin-bottom: 5rem;
     @include desktop{
         grid-column: 2;
     }

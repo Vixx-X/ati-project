@@ -5,9 +5,9 @@ Utilities for user module
 from bisect import bisect_left
 from datetime import datetime
 
-from backend import user_manager
+from mongoengine.queryset.visitor import Q
 
-from backend.apps.user.models import Notification, User
+from backend.apps.user.models import Notification
 from backend.apps.user.signals import friend_signal, unfriend_signal
 
 
@@ -97,11 +97,19 @@ def accept_friend_request(notification):
 def deny_friend_request(notification):
     respond_to_friend_request(notification, False)
 
-def create_user(**kwargs):
-    user = User(**kwargs)
-    user.active = True
-    user.is_primary = True
-    user.password = user_manager.hash_password(user.password)
-    user.email_confirmed_at = datetime.utcnow()
-    
-    return user
+
+def search_users(term):
+    from backend.apps.user.models import User
+    return User.objects.filter(Q(username__icontains=term) or Q(email__icontains=term))
+
+def get_common_friends(user1, user2):
+    # this is bad, but no time for aggregations
+    ret = []
+    for f in user1.friends:
+        if f in user2.friends:
+            ret.append(f)
+    return ret
+
+
+def get_common_friends_number(user1, user2):
+    return len(get_common_friends(user1, user2))

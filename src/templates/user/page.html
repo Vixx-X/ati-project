@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% from "components/utils/user-icon.html" import user_icon with context %}
+{% from "components/utils/buttons.html" import buttons %}
+{% from "components/utils/header.html" import header %}
+{% from "components/posts/post.html" import post as _post %}
+{% from "components/user/mobile-navmenu.html" import mobile_navmenu %}
+{% from "components/utils/long-cards.html" import longCard %}
+{% from "components/user/navegation-mobile.html" import navegation %}
+
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" >{% endblock %}
+
+{% block title %} {{_("Profile")}} {% endblock title %}
+
+{% block body -%}
+
+  <div class="header-group ">
+    <div class="section-header" style='--bg-image: url({{target_user.banner_url}})'>
+      {{ header(classname="bg-header transparent", user=user) }}
+      <div class="profile-icon">
+        {{ user_icon(
+          user=target_user,
+          type="profile",
+        ) }}
+      <p class="fw-bold">{{target_user.full_name}} </p>
+      </div>
+    </div>
+
+    <div class="desktop-content">
+      <nav class="container navegation-desktop">
+          {{buttons(
+              mensaje=_("See description"),
+              letters="",
+              link=url_for('user.profile', username=target_user.username))
+          }}
+          {{buttons(
+              mensaje=_("Friends"),
+              letters="",
+              link=url_for('user.friends', username=target_user.username))
+          }}
+          {% if is_myuser -%}
+            {{buttons(
+                mensaje=_("Edit profile"),
+                type="primary tercero",
+                letters="",
+                link=url_for('user.edit_user_profile'))
+            }} 
+          {%- else -%}
+            {{buttons(
+                mensaje=_("Delete") if is_friend else _("Be friend"),
+                type="primary tercero",
+                letters="",
+                data='url=' + url_for('api.friend-list', username=target_user.username))
+            }}
+          {%- endif %}
+            {{buttons(
+                mensaje=_("Messages") if is_myuser else _("Chat"),
+                type="primary last",
+                letters="",
+                link=url_for('user.chat'))
+            }}
+      </nav>
+    </div>
+
+    {{navegation(is_myuser=is_myuser, is_friend=is_friend, target_user=target_user)}}
+
+  </div>
+
+  {{mobile_navmenu(publication=True, user=target_user)}}
+
+    <div class="container full-mobile main-container">
+      <div class="publication-container">
+        {% for post in posts-%}
+          {{_post(post)}}
+        {%- endfor %}
+      </div>
+      <aside>
+        {{longCard(
+          title=_("Games"),
+          content=target_user.games,
+          type='secundary'
+        )}}
+        <div class="margin-section"></div>
+        {{longCard(
+          title=_("Books"),
+          content=target_user.books,
+          type='secundary'
+        )}}
+        <div class="margin-section"></div>
+        {{ longCard(
+          title=_("Languages"),
+          content=target_user.langs,
+          type='secundary'
+        ) }}
+          <a href="{{url_for('user.profile', username=target_user.username)}}" class="container-details">
+            <img src="{{ url_for('static', filename='img/icons/menu_3_puntos_horizontal.svg') }}" alt="Details">
+            <p>
+              {{_("View description of ")}} {{target_user.first_name}}
+            </p>
+          </a>
+      </aside>
+    </div>
+
+{%- endblock body %}

@@ -9,6 +9,7 @@ from backend import db
 from backend.apps.media.models import Media
 from backend.apps.user.models import User
 
+from flask_user import current_user
 
 def get_time(time):
     now = datetime.now()
@@ -41,8 +42,21 @@ class Comment(db.EmbeddedDocument):
     time_created = db.DateTimeField()
 
     @property
+    def get_author(self):
+        """
+        Get Author of post
+        """
+        if self.author:
+            return self.author
+        return User.get_deleted_user()
+
+    @property
     def time(self):
         return get_time(self.time_created)
+
+    @property
+    def get_firts_comments(self):
+        return self.comments[:3]
 
     def as_dict(self):
         raw = self.to_mongo().to_dict()
@@ -119,6 +133,7 @@ class Post(db.Document):
 
         return raw
 
+    @property
     def get_author(self):
         """
         Get Author of post
@@ -126,6 +141,10 @@ class Post(db.Document):
         if self.author:
             return self.author
         return User.get_deleted_user()
+
+    @property
+    def is_my_post(self):
+        return current_user == self.author
 
     def save(self, *args, **kwargs):
         """

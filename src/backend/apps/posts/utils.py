@@ -1,7 +1,7 @@
-from backend.apps.api import api
-from backend.apps.api.views import comments
+from mongoengine.queryset.visitor import Q
 from backend.apps.posts.models import Post
 from backend.apps.user.signals import check_comment_signal
+from backend.apps.user.utils import are_friends
 
 
 def _get_two_last_obj_with_path(path_list):
@@ -69,3 +69,15 @@ def get_comments(obj, page=1, size=10, path=None):
 def get_comments_by_path(path, page, size):
     comment = get_object_by_path(path)
     return get_comments(comment, page, size, path)
+
+
+def get_main_posts(requester):
+    return Post.objects.filter(Q(public=True) or Q(author__in=requester.friends)).order_by("-time_created")
+
+
+def get_posts_by_user(user, requester):
+    friends = are_friends(user, requester)
+    priv_filter = Q() if friends else (Q(public=True) | Q(author=requester))
+    filter_param = Q(author=user) & priv_filter
+    return Post.objects.filter(filter_param).order_by("-time_created")
+

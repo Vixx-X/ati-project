@@ -1,214 +1,94 @@
 {% extends "base.html" %}
 
-{% from "all_components/user-icon.html" import user_icon %}
-{% from "all_components/header-publication.html" import header_publication %}
-{% from "all_components/buttons.html" import buttons %}
-{% from "all_components/header.html" import header %}
-{% from "all_components/mobile-navmenu.html" import mobile_navmenu %}
-{% from "all_components/long-cards.html" import longCard %}
-{% from "all_components/media.html" import media %}
+{% from "components/utils/user-icon.html" import user_icon %}
+{% from "components/utils/card.html" import card %}
+{% from "components/utils/buttons.html" import buttons %}
+{% from "components/utils/header.html" import header %}
+{% from "components/posts/post.html" import post as _post %}
+{% from "components/user/mobile-navmenu.html" import mobile_navmenu %}
+{% from "components/utils/long-cards.html" import longCard %}
+{% from "components/user/navegation-mobile.html" import navegation %}
 
-{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" >{% endblock %}
-{% block onloadscripts %}
-<script src="{{url_for('static', filename='js/all_components/mobile-navmenu.js')}}"> </script>
-{% endblock onloadscripts %}
+{% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" >
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile3.css') }}" >
+{% endblock %}
 
-{% block title %} {{_("Profile")}} {% endblock title %}
+{% block title %} {{_("Description")}} {% endblock title %}
 
 {% block body -%}
 
-  <div class="header-group ">
-    <div class="section-header">
-      {{ header(classname="bg-header transparent", user=user) }}
-      <div class="profile-icon">
-        {{ user_icon(
-            img=url_for('static', filename='img/users/26956071.png'),
-            alt="User2 Photo",
-            type="shadow",
-            url=url_for('user.profile', username='vittorio_adesso'),
-            png=url_for('static', filename='img/users/26956071.png'),
-            webp=url_for('static', filename='img/users/26956071.webp')
-        ) }}   
-      <p class="fw-bold">Gabriela Ustariz</p>   
-      </div>
-    </div>
-
-    <div class="desktop-content">
-      <nav class="container navegation-desktop">
-          {% if is_myuser %}
-          {{buttons(
-              mensaje="See description",
-              type="primary",
-              font="fw-bold",
-              letters="",
-              function="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")
-          }}
-          {{buttons(
-              mensaje="Friends",
-              type="primary",
-              font="fw-bold",
-              letters="",
-              function="parent.location='" + url_for('user.friend', username='vittorio_adesso') + "'")
-          }}
-            {{buttons(
-                mensaje="Edit profile",
-                type="primary tercero",
-                font="fw-bold",
-                letters="",
-                function="parent.location='" + url_for("user.edit", pk=1) + "'")
-            }}  
-            {{buttons(
-                mensaje="Publications",
-                type="primary last",
-                font="fw-bold",
-                letters="",
-                function="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")
-            }}
-          {% else %}
-            {{buttons(
-              mensaje="See description",
-              type="primary",
-              font="fw-bold",
-              letters="",
-              function="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")
-            }}
-            {{buttons(
-              mensaje="Friends",
-              type="primary",
-              font="fw-bold",
-              letters="",
-              function="parent.location='" + url_for('user.friend', username='vittorio_adesso') + "'")
-            }}
-            {{buttons(
-                mensaje="Be friends",
-                type="primary tercero",
-                font="fw-bold",
-                letters="")
-            }}  
-            {{buttons(
-                mensaje="Chat",
-                type="primary last",
-                font="fw-bold",
-                letters="",
-                function="parent.location='" + url_for('user.chat') + "'")
-            }}
-          {% endif %}
-      </nav>
-    </div>
-
-    <div class="mobile-content">
-      <div class="container margin-bottom">
-        {% if is_myuser %}
-        <nav class="navegation-mobile">
-          <a href="{{url_for('user.friend', username='vittorio_adesso')}}">
-            <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
-          </a>
-          <a href="{{url_for('user.edit', pk=1)}}">
-            <img src="{{url_for('static', filename='img/icons/edit.svg')}}" alt="Edit Profile">
-          </a>
-        </nav>
-        {% else %}
-        <nav class="navegation-mobile-other">
-          <a href="{{url_for('user.friend', username='vittorio_adesso')}}">
-            <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
-          </a>
-          <div class="container-right">
-            <a href="#">
-              <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="Add Friends">
-            </a>
-            <a href="{{url_for('user.chat')}}">
-              <img src="{{url_for('static', filename='img/icons/chat.svg')}}" alt="Chat icon link">
-            </a>
-          </div>
-        </nav>
-        {% endif %}
-      </div>
-    </div>
-  </div>
-
-  {{mobile_navmenu(publication=True, 
-    functionPublication="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'", functionDetails="parent.location='" + url_for('user.profile', username='vittorio_adesso') + "'")}}
-
-    <div class="container full-mobile main-container">
-      <div class="publication">    
-        {{ header_publication(
-            img=url_for('static', filename='img/users/26272390.png'),
-            input="UCV, la casa que vence las sombras",
-            author="Daniel Vieira",
-            url=url_for('user.profile', username='vittorio_adesso'),
-            time="Today",
-            png=url_for('static', filename='img/users/26272390.png'),
-            webp=url_for('static', filename='img/users/26272390.webp')
-        )}}
-
-        {{ media(
-            type="img",
-            img=url_for("static", filename="img/media1.png"),
-            png=url_for("static", filename="img/media1.png"),
-            webp=url_for("static", filename="img/media1.webp"),
-            alt="Photo Publication",
-            url=url_for("posts.post-detail", id=1)
-        )}}
-        <div class="comments-user">
-            <div class="comments-group">
-
-            {{ user_icon(
-                img=url_for('static', filename='img/users/25641651.png'),
-                alt="User1 Photo",
-                type="basic one",
-                png=url_for('static', filename='img/users/25641651.png'),
-                webp=url_for('static', filename='img/users/25641651.webp')
-            ) }}
-
-            {{ user_icon(
-                img=url_for('static', filename='img/users/26838989.png'),
-                alt="User2 Photo",
-                type="basic two",
-                png=url_for('static', filename='img/users/26838989.png'),
-                webp=url_for('static', filename='img/users/26838989.webp')
-            ) }}
-
-            {{ user_icon(
-                img=url_for('static', filename='img/users/26956071.png'),
-                alt="User3 Photo",
-                type="basic three",
-                png=url_for('static', filename='img/users/26956071.png'),
-                webp=url_for('static', filename='img/users/26956071.webp')
-            ) }}
-
+    <div class="main-container-header">
+        <div class="header-group ">
+            <div class="section-header" style='--bg-image: url({{target_user.banner_url}})'>
+            {{ header(classname="bg-header transparent", user=user) }}
+            <div class="container profile-icon">
+                {{ user_icon(
+                    user=target_user,
+                    type="profile",
+                  ) }}
+            <p class="container-name fw-bold">{{target_user.full_name}} </p>   
             </div>
-            <a href="{{url_for('posts.post-detail', id=1)}}">Ver comentarios</a>
+            </div>
+
+            <div class="desktop-content">
+                <div class="container">
+                  <nav class="navegation-desktop">
+                    {{buttons(
+                        mensaje=_("Publications"),
+                        type="primary tercero",
+                        letters="",
+                        link=url_for('user.page', username=target_user.username))
+                    }} 
+                      {{buttons(
+                          mensaje=_("Messages") if is_myuser else _("Chat"),
+                          type="primary last",
+                          letters="",
+                          link=url_for('user.chat'))
+                      }}
+                  </nav>
+                </div>
+            </div>
+
+            {{navegation(is_myuser=is_myuser, is_friend=is_friend, target_user=target_user)}}
         </div>
-      </div>
-      <aside>
+        
+        {{mobile_navmenu(details=True, user=target_user)}}
+
+        <p class="container details">{{target_user.description}}</p>
+
+    </div>
+
+    <hr class="container">
+
+    <div class="margin-top"></div>
+
+    <div class="container cards-mobile">
+
         {{longCard(
-          title='Video Games',
-          content=['Call of duty: Mobile', 'Beyond: Two Souls'],
+          title=_("Games"),
+          content=target_user.games,
           type='secundary'
         )}}
-        <div class="margin-section"></div>
-          {{ longCard(
-            title='Books',
-            content=['Inferno'],
-            type='secundary'
-          ) }}
-        <div class="margin-section"></div>
-          {{ longCard(
-            title='Languages',
-            content=['Python3', 'Haskell'],
-            type='secundary'
-          ) }}
-          {% if is_myuser %}
-          <a href="{{url_for('user.profile', username='vittorio_adesso')}}" class="container-details">
-          {% else %}
-          <a href="{{url_for('user.profile', username='vittorio_adesso')}}" class="container-details">
-          {% endif %}
-            <img src="{{ url_for('static', filename='img/icons/menu_3_puntos_horizontal.svg') }}" alt="Details">
-            <p>
-              View Description of User
-            </p>
-          </a>
-      </aside>
+        {{longCard(
+          title=_("Books"),
+          content=target_user.books,
+          type='secundary'
+        )}}
+        {{ longCard(
+          title=_("Languages"),
+          content=target_user.langs,
+          type='secundary'
+        ) }}
+        {{ longCard(
+          title=_("Music"),
+          content=target_user.music,
+          type='secundary'
+        ) }}
+        {{ longCard(
+          title=_("Colors"),
+          content=target_user.colors,
+          type='secundary'
+        ) }}
     </div>
 
 {%- endblock body %}

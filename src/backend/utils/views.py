@@ -1,5 +1,5 @@
 import mongoengine as db
-from flask import redirect, render_template, request
+from flask import redirect, render_template, request, abort
 from flask.views import View
 from flask_user import current_user
 
@@ -39,6 +39,10 @@ class TemplateView(View, TemplateMixin):
     methods = ["GET"]
 
     def dispatch_request(self, *args, **kwargs):  # pylint: disable=R0201
+        self.request = request
+        self.args = request.args
+        self.method = request.method
+        self.user = current_user._get_current_object()  # current user
         return self.render_template(self.get_context_data())
 
 
@@ -69,13 +73,15 @@ class DetailView(TemplateView):
         if key is None:
             return None
         try:
-            return self.get_model(*args, **kwargs).objects.get(**{self.model_pk: key})
+            return self.get_model(*args, **kwargs).objects.get_or_404(
+                **{self.model_pk: key}
+            )
         except db.MultipleObjectsReturned:
             raise db.MultipleObjectsReturned(
                 f"The lookup (self.model_pk) argument is not unique"
             )
-        except db.DoesNotExist:
-            return None
+        except db.ValidationError:
+            abort(404)
 
     def dispatch_request(self, *args, **kwargs):
         self.request = request
@@ -184,6 +190,11 @@ class UpdateView(View, FormMixin, TemplateMixin):
     pk_or_slug_url = "id"
     model_pk = "pk"
     model = None
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx["object"] = self.object
+        return ctx
 
     def get_form_kwargs(self):
         """

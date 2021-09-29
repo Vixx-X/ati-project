@@ -6,13 +6,13 @@
 {% from "all_components/footer-mobile.html" import footer_mobile %}
 {% from "all_components/buttons.html" import buttons %}
 {% from "all_components/list-friends.html" import list_friends %}
-{% from "all_components/header.html" import header %}
+{% from "components/utils/header.html" import header %}
 {% from "all_components/footer.html" import footer %}
 {% from "all_components/chat.html" import chat %}
 
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/viewpublication.css') }}" >{% endblock %}
 
-{% block title %} _("Post") {% endblock title %}
+{% block title %} {{post.title}} {% endblock title %}
 
 {% block body -%}
 

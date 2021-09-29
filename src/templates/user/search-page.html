@@ -1,21 +1,20 @@
 {% extends "base.html" %}
 
-{% from "all_components/user-icon.html" import user_icon %}
 {% from "all_components/header-publication.html" import header_publication %}
-{% from "all_components/header.html" import header %}
-{% from "all_components/element-friend-list.html" import element_friend_list %}
+
+{% from "components/utils/header.html" import header %}
+{% from "components/utils/element-friend-list.html" import element_friend_list %}
 
 {% block title %} {{_("Search Results")}} {% endblock title %}
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/searchpage.css') }}" >{% endblock %}
 
 {% block body -%}
 {{ header(classname="bg-header", user=user) }}
-{% set search =  'Vittorio' %}
 
     <div class="container container-header-friends search-view">
         <div class="heading black">
             <h3 class="fw-normal">
-                {{_("Search Results")}}: {{search}}
+                {{result}} {{_("Search Results")}}: {{term}}
             </h3>
             <hr>
         </div>
@@ -28,40 +27,13 @@
             </div>
         </div>
     </div>
-
-    {% set number_friends =  18 %}
     <div class="container">
-        <p class="number">{{number_friends}}</p>
         <div class="container-friends margin-bottom">
-            
-            {% for i in range(number_friends) %}
-                {% if is_myuser %}
+            {% for element in users  %}
                 {{element_friend_list(
-                    user="Vittorio",
-                    comunFriends="35", 
-                    button=True,
-                    trasparent=False, 
-                    buttonfunction='delete',
-                    url=url_for('user.profile', username='vittorio_adesso'), 
-                    png=url_for('static', filename='img/users/26838989.png'),
-                    webp=url_for('static', filename='img/users/26838989.webp'),
-                    img=url_for('static', filename='img/users/26838989.png'),
-                    txtbutton="Delete")
+                    obj=element
+                )
                 }}
-                {% else %}
-                {{element_friend_list(
-                    user="Vittorio",
-                    comunFriends="35", 
-                    button=True,
-                    trasparent=False,
-                    buttonfunction='addfriend',
-                    url=url_for('user.profile', username='vittorio_adesso'), 
-                    png=url_for('static', filename='img/users/26838989.png'),
-                    webp=url_for('static', filename='img/users/26838989.webp'),
-                    img=url_for('static', filename='img/users/26838989.png'),
-                    txtbutton="Be Friends")
-                }}
-                {% endif %}
             {% endfor %}
         </div>
     </div>

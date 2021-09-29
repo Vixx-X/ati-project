@@ -5,13 +5,14 @@ Urls for user module/blueprint
 from . import bp, views
 
 # users
-bp.add_url_rule("/<string:username>", view_func=views.ProfileView.as_view("profile"))
+bp.add_url_rule("/<string:username>", view_func=views.PageView.as_view("page"))
+bp.add_url_rule("/<string:username>/profile", view_func=views.ProfileView.as_view("profile"))
 bp.add_url_rule(
-    "/<string:username>/friends", view_func=views.FriendView.as_view("friend")
+    "/<string:username>/friends", view_func=views.FriendView.as_view("friends")
 )
 
 # current user
-bp.add_url_rule("/profile", view_func=views.ProfileView.as_view("profile_detail"))
+bp.add_url_rule("/", view_func=views.PageView.as_view("mypage"))
 bp.add_url_rule(
     "/notifications", view_func=views.NotificationView.as_view("notification")
 )
