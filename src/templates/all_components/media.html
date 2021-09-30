@@ -1,5 +1,5 @@
 <!-- TODO add url parameter -->
-{% macro media(type, img="", png="", webp="", alt="", src="", text="", url="") -%}
+{% macro media(type, png="", webp="", alt="", src="", text="", url="") -%}
 
 {% if type == "img" or type=="image"-%}
 <a href="{{url}}">
@@ -11,7 +11,7 @@
             {% if png -%}
             <source srcset="{{ png }}" type="image/png">
             {%- endif %}
-            <img loading="lazy" src="{{ img }}" alt="{{ alt }}">
+            <img loading="lazy" src="{{ src }}" alt="{{ alt }}">
         </picture>
     </div>
 </a>

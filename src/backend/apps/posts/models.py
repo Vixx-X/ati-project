@@ -11,6 +11,7 @@ from backend.apps.user.models import User
 
 from flask_user import current_user
 
+
 def get_time(time):
     now = datetime.now()
     delta = time - now
@@ -114,6 +115,12 @@ class Post(db.Document):
             return self.media[0]
         return None
 
+    @property
+    def all_media(self):
+        if self.media:
+            return self.media
+        return None
+    
     @property
     def time(self):
         return get_time(self.time_created)

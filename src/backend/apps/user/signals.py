@@ -17,48 +17,48 @@ email_notification_signal = user_signals.signal("send_email")
 
 
 @friend_signal.connect
-def friend(sender, receiver):
+def friend(sender, to, receiver):
     from backend.apps.user.utils import create_notification
 
-    sender.add_friend(receiver)
-    receiver.add_friend(sender)
-    create_notification(Notification.FRIEND_REQUEST_ACCEPTED, receiver, sender)
-    create_notification(Notification.FRIEND_REQUEST_ACCEPTED, sender, receiver)
+    to.add_friend(receiver)
+    receiver.add_friend(to)
+    create_notification(Notification.FRIEND_REQUEST_ACCEPTED, receiver, to)
+    create_notification(Notification.FRIEND_REQUEST_ACCEPTED, to, receiver)
 
 
 @unfriend_signal.connect
-def unfriend(sender, receiver):
-    sender.remove_friend(receiver)
-    receiver.remove_friend(sender)
+def unfriend(sender, to, receiver):
+    to.remove_friend(receiver)
+    receiver.remove_friend(to)
 
 
 @check_comment_signal.connect
-def reply_comment(sender, receiver):
+def reply_comment(sender, to, receiver):
     from backend.apps.user.utils import create_notification
 
     create_notification(
         Notification.CHECK_RESPONSE,
         receiver=receiver,
-        sender=sender,
+        sender=to,
     )
 
 
 @check_comment_signal.connect
-def reply_message(sender, receiver):
+def reply_message(sender, to, receiver):
     from backend.apps.user.utils import create_notification
 
     create_notification(
         Notification.CHECK_MESSAGE,
         receiver=receiver,
-        sender=sender,
+        sender=to,
     )
 
 
 @friend_request_signal.connect
-def friend_request(sender, receiver):
+def friend_request(sender, to, receiver):
     from backend.apps.user.utils import create_notification
 
-    create_notification(Notification.FRIEND_REQUEST, receiver, sender)
+    create_notification(Notification.FRIEND_REQUEST, receiver, to)
 
 
 @email_notification_signal.connect

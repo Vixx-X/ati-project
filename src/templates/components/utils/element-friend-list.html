@@ -12,10 +12,30 @@
     </div>
     {% if obj.action %}
     <div class="cont-element-friend-button">
-        {{buttons(
-            mensaje=_("Delete") if obj.action.friends else _("Be Friends")
-            )
-        }}
+        {% if obj.action.friends_Status == "friends" %}
+            {{buttons(
+                mensaje=_("Delete"),
+                action="Delete",
+                url = obj.action.url,
+                )
+            }}
+        {% endif %}
+        {% if obj.action.friends_Status == "noFriends" %}
+            {{buttons(
+                mensaje=_("Be Friends"),
+                action="Add",
+                url = obj.action.url,
+                )
+            }}
+        {% endif %}
+        {% if obj.action.friends_Status == "pending" %}
+            {{buttons(
+                mensaje=_("Pending"),
+                action="Pending",
+                url = obj.action.url,
+                )
+            }}
+        {% endif %}
     </div>
     {% endif %}
 </div>

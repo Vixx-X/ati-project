@@ -21,16 +21,17 @@ thumb = Thumbnail()
 socketio = SocketIO()
 
 
-def init_app(config_file="config"):
+def init_app(config_file="config", testing=False):
     """Initialize the core application."""
+
+    if testing:
+        config_file = "test"
 
     app = Flask(__name__, instance_relative_config=False)
     app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1)
 
-    # Reading configs
-    app.config.from_object(f"{config_file}")
+    app.config.from_object(f"config.{config_file}")
 
-    # Default for static
     static_folder = app.config["STATIC_FOLDER"]
     if static_folder:
         app.static_folder = static_folder

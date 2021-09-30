@@ -30,4 +30,4 @@ blinker==1.4
 Flask-Babel==2.0.0
 
 # Socket io
-python-socketio==5.4.0
+flask-socketio

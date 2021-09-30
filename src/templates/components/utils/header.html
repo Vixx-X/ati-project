@@ -14,7 +14,7 @@
         <label for="search"></label>
         <input type="text" id="search" />
 
-        <a id="button-search" class="button-search" 
+        <a id="button-search" class="button-search d-flex" 
         data-url="{{url_for('user.search')}}" data-input="#search" data-term="term" data-search 
         href="{{url_for('user.search')}}">
           <img
@@ -53,7 +53,7 @@
             alt="Configurations logotype"
           />
         </a>
-        <a href="{{url_for('user.logout')}}">
+        <a id="logOut" href="{{url_for('user.logout')}}">
           <img
             class="icon"
             src="{{ url_for("static", filename="img/icons/logout.svg") }}"
