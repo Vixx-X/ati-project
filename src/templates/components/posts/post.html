@@ -28,7 +28,8 @@
       </div>
     </a>
 
-      {% if obj.all_media|length > 1 -%}
+
+      {% if obj.all_media and obj.all_media|length > 1 -%}
         <div>
           <div class="splide component" id={{obj.pk}}>
               <div class="splide__track">
