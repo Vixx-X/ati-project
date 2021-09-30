@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-25 04:48-0400\n"
+"POT-Creation-Date: 2021-09-30 08:28-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,44 +17,79 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/api/views/user.py:48
-#, python-format
-msgid "Target notification (%s) not found"
-msgstr ""
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/api/__init__.py:43
+msgid "Server has encountered some error"
+msgstr "El servidor ha encontrado algun error"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/api/views/user.py:61
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/api/errors.py:33
+msgid "One or more required fields are missing"
+msgstr "Uno o más campos están siendo omitidos"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/api/errors.py:45
+msgid "Already exist"
+msgstr "Ya existe"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/api/errors.py:57
+msgid "You are not authorized"
+msgstr "No estás autorizado"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/api/errors.py:69
+msgid "Resource does not exist."
+msgstr "No existe la dirección de búsqueda"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/api/views/user.py:40
 msgid "You are now friends."
-msgstr ""
+msgstr "Son amigos ahora"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/api/views/user.py:63
-msgid "Rejected"
-msgstr ""
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/api/views/user.py:42
+msgid "Rejected."
+msgstr "Rechazado"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/api/views/user.py:70
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/api/views/user.py:47
 msgid "Notification deleted."
-msgstr ""
+msgstr "Notificación eliminada"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/api/views/user.py:82
-#, python-format
-msgid "Target user (%s) not found"
-msgstr ""
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/api/views/user.py:81
+msgid "You are not friends anymore"
+msgstr "No son más amigos"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/posts/forms.py:21
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/api/views/utils.py:70
+msgid "Success"
+msgstr "Exitoso"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/api/views/utils.py:170
+msgid "Resource deleted"
+msgstr "Fuente eliminada"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/posts/forms.py:35
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/posts/forms.py:25
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:231
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/posts/forms.py:42
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:258
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/profile.html:16
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/posts/forms.py:32
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/posts/forms.py:49
 msgid "Tag"
-msgstr ""
+msgstr "Etiqueta"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/posts/forms.py:38
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/posts/forms.py:55
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/posts/forms.py:57
 msgid "Public"
-msgstr ""
+msgstr "Público"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/posts/models.py:19
+msgid "Today"
+msgstr "Hoy"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/posts/models.py:21
+msgid "Yesterday"
+msgstr "Ayer"
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/showroom/views.py:28
 msgid "Showroom Showcase"
@@ -70,13 +105,15 @@ msgstr ""
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/showroom/templates/showroom/components/boolean-button.html:5
 msgid "Boolean Button"
-msgstr ""
+msgstr "Botón buleano"
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/showroom/templates/showroom/components/card.html:3
 msgid "Card"
 msgstr ""
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/showroom/templates/showroom/components/chat.html:3
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/page.html:57
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/profile.html:43
 msgid "Chat"
 msgstr ""
 
@@ -146,15 +183,6 @@ msgstr ""
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/showroom/templates/showroom/views/notifications.html:92
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/showroom/templates/showroom/views/notifications.html:103
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/showroom/templates/showroom/views/notifications.html:114
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/notifications.html:25
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/notifications.html:37
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/notifications.html:48
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/notifications.html:59
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/notifications.html:70
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/notifications.html:81
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/notifications.html:92
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/notifications.html:103
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/notifications.html:114
 msgid "Notification"
 msgstr ""
 
@@ -172,406 +200,570 @@ msgstr ""
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/showroom/templates/showroom/views/configurations.html:117
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/all_components/footer.html:4
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/base.html:32
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/base.html:34
 msgid "Copyright &copy; ITA - Computer School"
-msgstr ""
+msgstr "Copyright &copy; ATI - Escuela de computación"
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/showroom/templates/showroom/views/create-publication.html:13
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/posts/create-publication.html:13
 msgid "CreatePublications"
-msgstr ""
+msgstr "Crear Publicación"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/showroom/templates/showroom/views/modify-publication.html:13
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/posts/modify-publication.html:13
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/posts/post-update.html:14
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/showroom/templates/showroom/views/modify-publication.html:12
 msgid "Modify Publication"
 msgstr ""
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:53
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:89
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/showroom/templates/showroom/views/modify-publication.html:33
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/posts/post-update.html:13
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/posts/post-update.html:33
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/profile-edit.html:13
+msgid "Edit"
+msgstr "Editar"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:52
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:88
 msgid "Old Password"
-msgstr ""
+msgstr "Contraseña antigua"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:55
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:91
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:54
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:90
 msgid "Old Password is required"
-msgstr ""
+msgstr "Contraseña antigua es requerida"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:59
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:198
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:58
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:197
 msgid "New Password"
-msgstr ""
+msgstr "Nueva Contraseña"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:61
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:200
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:60
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:199
 msgid "New Password is required"
-msgstr ""
+msgstr "Nueva Contraseña es requerida"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:66
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:205
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:65
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:204
 msgid "Retype New Password"
-msgstr ""
+msgstr "Reescribe la nueva Contraseña"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:70
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:209
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:69
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:208
 msgid "New Password and Retype Password did not match"
-msgstr ""
+msgstr "Nueva Contraseña y antigua Contraseña no coinciden"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:74
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:214
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:73
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:213
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/reset-password.html:51
 msgid "Change password"
-msgstr ""
+msgstr "Cambio de contraseña"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:81
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:80
 msgid "New Username"
-msgstr ""
+msgstr "Nuevo Usuario"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:83
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:131
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:82
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:130
 msgid "Username is required"
-msgstr ""
+msgstr "Nombre de usuario es requerido"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:94
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:93
 msgid "Change username"
-msgstr ""
+msgstr "Cambia el nombre de usuario"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:103
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:102
 msgid "Username or email"
-msgstr ""
+msgstr "Usuario o correo"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:105
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:104
 msgid "Username or email is required"
-msgstr ""
+msgstr "Usuario o correo es requerido"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:109
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:145
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:108
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:144
 msgid "Password"
-msgstr ""
+msgstr "Contraseña"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:111
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:147
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:110
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:146
 msgid "Password is required"
-msgstr ""
+msgstr "Contraseña es requerida"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:114
+msgid "Remember me"
+msgstr "Recuérdame"
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:115
-msgid "Remember me"
-msgstr ""
-
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:116
 msgid "Sign in"
-msgstr ""
+msgstr "Iniciar Sesión"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:120
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:119
 msgid "Username or Email"
-msgstr ""
+msgstr "Usuario o Correo"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:129
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:128
 msgid "Username"
-msgstr ""
+msgstr "Nobre de Usuario"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:137
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:136
 msgid "Email"
-msgstr ""
+msgstr "Correo"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:138
+msgid "Email is required"
+msgstr "Correo es requerido"
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:139
-msgid "Email is required"
-msgstr ""
-
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:140
 msgid "Invalid Email"
-msgstr ""
+msgstr "Correo inválido"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:152
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:151
 msgid "Re type password"
-msgstr ""
+msgstr "Reescribe tu contraseña"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:156
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:155
 msgid "Password and Retype Password did not match"
-msgstr ""
+msgstr "Las contraseñas no coinciden"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:163
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:162
 msgid "Token"
 msgstr ""
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:165
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:164
 msgid "Register"
-msgstr ""
+msgstr "Registrarse"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:172
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:185
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:171
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:184
 msgid "Your email address"
-msgstr ""
+msgstr "Tu dirección de correo"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:173
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:186
+msgid "Email address is required"
+msgstr "Tu dirección de correo es requerida"
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:174
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:187
-msgid "Email address is required"
-msgstr ""
-
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:175
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:188
 msgid "Invalid Email address"
-msgstr ""
+msgstr "Dirección de correo inválida"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:178
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:177
 msgid "Send reset password email"
-msgstr ""
+msgstr "Enviar correo para reestablecer contraseña"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:191
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:190
 msgid "Resend email confirmation email"
-msgstr ""
+msgstr "Reenviar correo de confirmación"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:220
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:247
 msgid "First name"
-msgstr ""
+msgstr "Tu nombre"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:224
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:251
 msgid "Last name"
-msgstr ""
+msgstr "Apellido"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:228
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:255
 msgid "Profile Photo"
-msgstr ""
+msgstr "Foto de perfil"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:229
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:256
 msgid "Banner Photo"
-msgstr ""
+msgstr "Foto de portada"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:232
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:260
 msgid "Birth Day"
-msgstr ""
+msgstr "Cumpleaños"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:233
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:263
 msgid "Gender"
-msgstr ""
+msgstr "Género"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:235
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:265
 msgid "Favorite Colors"
-msgstr ""
+msgstr "Colores favoritos"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:236
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:267
 msgid "Favorite Books"
-msgstr ""
-
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:237
-msgid "Favorite Video Games"
-msgstr ""
-
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:238
-msgid "Favorite Programming Languages"
-msgstr ""
-
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:239
-msgid "Favorite Music"
-msgstr ""
-
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:241
-msgid "Update"
-msgstr ""
+msgstr "Libros favoritos"
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:269
+msgid "Favorite Video Games"
+msgstr "Video juegos favoritos"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:271
+msgid "Favorite Programming Languages"
+msgstr "Lenguajes de programación favoritos"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:273
+msgid "Favorite Music"
+msgstr "Música favorita"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:275
+msgid "Update"
+msgstr "Actualizar"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:315
 msgid "Private Account"
-msgstr ""
+msgstr "Cuenta privada"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:274
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:320
 msgid "Notify via email"
-msgstr ""
+msgstr "Notificar por correo"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:279
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:325
 msgid "Accept friend requests"
-msgstr ""
+msgstr "Aceptar solicitudes de amistad"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:284
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:330
 msgid "Themes"
-msgstr ""
+msgstr "Temas"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:290
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/forms.py:336
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/page.html:91
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/profile.html:78
 msgid "Languages"
-msgstr ""
+msgstr "Lenguajes"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:40
+msgid "public"
+msgstr "Público"
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:41
-msgid "public"
-msgstr ""
-
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:42
 msgid "private"
-msgstr ""
+msgstr "Privado"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:56
+msgid "light mode"
+msgstr "Modo diurno"
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:57
-msgid "light mode"
-msgstr ""
-
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:58
 msgid "dark mode"
-msgstr ""
+msgstr "Modo nocturno"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:135
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:141
 msgid "not specified"
-msgstr ""
+msgstr "no específico"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:136
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:142
 msgid "femenine"
-msgstr ""
+msgstr "femenino"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:137
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:143
 msgid "masculine"
-msgstr ""
+msgstr "masculino"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:138
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:144
 msgid "other"
-msgstr ""
+msgstr "otro"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:298
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:326
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:362
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:391
 msgid "friend request"
-msgstr ""
+msgstr "solicitud de amistad"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:299
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:327
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:363
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:392
 msgid "friend request accepted"
-msgstr ""
+msgstr "solicitud de amistad aceptada"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:300
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:328
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:364
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:393
 msgid "check message"
 msgstr ""
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:301
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:329
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:365
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:394
 msgid "check post"
 msgstr ""
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:302
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:330
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:366
+msgid "check response"
+msgstr ""
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:367
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:395
 msgid "page"
 msgstr ""
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:335
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:352
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:403
 msgid "Notification Title"
 msgstr ""
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:343
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:411
 msgid "friend request message"
 msgstr ""
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:344
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:412
 #, python-format
 msgid "You and %s are now friends."
 msgstr ""
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:345
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:413
 msgid "check message message"
 msgstr ""
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:346
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:414
 msgid "check post message"
 msgstr ""
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:347
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:415
 msgid "page message"
 msgstr ""
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/backend/apps/user/models.py:426
+msgid "Notification Body"
+msgstr ""
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/home.html:27
+msgid "What do you think?..."
+msgstr "¿Qué piensas?..."
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/home.html:35
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/page.html:57
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/profile.html:43
+msgid "Messages"
+msgstr "Mensajes"
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/landing-page.html:27
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/login.html:7
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/login.html:31
 msgid "Log In"
-msgstr ""
+msgstr "Iniciar Sesión"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/landing-page.html:34
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/landing-page.html:35
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/register.html:7
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/register.html:31
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/register.html:73
 msgid "Sign Up"
-msgstr ""
+msgstr "Registrarse"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/all_components/media.html:33
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/components/mediaComponent/media.html:25
+msgid "Your browser does not support the video tag"
+msgstr "Tu navegador no soporta esa etiqueta de video"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/all_components/media.html:44
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/components/mediaComponent/media.html:36
+msgid "Your browser does not support the audio tag"
+msgstr "Tu navegador no soporta esa etiqueta de video"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/components/posts/post.html:95
+msgid "Ver comentarios"
+msgstr "Ver comentarios"
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/components/user/auth/slogan.html:1
 msgid "Stay 127.0.0.1 use 255.255.255.0"
+msgstr "Permanece en 127.0.0.1 use 255.255.255.0"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/components/utils/element-friend-list.html:17
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/page.html:50
+msgid "Delete"
+msgstr "Eliminar"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/components/utils/element-friend-list.html:25
+msgid "Be Friends"
+msgstr "Ser amigo"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/components/utils/element-friend-list.html:33
+msgid "Pending"
+msgstr "Pendiente"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/components/utils/user-icon.html:5
+msgid "Profile photo of"
 msgstr ""
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/configurations.html:11
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/configurations.html:19
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/components/utils/user-icon.html:10
+msgid "Camera icon"
+msgstr ""
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/posts/post-update.html:13
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/posts/post-update.html:33
+msgid "Create"
+msgstr "Crear"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/posts/post-update.html:13
+msgid " Post"
+msgstr "Publicación"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/posts/post-update.html:26
+msgid "Create Publication"
+msgstr "Crear Publicación"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/posts/post-update.html:26
+msgid "Edit Publication"
+msgstr "Editar Publicación"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/posts/post-update.html:49
+msgid "Write Title"
+msgstr "Escribir Título"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/posts/post-update.html:57
+msgid "Write Content"
+msgstr "Escribir Contenido"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/posts/post-update.html:128
+msgid "Add"
+msgstr "Añadir"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/posts/post-update.html:129
+msgid "Remove"
+msgstr "Eliminar"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/configurations.html:7
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/configurations.html:15
 msgid "Configurations"
-msgstr ""
+msgstr "Configuraciones"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/configurations.html:57
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/configurations.html:53
 msgid "Personalization"
-msgstr ""
+msgstr "Personalización"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/configurations.html:65
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/configurations.html:61
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/profile-edit.html:36
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/profile-edit.html:48
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/profile-edit.html:62
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/friend-list.html:18
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/friend-list.html:77
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/page.html:37
+msgid "Friends"
+msgstr "Amigos"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/notifications.html:8
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/notifications.html:16
+msgid "Notifications"
+msgstr "Notificaciones"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/page.html:13
+msgid "Profile"
+msgstr "Perfil"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/page.html:32
+msgid "See description"
+msgstr "Ver descripción"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/page.html:43
+msgid "Edit profile"
+msgstr "Editar perfil"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/page.html:50
+msgid "Be friend"
+msgstr "Ser amigo"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/page.html:79
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/profile.html:68
+msgid "Games"
+msgstr "Juegos"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/page.html:85
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/profile.html:73
+msgid "Books"
+msgstr "Libros"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/page.html:98
+msgid "View description of "
+msgstr "Ver descripción de "
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/profile-edit.html:78
 msgid "Your first name"
-msgstr ""
+msgstr "Tu nombre"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/profile-edit.html:69
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/profile-edit.html:86
 msgid "Your last name"
-msgstr ""
+msgstr "Tu apellido"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/profile.html:37
+msgid "Publications"
+msgstr "Publicaciones"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/profile.html:83
+msgid "Music"
+msgstr "Música"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/profile.html:88
+msgid "Colors"
+msgstr "Colors"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/search-page.html:8
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/search-page.html:17
+msgid "Search Results"
+msgstr "Resultados de Búsqueda"
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/check_email.html:4
 msgid "Resend Password"
-msgstr ""
+msgstr "Reenviar Contraseña"
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/check_email.html:19
 msgid "Please check your email."
-msgstr ""
+msgstr "Por favor chequear tu correo"
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/check_email.html:20
 msgid "An email with your next steps should prontly arrive in your inbox."
-msgstr ""
+msgstr "Un correo con las siguientes instrucciones pronto estará en tu bandeja de entrada"
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/check_email.html:21
 msgid "If it has not arrived, fell free to click "
-msgstr ""
+msgstr "Si tu te ha llegado, haz click "
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/check_email.html:22
 msgid "and try again"
-msgstr ""
+msgstr "y prueba de nueva"
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/forgot-password.html:6
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/forgot-password.html:32
 msgid "Forgot Password"
-msgstr ""
+msgstr "¿Olvidaste tu contraseña?"
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/forgot-password.html:40
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/register.html:50
 msgid "Your email"
-msgstr ""
+msgstr "Tu correo"
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/forgot-password.html:43
 msgid ""
 "Please, enter your email address. You will receive a link to create a new"
 " password via email."
-msgstr ""
+msgstr "Por favor, ingresa tu dirección de correo electrónico. Recibirás un enlace para crear una nueva contraseña."
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/forgot-password.html:47
 msgid "Send"
-msgstr ""
+msgstr "Enviar"
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/login.html:39
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/register.html:43
 msgid "Your username"
-msgstr ""
+msgstr "Tu nombre de usuario"
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/login.html:47
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/register.html:57
 msgid "Your password"
-msgstr ""
-
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/login.html:59
-msgid "Don't have account?"
-msgstr ""
+msgstr "Tu contraseña"
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/login.html:63
-msgid "Sign In"
-msgstr ""
+msgid "Don't have account?"
+msgstr "¿Aún no tienes cuenta?"
 
-#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/login.html:74
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/login.html:68
+msgid "Sign In"
+msgstr "Registrate"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/login.html:79
 msgid "Forgot your Password?"
-msgstr ""
+msgstr "¿Olvidaste tu contraseña?"
 
 #: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/register.html:64
 msgid "Retype your password"
-msgstr ""
+msgstr "Reescribir tu contraseña"
 
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/reset-password.html:6
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/reset-password.html:30
+msgid "Reset Password"
+msgstr "Resetear Contraseña"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/reset-password.html:38
+msgid "New password"
+msgstr "Nueva Contraseña"
+
+#: /mnt/c/Users/Gaby/Documents/UCV/ati-project/src/templates/user/auth/reset-password.html:45
+msgid "Retype password"
+msgstr "Reescribe tu contraseña"
