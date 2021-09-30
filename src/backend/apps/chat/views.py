@@ -70,6 +70,10 @@ class ChatView(DetailView):
 
     template_name = "chat/chat.html"
 
+    def get_context_data(self, **kwargs):
+        session["room"] = str(self.object.pk)
+        return super().get_context_data(**kwargs)
+
 
 class ChatListView(TemplateView):
     """
