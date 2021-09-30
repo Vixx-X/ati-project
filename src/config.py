@@ -5,8 +5,6 @@ Config file for the entire application
 # Define the application directory
 import os
 
-from mongoengine.connection import DEFAULT_PORT
-
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 # Statement for enabling the development environment
