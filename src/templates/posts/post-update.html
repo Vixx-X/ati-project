@@ -4,6 +4,7 @@
 {% from "components/utils/buttons.html" import buttons %}
 {% from "components/utils/input.html" import input %}
 {% from "components/utils/header.html" import header %}
+{% from "components/mediaComponent/media.html" import media %}
 
 {% block extrastyles %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/css/splide.min.css"><link rel="stylesheet" href="{{ url_for('static', filename='css/publicationpage.css') }}">
@@ -67,6 +68,7 @@
 
         </div>
 
+        {% if not object %}
         <div class="container-upload-data">
             <div class="container-display" >
                 <div class="cont-create-publication-body-input-label">
@@ -74,6 +76,29 @@
                 </div>
             </div>
         </div>
+        {% else %}
+            <div class="container-splide-data container-display" >
+                <div class="cont-create-publication-body-input-label">
+                    <div class="splide edit">
+                        <div class="splide__track">
+                            <ul class="splide__list" style="width: 100%">
+                                {% for med in object.all_media %}
+                                    <li style="width: 100%" class="create-publication-body-input-label splide__slide black">
+                                        <div class="edit-post-view-media">
+                                            {{ media(
+                                                type=med.type,
+                                                src=med.url,
+                                                alt=med.title,
+                                            )}}
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
 
         <template id=image-preview-element>
             <div class="container-upload-data">
@@ -100,13 +125,12 @@
 
         <div class="container-display" >
             <div class="container-buttons">
-                <label for="file-upload-image-publication" id='label-input' class="button secundary fw-bold text-uppercase">{{_("Add")}}</label>
-                <button disabled id="delete-files"  class="button dissable secundary fw-bold text-uppercase">{{_("Remove")}}</button>
+                <label for="file-upload-image-publication" id='label-input' class="{% if object %} disable {% endif %} button secundary fw-bold text-uppercase ">{{_("Add")}}</label>
+                <button {% if not object%} disabled {% endif %}id="delete-files"  class="button {% if not object %} disable {% endif %} secundary fw-bold text-uppercase">{{_("Remove")}}</button>
             </div>
         </div>
 
     </div>
 </form>
-
 
 {% endblock body %}

@@ -9,6 +9,14 @@ for ( var i = 0, len = elms.length; i < len; i++ ) {
       } ).mount();
 }
 
+
+// document.getElementsByClassName( 'splide edit' );
+// new Splide( '.splide', {
+//   autoWidth: true,
+//   focus    : 'center',
+// } ).mount();
+
+
 const inputFile = document.getElementById("file-upload-image-publication");
 const deleteFiles = document.querySelector("#delete-files");
 const labelInfo = document.querySelector("#label-input");

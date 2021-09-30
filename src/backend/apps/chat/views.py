@@ -2,33 +2,84 @@
 Views for the media module.
 """
 
-from flask.views import MethodView
+import json
+from flask import session
+from flask_user import current_user
+from flask_socketio import emit, join_room, leave_room
+from flask_user.decorators import login_required
+
+from backend.utils.views import DetailView, TemplateMixin, TemplateView
+from .models import Chat
 
 # from flask_babel import gettext as _ # for i18n
 
 
-class Image(MethodView):
+from backend import socketio
+from backend.apps.chat.models import Message
+
+@socketio.on("connect")
+def connect():
     """
-    Endpoint that get Images
+    Connecting user to pull of online users
+    """
+    room = session.get("room")
+    join_room(room)
+
+    if room == "UNIVERSE":
+        emit("user_connected", {"username":current_user.username}, room=room)
+
+
+@socketio.on("message")
+def messages(message):
+    """
+    Get messages send by client and sent it to all in room
+    """
+    room = session.get("room")
+
+    data = json.loads(message)
+
+    # Save message to db
+    msg = Message(content= data["message"], author=current_user)
+    chat = Chat.objects.get_or_404(pk=room)
+    chat.add_message(msg)
+    chat.save()
+
+    emit("message", {"message":msg.content, "time":msg.time_created}, room=room)
+
+
+@socketio.on("disconnect")
+def disconnect():
+    """
+    Left room
+    """
+    room = session.get("room")
+    leave_room(room)
+
+    if room == "UNIVERSE":
+        emit("user_disconnected", {"username":current_user.username}, room=room)
+
+
+class ChatView(DetailView):
+    """
+    Chat View
     """
 
-    def get(self):
-        return ""
+    model = Chat
+
+    decorators = [login_required]
+
+    template_name = "chat/chat.html"
+
+    def get_context_data(self, **kwargs):
+        session["room"] = str(self.object.pk)
+        return super().get_context_data(**kwargs)
 
 
-class Video(MethodView):
+class ChatListView(TemplateView):
     """
-    Endpoint that get Videos
-    """
-
-    def get(self):
-        return ""
-
-
-class Audio(MethodView):
-    """
-    Endpoint that get Audios
+    Chat list
     """
 
-    def get(self):
-        return ""
+    template_name = "chat/chat.html"
+
+

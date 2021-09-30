@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+     		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ 			<meta charset="UTF-8">
+ 			<link rel="icon" href="http://www.ciens.ucv.ve/portalasig2/favicon.ico" type="image/x-icon">
+			<link rel="stylesheet" href="../css/style.css"  type="text/css">
+			<link rel="stylesheet" href="perfil.css"  type="text/css">
+ 			<title>María Paula Herrero</title>
+			<script type="text/javascript" src="../conf/configES.json"></script>
+			<script type="text/javascript" src="perfil.json"></script>
+			<script type="text/javascript">
+			function llenar(){
+				
+				document.title = perfil.nombre;
+				document.getElementById("footer").innerHTML = config.copyRight;
+				
+				document.getElementById("logo").innerHTML = config.sitio[0] + "<span>" + config.sitio[1] +  "</span> " + config.sitio[2];
+				
+				document.getElementById("saludo").innerHTML = config.saludo + ", Maria Paula";
+				document.getElementById("busqueda").innerHTML = "<a href='../index.html'>" + config.home + "</a>";
+				
+				document.getElementById("nombre").innerHTML = perfil.nombre;
+				document.getElementById("descripcion").innerHTML = perfil.descripcion;
+				
+				document.getElementById("imagen").src = perfil.imagen;
+				
+				document.getElementById("color_fav").innerHTML = config.color;
+				document.getElementById("color").innerHTML = perfil.color;
+				document.getElementById("libro_fav").innerHTML = config.libro;
+				document.getElementById("libro").innerHTML = perfil.libro;
+				document.getElementById("musica_fav").innerHTML = config.musica;
+				document.getElementById("musica").innerHTML = perfil.musica;
+				document.getElementById("video_juego_fav").innerHTML = config.video_juego;
+				document.getElementById("video_juego").innerHTML = perfil.video_juego.toString();
+
+				document.getElementById("lenguajes_fav").innerHTML = config.lenguajes;
+				document.getElementById("lenguajes").innerHTML = perfil.lenguajes.toString();
+
+				var correoEnlace = "<a href=\"[email]\">[email]</a>".replace("[email]", perfil.email).replace("[email]", perfil.email);
+
+				document.getElementById("correo").innerHTML = config.email.replace("[email]", correoEnlace);	
+			}
+		</script>
+	</head>
+	<body onload="llenar()">
+	    <header>
+			<nav>
+				<ul>
+					<li class="logo" id="logo"></li>
+					<li class="saludo" id="saludo"></li>
+					<li class="busqueda" id="busqueda"></li>
+				</ul>	
+			</nav> 
+	    </header>
+	    <section>
+	        <table id="perfil">
+				<tr><td id="foto"><img id="imagen" src=""></td>
+				    <td id="contenido" >
+					  <table>
+						<tr><td><p id="nombre"></p></td></tr>
+						<tr><td><p id="descripcion"></p>
+							</td>
+						</tr>
+						<tr><td>
+							  <table id="agenda">
+								<tr><td id="color_fav"></td><td id="color"></td></tr>
+								<tr><td id="libro_fav"></td><td id="libro"></td></tr>
+								<tr><td id="musica_fav"></td><td id="musica"></td></tr>
+								<tr><td id="video_juego_fav"></td><td id="video_juego"></td></tr>
+								<tr><td ><span class="negrita" id="lenguajes_fav"></span></td><td><span class="negrita" id="lenguajes"></span></td></tr>
+							  </table>
+							</td>
+						</tr>
+						<tr><td id="correo"></td></tr>
+					  </table>
+				    </td>
+				</tr>
+			</table>
+	    </section>
+	    <aside></aside>
+	    <footer id="footer"></footer>
+	</body>
+</html>

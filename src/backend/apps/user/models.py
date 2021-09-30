@@ -9,6 +9,7 @@ from flask import current_app
 from flask.helpers import url_for
 from flask_babel import gettext as _
 from flask_user import UserMixin
+from mongoengine.queryset.visitor import Q
 from social_flask_mongoengine.models import FlaskStorage
 from config.config import LANGUAGES as LANGS, DEFAULT_LANGUAGE
 
@@ -188,6 +189,11 @@ class User(db.Document, UserMixin):
     }
 
     @property
+    def chats(self):
+        from backend.apps.chat.models import Chat
+        return Chat.objects.filter(Q(user1=self) | Q(user2=self))
+
+    @property
     def full_name(self):
         return f"{self.first_name} {self.last_name}"
 
@@ -266,7 +272,7 @@ class User(db.Document, UserMixin):
     def get_profile_banner(self):
         if self.banner_photo:
             return self.banner_photo
-        return Image(static=True, path="img/user/default-banner.png")
+        return Image(static=True, path="img/user/default-banner.jpg")
 
     def is_friend(self, user):
         """

@@ -123,5 +123,10 @@ def create_user(**kwargs):
     user.is_primary = True
     user.password = user_manager.hash_password(user.password)
     user.email_confirmed_at = datetime.utcnow()
-
+    
     return user
+
+def are_pending(sender, receiver):
+    notification = receiver.notifications.filter(type=Notification.FRIEND_REQUEST, sender=sender)
+
+    return notification

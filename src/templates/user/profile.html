@@ -43,7 +43,7 @@
                           mensaje=_("Messages") if is_myuser else _("Chat"),
                           type="primary last",
                           letters="",
-                          link=url_for('user.chat'))
+                          link=url_for('chat.chat-list') if is_myuser else url_for('user.chat', username=target_user.username))
                       }}
                   </nav>
                 </div>

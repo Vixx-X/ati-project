@@ -14,3 +14,4 @@ import "js/components/changeImages.ts";
 import "js/components/miFetch.ts";
 import "js/components/splide.ts";
 
+import "js/components/chat.ts";
