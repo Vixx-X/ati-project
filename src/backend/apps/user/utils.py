@@ -69,14 +69,14 @@ def delete_notification(notification):
 
 def remove_friend(target_user, requester):
     if are_friends(target_user, requester):
-        unfriend_signal.send(target_user, requester)
+        unfriend_signal.send(receiver=target_user, to=requester)
         return True
     return False
 
 
 def send_friend_request(target_user, requester):
-    if not are_friends(target_user, requester) and target_user.accept_friend_request:
-        friend_signal.send(target_user, requester)
+    if not are_friends(target_user, requester) and target_user.accept_friend_requests:
+        friend_signal.send(receiver=target_user, to=requester)
         return True
     return False
 
@@ -85,7 +85,7 @@ def respond_to_friend_request(notification, veredict):
     if not notification.is_friend_request():
         raise Exception("Notification is not friend request")
     if veredict:
-        friend_signal.send(notification.sender, notification.receiver)
+        friend_signal.send(to=notification.sender, receiver=notification.receiver)
     delete_notification(notification)
 
 
@@ -99,7 +99,9 @@ def deny_friend_request(notification):
 
 def search_users(term):
     from backend.apps.user.models import User
+
     return User.objects.filter(Q(username__icontains=term) or Q(email__icontains=term))
+
 
 def get_common_friends(user1, user2):
     # this is bad, but no time for aggregations

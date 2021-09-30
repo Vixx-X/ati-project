@@ -279,6 +279,10 @@ class User(db.Document, UserMixin):
         self.friends.remove(friend)
 
     @property
+    def accept_friend_requests(self):
+        return self.config.accept_friend_requests
+
+    @property
     def have_notification(self):
         return len(self.notifications)
 
