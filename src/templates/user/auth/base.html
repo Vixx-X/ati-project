@@ -23,7 +23,7 @@
     <script type="module" src="{{ url_for('static', filename='js/components.js') }}" ></script>
     {% block extrascripts %}{% endblock extrascripts %}
   </head>
-  <body class="{{ theme }}">
+  <body class="{{ theme }}" data-csrf="{{ csrf_token() }}">
     {% block body %}
     {% endblock body %}
     {% block footer %}

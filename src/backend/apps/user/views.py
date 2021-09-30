@@ -30,7 +30,7 @@ def append_friend_data(friends, user):
         url = "api.friend-list"
         action = {
             "url": url_for(url, username=friend.username),
-             "friends_Status": "noFriends" #friends,noFriends,pending
+             "friends_Status": "noFriends", #friends,noFriends,pending
         }
         setattr(friend, "action", action)
 

@@ -1,5 +1,5 @@
 {% macro buttons(id=None, class="button", mensaje="Button", type="primary", font="fw-bold", letters="text-uppercase", link=False,
-icon=None, textalign="text-center", alticon=None, data=None, action="") %} 
+icon=None, textalign="text-center", alticon=None, data=None, action="", url="") %} 
 {% if link -%}
 <a href="{{ link }}"
     {%if id -%}
@@ -25,6 +25,7 @@ icon=None, textalign="text-center", alticon=None, data=None, action="") %}
     {%- endif %}
     data-ButtonActionFriendList
     data-action = "{{action}}"
+    data-url = "{{url}}"
     >
     {% if icon -%}
         <img class="icon" src="{{icon}}" alt={{alticon}}>

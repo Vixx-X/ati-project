@@ -30,12 +30,21 @@
 // }
 import miFetch from "./miFetch"
 
-const RemoveElement = (element:any) => {
-    console.log("Click en Remove")
-    
+async function RemoveElement(element:any){
+    const url = element.target.getAttribute("data-url");
+    const meta = {
+        method: 'DELETE',
+    }
+    const data = await miFetch(url,meta)
+    alert(data)
 };
-const AddElement = (element:any) => {
-    console.log("Click en Add")
+async function AddElement(element:any){
+    const url = element.target.getAttribute("data-url");
+    const meta = {
+        method: 'POST',
+    }
+    const data = await miFetch(url,meta)
+    alert(data)
 };
 
 const buttonActionElementFriendList = document.querySelectorAll("[data-ButtonActionFriendList]");
