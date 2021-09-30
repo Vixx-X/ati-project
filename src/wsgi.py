@@ -19,7 +19,7 @@ ENV_DIR = os.path.join(
 )
 load_dotenv(os.path.join(ENV_DIR, ".env"))
 
-app = init_app()
+app = init_app(testing=False)
 
 
 @app.cli.command("loaddata")

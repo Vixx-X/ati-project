@@ -59,8 +59,8 @@ class APIView(Resource):
         self.args = request.args
         self.request = request
         self.method = request.method
-        # self.user = current_user._get_current_object()  # current user
-        self.user = User.objects.get(username="vittorio_adesso")
+        self.user = current_user._get_current_object()  # current user
+        # self.user = User.objects.get(username="vittorio_adesso")
         self.get_pagination()
         self.data = self.get_data()
         self.process_context()

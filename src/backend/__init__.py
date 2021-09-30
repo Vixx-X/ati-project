@@ -17,7 +17,7 @@ user_manager = UserManager()
 csrf = CSRFProtect()
 
 
-def init_app(config_file="config"):
+def init_app(config_file="config", testing=False):
     """Initialize the core application."""
 
     app = Flask(__name__, instance_relative_config=False)
@@ -40,6 +40,8 @@ def init_app(config_file="config"):
     app.url_map.strict_slashes = False
 
     # Initialize Plugins
+    if testing:
+        app.config["MONGODB_SETTINGS"]["db"] = "testing_db"
     db.init_app(app)  # db
 
     try:

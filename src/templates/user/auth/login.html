@@ -50,8 +50,12 @@
                 )}}
 
                 {% if login_form.errors -%}
-                <p class="error-login">
-                    {{ login_form.errors.username[0] }}
+                <p id="errors" class="error-login">
+                    {%if "username" in login_form.errors -%}
+                        {{_(login_form.errors.username[0])}}
+                    {%elif "password" in login_form.errors -%}
+                        {{_(login_form.errors.password[0])}}
+                    {%- endif %}
                 </p>
                 {%- endif %}
 
@@ -68,8 +72,8 @@
                     )}}
                 </div>
                 <div class="container-api">
-                    {{ oauth_button(provider="twitter") }}
-                    {{ oauth_button(provider="facebook") }}
+                    {{ oauth_button(id="twitter", provider="twitter") }}
+                    {{ oauth_button(id="facebook", provider="facebook") }}
                 </div>
                 <a href="{{url_for('user.forgot_password')}}" id="linkpassword" class="margin-section">
                     <p class="text-uppercase fw-bold">{{ _("Forgot your Password?") }}</p>

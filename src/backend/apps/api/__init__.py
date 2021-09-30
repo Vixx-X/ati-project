@@ -35,8 +35,7 @@ class ExtendedAPI(Api):
                 ),
             )
             return (
-                make_response(message=message, status=err.code),
-                err.code,
+                make_response(message=message, status=err.code)
             )
         # If msg attribute is not set,
         # consider it as Python core exception and
