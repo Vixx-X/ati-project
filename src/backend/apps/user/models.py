@@ -6,6 +6,7 @@ import re
 from datetime import datetime
 
 from flask import current_app
+from flask.helpers import url_for
 from flask_babel import gettext as _
 from flask_user import UserMixin
 from social_flask_mongoengine.models import FlaskStorage
@@ -409,6 +410,9 @@ class Notification(db.Document):
         CHECK_POST: _("check post message"),
         PAGE: _("page message"),
     }
+
+    def url(self):
+        return url_for("api.notification-list", id=str(self.pk))
 
     @property
     def message(self):
