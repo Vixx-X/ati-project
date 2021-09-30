@@ -3,6 +3,7 @@ from backend import init_app
 from selenium import webdriver
 from time import sleep
 
+# time to wait the page to load
 TIME=1
 
 #Fixture for Chrome
@@ -154,12 +155,16 @@ class TestLoginPage(Basic_Chrome_Test):
         sleep(TIME)
         assert "welcome" in self.driver.current_url
 
-    
+    def test_forgot_password(self):
+        self.driver.get("http://localhost:8000/user/sign-in")
+        sleep(TIME)
+        assert self.driver.title == "Log In"
 
+        self.driver.find_element_by_id("linkpassword").click()
+        sleep(TIME)
+        assert "Forgot Password" in self.driver.title
 
-
-
-
-
-
-
+        self.driver.find_element_by_id("linkpassword").send_keys("newuser@correo.com")
+        self.driver.find_element_by_id("send").click()
+        sleep(TIME)
+        assert "check_email" in self.driver.current_url

@@ -35,13 +35,13 @@ def user():
         password = "Aa123456789",
         email_confirmed_at = datetime.utcnow(),
     )
-    user.save()
 
 def test_server_status(client):
     rv = client.get('/api/health')
     assert rv.status_code == 200
 
 def test_login(client, user):
+    user.save()
     log = client.post('/login', data=dict(
         username=user.username,
         password=user.password
