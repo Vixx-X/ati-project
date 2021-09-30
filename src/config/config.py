@@ -5,7 +5,7 @@ Config file for the entire application
 # Define the application directory
 import os
 
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+BASE_DIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
 # Statement for enabling the development environment
 DEBUG = os.getenv("DEBUG", "False").lower() in ["1", "t", "true"]
@@ -51,7 +51,7 @@ USER_AFTER_LOGIN_ENDPOINT = "app.home"
 USER_AFTER_LOGOUT_ENDPOINT = "app.landing"
 USER_AFTER_REGISTER_ENDPOINT = "user.check_email"
 USER_AFTER_FORGOT_PASSWORD_ENDPOINT = "user.check_email"
-USER_AFTER_EDIT_USER_PROFILE_ENDPOINT = "user.mypage"
+USER_AFTER_EDIT_USER_PROFILE_ENDPOINT = "user.edit_user_profile"
 
 
 # Application threads. A common general assumption is

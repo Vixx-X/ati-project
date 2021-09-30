@@ -23,10 +23,14 @@ class Home(TemplateView):
         ctx = super().get_context_data(**kwargs)
         friends = self.user.friends
         for friend in friends:
-            setattr(friend, "common_friends", get_common_friends(friend, self.user),)
+            setattr(
+                friend,
+                "common_friends",
+                get_common_friends(friend, self.user),
+            )
         ctx["posts"] = get_main_posts(self.user)
         ctx["friends"] = friends
-        return  ctx
+        return ctx
 
 
 class LandingPage(TemplateView):
