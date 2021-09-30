@@ -13,13 +13,17 @@
       <div class="form-search">
         <label for="search"></label>
         <input type="text" id="search" />
-        <button id="button-search" class="button-search" data="{{url_for('user.search')}}">
+
+        <a id="button-search" class="button-search" 
+        data-url="{{url_for('user.search')}}" data-input="#search" data-term="term" data-search 
+        href="{{url_for('user.search')}}">
           <img
             class="icon logotype"
             src="{{ url_for("static", filename="img/icons/search.svg") }}"
             alt="Search logotype"
           />
-        </button>
+        </a>
+        
       </div>
 
       <nav class="navegation">

@@ -1,6 +1,6 @@
 // import "js/components/reply-button.ts";
 // import "js/components/tougleFriend.ts";
-// import "js/components/search.ts";
+import "js/components/search.ts";
 // import "js/components/chat.ts";
 import "js/components/create-publication.ts";
 // import "js/components/mobile-navmenu.ts";
