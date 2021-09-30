@@ -57,7 +57,7 @@
               <img loading="lazy" src="{{ url_for("static", filename="img/icons/chat.svg") }}" alt="Chat">
             </button>
         </div>
-        <div class="messages">
+        <div class="messages" id="chat-body">
         {% if object %}
 	    {% for msg in object.messages %}
             {{chat(
@@ -83,6 +83,5 @@
         </div>
     </main>
 </div>
-
 
 {%- endblock body %}
