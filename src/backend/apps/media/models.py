@@ -18,6 +18,8 @@ from backend.apps.media.utils import (
     upload_to,
 )
 
+from backend import thumb
+
 
 class Media(db.Document):
     """
@@ -39,7 +41,9 @@ class Media(db.Document):
     width = StringField()
     heigth = StringField()
 
-    def __init__(self, file=None, **kwargs):
+    static = False
+
+    def __init__(self, file=None, static=False, **kwargs):
         """
         Magically get media data form fileStorege object
         """
@@ -47,6 +51,8 @@ class Media(db.Document):
 
         if file:
             self._file = file
+
+        self.static = static
 
         if not self.path:
             self.path = get_media_upload_path(self)
@@ -60,14 +66,10 @@ class Media(db.Document):
             return self._file
         return send_from_directory(self.get_media_root_path(), str(self.path))
 
-    # @property
-    # def url(self):
-    #     url = request.url_root
-    #     root = "/".join(url.split("/")[:3])
-    #     return f"{root}/media/{self.path}"
-
     @property
     def url(self):
+        if self.static:
+            return url_for("static", filename=self.path)
         return url_for("media.file", path=self.path)
 
     def save(self, **kwargs):
@@ -103,6 +105,16 @@ class Image(Media):
     type = "image"
 
     resolution = StringField()
+
+    def thumb(self, size, **kwargs):
+        if self.static:
+            return self.url
+        thumb_url = thumb.get_thumbnail(self.path, size, **kwargs)
+        if not thumb_url:
+            return self.url
+        if not thumb_url.startswith("/"):
+            return f"/{thumb_url}"
+        return thumb_url
 
     def as_dict(self):
         return self.to_mongo().to_dict()

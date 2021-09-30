@@ -8,7 +8,8 @@ from flask_login import current_user
 
 from backend import babel
 from backend.core.urls import set_urls
-from config import DEFAULT_LANGUAGE, LANGUAGES  # for i18n
+
+from config.config import DEFAULT_LANGUAGE, LANGUAGES
 
 
 def init_app(app):

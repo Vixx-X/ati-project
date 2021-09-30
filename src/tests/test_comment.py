@@ -8,10 +8,10 @@ from backend.apps.posts.models import Post
 @pytest.fixture
 def post_info():
     post = {
-        "title": "titulo1", 
-        "description": "descrip", 
-        "public": "True", 
-        "tags":["1", "2"]
+        "title": "titulo1",
+        "description": "descrip",
+        "public": "True",
+        "tags": ["1", "2"],
     }
     
     yield post

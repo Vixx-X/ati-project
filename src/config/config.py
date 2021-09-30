@@ -5,9 +5,7 @@ Config file for the entire application
 # Define the application directory
 import os
 
-from mongoengine.connection import DEFAULT_PORT
-
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+BASE_DIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
 # Statement for enabling the development environment
 DEBUG = os.getenv("DEBUG", "False").lower() in ["1", "t", "true"]
@@ -28,9 +26,9 @@ MONGODB_SETTINGS = {
 MAIL_SERVER = os.getenv("MAIL_SERVER")
 MAIL_PORT = int(os.getenv("MAIL_PORT", "587"))
 MAIL_USE_TLS = True
-MAIL_DEFAULT_SENDER = os.getenv("MAIL_USERNAME", "TEST@correo.com")
+MAIL_DEFAULT_SENDER = os.getenv("MAIL_USERNAME")
 MAIL_USERNAME = MAIL_DEFAULT_SENDER
-MAIL_PASSWORD = os.getenv("MAIL_PASSWORD", "TESTPASSWORD")
+MAIL_PASSWORD = os.getenv("MAIL_PASSWORD")
 
 # Flask User settings
 # https://github.com/lingthio/Flask-User/blob/master/flask_user/user_manager__settings.py
@@ -75,13 +73,17 @@ CSRF_ENABLED = True
 CSRF_SESSION_KEY = SECRET_KEY + "_csrf"
 
 # Media folder
-MEDIA_FOLDER = f"{BASE_DIR}/media/"
+MEDIA_FOLDER = f"{BASE_DIR}/media"
 MAX_CONTENT_LENGTH = 100 * 1024 * 1024  # max 100MB
 ALLOWED_EXTENSIONS = {
     "image": ["png", "jpg", "jpeg", "gif"],
     "video": ["mp4"],
     "audio": ["mp3"],
 }
+THUMBNAIL_MEDIA_URL = "media"
+THUMBNAIL_MEDIA_THUMBNAIL_URL = f"{THUMBNAIL_MEDIA_URL}/thumbs"
+THUMBNAIL_MEDIA_ROOT = MEDIA_FOLDER
+THUMBNAIL_MEDIA_THUMBNAIL_ROOT = f"{MEDIA_FOLDER}/thumbs"
 
 # Static folder
 STATIC_FOLDER = f"{BASE_DIR}/static/"

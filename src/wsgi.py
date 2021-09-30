@@ -7,12 +7,10 @@ import os
 
 import click
 
-# from flask_restful import Api
 from dotenv import load_dotenv
 
 from backend import init_app
 
-# from backend.apps.api.urls import initializeRoutes
 
 ENV_DIR = os.path.join(
     os.path.abspath(os.path.dirname(os.path.dirname(__file__))), "env"
@@ -37,9 +35,6 @@ def loaddata(filename, dry_run=False):
 
     return ld(filename, dry_run)
 
-
-# api = Api(app)
-# initializeRoutes(api)
 
 if __name__ == "__main__":
     app.run()

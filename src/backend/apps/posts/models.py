@@ -11,6 +11,7 @@ from backend.apps.user.models import User
 
 from flask_user import current_user
 
+
 def get_time(time):
     now = datetime.now()
     delta = time - now
