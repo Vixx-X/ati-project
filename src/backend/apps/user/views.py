@@ -30,10 +30,9 @@ def append_friend_data(friends, user):
         url = "api.friend-list"
         action = {
             "url": url_for(url, username=friend.username),
-            "friends": not_foes,
+             "friends_Status": "noFriends", #friends,noFriends,pending
         }
         setattr(friend, "action", action)
-
 
 class CheckEmailView(TemplateView):
     """
