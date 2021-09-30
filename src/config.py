@@ -5,8 +5,6 @@ Config file for the entire application
 # Define the application directory
 import os
 
-from mongoengine.connection import DEFAULT_PORT
-
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 # Statement for enabling the development environment
@@ -75,13 +73,17 @@ CSRF_ENABLED = True
 CSRF_SESSION_KEY = SECRET_KEY + "_csrf"
 
 # Media folder
-MEDIA_FOLDER = f"{BASE_DIR}/media/"
+MEDIA_FOLDER = f"{BASE_DIR}/media"
 MAX_CONTENT_LENGTH = 100 * 1024 * 1024  # max 100MB
 ALLOWED_EXTENSIONS = {
     "image": ["png", "jpg", "jpeg", "gif"],
     "video": ["mp4"],
     "audio": ["mp3"],
 }
+THUMBNAIL_MEDIA_URL = "media"
+THUMBNAIL_MEDIA_THUMBNAIL_URL = f"{THUMBNAIL_MEDIA_URL}/thumbs"
+THUMBNAIL_MEDIA_ROOT = MEDIA_FOLDER
+THUMBNAIL_MEDIA_THUMBNAIL_ROOT = f"{MEDIA_FOLDER}/thumbs"
 
 # Static folder
 STATIC_FOLDER = f"{BASE_DIR}/static/"
