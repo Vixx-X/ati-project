@@ -56,8 +56,7 @@
     
 // inputSearch.addEventListener("keyup",filter)
 // filter()
-
-
+console.log(variableGlobalEdu)
 const initSearch =  (element:any) => {
     const term = element.dataset.term;
     const url = element.dataset.url;
