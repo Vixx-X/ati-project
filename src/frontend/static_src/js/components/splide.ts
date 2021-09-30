@@ -1,6 +1,14 @@
 import Splide from "@splidejs/splide";
 
-// new Splide(".splide").mount();
+var elms = document.getElementsByClassName( 'splide component' );
+for ( var i = 0, len = elms.length; i < len; i++ ) {
+	new Splide( elms[i], {
+        type     : 'loop',
+        autoWidth: true,
+        focus    : 'center',
+      } ).mount();
+}
+
 const inputFile = document.getElementById("file-upload-image-publication");
 const deleteFiles = document.querySelector("#delete-files");
 const labelInfo = document.querySelector("#label-input");

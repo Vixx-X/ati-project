@@ -116,6 +116,12 @@ class Post(db.Document):
         return None
 
     @property
+    def all_media(self):
+        if self.media:
+            return self.media
+        return None
+    
+    @property
     def time(self):
         return get_time(self.time_created)
 

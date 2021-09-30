@@ -1,4 +1,4 @@
-{% from "all_components/media.html" import media %}
+{% from "components/media/media.html" import media %}
 {% from "components/utils/user-icon.html" import user_icon %}
 {% macro post(obj) -%}
   <div class="publication">
@@ -28,46 +28,71 @@
       </div>
     </a>
 
-    {% if obj.primary_media %}
-    {{ media(
-        type=obj.primary_media.type,
-        img=obj.primary_media.url,
-        alt=obj.title,
-        url=url_for("posts.post-detail", id=obj.pk)
-    )}}
-    {% endif %}
+      {% if obj.all_media|length > 1 -%}
+        <div>
+          <div class="splide component" id={{obj.pk}}>
+              <div class="splide__track">
+                  <ul class="splide__list w-100 d-flex" style="width: 100%">
+                    {% for med in obj.all_media -%}
+                      <li class="splide__slide" style="width: 100%">
+                        {{ media(
+                            type=med.type,
+                            src=med.url,
+                            alt=med.title,
+                            url=url_for("posts.post-detail", id=obj.pk)
+                        )}}
+                      </li>
+                  {% endfor %}
+                  </ul>
+              </div>
+          </div>
+        </div>
+
+      {%- elif obj.all_media|length == 1 -%}
+
+      <li class="splide__slide" style="width: 100%">
+        {{ media(
+            type=obj.primary_media.type,
+            src=obj.primary_media.url,
+            alt=obj.primary_media.title,
+            url=url_for("posts.post-detail", id=obj.pk)
+        )}}
+      </li>
+
+      {%- endif %}
+
   </div>
 
-  {% set comments = obj.get_firts_comments %}
+    {% set comments = obj.get_firts_comments %}
 
-  {% if comments|length > 0 %}
-  <div class="comments-user">
-    <div class="comments-group">
-      {{ user_icon(
-        user=comments[0].get_author,
-        type="basic one",
-      ) }}
+    {% if comments|length > 0 %}
+    <div class="comments-user">
+      <div class="comments-group">
+        {{ user_icon(
+          user=comments[0].get_author,
+          type="basic one",
+        ) }}
 
-      {% if comments|length > 1 -%}
+        {% if comments|length > 1 -%}
 
-      {{ user_icon(
-        user=comments[1].get_author,
-        type="basic two",
-      ) }}
+        {{ user_icon(
+          user=comments[1].get_author,
+          type="basic two",
+        ) }}
 
-      {%- endif %}
+        {%- endif %}
 
-      {% if comments|length > 2 -%}
-      {{ user_icon(
-        user=comments[2].get_author,
-        type="basic three",
-      ) }}
+        {% if comments|length > 2 -%}
+        {{ user_icon(
+          user=comments[2].get_author,
+          type="basic three",
+        ) }}
 
-      {%- endif %}
+        {%- endif %}
 
+      </div>
+      <a href="{{url_for('posts.post', id=obj.pk)}}">{{_('Ver comentarios')}}</a>
     </div>
-    <a href="{{url_for('posts.post', id=obj.pk)}}">{{_('Ver comentarios')}}</a>
-  </div>
-  {%- endif %}
+    {%- endif %}
 
 {%- endmacro %}
