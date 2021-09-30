@@ -72,7 +72,9 @@ def get_comments_by_path(path, page, size):
 
 
 def get_main_posts(requester):
-    return Post.objects.filter(Q(public=True) or Q(author__in=requester.friends)).order_by("-time_created")
+    return Post.objects.filter(
+        Q(public=True) or Q(author__in=requester.friends)
+    ).order_by("-time_created")
 
 
 def get_posts_by_user(user, requester):
@@ -80,4 +82,3 @@ def get_posts_by_user(user, requester):
     priv_filter = Q() if friends else (Q(public=True) | Q(author=requester))
     filter_param = Q(author=user) & priv_filter
     return Post.objects.filter(filter_param).order_by("-time_created")
-

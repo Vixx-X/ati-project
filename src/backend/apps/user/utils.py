@@ -100,7 +100,9 @@ def deny_friend_request(notification):
 
 def search_users(term):
     from backend.apps.user.models import User
+
     return User.objects.filter(Q(username__icontains=term) or Q(email__icontains=term))
+
 
 def get_common_friends(user1, user2):
     # this is bad, but no time for aggregations
@@ -114,11 +116,12 @@ def get_common_friends(user1, user2):
 def get_common_friends_number(user1, user2):
     return len(get_common_friends(user1, user2))
 
+
 def create_user(**kwargs):
     user = User(**kwargs)
     user.active = True
     user.is_primary = True
     user.password = user_manager.hash_password(user.password)
     user.email_confirmed_at = datetime.utcnow()
-    
+
     return user

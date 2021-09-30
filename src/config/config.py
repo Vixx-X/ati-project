@@ -5,7 +5,7 @@ Config file for the entire application
 # Define the application directory
 import os
 
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+BASE_DIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
 # Statement for enabling the development environment
 DEBUG = os.getenv("DEBUG", "False").lower() in ["1", "t", "true"]
@@ -26,9 +26,9 @@ MONGODB_SETTINGS = {
 MAIL_SERVER = os.getenv("MAIL_SERVER")
 MAIL_PORT = int(os.getenv("MAIL_PORT", "587"))
 MAIL_USE_TLS = True
-MAIL_DEFAULT_SENDER = os.getenv("MAIL_USERNAME", "TEST@correo.com")
+MAIL_DEFAULT_SENDER = os.getenv("MAIL_USERNAME")
 MAIL_USERNAME = MAIL_DEFAULT_SENDER
-MAIL_PASSWORD = os.getenv("MAIL_PASSWORD", "TESTPASSWORD")
+MAIL_PASSWORD = os.getenv("MAIL_PASSWORD")
 
 # Flask User settings
 # https://github.com/lingthio/Flask-User/blob/master/flask_user/user_manager__settings.py

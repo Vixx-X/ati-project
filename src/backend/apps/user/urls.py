@@ -6,7 +6,9 @@ from . import bp, views
 
 # users
 bp.add_url_rule("/<string:username>", view_func=views.PageView.as_view("page"))
-bp.add_url_rule("/<string:username>/profile", view_func=views.ProfileView.as_view("profile"))
+bp.add_url_rule(
+    "/<string:username>/profile", view_func=views.ProfileView.as_view("profile")
+)
 bp.add_url_rule(
     "/<string:username>/friends", view_func=views.FriendView.as_view("friends")
 )
