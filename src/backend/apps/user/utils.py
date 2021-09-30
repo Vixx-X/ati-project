@@ -70,14 +70,14 @@ def delete_notification(notification):
 
 def remove_friend(target_user, requester):
     if are_friends(target_user, requester):
-        unfriend_signal.send(target_user, requester)
+        unfriend_signal.send(receiver=target_user, to=requester)
         return True
     return False
 
 
 def send_friend_request(target_user, requester):
-    if not are_friends(target_user, requester) and target_user.accept_friend_request:
-        friend_signal.send(target_user, requester)
+    if not are_friends(target_user, requester) and target_user.accept_friend_requests:
+        friend_signal.send(receiver=target_user, to=requester)
         return True
     return False
 
@@ -86,7 +86,7 @@ def respond_to_friend_request(notification, veredict):
     if not notification.is_friend_request():
         raise Exception("Notification is not friend request")
     if veredict:
-        friend_signal.send(notification.sender, notification.receiver)
+        friend_signal.send(to=notification.sender, receiver=notification.receiver)
     delete_notification(notification)
 
 
