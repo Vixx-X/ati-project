@@ -266,7 +266,7 @@ class User(db.Document, UserMixin):
     def get_profile_banner(self):
         if self.banner_photo:
             return self.banner_photo
-        return Image(static=True, path="img/user/default-banner.png")
+        return Image(static=True, path="img/user/default-banner.jpg")
 
     def is_friend(self, user):
         """
