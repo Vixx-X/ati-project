@@ -28,7 +28,7 @@
       </div>
     </a>
 
-      {% if obj.all_media|length > 1 -%}
+      {% if obj and obj.all_media and obj.all_media|length > 1 -%}
         <div>
           <div class="splide component" id={{obj.pk}}>
               <div class="splide__track">
@@ -48,7 +48,7 @@
           </div>
         </div>
 
-      {%- elif obj.all_media|length == 1 -%}
+      {%- elif obj and obj.all_media and obj.all_media|length == 1 -%}
 
       <li class="splide__slide" style="width: 100%">
         {{ media(
