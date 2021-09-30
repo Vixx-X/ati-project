@@ -2,7 +2,7 @@
 <div class="user-icon {{ type }}">
   <a href="{{ url_for('user.page', username=user.username) }}">
     <picture>
-      <img class="profile" loading="lazy" src="{{ user.profile_photo_url }}" alt="{{ _("Profile photo of") }}{{ user.full_name }}">
+      <img class="profile" loading="lazy" src="{{ user.get_profile_photo.thumb('200x200', crop='fit') }}" alt="{{ _("Profile photo of") }} {{ user.full_name }}">
     </picture>
   </a>
   {%if type=="change"-%}
