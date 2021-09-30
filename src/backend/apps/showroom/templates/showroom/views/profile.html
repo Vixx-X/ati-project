@@ -92,7 +92,7 @@
                 type="primary last",
                 font="fw-bold",
                 letters="",
-                function="parent.location='" + url_for('user.chat') + "'")
+                function="parent.location='" + url_for('chat.chat-list') + "'")
             }}
           {% endif %}
       </nav>
@@ -118,7 +118,7 @@
             <a href="#">
               <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="Add Friends">
             </a>
-            <a href="{{url_for('user.chat')}}">
+            <a href="{{url_for('chat.chat-list')}}">
               <img src="{{url_for('static', filename='img/icons/chat.svg')}}" alt="Chat icon link">
             </a>
           </div>

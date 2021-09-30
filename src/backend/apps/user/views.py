@@ -4,6 +4,7 @@ Views for the user module.
 
 from flask import session, url_for
 from flask_user import login_required
+from backend.apps.chat.models import Chat
 
 from backend.apps.user.forms import ConfigForm
 from backend.apps.user.utils import (
@@ -142,11 +143,3 @@ class SearchView(TemplateView):
         return ctx
 
 
-class ChatView(TemplateView):
-    """
-    Chat View
-    """
-
-    decorators = [login_required]
-
-    template_name = "user/chat.html"

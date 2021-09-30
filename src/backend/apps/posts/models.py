@@ -15,9 +15,15 @@ from flask_user import current_user
 def get_time(time):
     now = datetime.now()
     delta = time - now
-    if delta < timedelta(days=1):
+    if delta < timedelta(seconds=30):
+        return _("Less than 30 seconds ago")
+    if delta < timedelta(minutes=5):
+        return _("Less than 5 minutes ago")
+    if delta < timedelta(minutes=10):
+        return _("Less than 10 minutes ago")
+    if delta < timedelta(days=2):
         return _("Today")
-    elif delta < timedelta(days=2):
+    if delta < timedelta(days=2):
         return _("Yesterday")
     return _d(time, format="%A %d-%m-%Y, %H:%M")
 
@@ -89,7 +95,7 @@ class Post(db.Document):
     media = db.ListField(
         db.ReferenceField(
             Media,
-            reverse_delete_url=db.CASCADE,
+            reverse_delete_rule=db.CASCADE,
         ),
     )
 
