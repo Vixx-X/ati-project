@@ -28,3 +28,6 @@ blinker==1.4
 
 # i18n
 Flask-Babel==2.0.0
+
+# Socket io
+flask-socketio

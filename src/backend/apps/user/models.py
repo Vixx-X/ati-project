@@ -5,15 +5,16 @@ Models for User module
 import re
 from datetime import datetime
 
-from flask import current_app, url_for
+from flask import current_app
+from flask.helpers import url_for
 from flask_babel import gettext as _
 from flask_user import UserMixin
+from mongoengine.queryset.visitor import Q
 from social_flask_mongoengine.models import FlaskStorage
+from config.config import LANGUAGES as LANGS, DEFAULT_LANGUAGE
 
 from backend import db
 from backend.apps.media.models import Image
-from config import DEFAULT_LANGUAGE
-from config import LANGUAGES as LANGS  # for i18n
 
 NO_ASCII_REGEX = re.compile(r"[^\x00-\x7F]+")
 NO_SPECIAL_REGEX = re.compile(r"[^\w_-]+", re.UNICODE)
@@ -188,6 +189,11 @@ class User(db.Document, UserMixin):
     }
 
     @property
+    def chats(self):
+        from backend.apps.chat.models import Chat
+        return Chat.objects.filter(Q(user1=self) | Q(user2=self))
+
+    @property
     def full_name(self):
         return f"{self.first_name} {self.last_name}"
 
@@ -229,27 +235,44 @@ class User(db.Document, UserMixin):
             raw["birth_date"] = raw["birth_date"].isoformat()
 
         if "friends" in raw:
-            raw["friends"] = list(map(lambda x: x.as_dict(), self.friends))
+            raw["friends"] = list(
+                map(
+                    lambda x: {
+                        "username": x.username,
+                        "photo": x.get_profile_photo_url,
+                        "id": x.id,
+                    },
+                    self.friends,
+                )
+            )
 
         return raw
 
     def get_profile_photo_url(self):
-        if self.profile_photo:
-            return self.profile_photo.url
-        return url_for("static", filename="img/user/default-profile.png")
+        return self.get_profile_photo.url
 
     @property
     def profile_photo_url(self):
         return self.get_profile_photo_url()
 
+    @property
+    def get_profile_photo(self):
+        if self.profile_photo:
+            return self.profile_photo
+        return Image(static=True, path="img/user/default-profile.png")
+
     def get_banner_url(self):
-        if self.banner_photo:
-            return self.banner_photo.url
-        return url_for("static", filename="img/user/default-banner.jpg")
+        return self.get_profile_banner.url
 
     @property
     def banner_url(self):
         return self.get_banner_url()
+
+    @property
+    def get_profile_banner(self):
+        if self.banner_photo:
+            return self.banner_photo
+        return Image(static=True, path="img/user/default-banner.jpg")
 
     def is_friend(self, user):
         """
@@ -269,6 +292,10 @@ class User(db.Document, UserMixin):
         Remove a friend
         """
         self.friends.remove(friend)
+
+    @property
+    def accept_friend_requests(self):
+        return self.config.accept_friend_requests
 
     @property
     def have_notification(self):
@@ -393,6 +420,9 @@ class Notification(db.Document):
         CHECK_POST: _("check post message"),
         PAGE: _("page message"),
     }
+
+    def url(self):
+        return url_for("api.notification-list", id=str(self.pk))
 
     @property
     def message(self):

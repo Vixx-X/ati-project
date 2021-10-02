@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% from "all_components/notification.html" import notification %}
+
+{% block title %}{{ _('Notification') }}{% endblock title %}
+
+{% block body %}
+    <!-- Variant1: White -->
+    {{notification(
+        class="white",
+        title="Notification",
+        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    )}}
+    
+    <div class="margin-section"></div>
+
+    <!-- Variant2: Primary -->
+    {{notification(
+        class="primary",
+        title="Notification",
+        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    )}}
+
+{% endblock body %}

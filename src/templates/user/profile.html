@@ -1,20 +1,17 @@
 {% extends "base.html" %}
 
 {% from "components/utils/user-icon.html" import user_icon %}
-{% from "all_components/header-publication.html" import header_publication %}
-{% from "all_components/buttons.html" import buttons %}
+{% from "components/utils/card.html" import card %}
+{% from "components/utils/buttons.html" import buttons %}
 {% from "components/utils/header.html" import header %}
+{% from "components/posts/post.html" import post as _post %}
 {% from "components/user/mobile-navmenu.html" import mobile_navmenu %}
-{% from "all_components/long-cards.html" import longCard %}
-{% from "all_components/element-friend-list.html" import element_friend_list %}
-{% from "all_components/card.html" import card %}
+{% from "components/utils/long-cards.html" import longCard %}
+{% from "components/user/navegation-mobile.html" import navegation %}
 
 {% block extrastyles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" >
 <link rel="stylesheet" href="{{ url_for('static', filename='css/profile3.css') }}" >
 {% endblock %}
-{% block onloadscripts %}
-<script src="{{url_for('static', filename='js/all_components/mobile-navmenu.js')}}"> </script>
-{% endblock onloadscripts %}
 
 {% block title %} {{_("Description")}} {% endblock title %}
 
@@ -35,67 +32,29 @@
 
             <div class="desktop-content">
                 <div class="container">
-                <nav class=" navegation-desktop">
-                    {% if is_myuser %}
-                        {{buttons(
-                            mensaje="Publications",
-                            type="primary last",
-                            font="fw-bold",
-                            letters="",
-                            function="parent.location='" + url_for('user.page', username='vittorio_adesso') + "'")
-                        }}
-                    {% else %}
-                        {{buttons(
-                            mensaje="Be friends",
-                            type="primary tercero",
-                            font="fw-bold",
-                            letters="")
-                        }}  
-                        {{buttons(
-                            mensaje="Chat",
-                            type="primary last",
-                            font="fw-bold",
-                            letters="",
-                            function="parent.location='" + url_for('user.chat') + "'")
-                        }}
-                    {% endif %}
-                </nav>
+                  <nav class="navegation-desktop">
+                    {{buttons(
+                        mensaje=_("Publications"),
+                        type="primary tercero",
+                        letters="",
+                        link=url_for('user.page', username=target_user.username))
+                    }} 
+                      {{buttons(
+                          mensaje=_("Messages") if is_myuser else _("Chat"),
+                          type="primary last",
+                          letters="",
+                          link=url_for('chat.chat-list') if is_myuser else url_for('user.chat', username=target_user.username))
+                      }}
+                  </nav>
                 </div>
             </div>
 
-            <div class="mobile-content">
-                <div class="container margin-bottom">
-                  {% if is_myuser %}
-                  <nav class="navegation-mobile">
-                    <a href="{{url_for('user.friends', username='vittorio_adesso')}}">
-                      <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
-                    </a>
-                    <a href="{{url_for('user.edit_user_profile')}}">
-                      <img src="{{url_for('static', filename='img/icons/edit.svg')}}" alt="Edit Profile">
-                    </a>
-                  </nav>
-                  {% else %}
-                  <nav class="navegation-mobile-other">
-                    <a href="{{url_for('user.friends', username='vittorio_adesso')}}">
-                      <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="View Friends">
-                    </a>
-                    <div class="container-right">
-                      <a href="#">
-                        <img src="{{ url_for('static', filename='img/icons/friends.svg') }}" alt="Add Friends">
-                      </a>
-                      <a href="{{url_for('user.chat')}}">
-                        <img src="{{url_for('static', filename='img/icons/chat.svg')}}" alt="Chat icon link">
-                      </a>
-                    </div>
-                  </nav>
-                  {% endif %}
-                </div>
-            </div>
+            {{navegation(is_myuser=is_myuser, is_friend=is_friend, target_user=target_user)}}
         </div>
         
         {{mobile_navmenu(details=True, user=target_user)}}
 
-        <p class="container details">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. sunt in culpa qui officia deserunt mollit anim id est laborum.”</p>
+        <p class="container details">{{target_user.description}}</p>
 
     </div>
 
@@ -104,49 +63,32 @@
     <div class="margin-top"></div>
 
     <div class="container cards-mobile">
+
         {{longCard(
-            title='Video Games',
-            content=['Call of duty: Mobile', 'Beyond: Two Souls'],
-            type='secundary'
+          title=_("Games"),
+          content=target_user.games,
+          type='secundary'
         )}}
-        {{ longCard(
-          title='Books',
-          content=['Inferno'],
+        {{longCard(
+          title=_("Books"),
+          content=target_user.books,
           type='secundary'
         )}}
         {{ longCard(
-            title='Languages',
-            content=['Python3', 'Haskell'],
-            type='secundary'
-        )}}
+          title=_("Languages"),
+          content=target_user.langs,
+          type='secundary'
+        ) }}
         {{ longCard(
-            title='Music',
-            content=['Pop', 'Indie'],
-            type='secundary'
-        )}}
-    </div>
-
-    <div class="container cards-desktop">
-        {{card(img, 
-            title='Books', 
-            content=['Call of duty: Mobile', 'Beyond: Two Souls'], 
-            png=url_for('static', filename='img/books.svg'), 
-            alt='Video Games Photo')}}
-        {{card(img, 
-            title='Music', 
-            content=['Call of duty: Mobile', 'Beyond: Two Souls'], 
-            png=url_for('static', filename='img/music.svg'), 
-            alt='Video Games Photo')}}
-        {{card(img, 
-            title='Video Games', 
-            content=['Call of duty: Mobile', 'Beyond: Two Souls'], 
-            png=url_for('static', filename='img/videogames.svg'), 
-            alt='Video Games Photo')}}
-        {{card(img, 
-            title='Languages', 
-            content=['Call of duty: Mobile', 'Beyond: Two Souls'], 
-            png=url_for('static', filename='img/laguages.svg'), 
-            alt='Video Games Photo')}}
+          title=_("Music"),
+          content=target_user.music,
+          type='secundary'
+        ) }}
+        {{ longCard(
+          title=_("Colors"),
+          content=target_user.colors,
+          type='secundary'
+        ) }}
     </div>
 
 {%- endblock body %}

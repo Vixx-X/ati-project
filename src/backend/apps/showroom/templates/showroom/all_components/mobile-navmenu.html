@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% from "all_components/mobile-navmenu.html" import mobile_navmenu %}
+
+{% block title %}{{ _('Mobile Nav Menu')}}{% endblock title %}
+{% block onloadscripts %}
+<script src="{{url_for('static', filename='js/all_components/mobile-navmenu.js')}}"> </script>
+{% endblock onloadscripts %}
+{% block body%}
+<div class="margin-section"></div>
+
+<div class="container">
+    {{mobile_navmenu(
+    details="Otro parrafo de oro itemTempora nisi quam vel necessitatibus nulla, delectus amet consequuntur
+    doloribus
+    perspiciatis aliquid numquam, aspernatur enim, veritatis modi. Hic ad eligendi quam laboriosam!
+    Lorem
+    ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus sunt perferendis aliquam
+    exercitationem unde maiores dignissimos magni. Itaque corporis reprehenderit suscipit, in odit nihil
+    doloremque magnam facilis repellat rem sunt!",
+
+
+    publication="Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, repudiandae architecto.
+    Nostrum
+    corrupti quo, sequi adipisci doloribus rerum beatae quae ullam eos. Asperiores architecto nobis,
+    sequi
+    vel quidem dolorem natus."
+    )}}
+</div>
+{% endblock body %}

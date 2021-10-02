@@ -9,13 +9,21 @@ from backend import db
 from backend.apps.media.models import Media
 from backend.apps.user.models import User
 
+from flask_user import current_user
+
 
 def get_time(time):
     now = datetime.now()
     delta = time - now
-    if delta < timedelta(days=1):
+    if delta < timedelta(seconds=30):
+        return _("Less than 30 seconds ago")
+    if delta < timedelta(minutes=5):
+        return _("Less than 5 minutes ago")
+    if delta < timedelta(minutes=10):
+        return _("Less than 10 minutes ago")
+    if delta < timedelta(days=2):
         return _("Today")
-    elif delta < timedelta(days=2):
+    if delta < timedelta(days=2):
         return _("Yesterday")
     return _d(time, format="%A %d-%m-%Y, %H:%M")
 
@@ -87,7 +95,7 @@ class Post(db.Document):
     media = db.ListField(
         db.ReferenceField(
             Media,
-            reverse_delete_url=db.CASCADE,
+            reverse_delete_rule=db.CASCADE,
         ),
     )
 
@@ -113,6 +121,12 @@ class Post(db.Document):
             return self.media[0]
         return None
 
+    @property
+    def all_media(self):
+        if self.media:
+            return self.media
+        return None
+    
     @property
     def time(self):
         return get_time(self.time_created)
@@ -140,6 +154,10 @@ class Post(db.Document):
         if self.author:
             return self.author
         return User.get_deleted_user()
+
+    @property
+    def is_my_post(self):
+        return current_user == self.author
 
     def save(self, *args, **kwargs):
         """

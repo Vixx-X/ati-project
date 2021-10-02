@@ -7,6 +7,8 @@ from flask_mongoengine import MongoEngine
 from flask_wtf.csrf import CSRFProtect
 from social_flask_mongoengine.models import init_social
 from werkzeug.middleware.proxy_fix import ProxyFix
+from flask_thumbnails import Thumbnail
+from flask_socketio import SocketIO
 
 from backend.blueprints import register_blueprint
 from backend.user_manager import UserManager
@@ -15,18 +17,21 @@ db = MongoEngine()
 babel = Babel()
 user_manager = UserManager()
 csrf = CSRFProtect()
+thumb = Thumbnail()
+socketio = SocketIO()
 
 
-def init_app(config_file="config"):
+def init_app(config_file="config", testing=False):
     """Initialize the core application."""
+
+    if testing:
+        config_file = "test"
 
     app = Flask(__name__, instance_relative_config=False)
     app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1)
 
-    # Reading configs
-    app.config.from_object(f"{config_file}")
+    app.config.from_object(f"config.{config_file}")
 
-    # Default for static
     static_folder = app.config["STATIC_FOLDER"]
     if static_folder:
         app.static_folder = static_folder
@@ -56,6 +61,8 @@ def init_app(config_file="config"):
     init_social(app, db)  # social auth
     babel.init_app(app)  # i18n
     csrf.init_app(app)  # csrf tokens
+    thumb.init_app(app)  # thumbs
+    socketio.init_app(app)   # socket io
 
     user_manager.init_app(app, db)
 

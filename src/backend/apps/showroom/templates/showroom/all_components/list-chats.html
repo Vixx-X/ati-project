@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% from "all_components/list-friends.html" import list_friends %}
+
+{% block title %}{{ _('List Chats') }}{% endblock title %}
+{% block body -%}
+<div class="margin-section"></div>
+
+<div style="width: 25em;"> 
+    {{list_friends(
+        img=url_for('static', filename='img/users/26838989.png'),
+        name="User 1",
+        alt="User1 Photo",
+        type="connect",
+        comunFriends="Comun Friends",
+        png=url_for('static', filename='img/users/26838989.png'),
+        webp=url_for('static', filename='img/users/26838989.webp'),
+        titlelist="Chats"
+    )}}
+</div>
+{%- endblock body %}

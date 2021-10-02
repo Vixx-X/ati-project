@@ -60,6 +60,10 @@
   align-items: center;
 }
 
+.jc-center {
+  justify-content: center;
+}
+
 .jc-space_between {
   justify-content: space-between;
 }
@@ -76,6 +80,6 @@
   display: none !important;
 }
 
-.dissable {
+.disable {
   opacity: 0.5;
 }

@@ -1,10 +1,10 @@
-{% extends "user/auth/base.html" %} 
-{% block footer %} 
+{% extends "user/auth/base.html" %}
+{% block footer %}
 {{super()}}
 <div class="margin-mobile"></div>
 <div class="footer-mobile black">
   <div class="container d-flex jc-space_between">
-    <a href="{{url_for('user.profile', username='vittorio_adesso')}}">
+    <a href="{{url_for('user.page', username=user.username)}}">
       <img loading="lazy" src="{{ url_for("static",
       filename="img/icons/user.svg") }}" alt="User icon">
     </a>
@@ -12,7 +12,7 @@
       <img loading="lazy" src="{{ url_for("static",
       filename="img/icons/plus-sign.svg") }}" alt="Add publication">
     </a>
-    <a href="{{url_for('user.chat')}}">
+    <a href="{{url_for('chat.chat-list')}}">
       <img loading="lazy" src="{{ url_for("static",
       filename="img/icons/chat.svg") }}" alt="Chat">
     </a>

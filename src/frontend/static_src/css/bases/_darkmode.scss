@@ -68,6 +68,7 @@ body.darkmode {
     }
 
     .button.create{
+        display: inline-block;
         background-color: $black;
         color: $light;
         border: 1px solid $light;
@@ -258,7 +259,7 @@ body.darkmode {
         color: $light;
     }
 
-    audio::-webkit-media-controls-enclosure, video::-webkit-media-controls-enclosure {
+    audio::-webkit-media-controls-enclosure {
         background-color: lighten($black, 15%);
     }
     audio::-webkit-media-controls-panel{

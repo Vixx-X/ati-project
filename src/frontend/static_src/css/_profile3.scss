@@ -28,24 +28,8 @@
     @include grid(1, 2rem);
     row-gap: 4rem;
     @include tablet{
-        display: none;
+        @include grid(2, 2rem);
     }
-}
 
-.cards-desktop{
-    display: none;
-    margin-bottom: 4rem;
-    @include tablet{
-        display: grid;
-        @include grid(4, 3rem);
-    }
-    @include desktop{
-        @include grid(4, 8rem);
-    }
-    .card{
-        img{
-            width: 60%;
-            filter: invert(5%) sepia(7%) saturate(4111%) hue-rotate(127deg) brightness(98%) contrast(95%);
-        }
-    }
+    margin-bottom: 10rem;
 }

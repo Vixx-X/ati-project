@@ -60,7 +60,7 @@ class FriendView(APIDetailView):
         start = (self.page - 1) * self.size
         end = start + self.size
         return self.response(
-            data=get_user_friends(user, requester=self.user)[start:end]
+            data=get_user_friends(user, requester=self.user)[start:end],
         )
 
     def post(self, **kwargs):

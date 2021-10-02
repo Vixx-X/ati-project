@@ -2,7 +2,7 @@
 Views for the posts module.
 """
 
-from flask import redirect
+from flask import redirect, abort
 from flask.helpers import url_for
 
 from backend.apps.posts.forms import PostForm
@@ -40,9 +40,15 @@ class CreateUpdatePostView(UpdateView):
         kwargs["user"] = self.user
         return kwargs
 
+    def get_object(self, *args, **kwargs):
+        obj = super().get_object(*args, **kwargs)
+        if obj and obj.author != self.user:
+            abort(403)
+        return obj
+
     def form_valid(self, form, *args, **kwargs):
         post = self.object or Post()
         form.populate_obj(obj=post)
         post.author = self.user
         post = post.save()
-        return redirect(url_for("posts.post-detail", id=str(post.id)))
+        return redirect(url_for("app.home", id=str(post.id)))

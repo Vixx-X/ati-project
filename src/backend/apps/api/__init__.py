@@ -34,10 +34,7 @@ class ExtendedAPI(Api):
                     HTTP_STATUS_CODES.get(err.code, ""),
                 ),
             )
-            return (
-                make_response(message=message, status=err.code),
-                err.code,
-            )
+            return make_response(message=message, status=err.code)
         # If msg attribute is not set,
         # consider it as Python core exception and
         # hide sensitive error info from end user

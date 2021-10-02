@@ -1,72 +1,99 @@
-{% from "all_components/media.html" import media %}
+{% from "components/mediaComponent/media.html" import media %}
 {% from "components/utils/user-icon.html" import user_icon %}
-
 {% macro post(obj) -%}
   <div class="publication">
     <div class="header-publication">
       <div class="d-flex title-wrap">
-        {{ user_icon(obj.get_author) }}
-        <div>
+        {{ user_icon(obj.author) }}
+        <div class='w-100'>
           <h2>{{ obj.title }}</h2>
-          <div class="d-flex jc-space_between details">
-            <p>{{ obj.get_author.full_name }}</p>
+          <div class="d-flex jc-space_between details w-100">
+            <p>{{ obj.author.full_name }}</p>
             <p>{{ obj.time }}</p>
           </div>
         </div>
       </div>
 
       <!-- TODO: change # for url to modify publication (parameter) -->
-      <a class="modify" href="{{url_for('posts.post-edit', id=obj.pk)}}">
-        <img src="{{ url_for('static', filename='img/icons/menu_3_puntos_horizontal.svg') }}" alt="menu_3_puntos_horizontal">
-      </a>
+      {% if obj.is_my_post %}
+        <a class="modify" href="{{url_for('posts.post-edit', id=obj.pk)}}">
+          <img src="{{ url_for('static', filename='img/icons/menu_3_puntos_horizontal.svg') }}" alt="menu_3_puntos_horizontal">
+        </a>
+      {% endif %}
     </div>
 
-    <a href="{{url_for('posts.post-edit', id=obj.pk)}}">
-      <div class="media-publication margin-section">
+    <a href="{{url_for('posts.post-detail', id=obj.pk)}}">
+      <div class="media-publication">
         <p>{{ obj.description }}</p>
       </div>
     </a>
 
-    {% if obj.primary_media %}
-    {{ media(
-        type=obj.primary_media.type,
-        img=obj.primary_media.url,
-        alt=obj.title,
-        url=url_for("posts.post-edit", id=obj.pk)
-    )}}
-    {% endif %}
+
+      {% if obj and obj.all_media and obj.all_media|length > 1 -%}
+        <div>
+          <div class="splide component" id={{obj.pk}}>
+              <div class="splide__track">
+                  <ul class="splide__list w-100 d-flex" style="width: 100%">
+                    {% for med in obj.all_media -%}
+                      <li class="splide__slide" style="width: 100%">
+                        {{ media(
+                            type=med.type,
+                            src=med.url,
+                            alt=med.title,
+                            url=url_for("posts.post-detail", id=obj.pk)
+                        )}}
+                      </li>
+                  {% endfor %}
+                  </ul>
+              </div>
+          </div>
+        </div>
+
+      {%- elif obj and obj.all_media and obj.all_media|length == 1 -%}
+
+      <li class="splide__slide" style="width: 100%">
+        {{ media(
+            type=obj.primary_media.type,
+            src=obj.primary_media.url,
+            alt=obj.primary_media.title,
+            url=url_for("posts.post-detail", id=obj.pk)
+        )}}
+      </li>
+
+      {%- endif %}
+
   </div>
 
-  {% set comments = obj.get_firts_comments %}
+    {% set comments = obj.get_firts_comments %}
 
-  {% if comments|length > 0 %}
-  <div class="comments-user">
-    <div class="comments-group">
-      {{ user_icon(
-        user=comments[0].get_author,
-        type="basic one",
-      ) }}
+    {% if comments|length > 0 %}
+    <div class="comments-user">
+      <div class="comments-group">
+        {{ user_icon(
+          user=comments[0].get_author,
+          type="basic one",
+        ) }}
 
-      {% if comments|length > 1 -%}
+        {% if comments|length > 1 -%}
 
-      {{ user_icon(
-        user=comments[1].get_author,
-        type="basic two",
-      ) }}
+        {{ user_icon(
+          user=comments[1].get_author,
+          type="basic two",
+        ) }}
 
-      {%- endif %}
+        {%- endif %}
 
-      {% if comments|length > 2 -%}
-      {{ user_icon(
-        user=comments[2].get_author,
-        type="basic three",
-      ) }}
+        {% if comments|length > 2 -%}
+        {{ user_icon(
+          user=comments[2].get_author,
+          type="basic three",
+        ) }}
 
-      {%- endif %}
+        {%- endif %}
 
+      </div>
+      <a href="{{url_for('posts.post', id=obj.pk)}}">{{_('Ver comentarios')}}</a>
     </div>
-    <a href="{{url_for('posts.post', id=obj.pk)}}">Ver comentarios</a>
-  </div>
-  {%- endif %}
+    {%- endif %}
 
 {%- endmacro %}

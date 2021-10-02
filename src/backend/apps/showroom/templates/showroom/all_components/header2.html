@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% from "all_components/header2.html" import header2 %}
+
+{% block title %}{{ _('Header Main') }} {% endblock title %}
+
+{% block body %}
+  <div class="margin-section">
+    {{ header2(
+      img=url_for('static', filename='img/users/26956071.png'),
+      alt="User2 Photo",
+      type="shadow",
+      png=url_for('static', filename='img/users/26956071.png'),
+      webp=url_for('static', filename='img/users/26956071.webp')
+    ) }}
+  </div>
+{% endblock body %}
