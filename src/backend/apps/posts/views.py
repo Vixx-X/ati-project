@@ -2,7 +2,7 @@
 Views for the posts module.
 """
 
-from flask import redirect, abort
+from flask import abort, redirect
 from flask.helpers import url_for
 
 from backend.apps.posts.forms import PostForm

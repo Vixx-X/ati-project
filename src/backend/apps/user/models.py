@@ -11,10 +11,11 @@ from flask_babel import gettext as _
 from flask_user import UserMixin
 from mongoengine.queryset.visitor import Q
 from social_flask_mongoengine.models import FlaskStorage
-from config.config import LANGUAGES as LANGS, DEFAULT_LANGUAGE
 
 from backend import db
 from backend.apps.media.models import Image
+from config.config import DEFAULT_LANGUAGE
+from config.config import LANGUAGES as LANGS
 
 NO_ASCII_REGEX = re.compile(r"[^\x00-\x7F]+")
 NO_SPECIAL_REGEX = re.compile(r"[^\w_-]+", re.UNICODE)
@@ -191,6 +192,7 @@ class User(db.Document, UserMixin):
     @property
     def chats(self):
         from backend.apps.chat.models import Chat
+
         return Chat.objects.filter(Q(user1=self) | Q(user2=self))
 
     @property

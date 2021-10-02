@@ -1,6 +1,7 @@
 from flask_restful import Resource
-from backend.apps.api.utils import make_response as res
 from flask_wtf.csrf import generate_csrf
+
+from backend.apps.api.utils import make_response as res
 
 
 class Health(Resource):

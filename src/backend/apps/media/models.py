@@ -2,23 +2,22 @@
 Models for Media module
 """
 
-from flask.helpers import url_for
+from pathlib import Path
+
 import mongoengine as db
+from flask import send_from_directory
+from flask.helpers import url_for
 
 # from flask_babel import gettext as _
 from mongoengine.fields import StringField
-from pathlib import Path
 
-from flask import send_from_directory
-
+from backend import thumb
 from backend.apps.media.utils import (
     get_media_root_path,
     get_media_upload_path,
     upload_file,
     upload_to,
 )
-
-from backend import thumb
 
 
 class Media(db.Document):

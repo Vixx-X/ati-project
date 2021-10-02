@@ -6,6 +6,7 @@ from bisect import bisect_left
 from datetime import datetime
 
 from mongoengine.queryset.visitor import Q
+
 from backend import user_manager
 from backend.apps.user.models import Notification, User
 from backend.apps.user.signals import friend_signal, unfriend_signal
@@ -123,10 +124,13 @@ def create_user(**kwargs):
     user.is_primary = True
     user.password = user_manager.hash_password(user.password)
     user.email_confirmed_at = datetime.utcnow()
-    
+
     return user
 
+
 def are_pending(sender, receiver):
-    notification = receiver.notifications.filter(type=Notification.FRIEND_REQUEST, sender=sender)
+    notification = receiver.notifications.filter(
+        type=Notification.FRIEND_REQUEST, sender=sender
+    )
 
     return notification

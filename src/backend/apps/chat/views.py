@@ -3,19 +3,19 @@ Views for the media module.
 """
 
 import json
+
 from flask import session
-from flask_user import current_user
 from flask_socketio import emit, join_room, leave_room
+from flask_user import current_user
 from flask_user.decorators import login_required
-
-from backend.utils.views import DetailView, TemplateMixin, TemplateView
-from .models import Chat
-
-# from flask_babel import gettext as _ # for i18n
-
 
 from backend import socketio
 from backend.apps.chat.models import Message
+from backend.utils.views import DetailView, TemplateMixin, TemplateView
+
+from .models import Chat
+
+# from flask_babel import gettext as _ # for i18n
 
 
 @socketio.on("connect")

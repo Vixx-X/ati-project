@@ -4,6 +4,7 @@ Config file for the testing the application
 
 # Define the application directory
 import os
+
 from .config import *
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
