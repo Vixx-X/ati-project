@@ -1,10 +1,12 @@
-import pytest
-from backend import init_app
-from selenium import webdriver
 from time import sleep
 
+import pytest
+from selenium import webdriver
+
+from backend import init_app
+
 # time to wait the page to load
-TIME=1
+TIME = 1
 
 # Fixture for Chrome
 @pytest.fixture(scope="class")

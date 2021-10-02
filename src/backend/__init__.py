@@ -4,11 +4,11 @@ Main app factory to boostrap the application
 from flask import Flask
 from flask_babel import Babel
 from flask_mongoengine import MongoEngine
+from flask_socketio import SocketIO
+from flask_thumbnails import Thumbnail
 from flask_wtf.csrf import CSRFProtect
 from social_flask_mongoengine.models import init_social
 from werkzeug.middleware.proxy_fix import ProxyFix
-from flask_thumbnails import Thumbnail
-from flask_socketio import SocketIO
 
 from backend.blueprints import register_blueprint
 from backend.user_manager import UserManager
@@ -62,7 +62,7 @@ def init_app(config_file="config", testing=False):
     babel.init_app(app)  # i18n
     csrf.init_app(app)  # csrf tokens
     thumb.init_app(app)  # thumbs
-    socketio.init_app(app)   # socket io
+    socketio.init_app(app)  # socket io
 
     user_manager.init_app(app, db)
 

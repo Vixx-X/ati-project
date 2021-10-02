@@ -4,7 +4,9 @@ Main file for testing procedures
 
 # import backend.app as app
 from datetime import datetime
+
 import pytest
+
 from backend import init_app
 from backend.apps.user.utils import create_user
 
