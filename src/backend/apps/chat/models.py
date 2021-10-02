@@ -5,8 +5,8 @@ Models for Media module
 from datetime import datetime
 
 from backend import db
-from backend.apps.user.models import User
 from backend.apps.posts.models import get_time
+from backend.apps.user.models import User
 
 # from flask_babel import gettext as _
 

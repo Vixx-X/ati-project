@@ -2,12 +2,13 @@
 Urls for user module/blueprint
 """
 
-from flask.helpers import url_for
-from flask_user.decorators import login_required, current_user
-from mongoengine.queryset.visitor import Q
 from flask import redirect
+from flask.helpers import url_for
+from flask_user.decorators import current_user, login_required
+from mongoengine.queryset.visitor import Q
 
 from backend.apps.chat.models import Chat
+
 from . import bp, views
 from .models import User
 
@@ -42,5 +43,3 @@ def chat(username):
     chat = qs[0] if qs else Chat(user1=user1, user2=user2)
     chat.save()
     return redirect(url_for("chat.chat", pk=str(chat.pk)))
-
-

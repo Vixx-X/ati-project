@@ -3,7 +3,7 @@ Urls for media module/blueprint
 """
 
 from . import api
-from .views import comments, post, user, health
+from .views import comments, health, post, user
 
 # Health
 api.add_resource(

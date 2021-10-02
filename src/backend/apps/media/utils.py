@@ -1,8 +1,8 @@
 import datetime
 import posixpath
-from flask import request
 from pathlib import Path
-from flask import current_app
+
+from flask import current_app, request
 from werkzeug.utils import secure_filename
 
 
@@ -37,7 +37,7 @@ def get_media_class(file):
     Get the media class according to its MIME
     """
 
-    from backend.apps.media.models import Image, Audio, Video
+    from backend.apps.media.models import Audio, Image, Video
 
     media_map = {
         "image": Image,

@@ -2,14 +2,15 @@
 Models for User module
 """
 
-from flask_babel import lazy_gettext as _, format_datetime as _d
 from datetime import datetime, timedelta
+
+from flask_babel import format_datetime as _d
+from flask_babel import lazy_gettext as _
+from flask_user import current_user
 
 from backend import db
 from backend.apps.media.models import Media
 from backend.apps.user.models import User
-
-from flask_user import current_user
 
 
 def get_time(time):
@@ -126,7 +127,7 @@ class Post(db.Document):
         if self.media:
             return self.media
         return None
-    
+
     @property
     def time(self):
         return get_time(self.time_created)

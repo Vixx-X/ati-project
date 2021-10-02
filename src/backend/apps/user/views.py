@@ -4,9 +4,11 @@ Views for the user module.
 
 from flask import session, url_for
 from flask_user import login_required
-from backend.apps.chat.models import Chat
 
+from backend.apps.chat.models import Chat
+from backend.apps.posts.utils import get_posts_by_user
 from backend.apps.user.forms import ConfigForm
+from backend.apps.user.models import User
 from backend.apps.user.utils import (
     are_friends,
     get_common_friends_number,
@@ -14,8 +16,6 @@ from backend.apps.user.utils import (
     search_users,
 )
 from backend.utils.views import DetailView, TemplateView, UpdateView
-from backend.apps.user.models import User
-from backend.apps.posts.utils import get_posts_by_user
 
 # from flask_babel import gettext as _ # for i18n
 
@@ -31,9 +31,10 @@ def append_friend_data(friends, user):
         url = "api.friend-list"
         action = {
             "url": url_for(url, username=friend.username),
-             "friends_Status": "noFriends", #friends,noFriends,pending
+            "friends_Status": "noFriends",  # friends,noFriends,pending
         }
         setattr(friend, "action", action)
+
 
 class CheckEmailView(TemplateView):
     """
@@ -141,5 +142,3 @@ class SearchView(TemplateView):
         ctx["term"] = term
         ctx["result"] = len(users)
         return ctx
-
-

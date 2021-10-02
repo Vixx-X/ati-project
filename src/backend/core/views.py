@@ -3,9 +3,9 @@ Views for the core app.
 """
 
 from flask_user import login_required
+
 from backend.apps.posts.utils import get_main_posts
 from backend.apps.user.utils import get_common_friends
-
 from backend.utils.views import TemplateView
 
 # from flask_babel import gettext as _ # for i18n

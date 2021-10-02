@@ -12,14 +12,15 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../../src'))
+
+sys.path.insert(0, os.path.abspath("../../src"))
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'ati project'
-copyright = '2021, vixx_'
-author = 'vixx_'
+project = "ati project"
+copyright = "2021, vixx_"
+author = "vixx_"
 
 
 # -- General configuration ---------------------------------------------------
@@ -30,21 +31,18 @@ author = 'vixx_'
 extensions = [
     "sphinx.ext.autodoc",  # The autodoc core
     "sphinx.ext.graphviz",  # Support creating charts
-
     "sphinx.ext.doctest",  # Doctest support
-
     "sphinx.ext.viewcode",  # View code
     "sphinx_rtd_theme",  # readthedoc theme
 ]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ["_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = [
-]
+exclude_patterns = []
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -60,7 +58,7 @@ html_show_sourcelink = False
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ["_static"]
 
 # Supress warnings
 suppress_warnings = []

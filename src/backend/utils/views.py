@@ -1,5 +1,5 @@
 import mongoengine as db
-from flask import redirect, render_template, request, abort
+from flask import abort, redirect, render_template, request
 from flask.views import View
 from flask_user import current_user
 
