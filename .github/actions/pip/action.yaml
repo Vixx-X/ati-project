@@ -9,7 +9,6 @@ runs:
       run: |
         cat requirements/* > requirements.txt
     - name: Set up Python ${{ matrix.python-version }}
-      shell: bash
       uses: actions/setup-python@v2
     - name: Get pip cache directory path
       shell: bash
