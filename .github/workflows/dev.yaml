@@ -13,14 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install python dependencies
-        users: ./.github/actions/pip
+        uses: ./.github/actions/pip
 
   setup_yarn:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Install yarn dependencies
-        users: ./.github/actions/yarn
+        uses: ./.github/actions/yarn
 
   test:
     needs: [ setup_yarn, setup_python ]
@@ -28,9 +28,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Get python dependencies from cache
-        users: ./.github/actions/pip
+        uses: ./.github/actions/pip
       - name: Get yarn dependencies from cache
-        users: ./.github/actions/yarn
+        uses: ./.github/actions/yarn
       - name: Build static files
         run: |
           yarn install
