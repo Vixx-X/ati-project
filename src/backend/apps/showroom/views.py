@@ -212,14 +212,6 @@ class RadioButton(TemplateView):
     template_name = "showroom/all_components/radio-button.html"
 
 
-class BooleanButton(TemplateView):
-    """
-    Showcase for chat component.
-    """
-
-    template_name = "showroom/all_components/boolean-button.html"
-
-
 class DropDownList(TemplateView):
     """
     Showcase for chat component.

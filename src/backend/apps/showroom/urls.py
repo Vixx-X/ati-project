@@ -21,16 +21,13 @@ bp.add_url_rule("/", view_func=views.Index.as_view("index"))
 ##############
 
 list_of_components = [
-    ("boolean-button", ["Boolean Button", DV]),
     ("buttons", ["Buttons", GU]),
-    ("card", ["Card", DV]),
     ("chat", ["Chat", GU]),
     ("comments-users", ["Comments of Users", VA]),
     ("drop-down-list", ["Drop Down List", ED]),
     ("element-friend-list", ["User Element of list", ED]),
     ("footer-mobile", ["Footer Mobile", DV]),
     ("footer", ["Footer", ED]),
-    ("header_publication", ["Header Publication", DV]),
     ("header", ["Header", GU]),
     ("header2", ["Home Header", GU]),
     ("heading", ["Heading", DV]),
@@ -76,9 +73,6 @@ bp.add_url_rule(
 )
 bp.add_url_rule("/list-chats/", view_func=views.ListChats.as_view("list-chats"))
 bp.add_url_rule(
-    "/boolean-button/", view_func=views.BooleanButton.as_view("boolean-button")
-)
-bp.add_url_rule(
     "/drop-down-list/", view_func=views.DropDownList.as_view("drop-down-list")
 )
 bp.add_url_rule(
@@ -95,7 +89,7 @@ bp.add_url_rule(
 #########
 
 list_of_views = [
-    ("chatView", ["Chat", GU]),
+    ('chat.chat-list', ["Chat", GU]),
     ("configurations", ["Configuratios", ED]),
     ("createpublication", ["Create Publication", ED]),
     ("forgotpassword", ["Forgot Password", VA]),

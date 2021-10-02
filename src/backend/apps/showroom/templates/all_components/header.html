@@ -36,11 +36,6 @@
             src="{{ url_for("static", filename="img/icons/notifications.svg") }}"
             alt="Notifications logotype"
           />
-          {%if user.have_notification > 0 -%} 
-            <div class='notification-circle'>
-              {{user.have_notification}}
-            </div>
-          {%- endif %}
         </a>
         <a href="{{url_for('user.config')}}">
           <img
