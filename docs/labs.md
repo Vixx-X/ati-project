@@ -4,10 +4,10 @@ Information to understand challenges of ITA course
 
 ## Table of contents
 
-- [Lab 27](#lab-27)
-- [Lab 38](#lab-38)
+- [Challenge 27](#lab-27)
+- [Challenge 38](#lab-38)
 
-## Lab 27 <a name="lab-27"></a>
+## Challenge 27 <a name="lab-27"></a>
 
 We have two Workflows. First with pull request to develop branch and the second one that comes from any merge to master.
 
@@ -17,7 +17,13 @@ In the second it is quite similar but with the difference that in the end it end
 
 File of Workflow can be found [here](/.github/workflows/dev.yaml)
 
-## Lab 38 <a name="lab-38"></a>
+## Lab 37
+
+  For the lab we have to use Flask (like Flask-Login y flask-wtf), we can see the use of:
+  - FlaskUser [here](/src/backend/user_manager.py)
+  - FlaskForm [here](/src/backend/apps/user/forms.py)
+
+## Challenge 38 <a name="lab-38"></a>
 
 - For the User manage we use the Users from Flask and adding new features, this implementation can be found [here](/src/backend/user_manager.py).
 - The models for User in the Data base can be view [here](/src/backend/apps/user/models.py).
