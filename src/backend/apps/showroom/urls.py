@@ -21,16 +21,13 @@ bp.add_url_rule("/", view_func=views.Index.as_view("index"))
 ##############
 
 list_of_components = [
-    ("boolean-button", ["Boolean Button", DV]),
     ("buttons", ["Buttons", GU]),
-    ("card", ["Card", DV]),
     ("chat", ["Chat", GU]),
     ("comments-users", ["Comments of Users", VA]),
     ("drop-down-list", ["Drop Down List", ED]),
     ("element-friend-list", ["User Element of list", ED]),
     ("footer-mobile", ["Footer Mobile", DV]),
     ("footer", ["Footer", ED]),
-    ("header_publication", ["Header Publication", DV]),
     ("header", ["Header", GU]),
     ("header2", ["Home Header", GU]),
     ("heading", ["Heading", DV]),
@@ -76,9 +73,6 @@ bp.add_url_rule(
 )
 bp.add_url_rule("/list-chats/", view_func=views.ListChats.as_view("list-chats"))
 bp.add_url_rule(
-    "/boolean-button/", view_func=views.BooleanButton.as_view("boolean-button")
-)
-bp.add_url_rule(
     "/drop-down-list/", view_func=views.DropDownList.as_view("drop-down-list")
 )
 bp.add_url_rule(
@@ -95,22 +89,20 @@ bp.add_url_rule(
 #########
 
 list_of_views = [
-    ("chatView", ["Chat", GU]),
-    ("configurations", ["Configuratios", ED]),
-    ("createpublication", ["Create Publication", ED]),
-    ("forgotpassword", ["Forgot Password", VA]),
-    ("friendlist", ["Friend List", ED]),
-    ("home", ["Home", GU]),
-    ("landingpage", ["Landing", VA]),
-    # ("login", ["Login", VA]),
-    ("modifypublication", ["Modify Publication", ED]),
-    ("notifications", ["Notifications", DV]),
-    ("post", ["Post", GU]),
-    ("profile", ["Profile", GU]),
-    ("profiledescription", ["Profile Description", GU]),
-    ("profileedit", ["Profile Edit", DV]),
-    ("register", ["Register", VA]),
-    ("searchpage", ["Search Page", DV]),
+    ('chat.chat-list', ["Chat", GU]),
+    ('user.config', ["Configuratios", ED]),
+    ('posts.post-create', ["Update Publication", ED]),
+    ('user.forgot_password', ["Forgot Password", VA]),
+    (('user.friends', "user"), ["User Friends", ED]),
+    ('app.home', ["Home", GU]),
+    ('app.landing', ["Landing", VA]),
+    ("user.login", ["Login", VA]),
+    ("user.notification", ["Notifications", DV]),
+    (("posts.post-detail", "post"), ["Post", GU]),
+    ("user.mypage", ["Profile", GU]),
+    (("user.profile", "user"), ["Profile Description", GU]),
+    ('user.register', ["Register", VA]),
+    ('user.search', ["Search Page", DV]),
 ]
 
 bp.add_url_rule("/views/", view_func=views.Views.as_view("views"))
