@@ -39,8 +39,6 @@ def messages(message):
 
     data = json.loads(message)
 
-    breakpoint()
-
     # Save message to db
     msg = Message(content=data["message"], author=current_user)
     chat = Chat.objects.get_or_404(pk=room)
@@ -80,6 +78,8 @@ class ChatView(DetailView):
     decorators = [login_required]
 
     template_name = "chat/chat.html"
+
+    pk_or_slug_url = "pk"
 
     def get_context_data(self, **kwargs):
         session["room"] = str(self.object.pk)
