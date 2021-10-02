@@ -17,6 +17,7 @@ from .models import Chat
 from backend import socketio
 from backend.apps.chat.models import Message
 
+
 @socketio.on("connect")
 def connect():
     """
@@ -26,7 +27,7 @@ def connect():
     join_room(room)
 
     if room == "UNIVERSE":
-        emit("user_connected", {"username":current_user.username}, room=room)
+        emit("user_connected", {"username": current_user.username}, room=room)
 
 
 @socketio.on("message")
@@ -38,13 +39,23 @@ def messages(message):
 
     data = json.loads(message)
 
+    breakpoint()
+
     # Save message to db
-    msg = Message(content= data["message"], author=current_user)
+    msg = Message(content=data["message"], author=current_user)
     chat = Chat.objects.get_or_404(pk=room)
     chat.add_message(msg)
     chat.save()
 
-    emit("message", {"message":msg.content, "time":msg.time_created}, room=room)
+    emit(
+        "message",
+        {
+            "content": msg.content,
+            "time": str(msg.time),
+            "author": str(current_user.pk),
+        },
+        room=room,
+    )
 
 
 @socketio.on("disconnect")
@@ -56,7 +67,7 @@ def disconnect():
     leave_room(room)
 
     if room == "UNIVERSE":
-        emit("user_disconnected", {"username":current_user.username}, room=room)
+        emit("user_disconnected", {"username": current_user.username}, room=room)
 
 
 class ChatView(DetailView):
@@ -81,5 +92,3 @@ class ChatListView(TemplateView):
     """
 
     template_name = "chat/chat.html"
-
-

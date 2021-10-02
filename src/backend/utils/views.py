@@ -69,7 +69,7 @@ class DetailView(TemplateView):
         """
         Return object give the model and lookup attributes
         """
-        key = kwargs.get(self.pk_or_slug_url)
+        key = self.kwargs.get(self.pk_or_slug_url)
         if key is None:
             return None
         try:
@@ -86,6 +86,7 @@ class DetailView(TemplateView):
     def dispatch_request(self, *args, **kwargs):
         self.request = request
         self.args = request.args
+        self.kwargs = kwargs
         self.method = request.method
         self.user = current_user._get_current_object()  # current user
         self.object = self.get_object(*args, **kwargs)

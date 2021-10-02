@@ -92,9 +92,10 @@ const socket = io()
 
 const chat = document.querySelector("#chat-body");
 
-const add_msg = (msg, pos) => {
+const add_msg = (msg) => {
+const user = "{{ user.pk }}";
 const msghtml = `
-<div class="chat ${pos} ">
+<div class="chat ${user==msg.author?'reply':'response'} ">
 <div class="cont-chat">
 <p>${msg.content}</p>
 <div class="cont-chat-description">
@@ -106,7 +107,7 @@ chat.innerHTML = chat.innerHTML + msghtml;
 };
 
 socket?.on("message", (data)=> {
-add_msg(data)
+add_msg(data);
 })
 
 const btn = document.querySelector("[data-chat]");

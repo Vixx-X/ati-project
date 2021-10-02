@@ -10,10 +10,12 @@ from backend.apps.posts.models import get_time
 
 # from flask_babel import gettext as _
 
+
 class Message(db.EmbeddedDocument):
     """
     Base Messages class
     """
+
     author = db.ReferenceField(User)
 
     # Content
@@ -24,7 +26,6 @@ class Message(db.EmbeddedDocument):
     @property
     def time(self):
         return get_time(self.time_created)
-
 
     def __init__(self, *args, **values):
         super().__init__(*args, **values)
@@ -39,28 +40,22 @@ class Chat(db.Document):
     user1 = db.ReferenceField(
         User,
         reverse_delete_rule=db.CASCADE,
-
     )
     user2 = db.ReferenceField(
         User,
         reverse_delete_rule=db.CASCADE,
-
     )
 
-    messages = db.EmbeddedDocumentListField(
-        Message,
-        default=[]
-    )
+    messages = db.EmbeddedDocumentListField(Message, default=[])
 
     def add_message(self, msg):
         self.messages.append(msg)
 
     def get_other_user(self, user):
-        return self.user1 if user==self.user2 else self.user2
+        return self.user1 if user == self.user2 else self.user2
 
     def last_msg(self):
         return self.messages[-1].content
-
 
     meta = {
         "collection": "chats",
