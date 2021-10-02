@@ -217,6 +217,11 @@ class User(db.Document, UserMixin):
         Get lang preference of user
         """
         return self.config.prefer_lang
+    
+    @property
+    def posts(self):
+        from backend.apps.posts.models import Post
+        return Post.objects.filter(author=self)
 
     def as_dict(self):
         raw = self.to_mongo().to_dict()
@@ -435,6 +440,7 @@ class Notification(db.Document):
             return text
 
         return text % self.receiver.username
+    
 
     def is_friend_request(self):
         """
