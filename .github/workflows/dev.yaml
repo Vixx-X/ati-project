@@ -27,10 +27,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Get python dependencies from cache
-        uses: ./.github/actions/pip
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
+      - name: Get python dependencies from cache
+        uses: ./.github/actions/pip
       - name: Get yarn dependencies from cache
         uses: ./.github/actions/yarn
       - name: Build static files
