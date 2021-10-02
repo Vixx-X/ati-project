@@ -4,7 +4,7 @@ Views for the showroom module.
 
 from flask.helpers import url_for
 from flask_babel import lazy_gettext as _  # for i18n
-
+from flask_user import current_user
 from backend.utils.views import TemplateView
 
 
@@ -36,10 +36,18 @@ class Index(TemplateView):
 
         list_of_rooms = getattr(urls, self.list_of_rooms)
 
-        urls_list = {
-            get_tag(tag): url_for(f"showroom.{name}" if "." not in name else f"{name}")
-            for name, tag in list_of_rooms
-        }
+        urls_list = {}
+        user = current_user
+        
+        for name, tag in list_of_rooms:
+            url = ''
+            if isinstance(name,tuple):
+                args = {"username": user.username} if name[1] == "user" else {"id": str(user.posts[0].pk)}
+                url = url_for(f"showroom.{name[0]}" if "." not in name[0] else f"{name[0]}", **args)
+            else:
+                url = url_for(f"showroom.{name}" if "." not in name else f"{name}")
+            urls_list[get_tag(tag)] = url
+
         return {**kwargs, "list": urls_list, "title": self.title}
 
 
@@ -211,14 +219,6 @@ class RadioButton(TemplateView):
     """
 
     template_name = "showroom/all_components/radio-button.html"
-
-
-class BooleanButton(TemplateView):
-    """
-    Showcase for chat component.
-    """
-
-    template_name = "showroom/all_components/boolean-button.html"
 
 
 class DropDownList(TemplateView):
