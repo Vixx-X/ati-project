@@ -35,33 +35,5 @@
     </footer>
     {% endblock footer %}
     {% block onloadscripts %}{% endblock onloadscripts %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
-    <script type="text/javascript" charset="utf-8">
-
-const chat = document.querySelector("#chat-body");
-
-const add_msg = (msg, pos) => {
-  const msghtml = `
-   <div class="chat ${pos} ">
-    <div class="cont-chat">
-        <p>${msg.content}</p>
-        <div class="cont-chat-description">
-            <p>${msg.time}</p>
-        </div>
-    </div>
-</div>`;
-  chat.innerHTML = chat.innerHTML + msghtml;
-};
-
-socket?.on("message", (data)=> {
-  add_msg(data)
-})
-
-const btn = document.querySelector("[data-chat]");
-const inp = document.querySelector("#chat-input");
-btn?.addEventListener("click", (e)=>{
-  socket?.emit("message", JSON.stringify({message: inp.value}))
-});
-    </script>
   </body>
 </html>
