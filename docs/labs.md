@@ -4,20 +4,8 @@ Information to understand challenges of ITA course
 
 ## Table of contents
 
-- [Lab 1](#lab-1)
-- [Lab 2](#lab-2)
-- [Lab 3](#lab-3)
-- [Lab 4](#lab-4)
-- [Lab 5](#lab-5)
 - [Lab 27](#lab-27)
-
-## Lab1 <a name="lab-1"></a>
-
-lab1
-
-## Lab2 <a name="lab-2"></a>
-
-Lab2
+- [Lab 38](#lab-38)
 
 ## Lab 27 <a name="lab-27"></a>
 
@@ -28,3 +16,10 @@ In the first, the branches are created from develop, the dependencies associated
 In the second it is quite similar but with the difference that in the end it ends up performing a content deployment.
 
 File of Workflow can be found [here](/.github/workflows/dev.yaml)
+
+## Lab 38 <a name="lab-38"></a>
+
+- For the User manage we use the Users from Flask and adding new features, this implementation can be found [here](/src/backend/user_manager.py).
+- The models for User in the Data base can be view [here](/src/backend/apps/user/models.py).
+- For the form manage we use FlaskWTForms, this can be found [here](/src/backend/apps/user/forms.py).
+- FlaskUser, FlaskLogIn were used for the User Log In and the Session Management.
