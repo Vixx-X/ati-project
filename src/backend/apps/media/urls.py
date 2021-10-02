@@ -10,4 +10,7 @@ from . import bp
 
 @bp.route("/<path:path>")
 def file(path):
+    """
+    Endpoint that returns media data (if reverse proxy did not handle it)
+    """
     return send_from_directory(get_media_root_path(), path)

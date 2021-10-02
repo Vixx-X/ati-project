@@ -64,7 +64,7 @@ class Config(db.EmbeddedDocument):
         default=LIGHT,
     )
 
-    LANGUAGES = [(a, b) for a, b in LANGS.items()]
+    LANGUAGES = list(LANGS.items())
     lang = db.StringField(
         max_length=3,
         choices=LANGUAGES,
@@ -191,12 +191,18 @@ class User(db.Document, UserMixin):
 
     @property
     def chats(self):
+        """
+        Return user's chat
+        """
         from backend.apps.chat.models import Chat
 
         return Chat.objects.filter(Q(user1=self) | Q(user2=self))
 
     @property
     def full_name(self):
+        """
+        Return user's fullname
+        """
         return f"{self.first_name} {self.last_name}"
 
     @property
@@ -219,13 +225,20 @@ class User(db.Document, UserMixin):
         Get lang preference of user
         """
         return self.config.prefer_lang
-    
+
     @property
     def posts(self):
+        """
+        Return user's posts
+        """
         from backend.apps.posts.models import Post
+
         return Post.objects.filter(author=self)
 
     def as_dict(self):
+        """
+        Return user's info as dictionary
+        """
         raw = self.to_mongo().to_dict()
         raw["id"] = str(raw.pop("_id"))
 
@@ -256,27 +269,45 @@ class User(db.Document, UserMixin):
         return raw
 
     def get_profile_photo_url(self):
+        """
+        Return user's profile photo url
+        """
         return self.get_profile_photo.url
 
     @property
     def profile_photo_url(self):
+        """
+        Return user's profile photo url as property
+        """
         return self.get_profile_photo_url()
 
     @property
     def get_profile_photo(self):
+        """
+        Return user's profile photo
+        """
         if self.profile_photo:
             return self.profile_photo
         return Image(static=True, path="img/user/default-profile.png")
 
     def get_banner_url(self):
+        """
+        Return user's banner photo url
+        """
         return self.get_profile_banner.url
 
     @property
     def banner_url(self):
+        """
+        Return user's banner photo url as property
+        """
         return self.get_banner_url()
 
     @property
     def get_profile_banner(self):
+        """
+        Return user's banner photo
+        """
         if self.banner_photo:
             return self.banner_photo
         return Image(static=True, path="img/user/default-banner.jpg")
@@ -302,14 +333,23 @@ class User(db.Document, UserMixin):
 
     @property
     def accept_friend_requests(self):
+        """
+        Return user's friend request preference
+        """
         return self.config.accept_friend_requests
 
     @property
     def have_notification(self):
+        """
+        Return if user have notifications or not
+        """
         return len(self.notifications)
 
     @property
     def notifications(self):
+        """
+        Return user's notifications
+        """
         return Notification.objects.filter(receiver=self)
 
     @property
@@ -335,6 +375,9 @@ class User(db.Document, UserMixin):
 
     @classmethod
     def get_user_by_token(cls, token, expiration_in_seconds=None):
+        """
+        Fixing Flask User bug
+        """
         # FIXING valid token on deleted user
         #
         # This function works in tandem with UserMixin.get_id()
@@ -364,6 +407,9 @@ class User(db.Document, UserMixin):
 
 
 class Notification(db.Document):
+    """
+    Notifications model
+    """
 
     FRIEND_REQUEST_ACCEPTED = "FRA"
     FRIEND_REQUEST = "FR"
@@ -396,8 +442,12 @@ class Notification(db.Document):
 
     date_created = db.DateTimeField()
 
-    def save(self, **kwargs):
-        self.date_created = datetime.now()
+    def save(self, **kwargs):  # pylint: disable=W0221
+        """
+        Save notification model
+        """
+        if not self.pk:
+            self.date_created = datetime.now()
         return super().save(**kwargs)
 
     map_title = {
@@ -411,7 +461,7 @@ class Notification(db.Document):
     @property
     def title(self):
         """
-        Return title
+        Return notification title
         """
         text = self.map_title.get(self.type, _("Notification Title"))
         num = text.count("%s")
@@ -429,12 +479,15 @@ class Notification(db.Document):
     }
 
     def url(self):
+        """
+        Return notification endpoint
+        """
         return url_for("api.notification-list", id=str(self.pk))
 
     @property
     def message(self):
         """
-        Return message
+        Return notification message
         """
         text = self.map_message.get(self.type, _("Notification Body"))
         num = text.count("%s")
@@ -442,7 +495,6 @@ class Notification(db.Document):
             return text
 
         return text % self.receiver.username
-    
 
     def is_friend_request(self):
         """

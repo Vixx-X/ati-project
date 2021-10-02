@@ -20,8 +20,8 @@ class ApiExceptions(Exception):
             args = (msg,)
             super().__init__(args)
         self.args = list(args)
-        for key in kwargs.keys():
-            setattr(self, key, kwargs[key])
+        for key, val in kwargs.items():
+            setattr(self, key, val)
 
 
 class ValidationError(ApiExceptions):
