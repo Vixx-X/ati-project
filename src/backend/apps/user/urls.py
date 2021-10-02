@@ -37,9 +37,12 @@ bp.add_url_rule("/check_email", view_func=views.CheckEmailView.as_view("check_em
 @bp.route("/<string:username>/chat")
 @login_required
 def chat(username):
+    """
+    Creating or redirecting chats with specific users
+    """
     user1 = current_user._get_current_object()
     user2 = User.objects.get_or_404(username=username)
     qs = Chat.objects.filter(Q(user1=user1, user2=user2) | Q(user1=user2, user2=user1))
-    chat = qs[0] if qs else Chat(user1=user1, user2=user2)
-    chat.save()
-    return redirect(url_for("chat.chat", pk=str(chat.pk)))
+    chat_obj = qs[0] if qs else Chat(user1=user1, user2=user2)
+    chat_obj.save()
+    return redirect(url_for("chat.chat", pk=str(chat_obj.pk)))

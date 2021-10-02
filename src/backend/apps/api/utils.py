@@ -3,10 +3,10 @@ Utils functions for api module
 """
 
 
-from flask.json import jsonify
-
-
 def _make_response(data=None, message=""):
+    """
+    Fotmat response
+    """
     resp = {
         "message": str(message),
     }
@@ -16,15 +16,14 @@ def _make_response(data=None, message=""):
 
 
 def make_response(data=None, message="", status=200, **kwargs):
-    # resp = {
-    #     **_make_response(
-    #         data=data,
-    #         message=message,
-    #     ),
-    #     **kwargs,
-    # }
+    """
+    Make response resource from data
+    """
     resp = {
-        "data": data,
-        "message": message,
+        **_make_response(
+            data=data,
+            message=message,
+        ),
+        **kwargs,
     }
     return resp, status

@@ -7,6 +7,10 @@ from backend.apps.posts.models import Post
 
 
 class PostListView(APIListView):
+    """
+    Resource that handle get list and post Posts
+    """
+
     resource = Post
 
     def get_resource_filter(self):
@@ -17,4 +21,8 @@ class PostListView(APIListView):
 
 
 class PostDetailView(APIDetailView):
+    """
+    Resource that handle get, patch, put, delete Post
+    """
+
     resource = Post

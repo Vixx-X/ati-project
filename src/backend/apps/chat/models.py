@@ -25,6 +25,9 @@ class Message(db.EmbeddedDocument):
 
     @property
     def time(self):
+        """
+        Get formated time
+        """
         return get_time(self.time_created)
 
     def __init__(self, *args, **values):
@@ -49,12 +52,21 @@ class Chat(db.Document):
     messages = db.EmbeddedDocumentListField(Message, default=[])
 
     def add_message(self, msg):
+        """
+        Add messages to the chat
+        """
         self.messages.append(msg)
 
     def get_other_user(self, user):
+        """
+        Get other user in the chat
+        """
         return self.user1 if user == self.user2 else self.user2
 
     def last_msg(self):
+        """
+        Get last message
+        """
         return self.messages[-1].content
 
     meta = {

@@ -1,7 +1,6 @@
 """
 Forms for user app
 """
-from flask import request
 from flask.helpers import url_for
 from flask_babel import lazy_gettext as _
 from flask_user.forms import ChangePasswordForm as BaseChangePasswordForm
@@ -35,6 +34,7 @@ from wtforms.fields.core import FieldList, RadioField
 from wtforms.fields.simple import HiddenField, TextAreaField
 from wtforms.widgets import CheckboxInput, ListWidget, html_params
 from wtforms.widgets.html5 import DateInput
+from markupsafe import Markup
 
 from backend.apps.media.forms import FormMediaMixin
 
@@ -214,12 +214,20 @@ class ResetPasswordForm(BaseResetPasswordForm):
 
 
 class CalendarWidget(DateInput):
+    """
+    Calendar Widget
+    """
+
     def __call__(self, field, **kwargs):
         inside = super().__call__(field, **kwargs)
         return Markup("%s" % inside)
 
 
 class CustomInfoWidget(ListWidget):
+    """
+    Custom widget for profile info cards
+    """
+
     def __call__(self, field, **kwargs):
         kwargs.setdefault("id", field.id)
         html = ["<div {}>".format(html_params(**{"class": "long-card"}))]
@@ -242,6 +250,9 @@ class CustomInfoWidget(ListWidget):
 
 
 class ProfileForm(FormMediaMixin, EditUserProfileForm):
+    """
+    User Profile Form
+    """
 
     first_name = StringField(
         _("First name"),
@@ -275,10 +286,11 @@ class ProfileForm(FormMediaMixin, EditUserProfileForm):
     submit = SubmitField(_("Update"))
 
 
-from markupsafe import Markup
-
-
 class LatchWidget(CheckboxInput):
+    """
+    Latch widget
+    """
+
     def __call__(self, field, **kwargs):
         inside = super().__call__(field, **kwargs)
         return Markup(
@@ -288,6 +300,10 @@ class LatchWidget(CheckboxInput):
 
 
 class CustomListWidget(ListWidget):
+    """
+    List input widget for users interest
+    """
+
     def __call__(self, field, **kwargs):
         kwargs.setdefault("id", field.id)
         html = [
@@ -344,6 +360,9 @@ class ConfigForm(FlaskForm):
             self.account_privacy.data = obj.prefer_private
 
     def populate_obj(self, obj):
+        """
+        Save forms data on obj
+        """
         super().populate_obj(obj)
         obj.account_privacy = (
             Config.PRIVATE if self.account_privacy.data else Config.PUBLIC

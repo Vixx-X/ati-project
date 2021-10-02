@@ -67,6 +67,9 @@ class Media(db.Document):
 
     @property
     def url(self):
+        """
+        Return url of static content or media content
+        """
         if self.static:
             return url_for("static", filename=self.path)
         return url_for("media.file", path=self.path)
@@ -106,6 +109,9 @@ class Image(Media):
     resolution = StringField()
 
     def thumb(self, size, **kwargs):
+        """
+        Return a generated or cached thumbnail url
+        """
         if self.static:
             return self.url
         thumb_url = thumb.get_thumbnail(self.path, size, **kwargs)
@@ -116,6 +122,9 @@ class Image(Media):
         return thumb_url
 
     def as_dict(self):
+        """
+        Return dict representation of self
+        """
         return self.to_mongo().to_dict()
 
 

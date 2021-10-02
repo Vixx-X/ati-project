@@ -1,16 +1,21 @@
+"""
+Module for testing with selenium
+"""
+
 from time import sleep
 
 import pytest
 from selenium import webdriver
 
-from backend import init_app
 
-# time to wait the page to load
-TIME = 1
+TIME = 1  # time to wait the page to load
 
 # Fixture for Chrome
 @pytest.fixture(scope="class")
 def chrome_driver_init(request):
+    """
+    Initializing chrome driver
+    """
     chrome_driver = webdriver.Chrome()
     request.cls.driver = chrome_driver
     yield
@@ -19,11 +24,20 @@ def chrome_driver_init(request):
 
 @pytest.mark.usefixtures("chrome_driver_init")
 class Basic_Chrome_Test:
-    pass
+    """
+    Basic chrome test
+    """
 
 
 class TestLoginPage(Basic_Chrome_Test):
+    """
+    Class for Testing Login Page
+    """
+
     def test_bad_register(self):
+        """
+        Expecting bad register test
+        """
         self.driver.get("http://localhost:8000/user/register")
         sleep(TIME)
         assert "user/register" in self.driver.current_url
@@ -60,6 +74,9 @@ class TestLoginPage(Basic_Chrome_Test):
         assert errors[0].text == "Password and Retype Password did not match"
 
     def test_sign_up(self):
+        """
+        Test sign up flow
+        """
         self.driver.get("http://localhost:8000/welcome")
         sleep(TIME)
         assert self.driver.title == "DEGVA"
@@ -79,6 +96,9 @@ class TestLoginPage(Basic_Chrome_Test):
         assert "check_email" in self.driver.current_url
 
     def test_user_exist(self):
+        """
+        Check if user exist after login
+        """
         self.driver.get("http://localhost:8000/user/register")
         sleep(TIME)
         assert "user/register" in self.driver.current_url
@@ -106,6 +126,9 @@ class TestLoginPage(Basic_Chrome_Test):
         assert errors[0].text == "This Email is already in use. Please try another one."
 
     def test_bad_login(self):
+        """
+        Test for wrong log in attempts
+        """
         self.driver.get("http://localhost:8000/user/sign-in")
         sleep(TIME)
         assert self.driver.title == "Log In"
@@ -134,6 +157,9 @@ class TestLoginPage(Basic_Chrome_Test):
         )
 
     def test_facebook_button(self):
+        """
+        Check for facebook button oauth
+        """
         self.driver.get("http://localhost:8000/user/sign-in")
         sleep(TIME)
         assert self.driver.title == "Log In"
@@ -144,6 +170,9 @@ class TestLoginPage(Basic_Chrome_Test):
         assert "facebook.com" in self.driver.current_url
 
     def test_login_user(self):
+        """
+        Check for user log in
+        """
         self.driver.get("http://localhost:8000/welcome")
         sleep(TIME)
         assert "DEGVA" in self.driver.title
@@ -161,6 +190,9 @@ class TestLoginPage(Basic_Chrome_Test):
         assert "DEGVA" in self.driver.title
 
     def test_log_out(self):
+        """
+        Log out flow
+        """
         self.driver.get("http://localhost:8000/")
         sleep(TIME)
         assert self.driver.title == "DEGVA"
@@ -170,6 +202,9 @@ class TestLoginPage(Basic_Chrome_Test):
         assert "welcome" in self.driver.current_url
 
     def test_forgot_password(self):
+        """
+        Test forgot password flow
+        """
         self.driver.get("http://localhost:8000/user/sign-in")
         sleep(TIME)
         assert self.driver.title == "Log In"

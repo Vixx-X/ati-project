@@ -50,6 +50,8 @@ ignore = [
 # Reasons disabled:
 # abstract-class-little-used - prevents from setting right foundation
 # abstract-method - with intro of async there are always methods missing
+# arguments-differ - generic class view need to handle generic kwargs
+# attribute-defined-outside-init - some attributes exist over conditions in runtime
 # cyclic-import - doesn't test if both import on load
 # duplicate-code - unavoidable
 # format - handled by black
@@ -57,6 +59,7 @@ ignore = [
 # inconsistent-return-statements - doesn't handle raise
 # locally-disabled - it spams too much
 # no-member - because MongoEngine is too spammy
+# no-self-use - some methods are needed to be override it on child classes
 # protected-access - we don't care
 # too-many-* - are not enforced for the sake of readability
 # too-few-* - same as too-many-*
@@ -67,6 +70,8 @@ ignore = [
 disable = [
     "abstract-class-little-used",
     "abstract-method",
+    "arguments-differ",
+    "attribute-defined-outside-init",
     "bad-continuation", # need reason
     "bad-whitespace", # need reason
     "cyclic-import",
@@ -78,6 +83,7 @@ disable = [
     "locally-disabled",
     "no-member",
     "not-context-manager",
+    "no-self-use",
     "protected-access",
     "too-few-public-methods",
     "too-many-ancestors",
