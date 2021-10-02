@@ -14,6 +14,7 @@ Installation tested on Ubuntu 20.04.1 LTS.
 - [Developing Javascript and CSS](#developing-js-css)
 - [Autodocumentation](#autodocumentation)
 - [API documentation](#api-docs)
+- [ITA Course](#ita)
 - [References](#references)
 
 ## Install pre-installation dependencies <a name="install-pre-installation-dependencies"></a>
@@ -132,6 +133,10 @@ $BROWSER docs/build/html/index.html
 Config settings are in the file `docs/conf.py`
 
 [Find out more about Sphinx][sphinx]
+
+## ITA Course <a name="ita"></a>
+
+Find about each lab content [here](./docs/labs.md)
 
 ## References <a name="references"></a>
 
