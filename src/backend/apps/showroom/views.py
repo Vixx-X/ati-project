@@ -37,7 +37,8 @@ class Index(TemplateView):
         list_of_rooms = getattr(urls, self.list_of_rooms)
 
         urls_list = {
-            get_tag(tag): url_for(f"showroom.{name}") for name, tag in list_of_rooms
+            get_tag(tag): url_for(f"showroom.{name}" if "." not in name else f"{name}")
+            for name, tag in list_of_rooms
         }
         return {**kwargs, "list": urls_list, "title": self.title}
 
