@@ -85,4 +85,4 @@ The function we consider the most important for Unit Test are:
 
 ## Challenge 43 <a name="lab-43"></a>
 
-We have to implemen the interface test and run it. [Here](https://github.com/Vixx-X/ati-project/blob/master/src/tests/test_selenium.py) we can see the Source Code
+We have to implemen the interface test and run it. [Here](https://docs.ati.vittorioadesso.com/tests.html?highlight=selenium#module-tests.test_selenium) we can see the Source Code
