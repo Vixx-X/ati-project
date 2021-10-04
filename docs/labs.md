@@ -9,6 +9,10 @@ Information to understand challenges of ITA course
 - [Lab 32](#lab-32)
 - [Lab 37](#lab-37)
 - [Challenge 38](#lab-38)
+- [Challenge 40](#lab-40)
+- [Challenge 41](#lab-41)
+- [Challenge 42](#lab-42)
+- [Challenge 43](#lab-43)
 
 ## Challenge 27 <a name="lab-27"></a>
 
@@ -54,3 +58,31 @@ To see all the views and components live and which person did each one, enter th
 - The models for User in the Data base can be view [here](/src/backend/apps/user/models.py).
 - For the form manage we use FlaskWTForms, this can be found [here](/src/backend/apps/user/forms.py).
 - FlaskUser, FlaskLogIn were used for the User Log In and the Session Management.
+
+## Challenge 40 <a name="lab-40"></a>
+
+For this challenge we have to implemet the button for the login in the social medias [Facebook and Twitter](https://docs.ati.vittorioadesso.com/backend.html?highlight=backend%20blueprints#module-backend.blueprints)
+
+## Challenge 41 <a name="lab-41"></a>
+
+The function we consider the most important for Unit Test are:
+- Forgot Password             - Was made for Daniel Vieira
+- Change Lenguaje             - Was made for Daniel Vieira
+- Customize the Page          - Was made for Daniel Vieira
+- Sing up and Log in          - Was made for Eduardo Suarez
+- Add Friends                 - Was made for Eduardo Suarez
+- User Profile                - Was made for Eduardo Suarez
+- Responsive Design           - Was made for Gabriela Ustariz
+- Post content                - Was made for Gabriela Ustariz
+- Custom post visualization   - Was made for Gabriela Ustariz
+- Comment in Posts            - Was made for Vittorio Adesso
+- Receive notification        - Was made for Vittorio Adesso
+- Chat                        - Was made for Vittorio Adesso
+
+## Challenge 42 <a name="lab-42"></a>
+
+  [Here](https://docs.google.com/spreadsheets/d/1Ermx7M64E05hreIxlhLd61TE2-j0jpRK/edit#gid=1492136221). We can find the Test Matriz 
+
+## Challenge 43 <a name="lab-43"></a>
+
+We have to implemen the interface test and run it. [Here](https://github.com/Vixx-X/ati-project/blob/master/src/tests/test_selenium.py) we can see the Source Code
