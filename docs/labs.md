@@ -31,8 +31,8 @@ Both javascript and CSS components are imported [here](/src/templates/user/auth/
 To see all the views and components live and which person did each one, enter the following [link](https://ati.vittorioadesso.com/showroom/)
 
 ## Lab 32 <a name="lab-32"></a>
-  - In this Lab we have to use the view from Challenge 31 and define who is gonna be the Base.html [link](https://ati.vittorioadesso.com/showroom/)
-  - Build a templates for every page who are extend from  Base.html [link](https://ati.vittorioadesso.com/showroom/)
+  - In this Lab we have to use the view from Challenge 31 and define who is gonna be the Base.html [link](https://github.com/Vixx-X/ati-project/blob/master/src/templates/base.html)
+  - Build a templates for every page who are extend from  Base.html [link](https://github.com/Vixx-X/ati-project/blob/master/src/templates)
   - Create routes for the templates created in the previous step [link]
   - - For the templates to Chat [routes](https://docs.ati.vittorioadesso.com/backend.apps.chat.html?highlight=url#module-backend.apps.chat.urls) and [controles](https://docs.ati.vittorioadesso.com/backend.apps.chat.html?highlight=views#module-backend.apps.chat.views)
   - - For the templates to Media [routes](https://docs.ati.vittorioadesso.com/backend.apps.media.html?highlight=url#module-backend.apps.media.urls) and [controles](https://docs.ati.vittorioadesso.com/backend.apps.chat.html?highlight=url#module-backend.apps.media.views)
