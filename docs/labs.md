@@ -6,6 +6,7 @@ Information to understand challenges of ITA course
 
 - [Challenge 27](#lab-27)
 - [Challenge 31](#lab-31)
+- [Lab 32](#lab-32)
 - [Lab 37](#lab-37)
 - [Challenge 38](#lab-38)
 
@@ -29,11 +30,23 @@ Both javascript and CSS components are imported [here](/src/templates/user/auth/
 
 To see all the views and components live and which person did each one, enter the following [link](https://ati.vittorioadesso.com/showroom/)
 
-## Lab 37 <a name="lab-37"></a>
+## Lab 32 <a name="lab-32"></a>
+  - In this Lab we have to use the view from Challenge 31 and define who is gonna be the Base.html [link](https://ati.vittorioadesso.com/showroom/)
+  - Build a templates for every page who are extend from  Base.html [link](https://ati.vittorioadesso.com/showroom/)
+  - Create routes for the templates created in the previous step [link]
+  - - For the templates to Chat [routes](https://docs.ati.vittorioadesso.com/backend.apps.chat.html?highlight=url#module-backend.apps.chat.urls) and [controles](https://docs.ati.vittorioadesso.com/backend.apps.chat.html?highlight=views#module-backend.apps.chat.views)
+  - - For the templates to Media [routes](https://docs.ati.vittorioadesso.com/backend.apps.media.html?highlight=url#module-backend.apps.media.urls) and [controles](https://docs.ati.vittorioadesso.com/backend.apps.chat.html?highlight=url#module-backend.apps.media.views)
+  - - For the templates to Post [routes](https://docs.ati.vittorioadesso.com/backend.apps.posts.html?highlight=url#module-backend.apps.posts.urls) and [controles](https://docs.ati.vittorioadesso.com/backend.apps.chat.html?highlight=url#module-backend.apps.posts.views)
+  - - For the templates to User [routes](https://docs.ati.vittorioadesso.com/backend.apps.user.html?highlight=url#module-backend.apps.user.urls) and [controles](https://docs.ati.vittorioadesso.com/backend.apps.chat.html?highlight=url#module-backend.apps.user.views)
+  - For the internasionalization we implement [here](https://docs.ati.vittorioadesso.com/_modules/backend/core.html#init_app)
 
-  For the lab we have to use Flask (like Flask-Login y flask-wtf), we can see the use of:
-  - FlaskUser [here](/src/backend/user_manager.py)
-  - FlaskForm [here](/src/backend/apps/user/forms.py)
+## Lab 37 <a name="lab-37"></a>
+  
+  We had to implement the funcionality of the authentication, this functionality was implemented in the respective forms module (User and Post)
+  - For the Post module [here](https://docs.ati.vittorioadesso.com/backend.apps.posts.html) Where we can find the form implementation, we are using for the Post in our app.
+  - For the User module [here](https://docs.ati.vittorioadesso.com/backend.apps.user.html) Where we can find the form implementation, we are using for the Post in our app.
+  - For User manager [here](https://docs.ati.vittorioadesso.com/config.html) where we config the User URL, [here](https://docs.ati.vittorioadesso.com/backend.html?highlight=user_mana#module-backend.user_manager) where we custom the flask_user Manager and configurate custom forms
+  
 
 ## Challenge 38 <a name="lab-38"></a>
 
