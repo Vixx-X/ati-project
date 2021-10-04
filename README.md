@@ -129,7 +129,7 @@ run
 
 ## Generate Documentation for the Web <a name="docs"></a>
 
-We are using Sphinx to generate our public html [documentation](docs.ati.vittorioadesso.com) from docstring inside your our code.
+We are using Sphinx to generate our public html [documentation](https://docs.ati.vittorioadesso.com) from docstring inside your our code.
 
 ### Autodocumentation <a name="autodocumentation"></a>
 
