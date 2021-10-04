@@ -8,8 +8,9 @@ function setup_dev {
 		echo "Do you want to delete the db? (will need sudo) (y/N)"
 		read -q && sudo rm -rf db || :
 	fi
+	source ./env/.env || echo "/env/.env not found"
 	cp docker/dev/* . && \
-	docker-compose build && \
-	docker-compose up -d
+	DB_USERNAME=$DB_USERNAME DB_PASSWORD=$DB_PASSWORD docker-compose build && \
+	DB_USERNAME=$DB_USERNAME DB_PASSWORD=$DB_PASSWORD docker-compose up -d
 	cd  -
 }
