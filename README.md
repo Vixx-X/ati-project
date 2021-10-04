@@ -160,19 +160,18 @@ Config settings are in the file `docs/conf.py`
 
 ## Testing the application <a name="tests"></a>
 
-For testing we choose to use one of the most popular testing framework [Pytest][pytest]
-But we also like to before, run our prefer linter [Pylint][pylint], to catch up for simple errors, and improve our code quality.
+For testing we choose to use one of the most popular testing framework [Pytest][pytest]. But we also like to before, run our prefer linter [Pylint][pylint], to catch up for simple errors, and improve our code quality.
   
 ### Run Pylint <a name="pylint-tests"></a>
 
-Runing pylint is as simple as
+Running pylint is as simple as
 ```bash
 run_pylint
 ```
   
 ### Unit and Integration tests with Pytest and Selenium <a name="selenium-tests"></a>
 
-Runing all tests is as simple as
+Running all tests is as simple as
 ```bash
 run_pytest
 ```
