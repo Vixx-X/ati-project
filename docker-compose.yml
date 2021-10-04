@@ -1,0 +1,16 @@
+services:
+  devga_db:
+    image: mongo
+    env_file:
+        - ./env/.env.example
+        - ./env/.env
+    ports:
+        - "27017:27017"
+  devga:
+    build: ./
+    env_file:
+        - ./env/.env.example
+        - ./env/.env
+    network_mode: "host"
+    depends_on:
+        - devga_db

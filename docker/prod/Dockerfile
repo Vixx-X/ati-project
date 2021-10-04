@@ -1,14 +1,10 @@
-FROM python:3.9.5-alpine3.13
+FROM python:3.9.5
 
 WORKDIR /code
-COPY requirements/prod.txt requirements.txt
-RUN pip install -r requirements.txt
+COPY requirements/prod.txt prod.txt
+COPY requirements/dev.txt dev.txt
+RUN pip install -r prod.txt -r dev.txt
 
-COPY src/backend .
-COPY src/templates /
+COPY src/ .
 
-COPY docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod +x /docker-entrypoint.sh
-
-ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["project"]
+CMD python wsgi.py
