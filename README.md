@@ -127,15 +127,13 @@ Or test that all of the development processes work (this will run frontend and b
 run
 ```
 
-## API documentation <a name="api-docs"></a>
+## Generate Documentation for the Web <a name="docs"></a>
 
-Documentation can be found in the url `api/schema/swagger-ui/` and `schema/redoc/`. You'll be to need authenticated as admin.
+We are using Sphinx to generate our public html [documentation](docs.ati.vittorioadesso.com) from docstring inside your our code.
 
-## Autodocumentation <a name="autodocumentation"></a>
+### Autodocumentation <a name="autodocumentation"></a>
 
-### Generate Documentation for the Web
-
-We are using Sphinx to generate an html documentation from docstring inside your our code. To make the docs, just run:
+To make the docs, just run:
 
 ```bash
 autodocs
@@ -157,6 +155,9 @@ Config settings are in the file `docs/conf.py`
 
 [Find out more about Sphinx][sphinx]
 
+### API documentation <a name="api-docs"></a>
+
+Documentation can be found in the url `api/schema/swagger-ui/` and `schema/redoc/`. You'll be to need authenticated as admin.
 
 ## Testing the application <a name="tests"></a>
 
