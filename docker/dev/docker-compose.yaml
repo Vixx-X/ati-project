@@ -6,9 +6,11 @@ services:
     restart: always
     volumes:
       - ./db:/data/db # bind
+    env_file:
+      - ./env/.env
     environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: 1234
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
   web:
     build: .
     restart: always
@@ -20,7 +22,6 @@ services:
       - ./:/code # bind
     tty: true # -t flag
     stdin_open: true # -i flag
-    # env_file:
-    #   - .env
-
+    env_file:
+      - ./env/.env
 

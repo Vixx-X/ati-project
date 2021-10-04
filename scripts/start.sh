@@ -31,6 +31,7 @@ function help {
 	echo "setup_yarn     - initial yarn install the project"
 	echo ""
 	echo "setup_db       - initial db setup"
+	echo "loaddata       - load fixtures on db"
 	echo ""
 	echo "run            - run all devs processes"
 	echo "runserver      - run flask server"
@@ -44,7 +45,6 @@ function help {
 	echo ""
 	echo "setup_dev      - bring docker files and start dev workspace"
 	echo "setup_prod     - bring prod docker files (use in production)"
-	echo "loaddata       - load fixtures on db"
 	echo ""
 	echo "rundocker      - attach to dev container with bash"
 }
