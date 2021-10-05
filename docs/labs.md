@@ -27,7 +27,7 @@ File of Workflow can be found [here](/.github/workflows/dev.yaml)
 
 ## Challenge 31 <a name="lab-31"></a>
 
-The html files are divided into two sections, one for components and the other for templates that can be found [here](src/templates)
+The html files are divided into two sections, one for components and the other for templates that can be found [here](/src/templates)
 
 For its part, both the Javascript and Css files are located in this [link](/src/frontend/static_src), dividing internally also with a section for views and another for components
 
