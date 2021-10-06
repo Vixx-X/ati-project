@@ -6,9 +6,11 @@ services:
     restart: always
     volumes:
       - /data/db
+    env_file:
+      - ./env/.env
     environment:
-      MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
-      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASS}
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
   web:
     image: vixxadesso/ati
     restart: always
@@ -17,7 +19,8 @@ services:
     depends_on:
       - db
     volumes:
-      - ../media/:/media # bind
+      - ./src/media/:/code/media # bind
     tty: true # -t flag
-    # env_file:
-    #   - .env
+    env_file:
+      - ./env/.env
+

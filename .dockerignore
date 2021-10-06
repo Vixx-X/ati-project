@@ -1,0 +1,7 @@
+# ignore files that we dont want on the docker context
+
+.git
+.github
+docker
+venv
+node_modules

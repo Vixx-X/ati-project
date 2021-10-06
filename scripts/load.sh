@@ -11,10 +11,11 @@ done
 # alias for common developer commnads
 alias dos2unix="find ${DIR} -type f  -not -path '*/node_modules*' -not -path '*/venv/*'  -exec dos2unix {} +"
 alias venv="source ${VENVDIR}/bin/activate"
+alias deploy="source ${CURRENT_DIR}/deploy.sh"
 alias build="source ${CURRENT_DIR}/build.sh"
 alias format="black $DIR/src/backend/ $DIR/src/wsgi.py $DIR/src/tests/"
-alias rundocker="docker exec -it ati-project_web_1 bash"
-alias runserver="FLASK_APP=${DIR}/src/wsgi.py FLASK_ENV=development flask run --reload -h 0.0.0.0 -p 8080"
+alias rundocker="docker exec -it ati-project-web-1 bash"
+alias runserver="FLASK_APP=${DIR}/src/wsgi.py FLASK_ENV=development flask run --reload -h 0.0.0.0 -p 5000"
 alias loaddata="FLASK_APP=${DIR}/src/wsgi.py FLASK_ENV=development flask loaddata"
 alias extract_text="pybabel extract -F $DIR/src/babel.cfg -k lazy_gettext -o $DIR/src/translations/messages.pot $DIR/src"
 alias update_translation="pybabel compile -i $DIR/src/translations/messages.pot -o $DIR/src/translations"
