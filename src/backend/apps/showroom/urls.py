@@ -89,7 +89,7 @@ bp.add_url_rule(
 
 list_of_views = [
     ("chat.chat-list", ["Chat", ED]),
-    ("user.config", ["Configuratios", GU]),
+    ("user.config", ["Configuration", GU]),
     ("posts.post-create", ["Update Publication", ED]),
     ("user.forgot_password", ["Forgot Password", VA]),
     ("app.home", ["Home", GU]),

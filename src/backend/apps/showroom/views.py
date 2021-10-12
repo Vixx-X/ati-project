@@ -5,6 +5,7 @@ Views for the showroom module.
 from flask.helpers import url_for
 from flask_babel import lazy_gettext as _  # for i18n
 from flask_user import current_user
+from flask_user.decorators import login_required
 
 from backend.utils.views import TemplateView
 
@@ -25,6 +26,8 @@ class Index(TemplateView):
     Index View to showcase all rooms.
     """
 
+    decorators = [login_required]
+
     template_name = "showroom/index.html"
     title = _("Showroom Showcase")
     list_of_rooms = "list_of_rooms"
@@ -34,11 +37,13 @@ class Index(TemplateView):
         Place the list_of_rooms in the context
         """
         from . import urls
+        from backend.apps.posts.models import Post as _Post
 
         list_of_rooms = getattr(urls, self.list_of_rooms)
 
         urls_list = {}
         user = current_user
+        post = _Post.objects.first()
 
         for name, tag in list_of_rooms:
             url = ""
@@ -46,7 +51,7 @@ class Index(TemplateView):
                 args = (
                     {"username": user.username}
                     if name[1] == "user"
-                    else {"id": str(user.posts[0].pk)}
+                    else {"id": str(post.pk)}
                 )
                 url = url_for(
                     f"showroom.{name[0]}" if "." not in name[0] else f"{name[0]}",
@@ -75,6 +80,11 @@ class Views(Index):
 
     title = _("Views Showcase")
     list_of_rooms = "list_of_views"
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx["list"]["Not Found Page - Eduardo Suarez"] = "/error"
+        return ctx
 
 
 class Buttons(TemplateView):
