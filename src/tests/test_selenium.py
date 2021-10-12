@@ -7,7 +7,6 @@ from time import sleep
 import pytest
 from selenium import webdriver
 
-
 TIME = 1  # time to wait the page to load
 
 # Fixture for Chrome
