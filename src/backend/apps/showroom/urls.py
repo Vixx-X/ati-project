@@ -99,8 +99,8 @@ list_of_views = [
     (("posts.post-detail", "post"), ["Post", DV]),
     ("user.mypage", ["Profile", GU]),
     (("user.profile", "user"), ["Profile Description", GU]),
-    ('user.register', ["Register", VA]),
-    ('user.search', ["Search Page", DV]),
+    ("user.register", ["Register", VA]),
+    ("user.search", ["Search Page", DV]),
 ]
 
 bp.add_url_rule("/views/", view_func=views.Views.as_view("views"))
