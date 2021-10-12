@@ -92,7 +92,6 @@ list_of_views = [
     ('user.config', ["Configuratios", GU]),
     ('posts.post-create', ["Update Publication", ED]),
     ('user.forgot_password', ["Forgot Password", VA]),
-    (('user.friends', "user"), ["User Friends", ED]),
     ('app.home', ["Home", GU]),
     ('app.landing', ["Landing", VA]),
     ("user.login", ["Login", VA]),
@@ -102,6 +101,7 @@ list_of_views = [
     (("user.profile", "user"), ["Profile Description", GU]),
     ('user.register', ["Register", VA]),
     ('user.search', ["Search Page", DV]),
+    ('error', ["Error Page", ED]),
 ]
 
 bp.add_url_rule("/views/", view_func=views.Views.as_view("views"))
