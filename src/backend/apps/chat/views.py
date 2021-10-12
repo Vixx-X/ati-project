@@ -2,14 +2,13 @@
 Views for the media module.
 """
 
-import json
 import functools
+import json
 
 from flask import session
+from flask_socketio import disconnect, emit, join_room, leave_room
 from flask_user import current_user
 from flask_user.decorators import login_required
-
-from flask_socketio import emit, join_room, leave_room, disconnect
 
 from backend import socketio
 from backend.apps.chat.models import Message

@@ -20,6 +20,7 @@ from flask_user.forms import (
     username_validator,
 )
 from flask_wtf.form import FlaskForm  # for i18n
+from markupsafe import Markup
 from wtforms import (
     BooleanField,
     DateField,
@@ -34,7 +35,6 @@ from wtforms.fields.core import FieldList, RadioField
 from wtforms.fields.simple import HiddenField, TextAreaField
 from wtforms.widgets import CheckboxInput, ListWidget, html_params
 from wtforms.widgets.html5 import DateInput
-from markupsafe import Markup
 
 from backend.apps.media.forms import FormMediaMixin
 

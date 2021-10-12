@@ -86,19 +86,14 @@ We use Python Social Auth in implementation of authentication. To view more docu
 ## Challenge 41 <a name="lab-41"></a>
 
 The function we consider the most important for Unit Test are:
-- Forgot Password             - Was made for Daniel Vieira
-- Change Lenguaje             - Was made for Daniel Vieira
-- Customize the Page          - Was made for Daniel Vieira
-- Sing up and Log in          - Was made for Eduardo Suarez
-- Add Friends                 - Was made for Eduardo Suarez
-- User Profile                - Was made for Eduardo Suarez
-- Responsive Design           - Was made for Gabriela Ustariz
-- Post content                - Was made for Gabriela Ustariz
-- Custom post visualization   - Was made for Gabriela Ustariz
-- Comment in Posts            - Was made for Vittorio Adesso
-- Receive notification        - Was made for Vittorio Adesso
-- Chat                        - Was made for Vittorio Adesso
 
+- Forgot Password
+- Customize the Page
+- Sing up and Log in
+- User Profile
+- Responsive Design
+
+All unit tests were performed by all team together.
 We can find these tests inside [this directory](/src/tests)
 
 ## Challenge 42 <a name="lab-42"></a>

@@ -7,9 +7,9 @@ from flask_wtf.form import FlaskForm
 from wtforms import FieldList, StringField, validators
 from wtforms.fields.core import BooleanField
 from wtforms.fields.simple import MultipleFileField, TextAreaField
-from backend.apps.user.forms import LatchWidget
 
 from backend.apps.media.forms import FormMediaMixin
+from backend.apps.user.forms import LatchWidget
 
 
 class PostForm(FormMediaMixin, FlaskForm):

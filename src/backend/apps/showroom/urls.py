@@ -88,20 +88,19 @@ bp.add_url_rule(
 #########
 
 list_of_views = [
-    ('chat.chat-list', ["Chat", ED]),
-    ('user.config', ["Configuratios", GU]),
-    ('posts.post-create', ["Update Publication", ED]),
-    ('user.forgot_password', ["Forgot Password", VA]),
-    (('user.friends', "user"), ["User Friends", ED]),
-    ('app.home', ["Home", GU]),
-    ('app.landing', ["Landing", VA]),
+    ("chat.chat-list", ["Chat", ED]),
+    ("user.config", ["Configuratios", GU]),
+    ("posts.post-create", ["Update Publication", ED]),
+    ("user.forgot_password", ["Forgot Password", VA]),
+    ("app.home", ["Home", GU]),
+    ("app.landing", ["Landing", VA]),
     ("user.login", ["Login", VA]),
     ("user.notification", ["Notifications", DV]),
     (("posts.post-detail", "post"), ["Post", DV]),
     ("user.mypage", ["Profile", GU]),
     (("user.profile", "user"), ["Profile Description", GU]),
-    ('user.register', ["Register", VA]),
-    ('user.search', ["Search Page", DV]),
+    ("user.register", ["Register", VA]),
+    ("user.search", ["Search Page", DV]),
 ]
 
 bp.add_url_rule("/views/", view_func=views.Views.as_view("views"))
