@@ -76,7 +76,7 @@ CSRF_SESSION_KEY = SECRET_KEY + "_csrf"
 MEDIA_FOLDER = f"{BASE_DIR}/media"
 MAX_CONTENT_LENGTH = 100 * 1024 * 1024  # max 100MB
 ALLOWED_EXTENSIONS = {
-    "image": ["png", "jpg", "jpeg", "gif"],
+    "image": ["png", "jpg", "jpeg", "gif", "jfif"],
     "video": ["mp4"],
     "audio": ["mp3"],
 }
