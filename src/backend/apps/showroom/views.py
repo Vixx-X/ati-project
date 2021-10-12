@@ -5,6 +5,7 @@ Views for the showroom module.
 from flask.helpers import url_for
 from flask_babel import lazy_gettext as _  # for i18n
 from flask_user import current_user
+from flask_user.decorators import login_required
 
 from backend.utils.views import TemplateView
 
@@ -24,6 +25,8 @@ class Index(TemplateView):
     """
     Index View to showcase all rooms.
     """
+
+    decorators = [login_required]
 
     template_name = "showroom/index.html"
     title = _("Showroom Showcase")
